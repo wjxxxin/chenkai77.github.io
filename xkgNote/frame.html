@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>框架、工具</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+<ul class="navLeft">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul class="navRight">
+    <li><a href="html.html">HTML</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="js.html">JS</a></li>
+    <li><a href="frame.html">框架、工具</a></li>
+    <li><a href="node.js.html">前后端</a></li>
+</ul>
+<div class="top">
+    框架、工具
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<article>
+<div class="item">
+    <h3>JQ基本</h3>
+    <section class="vertical">
+        <a class="piece" href="http://jquery.cuishifeng.cn/" target="_blank">jQuery</a>
+            <div class="small">
+                <h4>框架冲突解决</h4>
+               <ol>
+                   <li>noConflict
+                       <pre class="text1"><code class="language-js"></code></pre>
+                   </li>
+                   <li>直接使用jQuery专属的名称 :
+                       console.log(jQuery("div"));
+                   </li>
+               </ol>
+            </div>
+            <div class="small">
+                <h4>jQuery对象和DOM对象的相互转换</h4>
+                <ol>
+                    <li>DOM标签对象 -> jQuery实例对象   :   $(DOM标签对象)</li>
+                    <li>jQuery实例对象 -> DOM标签对象  :  jQuery对象.get(index) | jQuery对象[index]</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>jQuery文档加载</h4>
+                <ol>
+                    <li>$(document).ready(function(){})</li>
+                    <li>$().ready(function () {}）</li>
+                    <li>$(function () {})</li>
+                </ol>
+            </div>
+    </section>
+</div>
+<div class="item">
+    <h3>JQ操作</h3>
+    <section class="vertical">
+            <div class="small">
+                <h4>jQuery操作html</h4>
+                <ol>
+                    <li>$("selector").html(value); 修改html （文本(包括标签符号)  括号里面加内容就是添加）</li>
+                    <li>$("selector").html(); 访问html</li>
+                    <li>$("selector").text(value); 修改文本内容</li>
+                    <li>$("selector").text(); 访问文本内容</li>
+                </ol>
+            </div>
+        <div class="small">
+            <h4>jQuery操作css</h4>
+            <ol>
+                <li>$("selector").css(name,value);</li>
+                <li>$("selector").css(name1,value).css(name2,value)...;</li>
+                <li>$("selector").css( { name1 : value , name2 : value})</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text2"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>访问和修改元素属性</h4>
+            <ol>
+                <li>$(selector).attr(name) :  访问指定属性的值</li>
+                <li>$(selector).attr(name, "value") : 修改指定属性的值</li>
+                <li>$(selector).attr({name:"value",name:"value",……}) :  多属性修改</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>坐标距离</h4>
+            <ol>
+                <li>$(selector).offset().left  :   元素在网页中的x坐标</li>
+                <li>$(selector).offset().top  :   元素在网页中的y坐标</li>
+                <li>$(window).scrollTop()    :    获取浏览器窗口卷去的距离</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>视频/音频API</h4>
+            <ol>
+                <li>play() : 播放</li>
+                <li>currentTime : 设置/返回当前时间 （可以设置开始播放时间）</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>each遍历</h4>
+            <pre><code class="language-js">$(selector).each(function(index,ele){
+		//index索引值
+		//元素
+});
+$.each(arr/obj,function(index,ele){
+	//程序处理
+});
+</code></pre>
+        </div>
+        <div class="small">
+            <h4>清除字符串空格</h4>
+            <p>$.trim(string)  :  这个方法可以清除字符串前后的空格，注意中间的不能清除。</p>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>JQ选择器</h3>
+    <section class="vertical">
+            <div class="small">
+                <p>$(selector).index() : 访问选中元素的索引值</p>
+            </div>
+            <div class="small">
+                <div class="tapNav">
+                    <div class="tapTop cur">基本选择器</div>
+                    <div class="tapTop">层级选择器</div>
+                    <div class="tapTop">父子兄弟选择器</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>ID选择器 ： #id</li>
+                            <li>类选择器 ： .class</li>
+                            <li>标签选择器 ： element</li>
+                            <li>通配符选择器 ： *</li>
+                            <li>并集选择器 ： #id,.class</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>后代选择器 ： parent child ： $("div p")</li>
+                            <li>直接后代选择器 ： parent>child</li>
+                            <li>下一个相邻兄弟 ： prev+next</li>
+                            <li>后面所有兄弟 ： prev~siblings</li>
+                            <li>next() ： 下一个相邻兄弟</li>
+                            <li>nextAll() ： 后面所有兄弟</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>parent()   获取当前标签的父节点</li>
+                            <li>parents() ： 获取当前标签的祖先节点</li>
+                            <li>parentsUntil() ： 获取当前标签的祖先节点直到…</li>
+                            <li>children() ： 获取当前标签的子节点</li>
+                            <li>siblings() ： 获取除了当前标签之外的其他兄弟节点</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <div class="tapNav">
+                    <div class="tapTop cur">筛选选择器1</div>
+                    <div class="tapTop">筛选选择器2</div>
+                    <div class="tapTop">筛选选择器3</div>
+                    <div class="tapTop">筛选选择器4</div>
+                    <div class="tapTop">筛选选择器5</div>
+                    <div class="tapTop">筛选选择器6</div>
+                    <div class="tapTop">筛选选择器7</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>:first ： 获取第一个元素</li>
+                            <li>ID选择： #id</li>
+                            <li>:last ：获取最后一个元素</li>
+                            <li>:eq ： 获取指定索引值的元素</li>
+                            <li>:gt(index) ： 获取大于给定索引值的元素</li>
+                            <li>:lt(index) ：  获取小于给定索引值的元素</li>
+                            <li>:not(selector) ： 获取除给定选择器外的所有元素</li>
+                            <li>:header ： 获取所有标题类型的元素</li>
+                            <li>:animated ： 获取正在执行动画效果的元素</li>
+                            <li>:even ： 获取为偶数的元素，索引从0开始</li>
+                            <li>:odd ： 获取所有索引值为奇数的元素，索引从0开始</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>:contains(text)    获取包含给定文本的元素</li>
+                            <li>:parent  ：  获取含有子元素或者文本的元素</li>
+                            <li>:empty ： 获取所有不包含子元素或者文本的元素</li>
+                            <li>:has(selector)  ： 获取含有选择器所匹配的元素</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>[属性名]     获取包含给定属性的元素</li>
+                            <li>[属性名1] [属性名2] ：  获取满足多个条件的符合属性的元素</li>
+                            <li>[属性名='value'] ： 获取包含给定属性且等于指定值的元素</li>
+                            <li>[属性名!=value] ：  获取包含给定属性且值不等于给定值的元素</li>
+                            <li>[属性名^=value] ： 获取包含给定属性且值以指定字符开头的元素</li>
+                            <li>[属性名$=value]  ： 获取包含给定属性且值以指定字符结尾的元素</li>
+                            <li>[属性名*=value] ： 获取包含给定属性且包含指定字符或子串的元素</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>:first-child ： 获取每个元素下的第一个子元素</li>
+                            <li>:last-child  ：  获取每个父元素下的最后一个子元素</li>
+                            <li>:only-child  ： 获取每个父元素下的仅有一个子元素</li>
+                            <li>:nth-child(eq-index)  ： 获取每个父元素下特定索引位置的元素 索引从0开始</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>:visible     获取所有可见的元素</li>
+                            <li>:hidden ： 获取所有不可见元素，获取type为hidden的元素</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>:enabled   获取表单中所有属性为可用的元素</li>
+                            <li>:disabled  ： 获取表单中所有属性为不可用的元素</li>
+                            <li>:checked  ： 获取表单中所有被选中的元素</li>
+                            <li>:selected  ： 获取表单中所有被选中的option元素</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>:file ： 获取所有的文件上传元素</li>
+                            <li>:image ：   获取所有的图片域</li>
+                            <li>:text  ： 获取所有的单行文本域</li>
+                            <li>:reset ：   获取所有的重置按钮</li>
+                            <li>:radio ：    获取所有的单选按钮</li>
+                            <li>:button ： 获取所有的按钮</li>
+                            <li>:submit ： 获取所有的提交按钮</li>
+                            <li>:checkbox  ： 获取所有的复选框</li>
+                            <li>:password  ： 获取所有的密码框</li>
+                            <li>:input ： 获取所有的input、textarea、select元素</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="item">
+    <h3>JQ事件</h3>
+    <section class="vertical">
+            <div class="small">
+                <ol>快捷方法绑定事件
+                    <li>blur()    当元素失去焦点时发生 blur 事件</li>
+                    <li>change() ： 当元素的值发生改变时，会发生 change 事件</li>
+                    <li>click() ：  当点击元素时，会发生 click 事件</li>
+                    <li>dbclick() ：  当双击元素时，会发生 dblclick 事件</li>
+                    <li>error()   ： 当元素遇到错误（没有正确载入）时，发生 error 事件</li>
+                    <li>focus()   ： 当元素获得焦点时，发生 focus 事件</li>
+                    <li>focusin()  ：  当元素获得焦点时，发生 focusin 事件(包括子元素)</li>
+                    <li>focusout() ：  当元素失去焦点时，发生 focusout事件(包括子元素)</li>
+                    <li>keydown()  ： 当按键被按下时，发生 keydown 事件</li>
+                    <li>keyup()  ：  当按键被松开时，发生 keyup 事件</li>
+                    <li>keydown() :  当按键被按下时，发生 keydown 事件</li>
+                    <li>keypress()  :  当按键被按下时，发生 keypress事件（响应每个字符）</li>
+                    <li>mouseenter() : 当鼠标指针穿过元素时，会发生 mouseenter 事件</li>
+                    <li>mouseover() ：  当鼠标指针位于元素上方时，会发生 mouseover 事件</li>
+                    <li>mouseenter() ：  当鼠标指针穿过元素时，会发生 mouseenter 事件</li>
+                    <li>mouseout() ：  当鼠标指针从元素上移开时，会发生 mouseout 事件</li>
+                    <li>mousedown() ：  当鼠标进入元素，并按下按键时，会发生mousedown事件</li>
+                    <li>mouseup() ：  当在元素上放松鼠标按钮时，会发生 mouseup 事件</li>
+                    <li>mousemove() ：  当鼠标在指定的元素中移动时，会发生 mousemove 事件</li>
+                    <li>resize() ：  当调整浏览器窗口的大小时，发生 resize 事件</li>
+                    <li>scroll() ：  当用户滚动指定的元素时，会发生 scroll 事件</li>
+                    <li>select() ：  当文本被选择时，会发生 select 事件</li>
+                    <li>submit() ：  当提交表单时，会发生 submit 事件(表单)</li>
+                    <li>load()  ：  当指定的元素（及子元素）已加载时，会发生load事件</li>
+                    <li>unload()  ：  当用户离开页面时，会发生 unload 事件(1.8-)</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>绑定事件</h4>
+                <ol>on（eventType,childselector,data,function）
+                    <li>eventType：必传参数，指定事件的类型如click等。</li>
+                    <li>childselector：可选参数，用于事件委托。</li>
+                    <li>data：可选参数，设计需要传递的数据。</li>
+                    <li>function：必传参数，事件发生时，执行的函数。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text3"><code class="language-js"></code></pre>
+                <p>one方法 是on方法中的一种特殊使用方式，由one方法绑定的事件在执行一次响应之后就会失效。其设计思路是：在事件处理函数的内部注销当前事件</p>
+                <p>事件委托</p>
+                <ol>动态添加的节点，不支持直接绑定事件，可以通过委托默认就存在网页文档中的标签为动态添加的标签绑定事件。
+                    <li>被委托的元素必须是委托元素的父级</li>
+                    <li>被委托的元素必须默认就在网页当中</li>
+                </ol>
+            </div>
+        <div class="small">
+            <h4>注销事件 off</h4>
+            <pre><code class="language-js">//注销button标签上面的所有点击事件
+$("button").off("click");
+//注销button标签上面指定的鼠标移入事件,fn为绑定移入事件时的函数
+$("button").off("mouseenter",fn);</code></pre>
+        </div>
+        <div class="small">
+            <h4>事件对象</h4>
+            <ol>
+                <li>type ： 获取这个事件的事件类型，例如：click  target </li>
+                <li>target ： 获取绑定事件的DOM元素  </li>
+                <li>data ： 获取事件调用时的额外数据  </li>
+                <li>relatedTarget ： 获取移入移出目标点离开或进入的那个DOM元素  </li>
+                <li>currentTarget ： 获取冒泡前触发的DOM元素，等同于this  </li>
+                <li>pageX/pageY ： 获取相对于页面原点的水平/垂直坐标  </li>
+                <li>screenX/screenY ： 获取显示器屏幕位置的水平/垂直坐标（非jQuery)封装</li>
+                <li>clientX/clientY ： 获取相对页面视口的水平/垂直坐标(非jQuery封装)  </li>
+                <li>result ： 获取上一个相同事件的返回值</li>
+                <li>timeStamp ： 获取事件触发的时间戳  </li>
+                <li>which ： 获取鼠标的左中右键（1,2,3），或获取键盘按键  </li>
+                <li>altKey/shiftKey/ctrlKey/metaKey ： 获取是否按下了alt、shift、ctrl或meta键</li>
+            </ol>
+            <pre class="text4"><code class="language-js"></code></pre>
+            <p>键盘事件 : 事件对象e.keyCode可以获取对应按键的键码</p>
+        </div>
+        <div class="small">
+            <h4>阻止事件冒泡，默认行为</h4>
+            <ol>阻止事件冒泡
+                <li>在回调函数中返回false。</li>
+                <li>调用事件对象的stopPropag</li>
+            </ol>
+            <p>阻止默认行为 : 调用事件对象的preventDefault() </p>
+        </div>
+        <div class="small">
+            <h4>触发事件</h4>
+            <ol>
+                <li>trigger(type,[data])</li>
+                <li>triggerHandler(type,[data])
+                    <ol>
+                        <li>triggerHandler方法不会触发标签的默认事件。</li>
+                        <li>triggerHandler方法只会触发jQ实例对象集合中第一个元素的事件回调。</li>
+                        <li>triggerHandler方法返回的是事件回调函数的返回值，而非jQ对象。</li>
+                    </ol>
+                </li>
+            </ol>
+            <p>type参数表示事件的类型，以字符串的形式传递。</p>
+            <p>data参数是可选的，利用该参数可以向事件的回调函数传递额外的数据。</p>
+            <pre><code class="language-js">$(".box3").trigger("click");
+$("input").triggerHandler("click");</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>JQ动画</h3>
+    <section class="vertical">
+            <div class="small">
+                <div class="tapNav">
+                    <div class="tapTop cur">显示，隐藏</div>
+                    <div class="tapTop">滑动展开和收起</div>
+                    <div class="tapTop">hover 事件</div>
+                    <div class="tapTop">类的控制</div>
+                    <div class="tapTop">淡入和淡出动画</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>show(speed,callBack) : 显示</li>
+                            <li>hide(speed,callBack) : 隐藏</li>
+                            <li>toggle() : 切换显示隐藏</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>slideUp(speed，callBack) ： 收起</li>
+                            <li>slideDown(speed，callBack) ： 展开</li>
+                            <li>slideToggle(speed,callBack) ：  切换</li>
+                        </ol>
+                        <p>第一个参数：动画执行的时间，同show方法。第二个参数：动画执行完毕的回调函数，可以省略，同show方法。</p>
+                        <p>功能是设置让指定标签的高度变化，以呈现出一种动画效果,仅仅改变标签的高度，其他的属性并不会改变。</p>
+                    </div>
+                    <div class="tapSection">
+                        <ol>hover([over,]out)
+                            <li>over : 鼠标移到元素上要触发的函数</li>
+                            <li>out : 鼠标移出元素要触发的函数</li>
+                        </ol>
+                        <p>hover事件参数是传两个function(){}，第一个函数在鼠标进入元素时触发，第二个函数在鼠标离开时触发，如果只传一个function,表示鼠标移上和离开都触发这个函数。</p>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>fadeIn(speed，callBack)</li>
+                            <li>fadeOut(speed，callBack)</li>
+                            <li>fadeToggle(speed,callBack)</li>
+                            <li>fadeTo(speed,opactity，callBack)</li>
+                        </ol>
+                        <p>通过改变选中标签的透明度来实现淡入和淡出的动画效果，并不修改其他的属性,改变display属性</p>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>addClass() ： 添加类名 ； 同时增加两个类，用空格隔开</li>
+                            <li>removeClass() ： 删除类名 ； 如果没有指定删除的类名称，则删除所有类名</li>
+                            <li>toggleClass() ： 切换类名</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>自定义动画</h4>
+                <p>animate(params,speed,easing,callBack)</p>
+                <ol>
+                    <li>params ： 是一个对象,在该对象中以键值对的方式来要控制的属性样式和对应的值表示。</li>
+                    <li>speed ： 速度，“slow” 或“normal”或 “fast”或者是自定义的数字。</li>
+                    <li>easing  ： linear和swing等固定值</li>
+                    <li>callBack ： 动画执行完毕后的回调函数。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text5"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>动画停止</h4>
+                <p>用户触发的动画一般会在动画函数的前面添加stop()方法去清空前面正在执行的动画，直接执行最后一个动画。</p>
+                <ol>停止动画的语法为：stop（clearQueue,gotoEnd）
+                    <li>learQueue为可选参数，传递一个布尔类型的值，表示是否停止正在执行的动画。</li>
+                    <li>gotoEnd也是可选参数,传递一个布尔类型的值，表示是否立即完成正在执行的动画。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>动画延迟</h4>
+                <p>delay(毫秒值) : 设置一个延时的值来推迟后续队列中动画的执行，可以传递延迟的具体时间，单位为毫秒。</p>
+            </div>
+    </section>
+</div>
+<div class="item">
+    <h3>JQ DOM节点操作</h3>
+    <section class="vertical">
+            <div class="small">
+                <div class="tapNav">
+                    <div class="tapTop cur">创建DOM节点</div>
+                    <div class="tapTop">插入DOM节点</div>
+                    <div class="tapTop">删除DOM节点</div>
+                    <div class="tapTop">复制和替换DOM节点</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text6"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>append  :  向每个匹配的元素内部追加内容。</li>
+                            <li>appendTo  :  把所有匹配的元素追加到另一个指定的元素集合中，和append方法相反。</li>
+                            <li>prepend  :  向每个匹配的元素内部前置内容。</li>
+                            <li>prependTo  :  把所有匹配的元素前置到另一个指定的元素集合中，和append方法相反。</li>
+                        </ol>
+                        <br>
+                        <ol>
+                            <li>after  :  在每个匹配的元素之后插入内容。</li>
+                            <li>before  :  在每个匹配的元素之前插入内容。</li>
+                            <li>insertAfter  :  把所有匹配的元素插入到另一个指定的元素集合的后面。</li>
+                            <li>insertBefore  :   把所有匹配的元素插入到另一个指定的元素集合的前面。</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>remove  :  将匹配的元素从DOM中删除。</li>
+                            <li>empty  :  用来清空元素包含的内容，该方法没有参数。</li>
+                            <li>detach  :  将匹配的元素从DOM中分离出来。</li>
+                        </ol>
+                        <p>删除和清空是两个概念，清空操作执行后该标签还存在。
+                            <br>
+                            detach方法和remove方法差不多，但detach方法能够保存所有jQuery数据与被移走的元素相关联，所有绑定在元素上的事件、附加的数据等都会保存下来。如果您在移走一个元素不久后，又需要将该元素重新插入DOM，那么推荐使用detach方法。</p>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>
+                                <p>jQ.clone（[widthDataAndEvents]，[deepWithDataAndEvents]）</p>
+                                clone方法的两个参数都是可选的布尔值，如果不传递则默认全部为false。widthDataAndEvents参数表示是否复制该节点的事件处理数据。deepWithDataAndEvents参数表示是否复制子元素的事件处理数据。
+                            </li>
+                            <li>
+                                <p>jQ.replaceWith（newContent）</p>
+                                replaceWith方法能够将所有匹配的元素都替换成指定的HTML或者是DOM元素。（括号里为要新替换的元素）
+                            </li>
+                            <li>
+                                <p>jQ.replaceAll(selector)</p>
+                                replaceAll方法和replaceWith是一对相反的操作。（括号里为原先的元素）
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="item">
+    <h3>其他框架</h3>
+    <section class="vertical">
+            <div class="small">
+                <h4>Bootstrap</h4>
+               <a class="piece" href="http://getbootstrap.com/" target="_blank">Bootstrap官网</a>
+               <a class="piece" href="http://www.bootcss.com/" target="_blank">BootStrap中文网</a>
+                <p>bootstrap栅格系统</p>
+                <p>栅格的重点在于在排版上更好的进行适配，在不同的分辨率下能够显示显示不同的效果。将所有分辨率下的网页水平方向分成12列，那么在不同的分辨率下，水平方向显示不同的列数进而达到适配。</p>
+                <p>container（包括 container-fluid ）、row、column必须保持特定的层级关系，栅格系统才可以正常工作（版心>行>列） 重点：先有行，再有列</p>
+                <ol>
+                    <li>col-xs-[列数]：在超小屏幕下展示几份</li>
+                    <li>col-sm-[列数]：在小屏幕下展示几份</li>
+                    <li>col-md-[列数]：在中等屏幕下展示几份</li>
+                    <li>col-lg-[列数]：在大屏幕下展示几份</li>
+                    <li>__xs__ : 超小屏幕 手机 (<768px)  </li>
+                    <li>__sm__ : 小屏幕 平板 (≥768px) </li>
+                    <li>__md__ : 中等屏幕 桌面显示器 (≥992px) </li>
+                    <li>__lg__ : 大屏幕 大桌面显示器 (≥1200px)</li>
+                </ol>
+                <br>
+                <br>
+                <ol>
+                    <li>列偏移 ： .col--offset-  一个栅格向右边偏移多少个列</li>
+                    <li>列顺序 ： 使用 .col- * -push- * 和 .col- * -pull-* 类可以改变列（column）的顺序（注意要结合使用）
+                    <p>.col- * -push- * 往右推 ； .col- * -pull-*  往右拉</p>
+                    </li>
+                </ol>
+            </div>
+        <div class="small">
+            <h4>animate.css框架</h4>
+            <a class="piece" href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a>
+            <ol>
+                <li>引入下载好的animate.css文件</li>
+                <li>给要做动画的元素添加类名 ： 要添加两个类名，分别是： animated(控制时间) ； 要添加的动画效果类名（控制效果）</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>wow.js框架</h4>
+            <a class="piece" href="http://mynameismatthieu.com/WOW/index.html" target="_blank">wow.js</a>
+            <p>wow.js是做网页滚动动画的js框架，配合animate.css使用，可以在网页滚动的过程中释放animate.css动画效果。</p>
+            <ol>
+                <li>引入animate.css文件和wow.js文件</li>
+                <li>html结构 ： 在要做滚动动画的元素身上添加类名；wow(声明元素使用混动动画) ； 动画名称（滚动释放的动画名称）</li>
+            </ol>
+            <span>举例：</span><pre><code class="language-js">&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#108;&#101;&#102;&#116;&#32;&#119;&#111;&#119;&#32;&#115;&#108;&#105;&#100;&#101;&#73;&#110;&#76;&#101;&#102;&#116;&#34;&#62;&#60;&#47;&#100;&#105;&#118;&#62;</code></pre>
+            <p> js调用（调用前注意要先代码分离） : </p>
+            <pre><code class="language-js"> new WOW().init();</code></pre>
+            <ol>属性设置
+                <li>data-wow-duration ： 动画持续时间，以秒/s为单位</li>
+                <li>data-wow-delay ： 动画延时时间，以秒/s为单位</li>
+                <li>data-wow-iteration ： 动画播放次数，值是纯数字，infinite表示循环播放</li>
+                <li>data-wow-offset ： 元素顶部偏离可视区（容器）底部动画出现的距离（用于设置动画在页面的出场位置）</li>
+            </ol>
+            <p>带参数的调用方法</p>
+            <pre><code class="language-js">var wow = new WOW({
+    boxClass:     'wow',             //动画元素的CSS类 (默认类名 wow)
+    animateClass: 'animated',        //动画CSS类 (默认类名 animated)
+    offset:       0,                 //距离可视区域多少开始执行动画(默认值 0)
+    mobile:       true,              //是否在移动设备上执行动画(默认值 true)
+});
+wow.init();</code></pre>
+        </div>
+        <div class="small">
+            <h4>scrollreveal.js框架</h4>
+            <a class="piece" href="https://scrollrevealjs.org/" target="_blank">scrollreveal.js</a>
+            <p>使用方法</p>
+            <pre class="text7"><code class="language-js"></code></pre>
+            <p>其他参数调用</p>
+            <pre class="text8"><code class="language-js"></code></pre>
+
+            <ol>wow.js和scrollreveal.js对比
+                <li>都不依赖jquery；</li>
+                <li>WOW.js 的动画只播放一次，而 scrollReveal.js 的动画可以播放一次或无限次；</li>
+                <li>WOW.js 依赖 animate.css，而 scrollReveal.js 不依赖其他任何文件;</li>
+                <li>WOW.js 依赖 animate.css使用，动画效果更多一点，可以根据具体需求选择使用</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>zepto.js</h4>
+            <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">scrollreveal.js</a>
+            <ol>
+                <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
+                <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text9"><code class="language-html"></code></pre>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>Swiper</h4>
+            <p>Swiper 是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为IOS而设计的，同时，在Android、WP8系统以及PC端的浏览器也有着良好的用户体验。</p>
+            <a class="piece" href="https://www.swiper.com.cn/" target="_blank">Swiper</a>
+            <ol>基本使用
+                <li>下载和引入插件。swiper.min.js和swiper.min.css文件。</li>
+                <li>添加HTML内容</li>
+                <li>设置样式。不添加的话，默认等于父容器的宽度，高度为内容高度。</li>
+                <li>初始化Swiper
+                    <pre><code class="language-js">  window.onload = function(){
+    var swiper = new Swiper('.swiper-container');
+  }</code></pre>
+                </li>
+            </ol>
+            <h5>Swiper+Animate.css</h5>
+            <p>这个是Swiper提供的视差过渡效果。需要配合Animate.css使用，同时，还必须添加swiper.animate.js 这个JS是对animate.css进行视觉差过渡的支持。</p>
+            <ol>
+                <li>引入样式和js ： 在之前的基础上引入animate.css即第一天学的animate.css ； 再引入swiper.animate.min.js注意要放置 在swiper.min.js下面。</li>
+                <li>初始化时隐藏元素并在需要的时刻开始动画。
+                <pre><code class="language-js"> on:{
+     init: function(){
+         swiperAnimateCache(this); //隐藏动画元素
+         swiperAnimate(this); //初始化完成开始动画
+     },
+         slideChangeTransitionEnd: function(){
+             swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+             //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+         }
+ },</code></pre>
+                </li>
+                <li>给需要添加视差效果的元素身上添加属性
+                <ol>在需要运动的元素上面增加类名  ani, 然后添加swiper animate 参数：
+                    <li>swiper-animate-effect：切换效果，例如 fadeInUp  即animate.css的效果名称</li>
+                    <li>swiper-animate-duration：动画持续时间（单位秒），例如 0.5s</li>
+                    <li>swiper-animate-delay:   延迟时间（单位秒）</li>
+                </ol>
+                    <pre class="text10"><code class="language-js"></code></pre>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>其他</h3>
+    <section class="vertical">
+            <div class="small">
+                <h4>jQuery鼠标滚轮插件</h4>
+               <a class="piece" href="https://github.com/jquery/jquery-mousewheel" target="_blank">滚滚屏插件MouseWheel</a>
+                <ol>
+                    <li>deltaX : 在水平方向滚动的增量，默认是 0</li>
+                    <li>deltaY : 在垂直方向滚动的增量;  增量正数向上滚动，增量负数 向下滚动</li>
+                    <li>deltaFactor : 滚动的帧率，默认是100</li>
+                </ol>
+                <pre><code class="language-js">//1.监听window的滚动
+$(function () {
+
+    $(window).mousewheel(function (event) {
+        //监听屏幕的上下滚动：1 是向上，-1是向下
+        console.log(event.deltaY);
+    })
+})</code></pre>
+            </div>
+    </section>
+</div>
+<div class="item">
+    <h3>git</h3>
+    <section class="vertical">
+        <div class="small">
+                <h4>常用Bash命令介绍</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">目录操作</div>
+                    <div class="tapTop">文件操作</div>
+                    <div class="tapTop">其他</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>pwd （Print Working Directory）： 查看当前目录</li>
+                            <li>cd （Change Directory） ： 切换目录
+                                <ol>
+                                    <li>cd 目录 ： 进入到指定目录</li>
+                                    <li>cd ../ ： 返回上一层目录</li>
+                                </ol>
+                            </li>
+                            <li>ls （List） ： 查看当前目录下内容
+                                <ol> 参数: usage: ls  [-ABCFGHLOPRSTUWabcdefghikl] [file ...]
+                                    <li>ls ： 列出当前目录下面的所有文件</li>
+                                    <li>ls -a ： 列出当前目录下面的所有文件(包含隐藏文件)</li>
+                                    <li>ls -1 ： 列出当前目录下面的所有文件(列表方式)，包含文件的创建者和时间等信息</li>
+                                    <li>ls -s ： 列出当前目录下面的所有文件(打印文件的大小)</li>
+                                    <li>ls -t ： 列出当前目录下面的所有文件(按照时间来排序)</li>
+                                    <li>ls -S ： 列出当前目录下面的所有文件(包括子目录递归) ； win10 powershell命令行有效 Bash无效 ；也可以组合使用比如 ls -al</li>
+                                </ol>
+                            </li>
+                            <li>mkdir（Make Directory） ： 创建目录
+                                <ol>参数 : usage : mkdir [-pv]  [-m mode] directory  示例：
+                                    <li>mkdir Demo ： 创建Demo文件夹(目录)</li>
+                                    <li>mkdir  -v demo ： 创建demo文件夹并输出提示信息</li>
+                                    <li>mkdir -p test/sub1 ： 创建tst文件夹并在该目录中创建sub1文件夹</li>
+                                </ol>
+                            </li>
+                            <li>rmdir （Remove Directory） ： 删除文件夹，只能删除空文件夹，不常用
+                                <p>rmdir a ： 删除文件夹a</p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>touch ： 创建文件 ； touch index.html ： 在当前目录中创建index.html文件</li>
+                            <li>wc（Word Count） ： 获取文件的字数信息统计
+                                <ol>参数 ： usage : wc [-clmw] [file]
+                                    <li>wc  a.txt ： 获取a.txt文件的字数统计信息</li>
+                                    <li>wc  -c  a.txt ： 获取a.txt文件的字数统计信息(统计字节数)</li>
+                                    <li>wc	-l	a.txt : 获取a.text文件的字数统计信息(统计行数，从0开始计数)</li>
+                                    <li>wc	-m	a.txt : 获取a.text文件的字符数统计信息(统计字符数)</li>
+                                    <li>wc	-w	a.txt : 获取a.text文件的字数统计信息(统计单词数)</li>
+                                    行数从0开始依次为行数  单词数量  字符数不常用。
+                                </ol>
+                            </li>
+                            <li>echo : 输出字符串。
+                                <ol>
+                                    <li>echo “123＂ >>  a.txt : 向a.txt文件中输入123字符串(替换)</li>
+                                    <li>echo ＂123＂ >> a.txt : 向a.txt文件中输入123字符串(追加)</li>
+                                    命令行中间的空格不可以忽略。
+                                </ol>
+                            </li>
+                            <li>cat :  查看|创建|合并文件
+                                <ol>cat [Concatenate files and print on the standard output]
+                                    <li>cat a.txt : 就是查看 a.txt文件的内容</li>
+                                    <li>cat -n a.txt : 查看  a.txt文件的内容 并附带行号</li>
+                                    <li>cat > b.txt : 新建b.txt并且手动输入内容，再换行（windows），可以通过ctrl+c中止并且保存</li>
+                                    <li>cat a.txt b.txt > c.txt ： 合并两件文件的内容给c.txt文件。</li>
+                                    <li>cat -b a.txt ： 输入a.txt文件的内容并显示行号（空行不被编号 ）</li>
+                                    <li>cat -n b.txt >> a.txt ： 对b.txt文件的内容加上行号（结果）然后追加到a.txt文件中</li>
+                                    <li>cat -n b.txt > a.txt ： 对b.txt文件的内容加上行号然后替换到a.txt文件中</li>
+                                </ol>
+                            </li>
+                            <li>rm（remove） ： 删除文件 Recurve(递归)
+                                <ol>usage: rm [-f | i] [-dPRrww]  file
+                                    <li>rm  a.txt ： 删除a.txt文件</li>
+                                    <li>rm	-i	a.txt ： 删除文件前会逐一询问确认，输入YES表示删除</li>
+                                    <li>rm	-f	a.txt ： 强制删除a.txt文件不会询问确认</li>
+                                    <li>rm	-r	test ： 删除test文件夹以及该目录下面所有文件</li>
+                                    <li>rm	-r ： 删除当前目录下面所有的文件</li>
+                                    <li>rm	-rf	： ＊递归删除所有文件(不提醒)</li>
+                                    <li>rm -ri test ： 带提示的递归删除</li>
+                                </ol>
+                            </li>
+                            <li>mv （move） ： 移动文件或重命名
+                                <ol>
+                                    <li>mv index.html  ./demo/index.html</li>
+                                    <li>mv index.html  a.html</li>
+                                </ol>
+                            </li>
+                            <li>cp （copy） ： 复制文件
+                                <p>cp index.html  ./demo/index.html</p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>history  :  看操作历史。</li>
+                            <li>curl  :  发送网络请求。 curl 网址。</li>
+                            <li>who am i  :  查看当前用户信息。</li>
+                            <li>tab : 自动补全，连按两次会将所有匹配内容显示出来。</li>
+                            <li>cls、clear :  清屏。</li>
+                            <li>vi :  输入内容。 vi 文件名称 ： 会进入到 输入界面
+                                <ol>注意：
+                                    <li>想要输入内容必须,先按下 i 键。</li>
+                                    <li>想要退出和保存 : 先按下esc 取消,再输入:wq!</li>
+                                    <li>不想保存退出 : 先按下esc 再输入 :q!</li>
+                                    <li>!表示强制执行。</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>
+                                <p>jQ.clone（[widthDataAndEvents]，[deepWithDataAndEvents]）</p>
+                                clone方法的两个参数都是可选的布尔值，如果不传递则默认全部为false。widthDataAndEvents参数表示是否复制该节点的事件处理数据。deepWithDataAndEvents参数表示是否复制子元素的事件处理数据。
+                            </li>
+                            <li>
+                                <p>jQ.replaceWith（newContent）</p>
+                                replaceWith方法能够将所有匹配的元素都替换成指定的HTML或者是DOM元素。（括号里为要新替换的元素）
+                            </li>
+                            <li>
+                                <p>jQ.replaceAll(selector)</p>
+                                replaceAll方法和replaceWith是一对相反的操作。（括号里为原先的元素）
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        <div class="small">
+            <h4>源代码管理工具GIT</h4>
+            <ol>
+                <li>初始git仓库 : git init</li>
+                <li>配置用户 :
+                    <p>git config user.name "yanming"</p>
+                    <p>git config user.email "zhaoyanmingfei@qq.com"</p>
+                </li>
+                <li>配置全局用户
+                    <p>git config  --global user.name "yanmingfei"</p>
+                    <p>git config  --global user.email "656610337@qq.com"</p>
+                </li>
+            </ol>
+            <p>本地仓库在我们书写代码的地方称之为工作区。工作区的文件默认是不会被管理的。而在.git文件中称之为仓库也叫做版本库，会为我们划分两块区域。这两个区域称之为 暂存区（暂缓区）和历史记录区</p>
+            <h4>书写项目 单文件</h4>
+            <ol>
+                <li>新建index.html ： touch index.html</li>
+                <li>git status ： 查看状态</li>
+                <li>git add index.html 提交到本地暂存区 ； 或者觉得麻烦可以直接将改变的文件全部提交 git add .
+                    <p>发现提交后，变成绿色的。已经被它管理了。这时版本库中的暂存区内部就会和工作区保持一致。可以在 .git文件夹中发现多了一个文件index。注意和index.html 的名字是无关的。比如你创建的是a.txt。那么它提交后也会出现这个index。</p>
+                </li>
+                <li>git commit -m "创建的index.html" 提交代码进入到仓库
+                    <p>发现再次输入git status已经没有任何提示。此时暂存区内部内容已经被存放在历史记录区。暂存区就没有信息了。</p>
+                </li>
+            </ol>
+            <ol>
+                <li>git log | git reflog ：提交记录 ； git log ： 记录信息比较全。 git reflog ： 简写的信息。</li>
+                <li>git reset --hard 版本记录值（哈希值） ： 版本回退。
+                    <p>例如 ： git reset --hard 0a88110234f9a3070b212a7fd75e52741c947ada（大于七位就行）</p>
+                    <p>回退后再查看git记录git log的方式会发现，变的很少。而通过git reflog的方式。会记录的更全，版本回退的信息也记录下来。</p>
+                </li>
+            </ol>
+            <h4>分支</h4>
+            <ol>
+                <li>查看分支 : git branch 默认分支的名称就是master 主分支</li>
+                <li>创建分支 : git branch 分支名称 (此时分支还是在master主分支上)</li>
+                <li>切换分支 : git checkout 分支名称</li>
+                <li>合并分支 :
+                    <p>先切换回主分支 : git checkout master</p>
+                    <p>合并分支 : git merge 分支名称</p>
+                </li>
+                <li>删除分支 : git branch -d  分支名称</li>
+                <li>创建并切换到分支 : git checkout -b 名称</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>多人开发</h4>
+            <ol>
+            <li>git init --bare : 创建远程仓库 ; 例如将GITDEMO文件夹作为远程仓库</li>
+            <li>git clone ../GITDEMO （仓库地址）.  → 成员克隆仓库  (加点表示把仓库直接放到当前文件目录 ,不加表示，创建仓库名称 文件夹，并且 在文件夹中放仓库)</li>
+            <li>git push ： 提交到远程库</li>
+            <li>git pull ： 更新获取最新的仓库信息
+                <p>如果出现拉取失败，强制拉取 ： git pull -allow-unrelated-histories</p>
+            </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>其他操作</h4>
+            <ol>撤销修改
+                <li>（工作区改错了，想把暂存区的东西恢复到工作区）→ git checkout -- . </li>
+                <li>（工作区改错了，并且也添加到了暂存区。希望最新的一次历史版本恢复到暂存区） → git reset HEAD .</li>
+                <li>（已经提交了不合适的版本库，想要撤销提交。就是回退） → git reset --hard  hash</li>
+            </ol>
+            <p>忽略特殊文件(不想提交的文件：.idea目录等等) :  在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。（.gitignore文件也会提交到git上。）</p>
+        </div>
+        <div class="small">
+            <h4>标签</h4>
+            <ol>
+                <li>创建标签 : git tag v1.0</li>
+                <li>查看标签 : git tag</li>
+                <li>对历史的commit进行打标签 : git tag v0.9 hash值
+                    <p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：git tag -a v0.1 -m "version 0.1 released" 1094a</p>
+                </li>
+                <li>查看tag详细信息 :  git show v0.1</li>
+                <li>删除本地标签 :  git tag -d v0.1</li>
+                <li>上传标签 :  git push origin v1.0 或者 git push origin --tags</li>
+                <li>删除远程标签 :
+                    <p>先从本地删除 ： git tag -d v0.9</p>
+                    <p>然后，从远程删除 : git push origin :refs/tags/&#60;&#116;&#97;&#103;&#110;&#97;&#109;&#101;&#62;</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+        <h3>自动化构建工具gulp</h3>
+        <section class="vertical">
+            <div class="small">
+                <ol>
+                    <li>代码转换：将 TypeScript 编译成JavaScript、将 SCSS 编译成 CSS等。</li>
+                    <li>文件优化：压缩JavaScript、CSS、HTML 代码，压缩合并图片等。</li>
+                    <li>代码分割：提取多个页面的公共代码，提取首屏不需要执行部分代码让其异步加载。</li>
+                    <li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要通过构建功能将模块分类合并成一个文件。</li>
+                    <li>自动刷新：监听本地源代码变化，自动重新构建、刷新浏览器。</li>
+                    <li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
+                    <li>自动发布：更新代码后，自动构建出线上发布代码并传输给发布系统。</li>
+                </ol>
+                <p>构建其实是工程化、自动化思想在前端开发中的体现，将一系列流程用代码去实现，让代码自动化地执行这一系列复杂的流程。构建为前端开发注入了更大的活力，解放了我们的生产力。</p>
+                <a class="piece" href="https://www.gulpjs.com.cn/" target="_blank">gulp中文网站</a>
+                <ol>Gulp 是一个基于流的自动化构建工具。除了可以管理任务和执行任务，还支持监听文件、读写文件。Gulp 被设计的非常简单，只通过下面5个方法就可以支持几乎所有构建场景：
+                    <li>通过 gulp.task 注册一个任务；</li>
+                    <li>通过 gulp.src 读取文件；</li>
+                    <li>通过 gulp.dest 写入文件。</li>
+                    <li>通过 gulp.watch 监听文件变化；</li>
+                    <li>通过 gulp.run 执行任务；</li>
+                    Gulp 最大的特点是引入了流的概念，同时提供了一系列常用插件去处理流，流可以在插件之间传递。
+                </ol>
+            </div>
+            <div class="small">
+                <h4>gulp构建项目</h4>
+                <ol>
+                    <li>build ： 是项目的运行时目录，编译后自动生成</li>
+                    <li>dist ： 是项目的发布的目录，编译后自动生成</li>
+                    <li>node_modules ： 是项目开发时依赖的库，比如：less编译插件, js 和并插件等（不用打包到项目）node环境依赖</li>
+                    <li>bower_components ：是项目发布时的依赖库，比如:angular , jquery 库 （ 要打包到项目 ）  项目库jquery bootstrap</li>
+                    <li>src ： 是源代码存放目录，编写代码，编写好之后需要编译</li>
+                    <li>gulpfile.js ： gulp的配置文件，就是让咱们的src目录的源代码按照我们的意愿去执行。</li>
+                </ol>
+            </div>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text11"><code class="language-js"></code></pre>
+        </section>
+</div>
+</article>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/page.js"></script>
+<script src="js/frame.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+

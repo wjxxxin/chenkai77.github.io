@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <style>
+        /*.navLeft li{height: 20px;line-height: 20px;}*/
+        .navLeft ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.5s;
+        }
+        .navLeft .activation{
+            left: -130px;
+        }
+        .zhuanhuan{
+            display: block;
+            font-size:12px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 0 7px 7px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #0077aa;
+        }
+    </style>
+</head>
+<body>
+<div class="navLeft">
+    <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    </ul>
+    <a class="zhuanhuan" href="javascript:">换页</a>
+    <ul class="activation">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    </ul>
+</div>
+<ul class="navRight">
+    <li><a href="html.html">HTML</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="js.html">JS</a></li>
+    <li><a href="frame.html">框架、工具</a></li>
+    <li><a href="node.js.html">前后端</a></li>
+</ul>
+<div class="top">
+    JavaScript
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<article>
+<div class="item">
+    <h3>javascript基础</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>javaScript组成</h4>
+            <ol>
+                <li>ECMAScript：一种语法规范，它定义了脚本语言在语法和语义上的标准。</li>
+                <li>DOM：浏览器对象模型</li>
+                <li>BOM：文档对象模型</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>js的书写格式</h4>
+            <ol>
+                <li>行内式</li>
+                <li>嵌入式</li>
+                <li>外联式</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>变量</h4>
+            <div class="wrap js text1">
+                <ol class="neirong">
+                    <li>var关键字声明变量
+                        <pre><code class="language-js">var age;</code></pre>
+                    </li>
+                    <li>变量的赋值
+                        <pre><code class="language-js">var age = 80;</code></pre>
+                    </li>
+                    <li>同时声明多个变量
+                        <pre><code class="language-js">var age,name,gender;
+age = 18;
+name = 'wolf';
+gender = '男'；</code></pre>
+                    </li>
+                    <li>同时声明多个变量并赋值
+                        <pre><code class="language-js">var age = 18,name = 'wolf';</code></pre>
+                    </li>
+                    <li>变量的命名规则和规范：由字母、数字、下划线、$符号组成，不能以数字开头； 不能是关键字和保留字，例如：var、if、for、enum； 区分大小写； 变量要具有意义，驼峰命名法；
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>数据类型</h3>
+    <section class="vertical">
+        <h4>基本数据类型</h4>
+        <div class="tapNav">
+            <div class="tapTop cur">Number（数字）</div>
+            <div class="tapTop">String（字符串）</div>
+            <div class="tapTop">Boolean（布尔）/Null（空）/Underfined（未定义）</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <ol>
+                    <li>在进行算数运算时，八进制和十六进制的运算结果都会被转换成十进制数值
+                        <ol>
+                            <li>十进制：var num = 9;</li>
+                            <li>十六进制：var num = 0xA （数字序列范围：0~9和A~F）</li>
+                            <li>八进制：
+                                <p>var num1=07；对应十进制的7</p>
+                                <p>var num2=019；对应十进制的19</p>
+                                <p>var num3=08；对应十进制的8</p>
+                                （数字序列范围：0~7）；如果字面值中的数值超出了范围，那么前缀0将被忽略，0后面的数值将被当作十进制数值解析；除非需要进行八进制转换，否则绝不要在数字前面写0！
+                            </li>
+                        </ol>
+                    </li>
+                    <li>浮点数
+                        <ol>科学计数法
+                            <li>var n1 = 8e+123; //8乘以10的123次方</li>
+                            <li>var n2 = 8e-123; //8乘以10的-123次方</li>
+                        </ol>
+                        精度损失：
+                        <p>浮点数值的最高精度是 17 位小数，但是浮点运算并不总是 100% 准确，可在控制台调试 1-0.9</p>
+                        <p>var x = 0.2+0.1; // 输出结果为不是0.3，而是0.30000000000000004</p>可以通过扩大相应的倍数来计算 console.log(0.07 *
+                        100);
+                        <p>不要轻易判断两个浮点数是否相等</p>
+                    </li>
+                    <li>数值范围
+                        <ol>
+                            <li>最小值：Number.MIN_VALUE，这个值为： 5e-324</li>
+                            <li>最大值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308</li>
+                            <li>无穷大：Infinity</li>
+                            <li>无穷小：-Infinity</li>
+                        </ol>
+                    </li>
+                    <li>数值判断
+                        <ol>
+                            <li>NaN：Not a Number => 例如：5*'abc'；NaN 与任何值都不相等，包括他本身</li>
+                            <li>isNaN：is not a number => isNaN('abc'); 与isNaN相等</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li>字符串表示“串在一起”的字符，在代码中使用英文字符的引号(单引号/双引号)引起来的内容就是字符串的内容。</li>
+                    <li>
+                        输出
+                        <p>我还想再活"五百年"===》var str1='我还想再活"五百年"'</p>
+                        <p>我在"叩丁狼'挖矿'"===》var str2='我在"叩丁狼＼'挖矿＼'"'</p>
+                        常用转义字符：
+                        <p>\' 代表一个单引号（撇号）字符，例如：'你好，\'world\''</p>
+                        <p>\" 代表一个双引号字符</p>
+                        <p>\n 换行</p>
+                    </li>
+                    <li>使用length属性获取字符串的长度；console.log(str.length);</li>
+                    <li>字符串拼接，使用'+'号连接字符串
+                        <ol>
+                            <li>若"+"号任意一边存在字符串，则连接结果为字符串。</li>
+                            <li>若"+"号两边都是数字，则连接结果为数字计算后的结果。</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                <div class="small">
+                    <h4>Boolean（布尔）</h4>
+                    <p>字面量：true和false，区分大小写；计算机内部存储：true为1，false为0</p>
+                </div>
+                <div class="small">
+                    <h4>Null（空）</h4>
+                    <p>Null类型只有一个值null。表示一个空，JavaScript中只有给变量赋值为null时，变量才为null，否则永远不为null。</p>
+                </div>
+                <div class="small">
+                    <h4>Underfined（未定义）</h4>
+                    <p>Undefined类型只有一个值undefined。声明了但未赋值的变量，默认值为undefined，表示没有被赋值。</p>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>获取变量的类型</h4>
+            <p>简单类型（基本类型）：String（字符串）、Number（数值）、Boolean（布尔）、Undefined（未定义）、Null（空）</p>
+            <p>复杂类型（引用类型/对象类型）：Object、Array、Date ...</p>
+            <div class="wrap js text2">
+                <div class="neirong">
+                    <ol>
+                        浏览器控制台输出的
+                        <li>字符串的颜色是黑色的</li>
+                        <li>数值类型是蓝色的</li>
+                        <li>布尔类型也是蓝色的</li>
+                        <li>undefined和null是灰色的。</li>
+                    </ol>
+                    <h4>注意</h4>
+                    <ol>
+                    <li>typeof 检测基本数据类型,特例: null返回object。</li>
+                    <li>typeof 检测复合数据类型,返回结果基本上都是object,函数除外。</li>
+                    <li>当变量被申明但还未初始化时，默认值为undefined，此时temp的类型为"undefined"（字符串）。</li>
+                        <li>为什么 typeof 运算符对于 null 值会返回 "object"。这实际上是 JavaScript 最初实现中的一个错误，然后被 ECMAScript 沿用了。现在，null 被认为是对象的占位符，从而解释了这一矛盾，但从技术上来说，它仍然是原始值。</li>
+                        <li>复杂的数据类型使用typeof获取到的类型，除函数为"function"外，其他的都是"object"。</li>
+                        <li>null可以用来消除变量对对象的引用，从而让垃圾回收器回收对应的内存。
+                            <pre><code class="language-js">//obj引用创建好的Object对象
+//如果Object对象有被引用，那么就不会被回收，一直存在于内存中
+var obj = new Object();
+//obj不再对Object对象继续引用，那么该对象会在特定的时间点被回收
+obj = null;</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>数据类型转换</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">转换成字符串类型</div>
+                <div class="tapTop">转换成数值类型</div>
+                <div class="tapTop">转换成布尔类型</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>
+                        <li>toString()：开发中常用（首选）</li>
+                        <li>String() <p>有了toString()函数，为什么还要有String()函数？
+                            某些类型没有toString()函数，这个时候可以使用String()。例如：undefined和null，可以写成String(undefined)和String(null)。</p>
+                        </li>
+                        <li>拼接字符串方式
+                            <pre><code class="language-js">console.log(123 + '');
+console.log(true + '');
+console.log(undefined + '');
+console.log(null + '');</code></pre>
+                            <p>num + "" 的形式，当 "+" 号一边的操作符是字符串类型，另一边的操作符是其它类型的时候，会先把其它类型转换成字符串再进行字符串拼接，最后返回字符串。</p></li>
+                    </ol>
+                </div>
+                <div class="tapSection">
+                    <ol>其他类型转成数值类型的时候，存在有两种可能的值，一种是数字，一种是NaN（NaN也是Number类型！）。
+                        <li>Number()
+                            <pre><code class="language-html">var num01 = '18';
+console.log(Number(num01));
+var num02 = '18aaa';
+console.log(Number(num02));//NaN: Not a Number</code></pre>
+                        </li>
+                        <li>parselnt()
+                            <p>如果第一个字符是数值或运算符号，那么就开始解析，直到遇到非数值字符，停止解析返回整数；如果第一个字符是非数值或非运算符号，则不解析并且返回NaN。</p>
+                            <pre><code class="language-js">//使用parseInt()函数
+console.log(parseInt(str));//123 number
+var str1 = '123aaa';//123 number
+var str2 = 'aaa123';//NaN
+var str3 = '12.3aaa';
+console.log(parseInt(str3));//12
+
+console.log(parseInt(bool));//NaN
+console.log(parseInt(u));//NaN
+console.log(parseInt(nu));//NaN</code></pre>
+                        </li>
+                        <li>parseFloat()
+                            <p>parseFloat()把字符串转换成浮点数
+                                parseFloat()和parseInt非常相似，不同之处在于parseFloat会解析第一个小数点，遇到第二个小数点或者非数字字符时就结束,如果解析的内容里只有整数，则解析成整数</p>
+                            <pre><code class="language-js">var str01 = '3.14';
+var str02 = '3.14aa';
+var str03 = '3.14.314';
+
+console.log(parseFloat(str01));//3.14
+console.log(parseFloat(str02));//3.14
+console.log(parseFloat(str03));//3.14</code></pre>
+                        </li>
+                        <li>+，-0运算
+                            <p>加号和减号放在变量前，分别是取正、取负的效果；</p>
+                            <p>变量减去0，默认先将变量转换成数值类型，再做减法运算，变量加上0，则按照字符串拼接的规则运算。</p>
+                            <pre><code class="language-js">var strNum = '18.6';
+console.log(+strNum);		//18.6     取正
+console.log(-strNum);		//-18.6    取负
+console.log(strNum - 0);     //18.6  strNum先转换成数值类型，再做减法运算
+console.log(strNum + 0);     //18.60  0先转换成字符串类型，再做拼接</code></pre>
+                        </li>
+                    </ol>
+                </div>
+                <div class="tapSection">
+                    Boolean()
+                    <p>
+                        如果布尔对象无初始值或者其值为: 0（包括 0、-0）、null、""（空字符串）、undefined、NaN时，那么转换成布尔类型之后的值为 false。否则，其值为 true。</p>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>基本数据与引用数据的区别</h4>
+            <p>基本类型又叫值类型(简单类型),引用类型又叫复杂类型。</p>
+            <ol>
+                <li>基本数据类型：值类型（简单数据类型），在存储时，变量中存储的是值本身，因此叫做值类型。</li>
+                <li>引用类型：复杂数据类型，在存储时，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。</li>
+            </ol>
+            <ol>堆栈空间分配区别：
+                <li>栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；</li>
+                <li>堆（操作系统）： 存储引用类型(对象)，一般由程序员分配释放， 若程序员不释放，由垃圾回收机制回收，分配方式类似于链表。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text15"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>类型检查四种方式</h4>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">typeof: 主要用来判断基本类型</div>
+                <div class="tapTop">constructor: 可以用来判断创建对象的构造器的类型</div>
+                <div class="tapTop">instanceof: 判断指定构造函数的原型对象是否在当前实例对象的原型链上</div>
+                <div class="tapTop">Object.prototype.toString(): 获取数据类型对应的字符串</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre><code class="language-js">console.log(typeof "abc");//"string"
+console.log(typeof 123);//"number"
+console.log(typeof true);//"boolean"
+console.log(typeof null);//"object"
+console.log(typeof Function);//"function"
+console.log(typeof {name:"Neld", age: 10});//"object"</code></pre>
+                    <p>对于字符串，数字和布尔类型，返回对应类型的字符串（string, number, boolean），undefined和Function 比较特殊，分别是undefined和function，这两个需要单独记忆，其他的（包括null）都是返回object</p>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">function Person() {}
+function Dog() {}
+var p = new Person();
+var d = new Dog();
+console.log(p.constructor == Person);//true
+console.log(d.constru+ ctor == Dog);//true</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">function Person() {}
+function Dog() {}
+var p = new Person();
+var d = new Dog();
+console.log(p instanceof Person);//true
+console.log(d instanceof Dog);//true
+console.log(p instanceof Object);//true
+console.log(d instanceof Object);//true</code></pre>
+                    <p>Person和Object的原型对象分别在p和b对象的原型链上，所以上面的返回值都是true</p>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">console.log(Object.prototype.toString.call("Neld"));//[object String]
+console.log(Object.prototype.toString.call(10));//[object Number]
+console.log(Object.prototype.toString.call(p));//[object Object]
+console.log(Object.prototype.toString.call([]));//[object Array]</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>运算符</h3>
+    <section class="vertical">
+        <div class="tapNav">
+            <div class="tapTop cur">一元运算符</div>
+            <div class="tapTop">辑运算符（布尔运算符）</div>
+            <div class="tapTop">关系运算符</div>
+            <div class="tapTop">赋值运算符</div>
+            <div class="tapTop">运算符优先级</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <ol>
+                    <li>前置++：先执行运算（自身加1）后 返回表达式的值</li>
+                    <li>后置++： 先返回表达式的值，后执行运算（自身加1）</li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li>&&： 逻辑与，两个操作数同时为true，结果为true，否则结果都是false
+                    </li>
+                    <li>||： 逻辑或，两个操作数有一个为true，结果为true，否则为false</li>
+                    <li>! ：非 取反</li>
+                </ol>
+                <ol>
+                    <li>
+                        <p>&& 两边是其他类型时，会先发生隐式转换，转换成布尔类型。</p>
+                        <p>如果左操作数转换成的布尔类型，是true，则返回右操作数本身（注意：不是返回布尔类型）</p>
+                        <p>如果左操作数转换成的布尔类型，是false，则返回左操作数本身（注意：不是返回布尔类型）</p>
+                    </li>
+                    <li>
+                        <p>|| 两边是其他类型时，会先发生隐式转换，转换成布尔类型。</p>
+                        <p>如果左操作数转换成的布尔类型，是true，则返回左操作数本身（注意：不是返回布尔类型）</p>
+                        如果左操作数转换成的布尔类型，是false，则返回右操作数本身（注意：不是返回布尔类型）</li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li><：小于</li>
+                    <li>>：大于</li>
+                    <li>>=：大于等于</li>
+                    <li><= ：小于等于</li>
+                    <li>==：等于</li>
+                    <li>!=：不等于</li>
+                    <li>=== ：全等于</li>
+                    <li>!== ：全不等于</li>
+                    ==只进行值的比较，值相同则返回true，===会进行类型和值的比较，两者都相同，则返回true，否则返回false
+                </ol>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li>赋值： =</li>
+                    <li>加赋值： +=</li>
+                    <li>减赋值： -=</li>
+                    <li>乘赋值： *=</li>
+                    <li>除赋值： /=</li>
+                    <li>求余赋值： %=</li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li>() 优先级最高</li>
+                    <li>一元运算符 ++ -- !</li>
+                    <li>算术运算符 先* / % 后 + -</li>
+                    <li>关系运算符（比较大小） > >= < <=</li>
+                    <li>相等运算符（比较相等） == != === !==</li>
+                    <li>逻辑运算符 先&& 后||</li>
+                    <li>赋值运算符 = += -= *= /= %=</li>
+                </ol>
+            </div>
+        </div>
+        <div class="small">
+            <h4>注意</h4>
+            <ol>
+                <li><p>console.log(null == undefined);//true (特例);</p>
+                    <p>console.log(null === undefined);//false</p>
+                    <p>Null类型只有一个值null，由于undefined是从null派生而来，因此ECMAScript把他们定义为相等。但并不全等。</p>
+                </li>
+                <li><pre><code class="language-js">var sNum = "66" ;
+
+var iNum = 66 ;
+
+console.log(sNum != iNum);	//输出 "false"
+
+console.log(sNum !== iNum);	//输出 "true"</code></pre></li>
+                <li>即使两个数都是 NaN，等号仍然返回 false，因为根据规则，NaN 不等于 NaN。</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>if、switch语句</h3>
+    <section class="vertical">
+        <div class="tapNav">
+            <div class="tapTop cur">if语句</div>
+            <div class="tapTop">switch语句</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <ol>
+                    <li><pre><code class="language-js">if（条件表达式）{
+分支体
+}</code></pre>
+                    </li>
+                    <li><pre><code class="language-js">if（条件表达式）{
+	分支体
+} else {
+    分支体
+}</code></pre>
+                    </li>
+                    <li><pre><code class="language-js">if（条件表达式）{
+	分支体
+}else if（条件表达式2）{
+	分支体
+}else if（条件表达式3）{
+	分支体
+}else{
+	最后默认分支体
+}</code></pre>
+                    </li>
+                    <li>三元运算符
+                        <p>if......else语句的一种简化写法；表达式1？表达式2：表达式3</p>
+                        三元运算符中的操作数是一个表达式的运算结果，该结果是布尔类型，运算过程为：如果表达式1结果为true，则返回表达式2的结果；否则（表达式1结果为false）返回表达式3的结果。三元运算符又称三目运算符。
+                    </li>
+                </ol>
+            </div>
+            <div class="tapSection">
+                switch是分支结构的一种语句，它是通过判断表达式的结果是否等于case语句的常量，来执行相应的分支体的。与if语句不同的是，switch语句只能做值的相等判断（使用全等运算符 ===）
+                <pre class="text3"><code class="language-js"></code></pre>
+            </div>
+        </div>
+        <div class="small">
+            <h4>布尔类型的隐式转换</h4>
+            <p>流程控制语句会把括号中的表达式的值会隐式（自动）转换成布尔类型。除了流程控制语句的表达式，一元运算符 "!" 也会将值隐式转换成布尔类型。</p>
+            <p>五种特例：0，''，NaN，undefined，null，转换成布尔类型的结果都是false。</p>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>循环结构</h3>
+    <section class="vertical">
+        <div class="tapNav">
+            <div class="tapTop cur">while：</div>
+            <div class="tapTop">do...while</div>
+            <div class="tapTop">for语句</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre><code class="language-js">while（循环条件）{
+		循环体
+}</code></pre>
+            </div>
+            <div class="tapSection">
+                <p>do..while循环和while循环非常像，二者经常可以相互替代，但是do..while的特点是不管条件成不成立，do循环体都会先执行一次。</p>
+                <pre><code class="language-js">do{
+	循环体
+}while（循环条件）；
+
+    do{
+    var inStr = prompt('可不可以，和你在一起？', '永远在一起！(可以/不可以)');
+    console.log(inStr);
+}while (inStr != '可以');
+alert('我们就别再分离!');</code></pre>
+            </div>
+            <div class="tapSection">
+                <pre><code class="language-js">for语句
+for（初始化表达式1；判断表达式2；自增表达式3）{
+		循环体4
+}
+	/*执行顺序：1243---243----243（直到判断表示式返回false）
+
+		1.初始化表达式
+
+		2.判断表达式
+
+		3.自增表达式
+
+		4.循环体*/
+
+
+    var num=1;
+    for (;num<=100;){
+        console.log(num);
+        num++
+    }</code></pre>
+            </div>
+        </div>
+        <div class="small">
+            <h4>continue和break</h4>
+            <ol>
+                <li>break：终止，中断。立即跳出整个循环（注意：如果是多层循环，则跳出当前层循环），即循环结束，开始执行循环后面的内容（直接跳到大括号）</li>
+                <li>continue：立即跳出当前（本次）循环，继续下一次循环（跳出i++的地方）</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>数组</h3>
+    <section class="vertical">
+        数组是一个有序的列表，可以在数组中存放任意的数据，并且数组的长度可以动态的调整。
+        <div class="small">
+            <ol>
+                <li>获取数组元素：数组名[下标] 下标又称索引，获取数组对应下标的那个值，如果下标不存在，则返回undefined。
+                    <ol>
+                        <li>获取数组的长度：console.log(数组名.length)</li>
+                        <li>获取数组的最后一项：console.log（数组名[数组名.length-1]）;</li>
+                        <li>从数组的最后一项的下一个位置开始加入新元素
+                            <pre><code class="language-js">for (var i = 0; i < 5; i++) {
+    names[names.length] = i+'';
+}
+console.log(names);</code></pre>
+                        </li>
+                    </ol>
+                </li>
+                <li>遍历数组
+                    <ol>
+                        <li>正向遍历数组，访问数组的每一个元素。
+                            <pre><code class="language-js">for（var  i = 0；i < array.length；i++）{
+		console.log（array[i]）;
+}
+</code></pre>
+                        </li>
+                        <li>逆向遍历数组
+                            <pre><code class="language-js">for（var i = array.length - 1;i>=0;i--）{
+		console.log(array[i]);
+}
+</code></pre>
+                        </li>
+                    </ol>
+                </li>
+                <li>数组中新增元素：数组名[下标/索引] = 值</li>
+            </ol>
+        </div>
+        <a class="bntTap" href="javascript:">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">求一组数中的最大值和最小值，以及所在位置</div>
+            <div class="tapTop">分割数组</div>
+            <div class="tapTop">翻转数组</div>
+            <div class="tapTop">冒泡排序</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text4"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text5"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text6"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text7"><code class="language-js"></code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>函数</h3>
+    <section class="vertical">
+        把一段相对独立的具有特定功能的代码块封装起来，形成一个独立实体，就是函数，起个名字（函数名），在后续开发中可以反复调用。函数的作用就是封装一段代码，将来可以重复使用。
+        <p>函数也是一种数据类型,函数可以作为一个函数的参数，在另一个函数中调用。函数也可以作为返回值从函数内部返回。
+        </p>
+        <div class="small">
+            <ol>
+                <li>声明函数： function 函数名（）{ //函数体 }</li>
+                <li>函数表达式 var fn=function（）{ //函数体 }</li>
+                <li>函数的调用 ： 函数名（）;</li>
+                <li>函数的参数：function 函数名（形参1，形参2，形参...）{ //函数体 }
+                    <p>函数名（实参1，实参2，实参3）;</p>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>函数的返回值</h4>
+            <ol>
+                <li>如果函数没有显示的使用 return语句 ，那么函数有默认的返回值：undefined</li>
+                <li>如果函数使用 return语句，那么跟再return后面的值，就成了函数的返回值</li>
+                <li>如果函数使用 return语句，但是return后面没有任何值，那么函数的返回值也是：undefined</li>
+                <li>函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退出，也就是说return后面的所有其他代码都不会再执行。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text8"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>arguments</h4>
+            <p>
+                JavaScript中，arguments是一个类似数组的对象，arguments对象作为当前函数的一个内置属性，也就是说所有函数都内置了一个arguments对象，arguments对象中存储了外部传递给函数的所有的实参。arguments是一个伪数组（具有数据的部分属性），因此其可以进行遍历。</p>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text9"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>匿名函数</h4>
+            <ol>
+                <li>匿名函数的使用：将匿名函数赋值给一个变量，这样就可以通过变量进行调用 : var fn = function() { // 函数体 }
+                    <p>调用匿名函数：fn ( ) ;</p>
+                </li>
+                <li>自调用函数：</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>全局变量和局部变量</h4>
+            <ol>局部变量退出作用域之后会销毁，全局变量关闭网页或浏览器才会销毁
+                <li>全局变量：在任何地方都可以访问到的变量就是全局变量，对应全局作用域（不使用var声明的变量是全局变量，不推荐使用。）
+                </li>
+                <li>局部变量：只在固定的代码片段内可访问到的变量，最常见的例如函数内部。对应局部作用域(函数作用域)
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>Function构造函数创建对象</h4>
+            <pre><code class="language-js">var fun2 = new Function("console.log('hello h5');");
+fun2();//hello h5</code></pre>
+            <p>直接将函数体的代码以字符串的形式传递给Function构造函数，这样就可以创建一个有函数体的函数对象了。</p>
+            <p>如果函数体中有多行代码也是一样的方式，将其放在一个字符串中传递即可。</p>
+            <pre><code class="language-js">var fun2 = new Function("console.log('hello h5');console.log('hello java');");
+fun2();//hello h5</code></pre>
+            <p>定义一个带有参数的函数对象:</p>
+            <pre><code class="language-js">var fun2 = new Function("a", "b", "return a + b;");
+console.log(fun2(1, 2));//3</code></pre>
+            <p>将Function中的最后一个参数作为函数体，前面的都是函数的形参。</p>
+        </div>
+        <div class="small">
+            <h4>函数的创建和名称</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text58"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>函数使用的典型结构</h4>
+            <ol>
+                <li>IIFE立即执行函数
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text59"><code class="language-js"></code></pre>
+                </li>
+                <li>惰性函数定义
+                    <p>惰性函数：在函数中会进行一些分支判断或者初始化更新操作，然后将函数修改函数的指向，那么再次调用该函数的时候，执行的是修改之后指向的函数</p>
+                    <ol>
+                        <li>函数对象中的属性在更新之后会丢失
+                            <a class="btns" href="javascript:">代码</a>
+                            <pre class="text60"><code class="language-js"></code></pre>
+                        </li>
+                        <li>如果将惰性函数赋值给一个变量，通过这个变量调用该函数，此时无法执行到更新之后的函数
+                            <a class="btns" href="javascript:">代码</a>
+                            <pre class="text61"><code class="language-js"></code></pre>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>闭包</h3>
+    <section class="vertical">
+        <div class="small">
+            <div class="tapNav">
+                <div class="tapTop cur">案例一</div>
+                <div class="tapTop">案例二</div>
+                <div class="tapTop">案例三</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text64"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text65"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text66"><code class="language-html"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>预解析</h3>
+    <section class="vertical">
+        <ol>
+            <li>把变量的声明提升到当前作用域的最前面，只会提升声明，不会提升赋值。</li>
+            <li>把函数的声明提升到当前作用域的最前面，只会提升声明，不会提升调用。</li>
+            <li>变量和变量同名，解析之后只存在一个当前变量的声明</li>
+            <li>函数和函数同名，后面的声明将前面的覆盖</li>
+            <li>函数和变量同名，函数声明提升，忽略变量的声明</li>
+            <li>如果是命名函数，则只将前面的变量声明提升，函数不动。</li>
+            <li>函数的if语句中,不管条件是否成立，都要进行变量提升</li>
+            <li>有行参的函数中,有形参赋值了，就不在走变量提升了</li>
+        </ol>
+        <a class="bntTap" href="javascript:">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">案例一</div>
+            <div class="tapTop">案例二</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text10"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text63"><code class="language-js"></code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>对象</h3>
+    <section class="vertical">
+        使用 var 对象名 = {键：值 } 格式创建出的对象，就是一个对象字面量。大括号中的“键”是对象的属性名，“值”就是对应的属性值。
+        <div class="small">
+            <h4>访问对象的成员：</h4>
+            <ol>
+                <li>在方法中使用属性：this.name，this表示当前（正在调用该方法的）对象</li>
+                <li>访问属性的格式：对象名.属性名; dog.name;</li>
+                <li>访问方法的格式：对象名.方法名(); dog.bark();</li>
+                <li>访问属性的另一种方式：对象名["属性名"] dog["name"];</li>
+            </ol>
+            <h4>删除对象的属性</h4>
+            <p>delete关键字 : delete obj.name;</p>
+        </div>
+        <h4>创建对象</h4>
+        <a class="bntTap" href="javascript:">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">字面量方式创建对象</div>
+            <div class="tapTop">new Object()创建对象</div>
+            <div class="tapTop">工厂函数创建对象</div>
+            <div class="tapTop">自定义构造函数</div>
+            <div class="tapTop">Object.create创建对象</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text11"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text12"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text13"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text14"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre><code class="language-js">  var temp = {name:"zs",age:10};
+    var obj = Object.create(temp);//创建传递进来的对象，并设置该对象的原型对象为当前的参数
+    console.log(obj);
+    //可以添加null
+    var o = Object.create(null);
+    //console.log(o);
+    o.name ="老王";
+    console.log(o);</code></pre>
+            </div>
+        </div>
+        <div class="small">
+            <h4>遍历对象</h4>
+            <p>通过for...in语法可以遍历一个对象。格式: for(var key in obj){ } : obj是要遍历的对象。key是从obj对象中遍历出的属性名
+            </p>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>原型</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>constructor属性</h4>
+            <p>使用constructor属性可以获取到创建对象使用的构造器函数对象，所以我们可以通过判断构造器的类型来得知创建的对象的类型。</p>
+        </div>
+        <div class="small">
+            <h4>原型特点</h4>
+            <p>原型的两大特点：共享数据、继承</p>
+            <ol>总结三句话：
+                <li>每一个构造函数都有一个默认的prorotype属性，指向他自己的原型对象</li>
+                <li>每一个实例化对象都有一个__proto__属性，指向他所属类的原型对象</li>
+                <li>每一个默认的原型对象身上有一个constructor属性，指向他的构造函数本身。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>获取原型对象的方法</h4>
+            <ol>
+                <li>构造函数.prototype</li>
+                <li>实例对象.__ proto
+                    <p>Person.prototype == p.__ proto __；//true</p>
+                </li>
+                <li>我们也可以使用Object构造器上的getPrototypeOf(实例对象)方法获取指定实例对象的原型对象</li>
+            </ol>
+            <p>三种获取原型对象的方法所得到的结果是一样的。即：
+                Object.getPrototypeOf(p) == Person.prototype == p.__ proto __</p>
+        </div>
+        <div class="small">
+            <h4>面向对象中的核心概念</h4>
+            <ol>
+                <li>构造函数：Person，和new关键字一起创建对象</li>
+                <li>构造函数的原型对象：Person.prototype</li>
+                <li>原型对象：和创建实例对象的构造函数相互关联的对象</li>
+                <li>实例对象：由构造器创建出来的对象称之为实例对象</li>
+                <li>实例化：由构造器创建实例对象的过程称之为实例化</li>
+                <li>对象的成员：属性+方法
+                    <ol>
+                        <li>实例成员：实例对象上的属性和方法，name,age，只能当前实例对象才能访问</li>
+                        <li>原型成员：原型对象上的属性和方法，say()，使用该原型对象对应构造器创建出来的所有实例对象都能访问</li>
+                        <li>静态成员：直接添加在构造函数上的属性和方法，只能使用构造函数才能访问</li>
+                        <li>私有成员：在构造函数中声明的变量和函数，因为我们只能在函数内部访问，所以是私有的 className getClassName</li>
+                        <li>特权方法：在函数内部使用了私有成员的实例方法被称为是特权方法 showClass</li>
+                    </ol>
+                    <a class="btns" href="javascript:">私有成员和特权方法</a>
+                    <pre class="text51"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+            <h4>原型图</h4>
+            <img src="images/yuanxing.JPG" width="100%" alt="">
+            <ol>
+                <li>所有的函数对象都是由Function类型的，由Function构造函数创建</li>
+                <li>Function的原型对象是一个匿名空函数，绑定了函数中的通用方法</li>
+                <li>空函数对象的原型是Object</li>
+                <li>Function函数对象由自身的构造函数创建</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>hasOwnProperty和in</h4>
+            <ol>
+                <li>无论判断的成员是属于当前实例对象还是属于其原型对象的，in都返回true，如果都不存在，则返回false。</li>
+                <li>hasOwnProperty是Object中提供的，所有实例对象都能访问的方法，该方法的作用是判断当前实例对象中是否存在执行的属性，存在返回true，反之返回false。</li>
+                <li>检查对象中是否存在某个指定的属性（该属性只存在原型对象上）
+                    <p>key in obj && !obj.hasOwnProperty(key)</p>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>isPrototypeOf和instanceof</h4>
+            <ol>
+                <li>isPrototypeOf：判断某个对象是否是指定对象的原型对象</li>
+                <li>instanceof：字面意思理解为判断当前对象是否是指定的类型，更深层次理解应该是，指定类型是否在当前实例对象的原型链上，如果是返回true，反之返回false。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>Object原型对象成员</h4>
+            <ol>
+                <li>valueOf:
+                    <ol>
+                        <li>基本包装类型：返回对应的值</li>
+                        <li>引用类型：返回this，对象本身</li>
+                        <li>日期类型：返回时间戳</li>
+                    </ol>
+                    <pre><code class="language-js">var str = new String("demo");
+    var obj ={name:"zs"};
+    var date =new Date();
+    console.log(str.valueOf());//demo
+    console.log(obj.valueOf());//{name:"zs"}
+    console.log(date.valueOf());//时间戳</code></pre>
+                </li>
+                <li>toString : 返回数据特定的格式的字符串
+                    <ol>
+                        <li>基本类型：返回对应值的字符串</li>
+                        <li>如果是数字类型，可以传递一个参数指定转换成上面进制的数字字符串</li>
+                        <li>引用类型：返回[object Object]格式的字符串，object为对象的类型，Object为对象对应的构造函数</li>
+                    </ol>
+                    <pre class="text52"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+            <p>Array.isArray()方法是ES5中提供的方法，所以，如果使用低版本的ES，就不能直接使用该方法，解决版本兼容问题:</p>
+            <pre><code class="language-js">function isArray(arr) {
+if(Array.isArray){
+return Array.isArray(arr);
+}else{
+return Object.prototype.toString.call(arr) == "[object Array]";
+}
+}</code></pre>
+            <p>toLocaleString：和toString方法类似，可以将日期转换成本地格式的数据</p>
+            <pre><code class="language-js">var d = new Date();
+console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>继承</h3>
+    <section class="vertical">
+        <div class="small">
+            <a class="bntTap" href="javascript:">继承代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">混入式继承 (拷贝继承)</div>
+                <div class="tapTop">原型式继承</div>
+                <div class="tapTop">原型链继承</div>
+                <div class="tapTop">借用构造函数继承</div>
+                <div class="tapTop">组合继承</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text44"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text45"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text46"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text47"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text48"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>浅拷贝和深拷贝</h4>
+            <ol>
+                <li>浅拷贝
+                    <pre class="text56"><code class="language-js"></code></pre>
+                </li>
+                <li>深拷贝
+                    <pre class="text57"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>call方法和apply方法</h3>
+    <section class="vertical">
+        <div class="small">
+            <p>方法借用 ； 设置方法中this的指向</p>
+            <ol>
+                <li>call方法： 将this指向的对象作为第一个参数，其他参数依次传递即可</li>
+                <li>apply方法： 将this指向的对象作为第一个参数，其他参数封装到数组中传递</li>
+            </ol>
+            <pre class="text49"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>关键字</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>new关键字</h4>
+            <ol>new在调用构造函数中所执行的步骤:
+                <li>new会在内存中创建一个新的空对象, var obj = new object();</li>
+                <li>new会让this指向这个新的对象, this = obj ;</li>
+                <li>给这个新对象加属性和方法,这也是执行构造函数目的</li>
+                <li>返回这个新对象,return this;</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>this关键字</h4>
+            <ol>
+                <li>函数在定义的时候this是不确定的，只有在调用的时候才可以确定</li>
+                <li>一般函数直接执行，内部this指向全局window</li>
+                <li>函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象</li>
+                <li>构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现对象的创建</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>in 关键字</h4>
+            <div class="wrap js text34">
+            <ol class="neirong">
+                <li>判断一个成员（属性或函数）是否在对象中存在，如果存在返回true，反之返回false ； 语法：“成员名” in 对象</li>
+                <li>在for...in循环中，可以遍历对象或者数组</li>
+            </ol>
+            </div>
+        </div>
+        <div class="small">
+            <h4>delete 关键字</h4>
+            <p>delete 对象.成员 或 对象[成员]</p>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text35"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>内置对象</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>Math:</h4>
+            <ol>
+                <li>nMath.E ： 欧拉常数e（基数）</li>
+                <li>Math.PI ： 圆周率</li>
+                <li>Math.random() ： 生成随机数[0,1)</li>
+                <li>Math.floor()/Math.ceil() ： 向下取整/向上取整</li>
+                <li>Math.round() ： 四舍五入取整</li>
+                <li>Math.max()/Math.min() ： 取最大和最小值</li>
+                <li>Math.abs() ： 绝对值</li>
+                <li>Math.sin()/Math.cos() ： 正弦/余弦</li>
+                <li>Math.power()/Math.sqrt() ： 求指数次幂/求平方根</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>Date:</h4>
+            <p>Date 对象基于1970年1月1日（世界标准时间）起的毫秒数。</p>
+            <ol>
+                <li>几种Date对象的创建方式
+                    <ol>
+                        <li>var date = new Date() ： 获取当前时间
+                            <ol>获取日期的毫秒
+                                <li>console.log(date.valueOf());</li>
+                                <li>console.log(date.getTime());</li>
+                            </ol>
+                        </li>
+                        <li>new Date(value) ： var date2 = new Date(156448658459);</li>
+                        <li>new Date(dateString) : var date3 = new Date('2018-5-6 9:2:30');</li>
+                        <li>new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]]) : var
+                            date4 = new Date(2017,6,4,5,8,9,);
+                        </li>
+                    </ol>
+                </li>
+                <li>获取指定部分日期
+                    <ol>
+                        <li>console.log(date.getSeconds()) : // getSeconds() 根据本地时间，返回一个指定的日期对象的秒数。 0-59</li>
+                        <li>console.log(date.getMinutes()) : // getMinutes() 根据本地时间，返回一个指定的日期对象的分钟数。 0-59</li>
+                        <li>console.log(date.getHours()) : // getHours() 根据本地时间，返回一个指定的日期对象的小时数 0-23</li>
+                        <li>console.log(date.getDay()) : // getDay() 返回星期几 0周日 6周6</li>
+                        <li>console.log(date.getDate()) : // getDate() 返回当前月的第几天</li>
+                        <li>console.log(date.getMonth()) : // getMonth() 返回月份，***从0开始***</li>
+                        <li>console.log(date.getFullYear()) : // getFullYear() 返回4位的年份 如 2019</li>
+                    </ol>
+                </li>
+            </ol>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式</div>
+                <div class="tapTop">定义函数，计算时间差，返回相差的天/时/分/秒</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text16"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text17"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>Array</h4>
+            <ol>
+                <li>创建数组对象 : var 对象名称 = new Array(数组元素或长度)
+                    <ol>
+                        <li>使用构造函数创建对象，此处使用的是数组的构造函数 : var array = new Array(3,2,1);</li>
+                        <li>当仅有一个参数为数字时，构造函数将返回一个 `length` 的值等于指定数组长度 `arrayLength`
+                            的数组对象（言外之意就是该数组此时并没有包含任何实际的元素，不能理所当然地认为它包含 `arrayLength` 个值为 `undefined` 的元素） var array1 =
+                            new Array(5); (创建一个长度为5的空数组)
+                        </li>
+                    </ol>
+                </li>
+                <li>toString() : // 把数组转换成字符串返回，返回字符串中使用逗号分隔每一项</li>
+                <li>valueOf() : // 返回数组对象本身</li>
+                <li>push() : // 将一个或多个元素添加到数组的末尾，并返回该数组的新长度</li>
+                <li>pop() : // 从数组中删除最后一个元素，并返回该元素的值</li>
+                <li>shift() : // 取出数组中的第一个元素，修改length属性</li>
+                <li>unshift() : // 在数组最前面插入项，返回数组的长度</li>
+                <li>reverse() : // 将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。</li>
+                <li>sort() : // 即使是数组sort也是根据字符，从小到大排序
+                    <p>
+                        数组调用sort()进行排序的时候，底层会先调用toString()将数组转换成字符串，然后再按ASCII进行比较。这种比较方式，会将数值数组转换成字符串，这时就会出现不合理的效果，比如“80”排在“9”的前面。如果想对数值进行排序，我们要使用带参数的sort方法。</p>
+                    <a class="bntTap" href="javascript:">代码</a>
+                    <div class="tapNav">
+                        <div class="tapTop cur">带参数的sort方法</div>
+                        <div class="tapTop">模拟sort方法内部实现</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text18"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text19"><code class="language-js"></code></pre>
+                        </div>
+                    </div>
+                </li>
+                <li>concat() : // 把参数拼接到当前数组</li>
+                <li>slice() : // 从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始</li>
+                <li>splice() : // 删除或替换当前数组的某些项，参数start, deleteCount, options(要替换的项目)</li>
+                <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text20"><code class="language-js"></code></pre>
+                </li>
+                <li>lastIndexOf() : // 返回指定元素在数组中的最后一个的索引，如果没找到返回-1</li>
+                <li>every() : // 方法测试数组的所有元素是否都通过了指定函数的测试。</li>
+                <li>filter() : // 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。</li>
+                <li>forEach() : // 对数组的每个元素执行一次提供的函数</li>
+                <li>some() : // 测试是否至少有一个元素通过由提供的函数实现的测试</li>
+                <li>map() : // 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果</li>
+                <li>join() : // 方法将数组的所有元素连接到一个字符串中,默认使用“，”分割。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text21"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>基本包装类型string对象</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>基本包装类型</h4>
+            <pre><code class="language-js">//简单类型（基本类型），没有属性和方法
+//复制类型（引用类型），有属性和方法
+var s = 'abc';
+var num = s.length;
+console.log(num);
+//以上代码执行过程如下：
+var s1 = new String('abc');
+var s2 = s1.length;
+s1 = null;</code></pre>
+            <p>基本类型在调用属性或方法时，会先被包装成对应的基本包装类型(复杂类型)，即创建一个临时的基本包装类型对象，再去调用属性或方法，方法执行完毕之后，自动销毁临时对象。</p>
+            <p>为了方便操作基本数据类型，JavaScript中提供了三种基本包装类型：String、Number、Boolean。实际开发中，我们基本不使用Number、Boolean包装类型，因为：1.
+                这种类型中很少有我们用到的方法；2. 使用Boolean类型容易引起歧义。</p>
+        </div>
+        <div class="small">
+            <h4>string对象</h4>
+            <ol>
+                <li>charAt() ： // 获取指定位置处字符</li>
+                <li>charCodeAt() // 获取指定位置处字符的ASCII码</li>
+                <li>str[0] ： // HTML5，IE8+支持 和charAt()等效</li>
+                <li>concat() ： // 拼接字符串，等效于+，+更常用</li>
+                <li>slice() ： // 从start位置开始，截取到end位置，end取不到</li>
+                <li>substring() ： // 从start位置开始，截取到end位置，end取不到</li>
+                <li>substr(start, length) ： // 从start位置开始，截取length个字符,如果忽略 length，则 substr 提取字符，直到字符串末尾。</li>
+                <li>indexOf() ： // 返回指定内容在元字符串中的位置</li>
+                <li>lastIndexOf() ： // 从后往前找，只找第一个匹配的</li>
+                <li>trim() ： // 只能去除字符串前后的空白</li>
+                <li>to(Locale)UpperCase() ： // 转换大写</li>
+                <li>to(Locale)LowerCase() ： // 转换小写</li>
+                <li>search() ： // 执行正则表达式和对象之间的一个搜索匹配。</li>
+                <li>replace() ： // 替换
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text22"><code class="language-js"></code></pre>
+                </li>
+                <li>split() ： // 根据指定的字符切割字符串,返回字符串数组。
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text23"><code class="language-js"></code></pre>
+                </li>
+                <li>fromCharCode() ： // String.fromCharCode(101, 102, 103); 把ASCII码转换成字符串</li>
+            </ol>
+            <h4>案例</h4>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">判断一个字符串中出现次数最多的字符，并统计该字符出现的次数</div>
+                <div class="tapTop">获取URL中的参数</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text24"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text25"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>基本包装类型对象的创建</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text50"><code class="language-js"></code></pre>
+            <p>Number类型扩展注意点</p>
+            <pre><code class="language-js">Number.prototype.add = function (num) {
+  return this + num;
+}
+var num = 100;
+var ret = num.add(100);//
+console.log(ret);//200
+console.log((100).add(100));//200//数值加括号变成表达式</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>页面元素</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>DOM中的几个常用概念</h4>
+            <ol>
+                <li>文档：一个网页可以称为文档</li>
+                <li>节点：网页中的所有内容都是节点（标签、属性、文本、注释等）</li>
+                <li>元素：网页中的标签</li>
+                <li>属性：标签的属性</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>获取页面元素</h4>
+            <ol>
+                <li>getElementById() : 根据id获取元素
+                    <p>getElementById方法只能通过document对象来调用 ： var div = document.getElementById('main');</p>
+                    <p>对象都是有类型的，获取到div元素的数据类型 HTMLDivElement</p>
+                </li>
+                <li>getElementsByTagName() : 根据标签名获取元素
+                    <p>
+                        使用getElementsByTagName()方法获取页面元素，获取到一个元素集合（伪数组），集合的元素类型是指定的元素名称对应的类型。而且该集合是动态集合。动态集合会随着页面的加载更新集合中的元素。
+                    </p>
+                </li>
+                <li>getElementsByName() : 根据name获取元素
+                    <p>注意：该方法存在浏览器兼容性问题，在IE和Opera中，当id和name属性名字一样时，两种值都能获取到，所以不推荐使用。可查看MDN文档中的兼容性说明。</p></li>
+                <li>getElementsByClassName() : 根据类名获取元素
+                    <p>该方法存在浏览器兼容性问题，只支持IE9及之后的版本。</p>
+                </li>
+                <li>根据选择器获取元素
+                    <ol>
+                        <li>querySelector：根据指定的选择器，获取第一个匹配的元素。</li>
+                        <li>querySelectorAll：根据指定的选择器，获取所有匹配的元素。</li>
+                    </ol>
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre><code class="language-js">// querySelector：根据指定的选择器，获取第一个匹配的元素。
+// query 查询，查找，Selector 选择器
+var text = document.querySelector('#text');
+console.log(text);
+// querySelectorAll：根据指定的选择器，获取所有匹配的元素。
+var boxes = document.querySelectorAll('.box');
+for (var i = 0; i < boxes.length; i++) {
+  var box = boxes[i];
+  console.log(box);
+}
+// 注意：querySelectorAll是IE8之后才支持</code></pre>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>创建元素的三种方式</h4>
+            <ol>
+                <li>
+                    document.write():将一个文本字符串写入由document.open()打开的一个文档流。默认情况之下，页面由上而下地加载，形成一个文档流，当执行完毕时，文档流就会关闭。当使用documen.write()创建元素时，实际是开启一了个新的文档流，而将之前文档流冲刷掉。
+                </li>
+                <li>innerHTML:设置或获取HTML语法表示的元素的后代。</li>
+                <li>document.createElement(tagName): 创建由tagName 指定的HTML元素</li>
+            </ol>
+            <h4>innerHTML和innerText</h4>
+            <ol>
+                <li>innerHTML中包含HTML标签和文本内容；包含HTML页面中的所有换行和空格。</li>
+                <li>innerText中只包含HTML标签中的文本内容，而过滤掉了HTML标签；不包含换行和空格，如果有换行或多个空格，都会当做一个空格处理</li>
+            </ol>
+            <p>innerText和textContent在浏览器中的兼容性问题</p>
+            <p>怎么知道浏览器是否兼容innerText或textContent呢？
+                如果DOM对象访问一个不存的属性,得到的属性值的类型为undefined，否则属性值的类型为string。</p>
+            <pre><code class="language-js">//模拟解决 innerText和textContent在浏览器中的兼容性问题
+function getInnerText(element) {
+    if (typeof element.innerText==='string') {
+        return element.innerText;
+    }else {
+        return element.textContent;
+    }
+}</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>事件</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>事件源</h4>
+            <ol>
+                <li>onload :  当页面加载完成执行</li>
+                <li>onunload  :  卸载页面的时候触发</li>
+                <li>onclick : 当鼠标点击</li>
+                <li>onmouseover : 当鼠标移入</li>
+                <li>onmousenter : 当鼠标移入（不会触发事件冒泡）</li>
+                <li>onmouseout : 当鼠标移出</li>
+                <li>onmouseleave : 当鼠标移出（不会触发事件冒泡）</li>
+                <li>onfocus : 当获得焦点</li>
+                <li>onblur : 当失去焦点</li>
+                <li>onkeyup : 键盘按键抬起触发 </li>
+                <li>onkeydown : 键盘按键按下触发</li>
+                <li>onmouseup : 鼠标按键放开时触发</li>
+                <li>onmousedown : 鼠标按键按下触发</li>
+                <li>onmousemove : 鼠标移动触发</li>
+            </ol>
+            <pre class="text31"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>注册事件</h4>
+            <p>addEventListener  :  addEventListener可以将时间监听器注册到btn按钮上，当事件发生时，调用事件处理函数。可以给同一个对象的同一个事件注册多个事件处理函数</p>
+            <p>addEventListener的用法，给当前元素添加事件和事件处理函数，并制定事件的阶段（true 捕获阶段，false 冒泡阶段，默认为false）;参数一：事件类型，不加on ； 参数二：事件处理函数 ； 参数三：布尔类型</p>
+            <p>attachEvent：是IE中特有的方法</p>
+        </div>
+        <div class="small">
+            <h4>移除事件</h4>
+            <ol>
+                <li>onclick：让按钮的事件处理函数只能执行一次，onclick=null ；</li>
+                <li>removeEventListener：如果想要移除事件，注册事件的时候就不能使用匿名函数；</li>
+                <li>detachEvent：谷歌中不支持，IE9-IE11中支持。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>事件的三个阶段</h4>
+            <ol>
+                <li>第一阶段：捕获阶段</li>
+                <li>第二阶段：目标阶段（执行当前点击的元素）</li>
+                <li>第三阶段：冒泡阶段</li>
+            </ol>
+            <ol>addEventListener的第三个参数是一个布尔类型(onclick、attachEvent没有第三个参数)
+                <li>第三个参数是false：事件从里到外执行，这种效果叫事件冒泡</li>
+                <li>第三个参数是true：事件从里到外执行，执行顺序颠倒过来了，这种效果叫做事件捕获。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>事件委托</h4>
+            <p>e是事件对象，通过事件对象可以获取到触发事件的真正的元素相关的信息</p>
+            <p>事件处理函数在事件发生时，由系统去调用，系统在调用事件处理函数时，会传入事件对象，所以我们可以直接使用事件对象。</p>
+            <h4>事件对象属性</h4>
+            <p>e ||  window.event</p>
+            <ol>
+                <li>e.eventPhase：获取事件的阶段，数值表示(目标阶段、冒泡阶段),数值表示 捕获阶段 1   目标阶段 2  冒泡阶段 3</li>
+                <li>e.target：获取真正触发事件的那个元素，IE兼容性问题用 e.srcElement </li>
+                <li>e.currentTarget：相当于this</li>
+                <li>e.type：给多个事件指定同一个函数
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text32"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+            <ol>当事件发生时，通过事件对象可以获取鼠标的位置坐标
+                <li>e.clientX / e.clientY，获取相对于可视区域鼠标位置坐标，所有浏览器都支持。</li>
+                <li>e.pageX / e.pageY，获取相对于整个文档的的位置。</li>
+                <li>document.body.scrollLeft||document.documentElement.scrollLeft : 获取页面滚动出去的距离</li>
+                <li>document.body.scrollTop||document.documentElement.scrollTop : 获取页面滚动出去的距离  (document.documentElement：文档根元素 html)
+                </li>
+                <li>offsetLeft、offsetTop : div在文档中的偏移量</li>
+            </ol>
+            <p>兼容性问题处理</p>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text33"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>阻止事件传播</h4>
+            <h5>取消默认行为</h5>
+            <p>我们曾使用return false取消a标签的默认跳转行为，除了这种写法，DOM中也提供了阻止a标签默认行为的标准方法 e.preventDefault()，而在IE老版本中则使用 e.returnValue = false;</p>
+            <h5>阻止事件冒泡</h5>
+            <p>标准方式 event.stopPropagation()；IE低版本 event.cancelBubble = true; 标准中已废弃</p>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>定时器</h3>
+    <section class="vertical">
+        <ol>
+            <li>setTimeout()  :  在指定的毫秒数到达之后执行指定的函数，只执行一次</li>
+            <li>clearTimeout()  :  取消(销毁)定时器</li>
+            <li>setInterval() : 定时调用的函数，可以按照给定的时间(单位毫秒)周期调用函数</li>
+            <li>clearInterval()  :  取消定时调用函数</li>
+        </ol>
+        <p>滚滚屏使用timeout进行节流,让最后一次滚动有效；在pc端节流一般控制在300-500毫秒。</p>
+        <pre class="text89"><code class="language-js"></code></pre>
+    </section>
+</div>
+<div class="item">
+    <h3>属性操作</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>非表单元素的属性</h4>
+            <p>
+                href、title、id、src、className，以上几个属性是指DOM元素中的属性；使用DOM对象操作属性，通常操作就是通过样式获取属性值，以及通过元素修改属性值。class在JS中是关键字，不能作为属性名，DOM中规定了对象中对应标签class属性的名称为className。
+            </p>
+        </div>
+        <div class="small">
+            <h4>表单元素属性</h4>
+            <ol>
+                <li>value 用于大部分表单元素的内容获取(option除外)</li>
+                <li>type 可以获取input标签的类型(输入框或复选框等)</li>
+                <li>gdisabled 禁用属性</li>
+                <li>checked 复选框选中属性</li>
+                <li>selected 下拉菜单选中属性</li>
+            </ol>
+            <p>案例 : 给文本框赋值，获取文本框的值并按指定格式（| 分割）输出</p>
+            <a class="btnAll" href="javascript:">代码</a>
+            <pre class="text26"><code class="language-html"></code></pre>
+            <div class="tapNav">
+                <div class="tapTop cur">方法一</div>
+                <div class="tapTop">方法二</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text27"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text28"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>自定义属性操作</h4>
+            <ol>
+                <li>getAttribute() 获取标签行内属性</li>
+                <li>setAttribute() 设置标签行内属性</li>
+                <li>removeAttribute() 移除标签行内属性</li>
+                <li>与element.属性的区别: 上述三个方法用于获取任意的行内属性，称为标准方法。</li>
+            </ol>
+        </div>
+        <h4>样式属性操作</h4>
+        <p>获取元素（样式）属性值：对象名.style.属性名</p>
+        <p>设置元素（样式）属性值：对象名.style.属性名=“属性值”</p>
+        <p>通过DOM元素设置样式属性的时候，样式属性是行内样式，优先级最高。在设置样式属性的时候，宽、高、位置样式的值是字符串类型，要加上单位 px。</p>
+    </section>
+</div>
+<div class="item">
+    <h3>节点</h3>
+    <section class="vertical">
+        <div class="small">
+            <ol>
+                <li>nodeName : 节点名称(如果是元素节点,则是对应的标签名)</li>
+                <li>nodeType : 节点类型
+                    <ol>
+                        <li>元素节点: 1</li>
+                        <li>属性节点: 2</li>
+                        <li>文本节点: 3</li>
+                        <li>注释节点: 8</li>
+                    </ol>
+                </li>
+                <li>null : 节点值 默认null</li>
+                <li>children: 节点的子节点</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>父子节点</h4>
+            <div class="wrap js text29">
+                <ol class="neirong">
+                    <li>parentNode : 父节点</li>
+                    <li>childNodes : 子节点</li>
+                    <li>children: 子元素节点</li>
+                    <li>判断是否有子节点 :hasChildNodes()</li>
+                </ol>
+            </div>
+        </div>
+        <div class="small">
+            <h4>第一、最后节点</h4>
+            <ol>
+                <li>firstChild 第一个子节点</li>
+                <li>lastChild 最后一个节点</li>
+                <li>firstElementChild: 获取第一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
+                <li>lastElementChild: 获取最后一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>兄弟节点</h4>
+            <ol>
+                <li>nextSibling 获取下一个兄弟节点</li>
+                <li>nextElementSibling 获取下一个兄弟元素节点</li>
+                <li>previousSibling 获取上一个兄弟节点</li>
+                <li>previousElementSibling 获取上一个兄弟元素节点</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>节点操作</h4>
+            <ol>
+                <li>createElement(tagName) : 创建由指定名称的HTML元素</li>
+                <li>appenChild(childNode): 将指定的childNode参数作为最后一个节点添加到当前节点,返回childNode。如果参数引用了 DOM 树上的现有节点，则节点将从当前位置分离，并附加到新位置。</li>
+                <li>insertBefore(newNode, referenceNode) : 在当前节点之前插入子节点。如果给定的子节点已存在当前文档中，则insertBefore()会将其从当前位置移动到新位置。</li>
+                <li>removeChild(child)  :  从当前节点中删除指定的子节点，并返回被删除的子节点</li>
+                <li>replaceChild(newChild, oldChild) : 在当前节点中，用 newChild 替换 oldChild 并返回被替换掉的 oldChild</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>克隆元素</h4>
+            <ol>cloneNode: 要克隆的元素.cloneNode(true/false)
+                <li>true:克隆元素和内容</li>
+                <li>false:只克隆元素</li>
+            </ol>
+        </div>
+        <a class="btns" href="javascript:">代码</a>
+        <pre class="text30"><code class="language-js"></code></pre>
+    </section>
+</div>
+<div class="item">
+    <h3>BOM</h3>
+    <section class="vertical">
+        <p>BOM(Browser Object Model) 是指浏览器对象模型，浏览器对象模型提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。BOM由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象。 我们在浏览器中的一些操作都可以使用BOM的方式进行编程处理， 比如：刷新浏览器、后退、前进、在浏览器中输入URL等
+        </p>
+        <div class="small">
+            <h4>对话框</h4>
+            <ol>
+                <li>alert()</li>
+                <li>prompt()</li>
+                <li>confirm()</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>location对象</h4>
+            <p>location对象是window对象下的一个只读属性，可以返回一个Location对象，调用的时候可以省略window对象；location可以获取或者设置浏览器地址栏的URL。
+            </p>
+                <ol>
+                    <li>assign()：委派，作用和href一样</li>
+                    <li>reload()：重新加载。参数：true 强制从服务器获取页面；false 如果浏览器中有缓存的话，直接从缓存获取页面</li>
+                    <li>replace()：替换掉地址栏中的历史，但不记录历史，无法后退</li>
+                    <li>hash：锚点，# 后面的参数</li>
+                    <li>host：主机（包含端口在内）</li>
+                    <li>hostname：主机名（不包含端口）</li>
+                    <li>search：？后面#前面的参数</li>
+                    <li>href：浏览器地址栏中的地址</li>
+                </ol>
+        </div>
+        <div class="small">
+            <h4>URL</h4>
+            <p>统一资源定位符(Uniform Resource Locator, URL)</p>
+            <p>scheme://host:port/path?query#fragment</p>
+            <p>http://www.wolfcode.cn/index.html?name=zs&age=18#bottom</p>
+            <ol>URL的组成
+                <li>scheme:通信协议；常用的http,ftp,maito等</li>
+                <li>host:主机 ； 服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。</li>
+                <li>port:端口号 ； 整数，可选，省略时使用方案的默认端口，如http的默认端口为80。</li>
+                <li>path:路径 ； 由零或多个'/'符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。</li>
+                <li>query:查询 ； 可选，用于给动态网页传递参数，可有多个参数，用'&'符号隔开，每个参数的名和值用'='符号隔开。例如：name=zs</li>
+                <li>fragment:信息片断 ； 字符串，锚点.</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>history对象</h4>
+            <p>History 对象包含用户（在浏览器窗口中）访问过的 URL。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。</p>
+            <ol>常用的history的属性和方法如下:
+                <li>lenght：历史记录的长度</li>
+                <li>back()：向后跳转</li>
+                <li>forward()：向前跳转</li>
+                <li>go()：页面前后跳转，参数 1 表示向前跳转，-1表示向后跳转</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>navigator对象</h4>
+            <ol>
+                <li>userAgent：用户代理，通过userAgent可以判断用户浏览器的类型</li>
+                <li>platform：通过platform可以判断浏览器所在的系统平台类型.</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>三大家族</h3>
+    <section class="vertical">
+        <ol>三大家族注意：
+            <li>获取到的值是一个number类型，不带单位 </li>
+            <li>获取的宽高包含border和padding </li>
+            <li>只能读取，不能设置</li>
+        </ol>
+        <div class="small">
+            <h4>偏移量offset</h4>
+            <p>offset是偏移、位移、补偿的意思，offset家族由offsetWidth、offsetHeight、offsetLeft、offsetTop、offsetParent等组成，使用这些属性可以获取元素的实际宽高和元素到父元素的距离</p>
+            <ol>
+                <li>offsetWidth :  width + border + padding</li>
+                <li>offsetHeight : height + border + padding</li>
+                <li>offsetLeft :  margin-left + 定位父元素的padding-left</li>
+                <li>offsetTop : margin-top + 定位父元素的padding-top</li>
+                <li>offsetParent : 是一个只读属性，用于获取最近一个定位父元素。</li>
+            </ol>
+            <p>元素外边距到父元素的边框内侧，其实就是 元素的margin + 父元素的padding，不包含边框。如果没有定位父元素，则获取到body元素的距离</p>
+        </div>
+        <div class="small">
+            <h4>客户区client</h4>
+                <ol>
+                    <li>clientLeft : clientLeft = border</li>
+                    <li>clientTop : clientTop = border</li>
+                    <li>clientWidth : witdh + padding</li>
+                    <li>clientHeight : hetight + padding</li>
+                </ol>
+        </div>
+        <div class="small">
+            <h4>滚动scroll</h4>
+            <ol>
+                <li>scrollLeft、scrollTop 获取滚动出元素可视区域的距离。</li>
+                <li>scrollwidth : width+padding (如果内容超过元素范围，则获取到内容的高和宽)</li>
+                <li>scrollHeight : height + padding  (如果内容超过元素范围，则获取到内容的高和宽)</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>ES6</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>let</h4>
+            <ol>使用 let 声明变量的特点：
+                <li>同一作用域中不允许重复定义</li>
+                <li>变量声明不会提前</li>
+                <li>具有块级作用域。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>const</h4>
+                <ol>使用 const 用来声明常，其有以下特点：
+                    <li>变量声明不会提前；</li>
+                    <li>具有块级作用域；</li>
+                    <li>值不可改变；</li>
+                    <li>声明时需同时赋值。</li>
+                </ol>
+        </div>
+        <div class="small">
+            <h4>变量的解构赋值</h4>
+            <p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。有数组解构赋值，对象解构赋值等。</p>
+            <ol>
+                <li>若解构不成功，变量的值就等于 undefined；</li>
+                <li>解构赋值允许指定默认值：
+                    <ol>
+                        <li>ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于 undefined，默认值才会生效;</li>
+                        <li>默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</li>
+                    </ol>
+                </li>
+            </ol>
+            <div class="tapNav">
+                <div class="tapTop cur">数组解构赋值</div>
+                <div class="tapTop">对象解构赋值</div>
+                <div class="tapTop">字符串解构赋值</div>
+                <div class="tapTop">数值和布尔值的解构赋值</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    从数组中提取值，按照对应位置，对变量赋值。
+                    <pre class="text37"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+                    <pre class="text38"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>字符串被转换成了一个类似数组的对象，可进行数组解构赋值；
+                        </li>
+                        <li>数组的对象都有一个 length 属性，可进行对象解构赋值。</li>
+                    </ol>
+                    <pre><code class="language-js">let [a, b, c, d, e] = 'hello';
+console.log(a, b, c, d, e);
+let {length} = 'hello';
+console.log(length);</code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。</li>
+                        <li>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于 undefined 和 null 无法转为对象，所以对它们进行解构赋值，都会报错。</li>
+                    </ol>
+                    <pre><code class="language-js">let {toString: s} = 123;
+let {toString: s} = true;
+
+let {prop: x} = undefined;    // TypeError: Cannot destructure property `prop` of 'undefined' or 'null'
+let {prop: y} = null;         // TypeError: Cannot destructure property `prop` of 'undefined' or 'null'</code></pre>
+                </div>
+            </div>
+
+        </div>
+        <div class="small">
+            <h4>字符串的扩展</h4>
+            <ol>
+                <li>includes()：返回布尔值，表示是否找到了参数字符串。</li>
+                <li>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
+                <li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
+                三个方法都支持第二个参数，表示开始搜索的位置。
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text39"><code class="language-js"></code></pre>
+            <p>模板字符串</p>
+            模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
+            <pre><code class="language-js">let person = {name : 'yy', age : 18};
+let str4 = `Hello ${person.name}, your age is ${person.age + 1}.`;
+console.log(str4);</code></pre>
+        </div>
+        <div class="small">
+            <h4>函数的扩展</h4>
+            <h5>函数参数的默认值</h5>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text40"><code class="language-js"></code></pre>
+            <h5>函数参数的解构赋值</h5>
+            <ol>
+                <li>解构赋值可以方便地将一组参数与变量名对应起来
+                    <pre class="text41"><code class="language-js"></code></pre>
+                </li>
+                <li>配置解构赋值指定参数的默认值
+                    <pre><code class="language-js">function func({name = 'xx', age = 18} = {}){    // 給函数参数设置默认值，并给解构赋值设置默认参数
+    console.log(name, age);                     // xx 18
+}
+func();
+// 01. 调用时，因为没有传递实参，函数参数的默认值起作用即 {name = 'xx', age = 18} = {}
+// 02. 对象解构赋值，因为传递的 {} 空对象，所以解构赋值的默认值起作用，及 name = 'xx', age = 18</code></pre>
+                </li>
+            </ol>
+            <h5>rest 参数</h5>
+            <p>用于获取函数的多余参数，这样就不需要使用 arguments 对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。</p>
+            <pre><code class="language-js">function func(a, ...values) {
+    console.log(a);
+    console.log(values);
+}
+func(2, 3, 4);</code></pre>
+            <h5>扩展运算符</h5>
+            <ol>
+                <li>调用函数函数时，若在数组类型的实参前使用 ... 运算符，那么数组值元素取出来按顺序赋值给函数的参数。 </li>
+                <li>可以用来合并数组。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text42"><code class="language-js"></code></pre>
+            <h5>箭头函数</h5>
+            <p>ES6 允许使用“箭头”（=>）简化函数的定义。</p>
+            <ol>
+                <li>箭头函数若有多个形参或者无形参，须使用圆括号，否者可以省略；</li>
+                <li>箭头函数体有多行语句，须使用花括号，否则可以省略；(一行语句可以省略花括号)</li>
+                <li>箭头函数有返回值，若没有花括号时，不写 return，反之须写。</li>
+            </ol>
+            <ol>注意：
+                <li>箭头函数没有自己的作用域，即箭头函数 this 都是使用外部非箭头函数的 this；</li>
+                <li>箭头函数不可以 new；</li>
+                <li>箭头函数不可以使用 arguments 获取参数列表，可以使用 rest 参数代替。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text43"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>class</h4>
+            <a class="btns" href="javascript:">class的基本使用</a>
+            <pre class="text53"><code class="language-js"></code></pre>
+            <a class="btns" href="javascript:">class的继承结构</a>
+            <pre class="text54"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>设计模式</h3>
+    <section class="vertical">
+        <div class="small">
+            <div class="tapNav">
+                <div class="tapTop cur">单例模式</div>
+                <div class="tapTop">工厂模式</div>
+                <div class="tapTop">观察者模式(发布订阅者模式)</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    在JavaScript中单例模式：单个实例模式(在其他面向对象编程语言中，单例模式指的是某个类class永远只有一个实例对象)；
+                    <pre class="text69"><code class="language-js"></code></pre>
+                    <pre class="text70"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text71"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text72"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>其他</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>伪协议</h4>
+            <p>javascript: void(0)</p>
+            <p>https : 协议 ； javascript : 伪协议</p>
+            <p>void(0): 运算符，对给定的表达式进行求值，然后返回 undefined。当返回undefined时，a标签不会做任何事情</p>
+        </div>
+        <div class="small">
+            <h4>其他事件</h4>
+            <ol>
+            <li>onchange  : onchange 事件会在域的内容改变时发生,也可用于单选框与复选框改变后触发的事件。</li>
+            <li>oninput : oninput事件在元素的值已经改变之后立即发生。当元素失去焦点时，会发生onchange事件。</li>
+            <li>animationend : 动画结束事件</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>其他属性操作</h4>
+            <ol>
+                <li>classList.add : 增加类名</li>
+                <li>classList.remove : 删除类名</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>断点调试</h4>
+            <ol>
+                <li>第一个图标是：resume script excution。会将断点恢复执行，过掉当前断点（执行过程重启 resume）。</li>
+                <li>第二个图标是：step over next function ，单步执行，即如果遇到一个函数，它会直接执行完这个函数，而是直接执行跳过进入下一步，不显示细节。</li>
+                <li>第三个图标是：step into next function ，即如果遇到一个函数，它不会一下运行完这个函数，而是进入函数内部，一步一步地执行，这样，我们可以更清楚地观察执行过程。</li>
+                <li>第四个图标是：step out of current function,即如果利用 step into已经进入了函数内部，我们可以通过此功能来一下执行完函数内部剩下的代码。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>异常捕获结构</h4>
+            <ol>
+                <li>try : 可能出错的代码块</li>
+                <li>catch : 处理try代码块中抛出的异常</li>
+                <li>throw : 抛出自定义的异常</li>
+                <li>finally : 无论上面的程序是否有错误,都会执行性的代码块</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text36"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>eval函数</h4>
+            <p>将字符串类型的参数转换成JS代码，立即执行。</p>
+            <pre><code class="language-js">var jsonStr = "({name:'Neld',age:10})";//这里注意加括号
+console.log(eval(jsonStr));//转换成JS的对象</code></pre>
+        </div>
+        <div class="small">
+            <h4>作用域安全的构造函数</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text55"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>with特性</h4>
+            <p>with语句可以在不造成性能损失的情况下，减少变量的长度，同时简化我们的代码。</p>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text62"><code class="language-js"></code></pre>
+            <ol>
+                <li>在{}中如果要为对象添加成员，需要加上前缀</li>
+                <li>在{}中this指向window</li>
+                <li>严格模式下，with特性被禁用</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>严格模式</h4>
+            在脚本或者函数的开头输入"use strict"
+        </div>
+        <div class="small">
+            <h4>即时对象初始化</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text67"><code class="language-js"></code></pre>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text68"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>IE浏览器兼容性问题</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>firstElementChild</h4>
+            <pre class="text73"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>LastElementChild</h4>
+            <pre class="text74"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>nextElementSibling和previousElementSibling</h4>
+            <pre class="text75"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>innerText</h4>
+            <pre class="text76"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>事件注册</h4>
+            element 元素 ;  type 事件类型  ;  fn 事件处理函数
+            <pre class="text77"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>事件移除</h4>
+            <pre class="text78"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>页面滚出去的距离</h4>
+            <pre class="text79"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>鼠标距离文档顶部的距离</h4>
+            鼠标距离文档顶部的距离 = clientY + 页面被滚动处理的长度
+            <pre class="text80"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>其他</h4>
+            <ol>
+                <li>只有谷歌支持.webp， 所以将 .webp 改成 .jpg</li>
+                <li>IE7、8中不支持rgba() 使用  ： filter:alpha(opacity=40)progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF00,endColorstr=#FFFF00);</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>案例集合</h3>
+    <section class="vertical">
+        <a class="bntTap" href="javascript:">案例</a>
+        <div class="tapNav">
+            <div class="tapTop cur">检测用户名</div>
+            <div class="tapTop">点击按钮，随机选中下拉框中的城市</div>
+            <div class="tapTop">全选和反选</div>
+            <div class="tapTop">开关灯</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                是否是3-8位，密码是否是6-12位，如果不满足要求则高亮显示文本框
+                <pre class="text81"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text82"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text83"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text84"><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <a class="bntTap" href="javascript:">案例</a>
+        <div class="tapNav">
+            <div class="tapTop cur">切换二维码案例</div>
+            <div class="tapTop">tab选项卡切换</div>
+            <div class="tapTop">轮播图</div>
+            <div class="tapTop">京东切换公告与促销</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                是否是3-8位，密码是否是6-12位，如果不满足要求则高亮显示文本框
+                <pre class="text85"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <ol>
+                    <li>鼠标放到tab栏时，高亮显示，其他栏取消高亮</li>
+                    <li>注册鼠标经过事件 ： （1）取消所有span的高亮显示 ；（2）设置当前span高亮显示</li>
+                    <li>tab栏对应的div显示，其他div隐藏
+                        所有的span标签和所有的div呈对应关系，我们可以利用元素集合的有序性，在span标签中自定义属性index，然后利用index定位到对应的div</li>
+                </ol>
+                <pre class="text86"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text87"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text88"><code class="language-js"></code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+</article>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/page.js"></script>
+<script src="js/js.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>html</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+</head>
+<body>
+<ul class="navLeft">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul class="navRight">
+    <li><a href="html.html">HTML</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="js.html">JS</a></li>
+    <li><a href="frame.html">框架、工具</a></li>
+    <li><a href="node.js.html">前后端</a></li>
+</ul>
+<div class="top">
+    html笔记（超文本标记语言）
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<article>
+<div class="item">
+    <h3>基本标签</h3>
+    <section class="add text1">
+        <div class="main">
+            <div class="small">
+                <h4>h1~h4(标题)</h4>
+                    <ol>
+                        <li>用来显示标题</li>
+                        <li>h1最大，h4最小</li>
+                        <li>一个网页中最好只有一个h1，作为最主要的标题</li>
+                    </ol>
+            </div>
+            <div class="small">
+                <h4>p（段落）</h4>
+                <ol>
+                    <li>用来显示一个段落</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>pre（预格式化的文本）</h4>
+                <ol>
+                    <li>被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。标签的一个常见应用就是用来表示计算机的源代码。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>img（图片）</h4>
+                <ol>
+                    <li>用来显示一个图片</li>
+                    <li>src :设置图片的URL</li>
+                    <li>width： 图片的宽度</li>
+                    <li>height：图片的高度</li>
+                    <li>title：设置图片在鼠标移上去时显示d额描述文本</li>
+                    <li>alt：占位文字（当图片显示失败的时候显示这个占位文字）</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>a（链接）</h4>
+                <ol>
+                    <li>表示超链接标签</li>
+                    <li>href：表示要链接的地址(URL)。（前面添加http://协议符号） 可用于设置锚点链接，如下
+                        <pre class=""><code class="language-html">&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#35;&#105;&#100;&#34;&#62;&#60;&#47;&#97;&#62;</code></pre>
+                    </li>
+                    <li>target:在哪里打开
+                        <ol>
+                            <li>_self:在当前页面打开（覆盖当前页面）</li>
+                            <li>_blank:在新页面打开</li>
+                            <li>_parent：在父页面打开</li>
+                            <li>_top：在顶层页面打开</li>
+                            <li>某个iframe的name属性值：在某个iframe中打开</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>列表标签</h4>
+                <ol>
+                    <li>ul>li*X:无序列表标签</li>
+                    <li>ol>li*X:有序列表标签</li>
+                    <li>dl>dt+dd*X:项目列表标签</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>语义化标签</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <ol>
+                    <li>header 头部</li>
+                    <li>section 区块（在h5中一般高于div）</li>
+                    <li>nav 导航</li>
+                    <li>figure 媒体（图像，图表，代码等等）</li>
+                    <li>figcaption 媒体标题</li>
+                    <li>aside 侧边栏</li>
+                    <li>article 文章（一般适用于文字列表或者正文）</li>
+                    <li>footer 底部</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>表单标签</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <p>input 它可以根据自己type属性值的不同来变换外观和功能。</p>
+                <ol>
+                    <li>type 类型
+                        <ol>
+                            <li>text：文本</li>
+                            <li>password：密码</li>
+                            <li>button：普通按钮
+                                <pre class=""><code class="language-html">&#60;&#98;&#117;&#116;&#116;&#111;&#110;&#32;&#118;&#97;&#108;&#117;&#101;&#61;&#34;&#21703;&#21704;&#21704;&#34;&#62;&#25105;&#26159;&#26032;&#29256;&#25353;&#38062;&#60;&#47;&#98;&#117;&#116;&#116;&#111;&#110;&#62;</code></pre>
+                            </li>
+                            <li>radio：单选框</li>
+                            <li>checkbox：复选框</li>
+                            <li>submit：发送</li>
+                            <li>reset：重写</li>
+                            <li>file：上传</li>
+                            <li>image：图片</li>
+                            <li>email：邮箱</li>
+                            <li>url：网址</li>
+                            <li>search：搜索框</li>
+                            <li>color：拾色器</li>
+                            <li>range：范围</li>
+                        </ol>
+                    </li>
+                    <li>value：框上预设文字</li>
+                    <li>placeholder：占位文字</li>
+                    <li>name：为了防止单选的时候，用户多项选择，只需给不同的input标签设置相同的name属性值即可，复选框 name属性不会限制用户多选。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>label标签</h4>
+                <p>扩大表单元素的触发范围。标签属性for，id；给这个标签添加一个for属性，属性值是某个表单元素的id即可。新版：直接用label把文字信息和表单元素包含起来就可以了。</p>
+            </div>
+            <div class="small fieldset">
+                <h4>fieldset legend 标签</h4>
+                <pre class="text2"><code class="language-html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>文本域</h4>
+                <p>textarea</p>
+            </div>
+            <div class="small">
+                <h4>下拉菜单元素</h4>
+                <ol>
+                    <li>select>option: 默认是显示option第一项，如果要指定默认项，只需要给option添加selected属性即可。</li>
+                    <li>设置multiple="multiple" ; 可设置多选。</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>音频 视频标签</h3>
+    <section>
+        <div class="main">
+            <div class="small video">
+                <h4>video 视频标签</h4>
+                <ol>
+                    <li>src：视频路径（必选属性）</li>
+                    <li>- controls：控制条，表示是否添加播放控件；（一般情况这个都是不开放给用户的）</li>
+                    <li>autoplay：是否自动播放，在谷歌浏览器中是不能自动播放的，在最新的火狐浏览器也是默认被禁用，需要手动打开</li>
+                    <li>width：宽度</li>
+                    <li>height：高度</li>
+                    <li>loop：设置视频是否循环播放；（广告肯定有这个属性）</li>
+                    <li>preload：预加载（当具有preload的时候，autoplay会相冲突，不起作用）</li>
+                    <li>poster：视频封面</li>
+                    <li>muted：静音</li>
+                </ol>
+                <pre class=""><code class="language-html">&#60;&#118;&#105;&#100;&#101;&#111;&#32;&#115;&#114;&#99;&#61;&#34;&#109;&#101;&#100;&#105;&#97;&#47;&#115;&#117;&#112;&#101;&#114;&#46;&#109;&#112;&#52;&#34;&#32;&#99;&#111;&#110;&#116;&#114;&#111;&#108;&#115;&#32;&#119;&#105;&#100;&#116;&#104;&#61;&#34;&#53;&#48;&#48;&#34;&#32;&#112;&#111;&#115;&#116;&#101;&#114;&#61;&#34;&#105;&#109;&#97;&#103;&#101;&#115;&#47;&#121;&#120;&#46;&#106;&#112;&#103;&#34;&#32;&#97;&#117;&#116;&#111;&#112;&#108;&#97;&#121;&#32;&#108;&#111;&#111;&#112;&#32;&#112;&#114;&#101;&#108;&#111;&#97;&#100;&#32;&#109;&#117;&#116;&#101;&#100;&#62;&#10;&#60;&#47;&#118;&#105;&#100;&#101;&#111;&#62;</code></pre>
+                <p>source：设置video标签的多个格式的视频。浏览器会优先播放支持的格式。使用的基本结构：video>source 相当于又是一个
+                    ul>li结构；标签属性：src：视频路径；type：表示设置视频的格式 </p>
+                <pre class="text3"><code class="language-html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>audio 视频标签</h4>
+                <p>audio几乎拥有所有的video属性，除了3个可见属性：width，height，poster。</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Record</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>快捷操作</h4>
+                <pre class=""><code class="language-html">ul>(li>a{$})*10</code></pre>
+            </div>
+            <div class="small">
+                <h4>命名收集</h4>
+                <ol>
+                    <li>wrap：vt. 包；缠绕；隐藏；掩护 ；vi. 包起来；缠绕；穿外衣；n. 外套；围巾</li>
+                    <li>item：n. 条款，项目；一则；一件商品（或物品）；adj. 又，同上；v. 记下；逐条列出</li>
+                    <li>slogan：n. 标语；呐喊声</li>
+                    <li>wrapper：包裹，（版芯）</li>
+                    <li>main：主要的（版芯）</li>
+                    <li>con：（container）内容、集装箱（版芯）</li>
+                    <li>topbar：顶部条，顶部标题</li>
+                    <li>category：种类，分类</li>
+                    <li>caret：插入符号</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>常用转义字符</h4>
+                <ol>
+                    <li>空格：&#38;&#110;&#98;&#115;&#112;&#59;</li>
+                    <li>版权号: &#38;&#99;&#111;&#112;&#121;&#59;</li>
+                    <li>大于号：&#38;&#103;&#116;&#59;</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+</article>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/page.js"></script>
+<script src="js/html.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/page.css">
+
+</head>
+<body>
+<ul class="navLeft">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul class="navRight">
+    <li><a href="html.html">HTML</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="js.html">JS</a></li>
+    <li><a href="frame.html">框架、工具</a></li>
+    <li><a href="node.js.html">前后端</a></li>
+</ul>
+<div class="top">
+    CSS笔记(层叠样式表)
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<article>
+<div class="item">
+    <h3>css基本</h3>
+    <section class="text1">
+        <div class="main">
+            <p>css代码需写在style标签内部，表示环境</p>
+            <pre><code class="language-html">&#32;&#60;&#115;&#116;&#121;&#108;&#101;&#62;&#60;&#47;&#115;&#116;&#121;&#108;&#101;&#62;</code></pre>
+            <p>css分为两部分，选择器和属性，p{...}</p>
+            <p>css属性的语法规则：键值对规则，就是K:V;</p>
+            <div class="small">
+                <h4>css书写格式</h4>
+                <p>css的书写格式有三种：内嵌式，链接式，行内式</p>
+                <p> 行内式的优先级最高，内联式和链接式哪个距离html对象越近，优先级越高。</p>
+            </div>
+            <div class="small">
+                <h4>css两个最大特性</h4>
+                <ol>
+                    <li>层叠性：后面的属性会覆盖前面写的属性；</li>
+                    <li>继承性：给父级写的样式子级标签也能生效，文字控制属性是可以继承的，超链接的文本文字属性除外</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>文字控制属性</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <ol>
+                    <li>font-size：控制文字的字号大小，需要加上px单位</li>
+                    <li>color：控制文字的颜色，只针对文字有效</li>
+                    <li>font-family：设置文字的字体，中文需要加""</li>
+                    <li>text-align:设置文字水平对方式，有：left center right</li>
+                    <li>text-justify：两端对齐</li>
+                    <li>text-indent:2em 文字缩句两个单位</li>
+                    <li>font-weight：bold：文字加粗；normal：普通字体</li>
+                    <li>font-style：italic;文本倾斜 斜体</li>
+                    <li>text-decoration：underline：下划线；overline：上划线； line-through：删除线；none：清除下划线</li>
+                    <li>
+                        line-height：单位可以设置为像素,从一行文字的顶端开始一直到第二行文字的顶端的地方，这段距离就是行高的距离,如果希望一行文字在盒子中垂直居中，只需要设置行高属性的高度等于标签高度即可。
+                    </li>
+                    <li>text-overflow 文字溢出属性
+                        <ol>
+                            <li>clip：p溢出的内容直接裁剪掉（字符可能会显示不完整）</li>
+                            <li>pellipsis：溢出那行的结尾处用省略号表示</li>
+                            <li>text-overflow:ellipsis 溢出文字结尾处用省略号显示(与overflow: hidden;white-space: nowrap配合使用)</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>biu属性</h4>
+                <pre class="text1"><code class="language-html"></code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>盒子属性</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <ol>
+                    <li>width：宽度</li>
+                    <li>height：高度</li>
+                    <li>background：背景颜色</li>
+                    <li>min-width：最小宽度</li>
+                    <li>max-width：最大宽度</li>
+                    <li>display: block 块级标签,inline 行内标签,inline-block 可以让一个盒子既可以人为指定尺寸，又可以多个盒子在同一行共存</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>浮动属性</h4>
+                <ol>float：
+                    <li>right</li>
+                    <li>right</li>
+                </ol>
+                <p>clear:both:清除左右所有浮动元素对当前元素的影响。</p>
+                <p>浮动塌陷:一个没有指定高度的盒子中，内部的盒子浮动了，会导致这个盒子没有高度范围，这种情况是浮动塌陷。解决方法：给塌陷的盒子添加overflow:hidden;</p>
+            </div>
+            <div class="small">
+                <h4>定位</h4>
+                <ol>
+                    <li>position：relative （相对定位：占位脱离） 坐标值设置属性：left，top，bottom，right</li>
+                    <li>position：absolute 绝对定位：（彻底脱离：绝对不会在标准流中占任何位置，也不会影响标准流中的任何元素）</li>
+                    <li>position：fixed 固定定位：（固定在屏幕上定位）</li>
+                    <li>z-index：（定位元素的图层顺序调节属性） 控制定位元素的上下显示关系，注意它只是表示一种图层顺序所以不带px单位。</li>
+                </ol>
+                <p>相对定位是相对于网页进行定位；绝对定位是相对于最近定位的元素进行定位，否则相对窗口进行定位</p>
+            </div>
+            <div class="small">
+                <h4>vertical-align：行高垂直对齐属性</h4>
+                <ol>
+                    <li>top</li>
+                    <li>middle</li>
+                    <li>bottom</li>
+                </ol>
+                <br>
+                <ol>
+                    <li>vertical-align是给需要对齐的元素自身添加的！</li>
+                    <li>如果想给一个图片（图片默认底对齐）在一个盒子里居中，需要盒子的line-height和盒子的高度相等，还需要给图片设置vertical-align：middle；</li>
+                    <li>middle并非真正的居中对齐而是行内级盒子的中心点与父盒基线加上x-height一半的线对齐。 例如如果想设置一个盒子里的图片在盒子中居中对齐，则需设置这个盒子的font-size为0px。
+                    </li>
+                </ol>
+                <img src="images/chuizhijuzhong.jpg" alt="">
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>边框 边距 背景 溢出</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>边框属性</h4>
+                <div class="wrap add2 text2">
+                    <ol class="neirong">
+                        边框三属性：
+                        <li>边框粗细程度：一般以像素为单位</li>
+                        <li>边框类型：solid 实线 dotted 点 dashed 虚线</li>
+                        <li>边框颜色：英文颜色或者16进制或者rgb 透明色：transparent</li>
+                        <li>边框对上下左右各个位置的单独设置
+                            <ol>
+                                <li>border-top</li>
+                                <li>border-left</li>
+                                <li>border-right</li>
+                                <li>border-bottom</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="small">
+                <h4>边距属性</h4>
+                <ol>
+                    <li>margin：外边距；表示标签以外的距离</li>
+                    <li>padding：内边距；表示标签与内容之间的距离</li>
+                </ol>
+                <br>
+                <ol>单独指定某个方向的边距：
+                    <li>margin-top</li>
+                    <li>margin-right</li>
+                    <li>margin-bottom</li>
+                    <li>margin-left</li>
+                </ol>
+                <br>
+                <ol>用1~4个值书写内外边距时表达的意思：
+                    <li>1个值：表示四个方向的距离</li>
+                    <li>2个值：表示上下、左右的距离</li>
+                    <li>3个值：表示上、左右、下的距离</li>
+                    <li>4个值：表示上、右、左、下的距离（顺时针）</li>
+                </ol>
+                <br>
+                <ol>box-sizing：
+                    <li>border-box：为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过把已设定的 'width' 和 'height'
+                        属性分别减去边框和内边距才能得到内容的宽度和高度。
+                    </li>
+                    <li>content-box：默认值</li>
+                </ol>
+                <br>
+                <ol>外边距塌陷现象：
+                    <li>两个同级的盒子紧挨着出现垂直边距，两个外边距margin会相互粘连，以最大的边距进项计算；解决方法：尽量避免同时出现两个都是外边距的情况，可以只给一个盒子增加margin；</li>
+                    <li>两个嵌套的盒子，父级盒子和子级盒子同时都存在同一方向的边距，两个边距就会相互粘连，以最大的边距进项计算；解决方式：给父级添加一个css样式overflow：hidden；</li>
+                </ol>
+                <br>
+                <p>清除默认边距：有些标签默认带有内外边距，如标题标签、段落标签，可以使用通配符——*选中所有标签；清空默认边距时需要清空 padding，margin，border将它们的值都设为0即可。
+                </p>
+            </div>
+            <div class="small">
+                <h4>背景属性：background</h4>
+                <ol>
+                    <li>background-color ： 背景色</li>
+                    <li>background-image ： 背景图片</li>
+                    <li>background-repeat ： 平铺方式 ：no-repeat 不平铺；repeat-x 横向平铺；repeat-y 纵向平铺</li>
+                    <li>background-position ： 水平位置 垂直位置 ： 水平位置的值有：left center right；垂直位置的值有：top center bottom
+                        ；还有一种是给具体的坐标值：例如：100px 200px （坐标值接受负值；应用背景图片标签的左上角是坐标为0 0的原点）
+                    </li>
+                    <li>固定方式 固定方式如果设置为fixed，则背景图片固定在网页某个位置
+                        <pre><code
+                                class="language-css">background：#ccc url(dog.jpg) no-repeat left top fixed</code></pre>
+                    </li>
+                    <li>设置多个背景可用逗号隔开，写在前面的背景会显示在前面
+                        <pre><code class="language-css">
+                            background: url("../images/con_bg_l.jpg") no-repeat,
+                                        url("../images/con_bg_center.jpg") repeat-x,
+                                        url("../images/con_bg_r.jpg") no-repeat;
+                        </code></pre>
+                        设置背景时先指定背景图再指定背景颜色才能把图片显示出来（显示在颜色上）
+                    </li>
+                    <li>inherit : 背景跟随父元素</li>
+                    <li>background-size：
+                        <ol>
+                            <li>可以接受百分比设置。</li>
+                            <li>可以接受固定的人为像素设置尺寸。</li>
+                            <li>可以接受两个关键词设置。
+                                <ol>
+                                    <li>contain：表示尽可能完整的显示图片。</li>
+                                    <li>cover：表示尽可能铺满盒子。</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>background-origin：背景起源属性
+                        <ol>
+                            <li>border-box：从边框盒子开始渲染图片。</li>
+                            <li>padding-box：从内边距盒子开始渲染图片。</li>
+                            <li>content-box：从内容空间盒子开始渲染图片。</li>
+                        </ol>
+                    </li>
+                    <li>background-clip ： 背景裁切属性
+                        <ol>
+                            <li>border-box</li>
+                            <li>padding-box</li>
+                            <li>content-box</li>
+                        </ol>
+                        默认情况背景起源和背景裁切它的值都是padding-box
+                        <img src="images/backgrounddaima.jpg" alt="">
+                    </li>
+                    <li>
+                        background：linear-gradient(180deg,red,green,blue);渐变颜色;其中如果色值的后面跟一个百分比表示染色的位置。如果不写表示均分颜色;0deg表示从下到上，180deg表示从上到下
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>溢出属性</h4>
+                <ol>
+                    <li>visible 默认值。内容不会被修剪，会呈现在元素框之外。</li>
+                    <li>hidden 内容会被修剪，并且其余内容是不可见的！还可用来处理外边距塌陷（嵌套关系）问题，会触发BFC</li>
+                    <li>scroll 内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。（横向竖向的都会有）</li>
+                    <li>auto 如果内容被修剪，那么浏览器会显示滚动条以便查看其余的内容。（只会根据情况出现滚动条）</li>
+                    <li>inherit 规定会从父元素继承overflow属性的值</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>选择器</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>基本选择器</h4>
+                <ol>
+                    <li>标签选择器：使用标签进行选择</li>
+                    <li>类选择器：使用类进行选择
+                        class=""
+                    </li>
+                    <li>id选择器：使用id进行选择</li>
+                    <li>后代选择器：用一个空格表示“里面的” 的意思，作用是通过父级选中它内部的后代标签；
+                        例如：ul li 表示选中 ul里面的所有li；
+                        .box div 表示选中类名为box 里面的 div；
+                    </li>
+                    <li>并集选择器：多个选择器之间用逗号隔开表示共同关系；作用是可以将多个选择器选中共同来给它们写样式；选择器不分先后顺序；例如:div,p,.box,#box{}</li>
+                    <li>交集选择器：通过标签名称和标签身上的类名连续书写（中间不需要空格或符号，连续写；）作用是用来选中带有类名的那个标签；例如：div.box 表示只选中带有 box类名的那个div ；</li>
+                    选择器权重： id：1吨；类：1斤；标签：1克；通配符：1毫克；
+                </ol>
+            </div>
+            <div class="small">
+                <h4>高级选择器</h4>
+                <ol>
+                    <li>子级选择器：> ：表示父元素的直接子级元素（亲儿子）</li>
+                    <li>同级选择器：+ ：表示同级元素紧挨着的下一个元素</li>
+                    <li>~ ：选择前面有同级元素的所有兄弟级元素</li>
+                    <li>属性选择器：
+                        <ol>
+                            <li>[k]：标签中包含k属性的选择器（div[id] 表示标签中含有id属性的div）</li>
+                            <li>[k=“v”]：表示属性为k，属性值为v的选择器</li>
+                            <li>[k^=“v”]：表示属性为k，属性值为v开头的选择器</li>
+                            <li>[k$="v"]：表示属性为k，属性值为v结尾的选择器</li>
+                            <li>[k*="v"]：表示属性为k，属性值中包含v的选择器</li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol>特殊选择器
+                    <li>：root ：表示选择HTML根标签</li>
+                    <li>：empty ：表示选择空标签（标签内容为空）</li>
+                    <li>：not（k）：表示非k这个标签</li>
+                    <li>：selection ：鼠标框选中的元素（火狐没反应）</li>
+                </ol>
+                <ol>个数选择器
+                    <li>同级选择器（重个数）
+                        <ol>
+                            <li>n:nth-child（k） ：同级中的第k个n元素</li>
+                            <li>n:first-child ：同级中第一个n元素</li>
+                            <li>n:last-child ：同级中最后一个n元素</li>
+                            <li>n:nth-last-child（k） ：同级中倒数第k个n元素</li>
+                        </ol>
+                        同级选择器如果后面个数为k的标签与前面的n不符合则找不到
+                    </li>
+                    <li>同类型选择器（重类型）
+                        <ol>
+                            <li>n:nth-of-type（k） ：同类型中第k个元素</li>
+                            <li>n:first-of-type ： 同类型中第一个元素</li>
+                            <li>n:last-of-type ： 同类型中最后一个元素</li>
+                            <li>n:nth-last-of-type(k) : 同类型中倒数第k个元素</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>表格 文本域</h3>
+    <section class="add text3">
+        <div class="main">
+            <div class="small">
+                表格基本结构：table>tr>td <br>
+                用css添加边框的时候，除了给table添加边框之外，建议给td也添加边框属性，但如果是在table身上给表格添加边框属性的时候，所有的单元格都会有边框。
+                <ol>
+                    <li>大标题：caption</li>
+                    <li>标题：th 标题默认带有文本水平居中，加粗效果</li>
+                    <li>合并单元格属性都是给td添加的
+                        <br>
+                        rowspan 合并当前行和下面的行
+                        <br>
+                        colspan 合并当前列和下面的列
+                        <br>
+                        值为合并的行或者列的个数，没有单位
+                    </li>
+                    <li>border-spacing 单元格之间的距离 （给table添加）
+                        <ol>
+                            <li>一个值，表示上下左右的间距tr</li>
+                            <li>两个值，表示上下 左右的间距</li>
+                            <li>如果取borde-spacing：0；会出现一条线的表格，但只是两个1px的线进行重合。</li>
+                        </ol>
+                    </li>
+                    <li>border-collapse 表格塌陷 （给table添加） border-collapse：collapse；让单元格之间的间距塌陷成1px的细线表格</li>
+                </ol>
+            </div>
+            <div class="small">
+                禁止拉动文本域大小的属性
+                <pre><code class="language-css">textarea{resize:none;}</code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>投影 圆角 不透明度</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>box-shadow : 盒子投影属性</h4>
+                <p>box-shadow:20px （水平位置） 30px（垂直位置） 40px（模糊程度） 50px（阴影大小） #000（阴影颜色） inset（内外位置，默认是外面） </p>
+                <p> box-shadow：至少有两个值，第一个表示水平位置，第二个表示垂直位置，投影默认并不是黑色，实际上是跟随了文本的颜色，模糊程度不能为负数。</p>
+            </div>
+            <div class="small">
+                <h4>text-shadow：文字投影属性</h4>
+                <p>text-shadow：10px（水平位置） 20px（垂直位置） 30px（模糊程度） green投影颜色</p>
+                <p>text-shadow：至少要有2个值，第一个表示水平位置，第二个表示垂直位置，默认投影是黑色模糊程度不能为负数。</p>
+            </div>
+            <div class="small">
+                <h4>border-radius：圆角属性</h4>
+                <p>
+                    1个值：四个角
+                    <br>
+                    2个值：左上右下 右上左下
+                    <br>
+                    3个值：左上 右上左下 右下
+                    <br>
+                    4个值：左上 右上 右下 左下
+                    <br>
+                    半圆：宽度和高度关系2:1，圆角第一个值和第二个值为宽度的一半（高度的值）,其他给0
+                    <br>
+                    正圆：宽度和高度1:1，圆角只要一个值，为宽度的一半，或者50%
+                </p>
+            </div>
+            <div class="small">
+                <h4>不透明度</h4>
+                <ol>
+                    <li>opacity：元素不透明度的效果 （值可以是0-1的小数，小数点之前的0可以省略，也可以是0-100%的百分数，0表示完全透明，但是不是消失，还会占用显示的时候的位置）</li>
+                    <li>
+                        rgba：只是颜色的属性值,表示颜色的色值的方式有：英文单词，16进制，rgb（rgba），hsl（hsla），rgb的值范围是0-255， 0,0,0 黑色 255,255,255白色
+                    </li>
+                </ol>
+                <pre><code class="language-css">background: rgb(128,0,0);
+/*a表示alpha 透明度的意思，数值0-1的小数，0可以省略*/
+background: rgba(255,0,0,.5);</code></pre>
+                <p>opacity能够让背景和内容同时透明，rgba只能给元素自身（color）或者背景（background）透明</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>hover 转换 过渡属性</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>鼠标移上</h4>
+                <p>hover：想给哪个加上鼠标移上的效果就在哪个标签后面添加：hover</p>
+            </div>
+            <div class="small">
+                <h4>transform： 转换属性</h4>
+                <ol>
+                    <li>rotate（xdeg） ：旋转
+                        <p>transform-origin：用来设置盒子的旋转中心点</p>
+                        <p>它可以接受三种类型的值（像素类型的值；百分比；特殊关键词），默认是先水平 垂直。</p>
+                    </li>
+                    <li>scale（1,1） ：它的小括号里有两个值表示水平缩放和垂直缩放，其中1表示缩放为100%也就是表示不变。</li>
+                    <li>translate（水平偏移，垂直偏移）： 位移</li>
+                    以上三大功能都可以在最后加一个大写的X,Y,Z后缀来单独设置是哪个方向。
+                    <li>skew（水平度数，垂直度数）: 倾斜功能；注意事项：度数越大会被拉得越长</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>transition：过渡属性</h4>
+                <p>transition：属性名称 过度时间 动画类型缓动 延迟时间。</p>
+                <p>其中属性名称可以通过一个all来设置所有。动画类型要特殊记住linear表示匀速；其他的属性中可能transition-delay会单独用到。
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>自定义动画属性</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>animation：设置自定义的动画</h4>
+                <ol>自定义动画步骤
+                    <li>选择一个元素通过animation绑定动画并设置时间</li>
+                    <li>通过@keyframes name{}关键词来声明一个动画。动画名是自定义的不能以数字开头。</li>
+                    <li>在大括号的内部通过百分比定义动画的关键帧，每个关键帧都是一个样式条。直接书写这个状态的css样式即可。</li>
+                    <li>如果只有两个变化，0%可以写为from，100%可以写成to；</li>
+                </ol>
+                <br>
+                <strong>animation ：动画名称 动画时间 动画缓动 动画延迟 动画次数 动画方向 播放状态</strong>
+                <ol>
+                    <li>动画缓存中linear表示匀速；</li>
+                    <li>动画次数中infinite表示无限次；</li>
+                    <li>动画方向中alternate表示往复播放；</li>
+                    <li>播放状态中paused：暂停 running：播放；</li>
+                    <li>animation-play-state表示播放状态单独控制。</li>
+                </ol>
+                <p>动画定义符</p>
+                <pre><code class="language-css">@keyframes 动画名称{
+
+0%{}
+
+100%{}
+
+}</code></pre>
+            </div>
+            <div class="small">
+                <h4>三维参照属性</h4>
+                <p>transform-style：preserve-3d</p>
+                <p> 三维的坐标系需要给父级设置一个三维参照属性，才能让子级顺利进入三维空间，这个原理类似于子绝父相。</p>
+                <p>在使用transform属性的时候要避免被后面的动画覆盖，如果涉及到用缩放功能尽量将缩放放在最后书写，最理想的顺序：transform：位移 旋转 缩放；</p>
+            </div>
+            <div class="small">
+                <h4>透视属性</h4>
+                <p>perspective：距离像素</p>
+            </div>
+            <div class="small">
+                <h4>backface-visibility</h4>
+                <pre><code class="language-css">backface-visibility: visible|hidden;</code></pre>
+                <p>backface-visibility: hidden；图片面向 : 可见； 背向 : 不可见</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>伪类和伪元素 自定义字体</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>伪类</h4>
+                <p>比如：hover 表示当鼠标移上指定标签的时候；它表示的是一种状态。</p>
+            </div>
+            <div class="small">
+                <h4>伪元素</h4>
+                <pre><code class="language-css">div::before{
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: green;
+            display: inline-block;
+            background: url("favicon.ico") no-repeat;
+
+        }
+        div::after{
+            content: "不留下一个活口";
+        }</code></pre>
+                <ol>
+                    <li>::before 表示在元素的内部的前面追加内容</li>
+                    <li> ::after 表示在元素的内部的后面追加内容</li>
+                    伪元素使用的时候，必须要有content属性，如果没有文字内容，那么content属性为空！
+                </ol>
+            </div>
+            <div class="small">
+                <h4>自定义字体</h4>
+                <pre><code class="language-css">@font-face {
+          font-family: "mzd";
+            src: url("fonts/mzd.ttf");
+        }
+        p{
+            font-family: "mzd";
+            font-size: 40px;
+        }</code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>媒体查询（响应式）</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <h4>@media（min-width：620px ） and （max-width：980px）{css样式条}</h4>
+                <p>（有很多坑要注意，and的左右必须要有空格。临界值的css键值对最后一定不要加分号，加了就出错。定义多段范围的时候临界值不要重复。）</p>
+                <p>经验值：移动端最大宽度是620px；pc端最小宽度的经验值是980px</p>
+                <p>外链式css： link标签支持一个叫做media的属性
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>flex布局</h3>
+    <section>
+        <div class="main">
+            <p>display:flex/inline-flex</p>
+            <p>设为 Flex布局后，子元素的float、clear和vertical-align属性将失效。但是position属性，依然生效。</p>
+            <div class="small">
+                <h4>父元素属性</h4>
+                <ol>
+                    <li>flex-flow flex-direction和flex-wrap的缩写形式
+                        <ol>
+                            <li>flex-direction 设置主轴方向
+                                <ol>
+                                    <li>row（默认值）： 主轴为水平方向，起点在左端</li>
+                                    <li>row-reverse： 主轴在水平方向，起点在右端</li>
+                                    <li>column：主轴为垂直方向，起点在上沿</li>
+                                    <li>column-reverse：主轴为垂直方向，起点在下沿</li>
+                                </ol>
+                            </li>
+                            <li>flex-wrap
+                                <ol>
+                                    <li>nowrap（默认）：不换行。当容器宽度不够时，每个项目会被挤压宽度</li>
+                                    <li>wrap： 换行，并且第一行在容器最上方</li>
+                                    <li>wrap-reverse： 换行，并且第一行在容器最下方</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>align-content 配合flex-wrap使用
+                        <ol>
+                            <li>stretch（默认值）：轴线占满整个交叉轴</li>
+                            <li>flex-start：与交叉轴的起点对齐</li>
+                            <li>flex-end：与交叉轴的终点对齐</li>
+                            <li>center：与交叉轴的中点对齐</li>
+                            <li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布</li>
+                            <li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍</li>
+                        </ol>
+                    </li>
+                    <li>justify-content 项目在主轴上的对齐方式
+                        <ol>
+                            <li>flex-start（默认值）： 项目位于主轴起点。</li>
+                            <li>flex-end：项目位于主轴终点。</li>
+                            <li>center： 居中</li>
+                            <li>space-between：两端对齐，项目之间的间隔都相等。(开头和最后的项目，与父容器边缘没有间隔)</li>
+                            <li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。(开头和最后的项目，与父容器边缘有一定的间隔)</li>
+                        </ol>
+                    </li>
+                    <li>align-items 定义项目在交叉轴上如何对齐。
+                        <ol>
+                            <li>flex-start：交叉轴的起点对齐。(默认)</li>
+                            <li>flex-end：交叉轴的终点对齐。</li>
+                            <li> center：交叉轴的中点对齐。</li>
+                            <li>baseline: 项目的第一行文字的基线对齐。(文字的行高、字体大小会影响每行的基线)</li>
+                            <li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>子元素属性</h4>
+                <div class="wrap add2 text4">
+                    <ol class="neirong">
+                        <li>order 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
+                        <li>flex flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。
+                            <ol>
+                                <li>flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。设为非0的子元素按数值平均分配。</li>
+                                <li>flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。设为0则不缩小。</li>
+                                <li>flex-basis定义项目占据的主轴空间。(如果主轴为水平，则设置这个属性，相当于设置项目的宽度。 原width将会失效。)</li>
+                            </ol>
+                        </li>
+                        <li>align-self:定义单个项目自身在交叉轴上的排列方式，可以覆盖掉容器上的align-items属性。
+                            属性值与align-items相同，默认值为auto，表示继承父容器的align-items属性值。
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>grid布局</h3>
+    <section>
+        <div class="main">
+            <p>display:grid/inline-grid</p>
+            <p>设为网格布局以后，容器子元素（项目）的float、display: inline-block、display: table-cell、vertical-align和column-*等设置都将失效。</p>
+            <div class="small">
+                <h4>网格容器(Grid Container) 属性</h4>
+                <ol>
+                    <li>grid-template-columns :&#60;&#116;&#114;&#97;&#99;&#107;&#45;&#115;&#105;&#122;&#101;&#62;&#32;&#46;&#46;&#46;&#32;&#124;&#32;&#60;&#108;&#105;&#110;&#101;&#45;&#110;&#97;&#109;&#101;&#62;&#32;&#60;&#116;&#114;&#97;&#99;&#107;&#45;&#115;&#105;&#122;&#101;&#62;&#32;&#46;&#46;&#46;</li>
+                    <li>grid-template-rows : &#60;&#116;&#114;&#97;&#99;&#107;&#45;&#115;&#105;&#122;&#101;&#62;&#32;&#46;&#46;&#46;&#32;&#124;&#32;&#60;&#108;&#105;&#110;&#101;&#45;&#110;&#97;&#109;&#101;&#62;&#32;&#60;&#116;&#114;&#97;&#99;&#107;&#45;&#115;&#105;&#122;&#101;&#62;&#32;&#46;&#46;&#46;
+                        <pre><code class="language-css">.container {
+  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}</code></pre>
+                        <ol>
+                            <li> track-size：定义网格单元的宽高，其单位可以是一个长度(如px、em、rem、vw、vh)或百分比，也可以是网格中自由空间的份数(单位为fr)。fr
+                                单元是除去所有非灵活网格项之后的剩余空间等分。
+                            </li>
+                            <li>line-name：定义网格线的名称，它不是必须值。可以一个你选择的任意名字，当没有显示设定时，它的名字以数字表示。一条网格线(Grid Line)可以有多个名称,例如
+                                grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
+                            </li>
+                            repeat() 可以简化重复的值,接受两个参数，第一个参数是重复的次数（上例是3），第二个参数是所要重复的值。
+                            例如 : grid-template-columns: repeat(2, 100px 20px 80px);
+                        </ol>
+                    </li>
+                    <li>grid-template-areas
+                        <ol>
+                            <li> grid-area-name：由网格项的 grid-area 指定的网格区域名称</li>
+                            <li>.（点号） ：代表一个空的网格单元</li>
+                            <li>none：不定义网格区域</li>
+                        </ol>
+                        <pre><code class="language-css">.item-a {
+  grid-area: header;
+}
+.item-b {
+  grid-area: main;
+}
+.item-c {
+  grid-area: sidebar;
+}
+.item-d {
+  grid-area: footer;
+}
+
+.container {
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}</code></pre>
+                        <p>声明中的每一行都需要有相同数量的单元格。</p>
+                        <p>区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为区域名-start，终止网格线自动命名为区域名-end。</p>
+                        <p>比如，区域名为header，则起始位置的水平网格线和垂直网格线叫做header-start，终止位置的水平网格线和垂直网格线叫做header-end。
+                        </p>
+                    </li>
+                    <li>grid-gap grid-column-gap和grid-row-gap的合并简写形式
+                        <ol>
+                            <li>grid-row-gap用于设置行间距</li>
+                            <li>grid-column-gap用于设置列间距。</li>
+                        </ol>
+                    </li>
+                    <li>grid-auto-flow
+                        <ol>
+                            <li>row : 默认值 "先行后列"</li>
+                            <li>column : "先列后行"</li>
+                            <li>row dense</li>
+                        </ol>
+                    </li>
+                    <li>place-items align-items属性和justify-items属性的合并简写形式
+                        <ol>
+                            <li>justify-items 设置单元格内容的水平位置（左中右）/ align-items 设置单元格内容的垂直位置（上中下）
+                                <ol>
+                                    <li>start：对齐单元格的起始边缘。</li>
+                                    <li>end：对齐单元格的结束边缘。</li>
+                                    <li>center：单元格内部居中。</li>
+                                    <li>stretch：拉伸，占满单元格的整个宽度（默认值）。</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>place-content align-content属性和justify-content属性的合并简写形式。<p>
+                        如果用像px非弹性单位定义的话，总网格区域大小有可能小于网格容器，这时候你可以设置网格的对齐方式</p>
+                        <ol>
+                            <li>justify-content 整个内容区域在容器里面的水平位置（左中右） / align-content 整个内容区域的垂直位置（上中下）
+                                <ol>
+                                    <li>start : 对齐容器的起始边框。</li>
+                                    <li>end : 对齐容器的结束边框。</li>
+                                    <li>center : 容器内部居中。</li>
+                                    <li>stretch : 项目大小没有指定时，拉伸占据整个网格容器。</li>
+                                    <li>space-around ：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。</li>
+                                    <li>space-between : 项目与项目的间隔相等，项目与容器边框之间没有间隔。</li>
+                                    <li>space-evenly : 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>grid-auto-columns / grid-auto-rows
+                        浏览器自动创建的多余网格的列宽和行高。写法与grid-template-columns和grid-template-rows完全相同。如果不指定这两个属性，浏览器完全根据单元格内容的大小，决定新增网格的列宽和行高。
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>网格项(Grid Item)属性</h4>
+                <ol>
+                    <li>grid-column 属性， grid-row 属性
+                        <p>
+                            grid-column属性是grid-column-start和grid-column-end的合并简写形式，grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
+                        <p>这两个属性之中，也可以使用span关键字，表示跨越多少个网格。</p>
+                        <pre><code class="language-css">.item-1 {
+  background: #b03532;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}</code></pre>
+                        <p>斜杠以及后面的部分可以省略，默认跨越一个网格。</p>
+                        <pre><code class="language-css">.item-1 {
+  grid-column: 1;
+  grid-row: 1;
+}</code></pre>
+                        <p>上面代码中，项目item-1占据左上角第一个网格。</p>
+                        <p>如果产生了项目的重叠，则使用z-index属性指定项目的重叠顺序</p>
+                    </li>
+                    <li>grid - area :指定项目放在哪一个区域。<p>
+                        grid-area属性还可用作grid-row-start、grid-column-start、grid-row-end、grid-column-end的合并简写形式，直接指定项目的位置。</p>
+                        <pre><code class="language-css">.item-1 {
+  grid-area: 1 / 1 / 3 / 3;
+}</code></pre>
+                    </li>
+                    <li>place-self align-self属性和justify-self属性的合并简写形式。
+                        <p>justify-self属性设置单元格内容的水平位置（左中右），跟justify-items属性的用法完全一致，但只作用于单个项目。</p>
+                        <p>align-self属性设置单元格内容的垂直位置（上中下），跟align-items属性的用法完全一致，也是只作用于单个项目。</p>
+                        <ol>
+                            <li>start：对齐单元格的起始边缘。</li>
+                            <li>end：对齐单元格的结束边缘。</li>
+                            <li>center：单元格内部居中。</li>
+                            <li>stretch：拉伸，占满单元格的整个宽度（默认值）。</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>浮动塌陷、外边距塌陷</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>浮动塌陷</h4>
+            <p>当父级没有高度，内部元素浮动的时候，父级就会因为获取不到元素内部的高度显示异常，那么要想恢复的方式是，给父级添加overflow：hidden；属性，作用就是检测内部浮动元素。</p>
+            <p>浮动元素会导致父级没有高度或者高度为0.导致原因：父级没有指定高度，子元素又浮动</p>
+            <ol>解决方法：
+                <li>给父级添加overflow：hidden;</li>
+                <li>给父级内部添加一个元素，高度为0，且溢出隐藏，字体大小为0，并且要清除浮动。</li>
+                <li>使用伪元素清除浮动</li>
+            </ol>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">给父级内部添加一个元素，高度为0，且溢出隐藏，字体大小为0，并且要清除浮动。</div>
+                <div class="tapTop">使用伪元素清除浮动</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text5"><code class="language-html"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text6"><code class="language-html"></code></pre>
+                </div>
+            </div>
+            <p>
+                第一种overflow：hidden会导致父容器如果有投影会剪切掉。第二三种就不会有这种问题，不过第二种兼容性更好，就是会造成标签滥用，第三种最好，不过有兼容问题。根据不同的效果使用不同的方式即可。</p>
+        </div>
+        <div class="small">
+            <h4>外边距塌陷</h4>
+            <ol class="text7">1、嵌套结构之间，父元素有上外边距，子元素有上外边距，会产生重叠，以最大的值进行显示。并且，嵌套之间并没有产生分离。
+                <li>第一种解决方法：给父元素添加overflow:hidden；让父元素重新去识别内容。
+                </li>
+                <li>第二种解决方法：给父元素添加clearfix清除浮动这种办法不过要注意,清除浮动重在清除前面的浮动
+                </li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text7"><code class="language-css"></code></pre>
+            <ol class="text8">2、都给定了上下边距，最终导致以最大边距显示，这种是可以避免的。
+                <li>
+                    <ol>
+                        <li>要么给 上面的元素一下下边距，要么给下面的元素上边距。但不能同时给定。</li>
+                        <li>两个同级元素中间添加一个元素且添加类名clearfix(尽量不要用，用上面的就可以)</li>
+                    </ol>
+                </li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text8"><code class="language-css"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>经典结构</h3>
+    <section class="vertical">
+            <div class="small">
+                <h4>盒子居中方式</h4>
+                <ol>
+                    <li>定位后的元素，设置left 和top为50%；通过margin负值，设置盒子往上和往左移动盒子自身高度和宽度的一半；或通过transform: translateX或Y(-50%);实现</li>
+                    <li>定位后的元素，设置四个坐标top，right，bottom，left都为0，然后设置margin为auto;</li>
+                </ol>
+            </div>
+        <h4>经典结构</h4>
+        <a class="bntTap" href="javascript:;">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">圣杯结构</div>
+            <div class="tapTop">双飞翼布局</div>
+            <div class="tapTop">栏式布局(定位流实现，兼容性最优)</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text9"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text10"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text11"><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <h4>栅格化思想</h4>
+        <p>一行排四个，两端没有外边距，中间的间距为 20像素版芯是1140px。</p>
+        <a class="bntTap" href="javascript:;">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">第一种方法</div>
+            <div class="tapTop">第二种方法</div>
+            <div class="tapTop">第三种方法</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text12"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text13"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text14"><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <pre>1.容器给了宽度再添加margin负值表示，向哪个方向偏移
+2.容器不给宽度再添加margin负值表示，向哪个方向增值
+/栅格化思想/  中间的间距20
+总共是四层。
+第一层是版芯
+第二层超出版芯（列表的父级） margin:0 -10px  -10是中间的间距/2
+第三层(列表) width 1/个数*100%; 并且 指定padding:0 10px 10 是中间的间距/2
+第四层(列表的内容)  这是我们关注的。
+这种方法兼容IE8及以上浏览器</pre>
+    </section>
+</div>
+<div class="item">
+    <h3>其他</h3>
+    <section>
+        <div class="main">
+            <div class="small">
+                <ol>
+                    <li>有些时候，插入的图片，会莫名其妙的出现一些间距，这种问题的解决方式就是给这个图片添加属性 dispaly：block；</li>
+                    <li>
+                        浏览器私有前缀，世界上一共有5大浏览器厂商但是却只有4大浏览器内核；相当于有两家用的是同一个内核。
+                        <ol>
+                            <li>ie浏览器 --- 微软 --- -ms-</li>
+                            <li>谷歌 -webkit-</li>
+                            <li>苹果 -webkit-</li>
+                            <li>欧朋 -o-</li>
+                            <li>火狐 -moz-</li>
+                        </ol>
+                    </li>
+                    <li>iconfont
+                        <pre><code class="language-css">.footer .up dt:after{content:"\e616";font-family:iconfont;......}</code></pre>
+                        <pre><code class="language-html">&#60;&#105;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#105;&#99;&#111;&#110;&#102;&#111;&#110;&#116;&#32;&#105;&#99;&#111;&#110;&#45;&#46;&#46;&#46;&#46;&#46;&#34;&#32;&#62;&#60;&#47;&#105;&#62;</code></pre>
+                    </li>
+                    <li>鼠标移上变手:cursor: pointer</li>
+                    <li>百分比表示法所表示的仅仅是父元素“内容”的百分比，不包括padding。</li>
+                    <li>filter 滤镜属性 blur(px) 高斯模糊</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>less</h4>
+                <ol>
+                    <li>less变量 : 通过@变量名称</li>
+                    <li>less嵌套 : 可以在选择器里面嵌套另外一个选择器去书写样式</li>
+                    <li>less运算 : less可以进行属性值的运算，例如宽高 文字大小 颜色等等数值和颜色之间的运算。(运算符与值之间必须以空格分开 ; 在运算的时候，只要有一个有单位就行)</li>
+                    <li>less混合 : 通过点去声明使用混合，点后面书写自己定义属性的名称，后面接小括号书写变量属性，大括号里面书写具体的属性和值</li>
+                    <li>less函数 : 可以直接使用less定义好的一些方法</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+</article>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/page.js"></script>
+<script src="js/css.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+

@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>前后端</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+<ul class="navLeft">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ul class="navRight">
+    <li><a href="html.html">HTML</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="js.html">JS</a></li>
+    <li><a href="frame.html">框架、工具</a></li>
+    <li><a href="node.js.html">前后端</a></li>
+</ul>
+<div class="top">
+    前后端
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<article>
+<div class="item">
+    <h3>命令行界面</h3>
+    <section class="vertical">
+        <p>在 Windows 操作系统中，窗口键 + R 键，在运行的窗口中输入 CMD，即可进入命令行界面。</p>
+        <div class="small">
+            <h4>打开应用</h4>
+            <ol>
+                <li>notepad 打开记事本</li>
+                <li>mspaint 打开画图</li>
+                <li>calc 打开计算机</li>
+                <li>write 写字板</li>
+                <li>sysdm.cpl 打开环境变量设置窗口</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>常用命令</h4>
+            <ol>
+                <li>盘符: 进入磁盘</li>
+                <li>dir : 查看目录下东西</li>
+                <li>cls : 清屏</li>
+                <li>cd : 进入目录</li>
+                <li>md : 创建目录</li>
+                <li>rd /s /q 目录 : 删除目录（/s 目录中有子目录或子文件也能删除，/q 安静地删除，不提示）</li>
+                <li>type nul>文件名 : 创建空的文件</li>
+                <li>echo 内容>文件名 : 若文件存在往文件覆盖内容，否则创建有内容的文件</li>
+                <li>echo 内容>>文件名 : 若文件存在往文件追加内容，否则创建有内容的文件</li>
+                <li>type 文件名 : 查看文件内容</li>
+                <li>del 文件名 : 删除文件</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>使用表单发送请求</h3>
+    <section class="vertical">
+        <p>表单中需要提交的表单控件元素必须具有name属性 ； form中的method 表示请求方式 ， 有get、post等；action表示请求地址；</p>
+        <div class="small">
+            <ol>
+                <li>GET 方式模拟登录
+                    <pre class="text1"><code class="language-html"></code></pre>
+                </li>
+                <li>POST 方式模拟登录
+                    <pre class="text2"><code class="language-html"></code></pre>
+                </li>
+                <li>文件上传
+                    <ol>
+                        <li>上传文件通过都发送 POST 请求来实现（设置 method）</li>
+                        <li>进行文件上传的时候需要设置 enctype 属性（multipart/from-data）</li>
+                    </ol>
+                    <pre class="text3"><code class="language-html"></code></pre>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>node.js</h3>
+    <section class="vertical">
+        <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。说白了就是 Node.js 可以让用
+            JavaScript 语言编写的程序运行在服务端，另外提供操作文件，读取系统信息等等功能。</p>
+        <div class="small">
+            <h4>全局对象</h4>
+            <p>JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。</p>
+            <p>在浏览器 JavaScript 中，通常 window 是全局对象， 而 Node.js 中的全局对象是 global，所有全局变量（除了 global 本身以外）都是 global 对象的属性。</p>
+            <p>Node中，没有全局作用域，只有模块作用域</p>
+            <p>后面看到所有的全局变量，例如 console，setTimeout 和 process 是 global 变量的成员。我们甚至可以向全局变量添加成员，使其在任何地方都可用。</p>
+            <h4>filename 和 dirname</h4>
+            <ol>
+                <li>console.log(__filename) // 获取被执行 JS 文件全路径</li>
+                <li>console.log(__dirname) // 获取被执行 JS 文件所在目录路径</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>缓冲区</h4>
+            <div class="wrap js text4">
+                <div class="neirong">
+                    <p>JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。但在处理像文件流时（文件读写操作），必须使用到二进制数据。因此在 Node.js 中，定义了一个 Buffer
+                        类，该类用来创建一个专门存放二进制数据的缓存区。说白了，Buffer 类似于一个整数数组。</p>
+                    <ol>创建 Buffer 对象
+                        <li>Buffer.from(array)： 根据一个数组创建 Buffer 对象盘</li>
+                        <li>Buffer.from(string[, encoding])：根据字符串创建 Buffer 对象，默认 utf8，可以指定字符编码</li>
+                        <li>Buffer.alloc(size): 创建指定长度的 Buffer 对象</li>
+                    </ol>
+                    <h4>Buffer属性</h4>
+                    <p>length：返回为 Buffer 对象分配的内存量（以字节为单位）。 请注意，这不一定反映 Buffer 中“可用”数据的数量。虽然 length 属性不是不可变的。若想修改 Buffer
+                        长度的应用程序应将 length 视为只读，并使用 buf.slice（）创建一个新的 Buffer。</p>
+                    <pre><code class="language-js">let buf = Buffer.alloc(10);
+console.log(buf.length);    // 10
+
+buf.write('lony');          // 写入数据
+console.log(buf.length);    // 10</code></pre>
+                    <h4>Buffer方法</h4>
+                    <ol>
+                        <li>Buffer.isEncoding(encoding)： 判断是否支持该编码</li>
+                        <li>Buffer.isBuffer(obj)： 判断对象是否为 Buffer 对象</li>
+                        <li>Buffer.byteLength(str[, encoding])： 返回指定编码的字节长度，默认 utf8</li>
+                        <li>Buffer.concat(list[, totalLength])：将一组 Buffer 对象合并为一个 Buffer 对象</li>
+                        <li>buf.write(string, offset[, length])： 向 Buffer 对象中写入内容，返回写入字节数量</li>
+                        <li>buf.slice([start[, end]]) ： 截取 Buffer 对象，返回新的 Buffer 对象，start 默认是 0，end 默认是 buf.length</li>
+                        <li>buf.toString()： 把 Buffer 对象转成字符串</li>
+                        <li>buf.toJSON()： 把 Buffer 对象转成 JSON 格式的对象</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>node.js模块</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>模块</h4>
+            <ol>使用模块有什么好处
+                <li>最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其他模块，包括 Node.js 内置的模块和来自第三方的模块。</li>
+                <li>使用模块还可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。</li>
+            </ol>
+            <p>在 Node.js 中，当每个 JavaScript 文件在执行或被 require 的时候，Node.js 其实创建了一个新的实例 var module = new Module()，这个实例名叫 module。这也就是为什么你并没有定义 module 这个变量，却能 console.log 出来而不会报错的原因。而这个实例中有个 exports 属性默认是空对象，可以把需要外部访问的成员挂载到这个exports中。这个属性的里面值就是该模块被导出的的东西。其他模块要使用这些导出的东西，就得使用 require 导入。</p>
+            <pre><code class="language-js">exports = module.exports = {};</code></pre>
+            <ol>模块细节
+                <li>已经加载的模块会被缓存，已提高加载性能，根据加载的路径来判断是否加载过。</li>
+                <li>加载文件的后缀 .js 可以省略。但相对路径必须加 ./ ， ./不能省略 。模块文件常见结尾后缀有 .js、.json、.node，注意省略后缀，若在同一个目录中出现文件名相同后缀名不同的话，加载的顺序如下： .js ；.json ； .node
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>自定义模块（导出和导入）</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">方式 1</div>
+                <div class="tapTop">方式 2</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre><code class="language-js">// sum.js
+var sum = function(a, b){
+    return parseInt(a) + parseInt(b);
+}
+// 导出模块 等价于 module.exports.sum = sum
+exports.sum = sum;</code></pre>
+                    <pre><code class="language-js">// main.js
+// 导入模块
+var module = require('./03.sum.js');
+console.log(module.sum(1, 2));</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">// sum.js
+global.sum = function(a, b){
+    return parseInt(a) + parseInt(b);
+}</code></pre>
+                    <pre><code class="language-js">// main.js
+require('./03.sum.js');
+console.log(global.sum(5, 6));</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>系统内置模块</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>events 模块</h4>
+            <p>events 模块只提供了一个对象：events.EventEmitter 。 EventEmitter 的核心就是事件触发与事件监听器功能的封装。 EventEmitter 的每个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件， EventEmitter 支持若干个事件监听器。当事件触发时，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递</p>
+            <ol>常用 API
+                <li>on(event, listener) 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数 listener。</li>
+                <li>emit(event, [arg1], [arg2], [...]) 触发 event 事件，传递若干可选参数到事件监听器的参数表。</li>
+                <li>once(event, listener) 为指定事件注册一个单次监听器，即监听器最多只会触发一次，触发后立刻解除该监听器。</li>
+                <li>removeListener(event, listener) 移除指定事件的某个监听器，listener 必须是该事件已经注册过的监听器。</li>
+                <li>removeAllListeners([event]) 移除所有事件的所有监听器，若指定 event，则移除指定事件的所有监听器。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text5"><code class="language-js"></code></pre>
+            <p>error 事件</p>
+            <p>EventEmitter 定义了一个特殊的事件 error ，它包含了“错误”的语义，我们在遇到异常的时候通常会发射 error 事件。当  error 被发射时， EventEmitter 规定如果没有响应的监听器，Node.js 会把它当作异常，退出程序并打印调用栈。 我们一般要为会发射 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。</p>
+            <pre><code class="language-js">const events = require('events');
+let emitter = new events.EventEmitter();
+emitter.emit('error');</code></pre>
+        </div>
+        <div class="small">
+            <h4>path 模块</h4>
+            <ol>属性
+                <li>path.sep：路径分割符，在不同操作系统获取的不一样，在 Windows \，在 UNIX 中 /</li>
+                <li>path.delimiter：环境变量分割符，在不同操作系统获取的不一样，在 Windows ;，在 UNIX 中 :</li>
+            </ol>
+            <ol>方法
+                <li>path.basename(path[, ext])： 返回路径中的最后一部分，带了扩展名参数，则返回路径最后一个部分不包含扩展名</li>
+                <li>path.dirname(path) ： 返回路径中代表文件夹的部分</li>
+                <li>path.extname(path)： 返回路径中文件的后缀名</li>
+                <li>path.parse(pathString)： 返回路径字符串的对象</li>
+                <li>path.format(pathObject)： 从对象中返回路径字符串，和 path.parse 相反</li>
+                <li>path.isAbsolute(path)：  判断参数 path 是否是绝对路径</li>
+                <li>path.join([...paths]) ：用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符</li>
+                <li>path.normalize(path) ： 规范化给定路径，解析 '..' 和 '.'</li>
+                <li>path.relative(from, to) ：将绝对路径转为相对路径，返回从 from 到 to 的相对路径</li>
+                <li>path.resolve([...paths]) ：方法将一系列路径或路径段解析为绝对路径。给定的路径序列从右到左处理，每个后续路径前置，直到构造绝对路径</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text6"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>fs 模块</h4>
+            <p>在node中如果想要进行文件操作，就必须引入fs这个核心模块，fs提供了所有文件操作相关的API。</p>
+            <p>Node.js 文件系统模块中的方法均有异步和同步版本，例如读取文件内容的函数有异步的 fs.readFile() 和同步的 fs.readFileSync()。异步的方法函数最后一个参数为回调函数，回调函数的第一个参数包含了错误信息(error)。建议大家使用异步方法，比起同步，异步方法性能更高，速度更快，而且没有阻塞。</p>
+            <ol>
+                <li>获取文件信息 fs.stat
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text7"><code class="language-js"></code></pre>
+                </li>
+                <li>读取文件 fs.readFile（ 若指定了编码 utf8，那么得到数据就是字符串，若没有第二个参数得到是 Buffer 对象。 ）
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text8"><code class="language-js"></code></pre>
+                </li>
+                <li>写入文件 fs.writeFile （ 对比同步异步操作，编码不指定默认是 utf8。 ）
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text9"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+            <ol>目录操作
+                <li>fs.mkdir(path[, mode], callback) ： 创建目录</li>
+                <li>fs.readdir(path[, options], callback)  ： 读取目录</li>
+                <li>fs.rmdir(path, callback) ： 删除目录</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text10"><code class="language-js"></code></pre>
+            <a class="btns" href="javascript:">目录操作练习</a>
+            <pre class="text11"><code class="language-js"></code></pre>
+            <p>流式操作</p>
+            <p>一种是 buffer 模式，一种是 stream 模式，buffer 模式就是取完数据一次性操作，stream 模式就是边取数据边操作。原来的方式在处理数据量较大的文件时不能分块处理，导致速度慢，内存容易爆满。</p>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">读取文件</div>
+                <div class="tapTop">写入文件</div>
+                <div class="tapTop">文件拷贝</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text12"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text13"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    有两种方式：
+                    <pre class="text14"><code class="language-js"></code></pre>
+                    <pre class="text15"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>url 模块</h4>
+            <p>url 模块用于处理与解析 URLurl 模块用于处理与解析 URL</p>
+            <p>url.parse 把路径解析 JS 对象</p>
+            <img src="images/url%20attribute.png" alt="">
+            <a class="btns" href="javascript:">代码</a>
+            <pre><code class="language-js">const url = require('url');
+let myUrl1 = url.parse('https://user:pass@sub.host.com:8080/p/a/t/h?name=xx#hash');
+let myUrl2 = url.parse('https://user:pass@sub.host.com:8080/p/a/t/h?name=yy#hash', true);
+console.log(myUrl1.query);//name=xx
+console.log(myUrl2.query);//[Object: null prototype] { name: 'yy' }</code></pre>
+        </div>
+        <div class="small">
+            <h4>querystring 模块</h4>
+            querystring 模块提供用于解析和格式化 URL 查询字符串的实用工具
+            <a class="btns" href="javascript:">代码</a>
+            <pre><code class="language-js">const querystring = require('querystring');
+let paramString = 'name=xx&age=18';
+console.log(querystring.parse(paramString));                    // 把参数字符串转成 JS 对象
+console.log(querystring.stringify({ id: 1, hobbies: [2, 5]}));  // 把 JS 对象转成参数字符串</code></pre>
+        </div>
+        <div class="small">
+            <h4>util 模块</h4>
+            提供常用函数的集合，用于弥补核心 JavaScript 的功能过于精简的不足。
+            <a class="btns" href="javascript:">代码</a>
+            <pre><code class="language-js">const util = require('util');
+function Person() {
+    this.name = '李四';
+    this.showName = function() {
+        return this.name;
+    };
+}
+var obj = new Person();
+console.log(util.inspect(obj));
+console.log(util.inspect(obj, true));   // true 代表显示更详细的信息</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>HTTP</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>http 模块</h4>
+            <ol>超文本传输协议（HTTP，HyperText Transfer Protocol）是互联网上应用最为广泛的一种网络协议，用于定义 Web 浏览器与 Web 服务器之间交换数据的过程以及数据本身的格式。
+                <li>Request 消息的结构
+                    <ol>
+                        <li>请求行：包括 http 请求的种类（GET 或 POST 等），请求资源的路径，http 协议版本。</li>
+                        <li>请求头：http 头部信息。</li>
+                        <li>空行。</li>
+                        <li>请求体：发送给服务器的 query 信息。</li>
+                    </ol>
+                </li>
+                <li>Response 消息的结构
+                    <ol>
+                        <li>状态行：协议版本、状态码。</li>
+                        <li>响应头：响应头信息。</li>
+                        <li>空行。</li>
+                        <li>响应体：响应请求的资源。</li>
+                    </ol>
+                </li>
+                <li>状态码，HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类：信息响应，成功响应，重定向，客户端错误和服务器错误：常见的有一下几种：
+                    <ol>
+                        <li>200 - 请求成功</li>
+                        <li>302 - 重定向</li>
+                        <li>404 - 请求的资源（网页等）不存在</li>
+                        <li>500 - 服务器发生了不可预期的错误</li>
+                    </ol>
+                </li>
+                <li>HTTP 中使用 MIME 类型来代表响应数据的类型：
+                    <ol>
+                        <li>text ：text/plain</li>
+                        <li>html ： text/html</li>
+                        <li>xml ： application/xml</li>
+                        <li>json ： application/json </li>
+                        <li>jpg ：image/jpeg</li>
+                        <li>png ：image/png</li>
+                    </ol>
+                </li>
+            </ol>
+            <div class="small">
+                <h4>搭建 HTTP 服务器</h4>
+                <p>http.Server 是 http 模块中的 HTTP 服务器对象，用 Node.js 做的所有基于 HTTP 协议做的 Web 应用，都是基于 http.Server 实现的。它提供了一套封装级别很低的 API，仅仅是流控制和简单的消息解析，所有的高层功能都要通过它的接口来实现。</p>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text16"><code class="language-js"></code></pre>
+            </div>
+           <div class="small">
+               <h4>http.Server 的事件</h4>
+               <p>http.Server 是一个基于事件的 HTTP 服务器，所有的请求都被封装为独立的事件，开发者只需要对它的事件编写响应函数即可实现 HTTP 服务器的所有功能。常用的有一下事件：</p>
+               <ol>
+                   <li>request：当客户端请求到来时，该事件被触发，提供两个参数 req 和 res ，分别是 http.ServerRequest 和  http.ServerResponse 的实例，表示请求和响应信息。最常用的就是  request 了，因此 http 提供了一个捷径： http.createServer([requestListener])，功能是创建一个 HTTP 服务器并将 requestListener 作为  request 事件的监听函数。</li>
+                   <li>close：当服务器关闭时，该事件被触发。注意不是在用户连接断开时。</li>
+               </ol>
+               <a class="btns" href="javascript:">代码</a>
+               <pre class="text17"><code class="language-js"></code></pre>
+           </div>
+            <div class="small">
+                <h4>获取请求信息  http.ServerRequest</h4>
+                <p>http.ServerRequest 是 HTTP 请求的信息，是后端开发者最关注的内容。它一般由 http.Server 的 request 事件产生，作为第一个参数传递，通常简称 request 或 req 。</p>
+                <ol>ServerRequest 属性
+                    <li>complete ： 客户端请求是否已经发送完成</li>
+                    <li>httpVersion ： HTTP 协议版本，通常是 1.0 或 1.1</li>
+                    <li>method ： HTTP 请求方法，如 GET、POST、PUT、DELETE 等</li>
+                    <li>url ：原始的请求路径，例如 /static/image/a.jpg 即端口号之后的那一部分路径，也就是说所有的url都是以/开头的</li>
+                    <li>headers ：HTTP 请求头</li>
+                    <li>trailers ：HTTP 请求尾（不常见）</li>
+                    <li>connection ： 当前 HTTP 连接套接字，为 net.Socket 的实例</li>
+                    <li>socket ：connection 属性的别名</li>
+                    <li>client ： client 属性的别名</li>
+                </ol>
+                <ol>HTTP 请求一般可以分为两部分：请求头（Request Header）和请求体（Requset Body）。以上内容由于长度较短都可以在请求头解析完成后立即读取。而请求体可能相对较长，需要一定的时间传输，因此 http.ServerRequest 提供了以下 3 个事件用于控制请求体传输：
+                    <li>data：当请求体数据到来时，该事件被触发。该事件提供一个参数 chunk，表示接收到的数据。若该事件没有被监听，那么请求体将会被抛弃。该事件可能会被调用多次。</li>
+                    <li>end：当请求体数据传输完成时，该事件被触发，此后将不会再有数据到来。</li>
+                    <li>close：用户当前请求结束时，该事件被触发。不同于 end，如果用户强制终止了传输，也还是调用 close。</li>
+                </ol>
+                <a class="bntTap" href="javascript:">代码</a>
+                <div class="tapNav">
+                    <div class="tapTop cur">GET 方式获取请求参数</div>
+                    <div class="tapTop">POST 方式获取请求参数</div>
+                    <div class="tapTop">路径分发</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        由于 GET 请求，请求参数直接被嵌入在路径中。而 url 属性是完整的请求路径，其包括了 ? 后面的部分，因此你可以手动解析 url 获取得请求的参数。Node.js 的 url 模块中的 parse 函数提供了这个功能。
+                        <pre class="text18"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        POST 请求的内容全部都在请求体中。http.ServerRequest 并没有一个属性内容为请求体，原因是等待请求体传输可能是一件耗时的工作，譬如上传文件。而很多时候可能并不需要理会请求体的内容，恶意的 POST 请求会大大消耗服务器的资源。所以 Node.js 默认是不会解析请求体的，当你需要的时候，需要手动来做。
+                        <pre class="text19"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">根据用户请求的路径不一样，做不同处理。
+                        <pre class="text20"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>响应 http.ServerResponse</h4>
+                <p>http.ServerResponse 是返回给客户端的信息，决定了用户最终能看到的结果。它也是由 http.Server 的 request 事件产生，作为第二个参数传递，一般简称为 response 或 res。</p>
+                <ol>http.ServerResponse 有三个重要的成员函数，用于返回响应头、响应内容以及结束请求：
+                    <li>response.writeHead(statusCode, [headers]) ：向请求的客户端发送响应头。statusCode 是 HTTP 状态码。headers是一个类似关联数组的对象，表示响应头的每个属性。该函数在一个请求内最多只能调用一次，若不调用，则会自动生成一个响应头。</li>
+                    <li>response.write(data, [encoding]) ：向请求的客户端发送响应内容。 data 是一个 Buffer 或字符串，表示要发送的内容。若 data 是字符串，那么需要指定 encoding 来说明它的编码方式，默认是 utf-8。在 response.end 调用之前，response.write 可以被多次调用。</li>
+                    <li>response.end([data], [encoding]) ：结束响应，告知客户端所有发送已经完成。当所有要返回的内容发送完毕的时候，该函数 必须被调用一次。它接受两个可选参数，意义和 response.write 相同。如果不调用该函数，客户端将永远处于等待状态。</li>
+                </ol>
+                <a class="bntTap" href="javascript:">代码</a>
+                <div class="tapNav">
+                    <div class="tapTop cur">响应静态资源</div>
+                    <div class="tapTop">响应动态资源</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text21"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        响应 JSON 格式的数据:
+                        <pre class="text22"><code class="language-js"></code></pre>
+                        响应 HTML 格式的数据:
+                        <pre class="text23"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>npm</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>Node.js 对包的要求并没有CommonJS 包规范这么严格，要求如下：</h4>
+            <ol>
+                <li>包是一个目录，其中包含一个 JSON 格式的包说明文件 package.json；</li>
+                <li>但为了提高兼容性，建议在制作包的时候，严格遵守 CommonJS 规范。</li>
+            </ol>
+            <p>Node.js 在调用某个包时，会首先检查包中 package.json 文件的 main 字段，将其作为包的接口模块，如果 package.json 或 main 字段不存在，会尝试寻找 index.js 或 index.node 作为包的接口。</p>
+            <p>npm 是 Node.js 官方提供的包管理工具，它已经成了 Node.js 包的标准发布平台。用于 Node.js 包的发布、传播、依赖控制。npm 提供了命令行工具，使你可以方便地下载、安装、升级、删除包，也可以让你作为开发者发布并维护包。</p>
+        </div>
+        <div class="small">
+            <h4>淘宝镜像</h4>
+            <ol>
+                <li>配置淘宝镜像，淘宝 NPM 镜像
+                    <pre><code class="language-js">npm config set registry=https//registry.npm.taobao.org </code></pre></li>
+                <li>安装 cnpm，安装完之后使用 cnpm 来操作。
+                    <pre><code class="language-js">npm install -g cnpm –registry=https//registry.npm.taobao.org  </code></pre></li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>包命令</h4>
+            <ol>
+                <li>安装包命令：npm install [-g] 包名[@版本号] [-D]
+                    <ol>
+                        <li>带有 -g，表示全局安装，安装到 Node.js 根据目录 node_modules 文件夹中，用于命令行下使用，不带有 -g 表示本地安装，安装到当前项目中 node_modules 文件夹中，并修改 package.json 中包依赖配置，用于当前项目用开发使用。</li>
+                        <li>没有带版本号的话安装的是最新版本，带了版本号安装指定版本。</li>
+                        <li>不带 -D 表示生产环境的包依赖，带了 -D 表示开发环境的包依赖。</li>
+                    </ol>
+                </li>
+                <li>查看包命令：npm list [-g] [包名]
+                    <ol>
+                        <li>带有 -g，表示全局查看，不带有 -g 表示本地查看。</li>
+                        <li>带有包名表示查看特定包，不带有包名表示查看所有包。</li>
+                    </ol>
+                </li>
+                <li>更新包命令：npm update [-g] [包名][@版本号]
+                    <ol>
+                        <li>带有 -g，表示全局更新，不带有 -g 表示本地更新。</li>
+                        <li>带有包名表示更新特定包，不带有包名表示更新所有包。</li>
+                        <li>没有带版本号的话更新到最新版本，带了版本好更新到指定的版本。</li>
+                    </ol>
+                </li>
+                <li>卸载包命令：npm uninstall [-g] 包名
+                    <ol>
+                        <li>带有 -g，表示全局卸载，不带有 -g 表示本地卸载。</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>本地创建包操作</h4>
+            <ol>
+                <li>首先建一个文件夹，例如 somepackage。</li>
+                <li>在这目录里打开 Windows 命令行（终端）
+                    <ol>
+                        <li>输入命令 npm init 即可，根据提示输入，作为 package.json 文件的内容。</li>
+                        <li>若想生成 package.json 内容都使用默认值，那么输入命令 npm init -y 按回车即可</li>
+                    </ol>
+                </li>
+                <li>命令执行完之后，在 somepackage 目录出现 package.json 文件。</li>
+                <li>自己手动在 somepackage 中新建一个 index.js 文件。</li>
+                <li>运行此包：
+                    <ol>
+                        <li>node . 执行当前项目 packjson 中 main 指向的 JavaScript 文件。</li>
+                        <li>npm run test 执行的是 scripts 中 test 字段对应命令。</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>模板技术</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>模板技术原理</h4>
+            <ol>模板技术并不是什么神秘技术，干的是拼接字符串的体力活。模板引擎就是利用正则表达式识别模板标识，并利用数据替换其中的标识符。模板技术包含两个方面：
+                <li>定义模板标识符</li>
+                <li>解析模板标识符</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>EJS</h4>
+            <ol>常用标签
+                <li><%= 输出数据到模板（输出是转义 HTML 标签）</li>
+                <li><%- 输出非转义的数据到模板</li>
+                <li><%  用于流程控制，无输出</li>
+                <li>%>  一般结束标签</li>
+            </ol>
+            <br>
+            <p>用法</p>
+            <pre><code class="language-js">const ejs = require('ejs');
+
+ejs.render(str, data, options);
+// => 输出绘制后的 HTML 字符串
+
+ejs.renderFile(filename, data, options, function(err, str){
+    // str => 输出绘制后的 HTML 字符串
+});</code></pre>
+        </div>
+        <a class="bntTap" href="javascript:">代码</a>
+        <div class="tapNav">
+            <div class="tapTop cur">输出</div>
+            <div class="tapTop">条件</div>
+            <div class="tapTop">循环</div>
+            <div class="tapTop">使用模板技术响应 HTML</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text24"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text25"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text26"><code class="language-js"></code></pre>
+            </div>
+            <div class="tapSection">
+                <pre class="text27"><code class="language-js"></code></pre>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Express</h3>
+    <section class="vertical">
+        <p>Express是一个包，对 http 模块的封装，若要使用得通过 npm 下载</p>
+        <p>简化开发，提高开发效率：路由及路由模块化，响应静态资源，中间件可以解决代码重复和重复调用</p>
+        <div class="small">
+            <h4>静态资源服务</h4>
+            <p>为了提供访问诸如图片、CSS 文件和 JavaScript 文件之类的静态文件的服务，使用 Express 中的 express.static 函数</p>
+            <pre><code class="language-js">express.static(root, [options])</code></pre>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text28"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>路由</h4>
+            <p>路由指根据不同请求路径和请求方式进行路径分发，导向到不同处理函数，执行不同的业务逻辑。</p>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">请求方式匹配</div>
+                <div class="tapTop">请求路径匹配</div>
+                <div class="tapTop">模块化路由处理程序</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>HTTP 请求常见的请求方式有 get、post、put、delete 等，Express 支持按请求方式的路由规则。 当一个路径有多个匹配规则时，使用 app.use，否则使用相应的 app.method。
+                        <li>app.method   ： 指定某请求方式的匹配规则；</li>
+                        <li>app.all  ： 指定所有请求方式的匹配规则；</li>
+                        <li>app.route ： 指定某请求路径的匹配规则；</li>
+                        <li>app.use ： 应用多个匹配规则。</li>
+                    </ol>
+                    <pre class="text29"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    路由路径可以是字符串、字符串模式或正则表达式。
+                    <pre class="text30"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>使用 express.Router 类来创建可安装的模块化路由处理程序。Router 实例是一个路由系统。
+                        <li>router.method ：指定某请求方式的匹配规则；</li>
+                        <li>router.all  ：指定所有请求方式的匹配规则；</li>
+                        <li>router.route  ：指定某请求路径的匹配规则；</li>
+                        <li>router.use  ：应用多个匹配规则。</li>
+                    </ol>
+                    <pre class="text31"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>中间件</h4>
+            <p>原生 Node.js 的单一请求处理函数，随着功能的扩张势必会变的越来越难以维护。而 Express 框架则可以通过中间件的方式按照模块和功能对处理函数进行切割处理。这样拆分后的模块不仅逻辑清晰，更重要的是对后期维护和开发非常有利。</p>
+            <ol>中间件（Middleware）本质就是一个函数，有个四个参数：
+                <li>err ： 错误对象（错误处理件才会有）；</li>
+                <li>req ：请求对象；</li>
+                <li>res ：响应对象；</li>
+                <li>next  ：函数对象，一般称之为 next，它用于传递中间件栈对某个请求的处理流。</li>
+            </ol>
+            <p>在整个中间件栈的处理流中，最少有一个函数需要调用 res.end 方法结束响应处理。</p>
+            <p>手动实现中间件</p>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">版本 1，不单独抽出中间件</div>
+                <div class="tapTop">版本 2，单独抽出中间件</div>
+                <div class="tapTop">版本 3，单独抽出中间件，针对多种请求方式</div>
+                <div class="tapTop">版本 4，单独抽出中间模块</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text32"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text33"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text34"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text35"><code class="language-js"></code></pre>
+                </div>
+            </div>
+            <ol>常用内置中间件和第三方中间件
+                <li>静态文件服务中间件 ： 内置</li>
+                <li>日志中间件 ： morgan</li>
+                <li>参数解析 ： body-parser</li>
+                <li>Cookie 解析 ： cookie-parser</li>
+                <li>文件上传解析 ：express-fileupload</li>
+                第三方的中间件，使用前得安装对应的包。
+            </ol>
+        </div>
+        <div class="small">
+            <h4>请求与响应</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">获取请求参数</div>
+                <div class="tapTop">响应</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>Express 中 request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有：
+                        <li>req.protocol ： 获取协议类型</li>
+                        <li>req.hostname：  获取主机名</li>
+                        <li>req.ip ： 获取 IP 地址</li>
+                        <li>req.path ： 获取请求路径</li>
+                        <li>req.query ：获取 URL 的查询参数串</li>
+                        <li>req.params ： 获取路径的参数</li>
+                        <li>req.body ： 获取请求体</li>
+                        <li>req.cookies ： 获取 Cookies</li>
+                        <li>req.get() ： 获取指定的 HTTP 请求头</li>
+                    </ol>
+                    <h4>GET 方式获取请求参数</h4>
+                    <pre class="text36"><code class="language-js"></code></pre>
+                    <h4>POST 方式获取请求参数</h4>
+                    <p>POST 方式接收获取请求参数，须使用第三方中间件 body-parse(后面的版本自己也内置这样类似中间件)，npm install body-parse，若没有使用 req.body 的值为 undefined。注意新版本的 Express 内置提供这样的中间件。</p>
+                    <div class="tapNav">
+                        <div class="tapTop cur">POST 方式获取表单类型的请求参数</div>
+                        <div class="tapTop">POST 方式获取 JSON 类型的请求参数</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text37"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text38"><code class="language-js"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="tapSection">
+                    <ol>响应对象可以向客户端发送响应，并终止请求。若没有从路由处理函数调用这些方法，则客户端请求将保持挂起状态。其有以下这些方法：
+                        <li>res.status()     Set status code.</li>
+                        <li>res.type()  : Set MIME type.</li>
+                        <li>res.send() : Send a response of various types.</li>
+                        <li>res.json() : Send a JSON response.</li>
+                        <li>res.render()  :  Render a view template.</li>
+                        <li>res.sendStatus() : Set the response status code and send its string representation as the response body.</li>
+                        <li>res.sendFile() : Send a file as an octet stream.</li>
+                        <li>res.end() :  End the response process.</li>
+                        <li>res.redirect() : Redirect a request.</li>
+                        <li>res.download()	: Prompt a file to be downloaded.</li>
+                        <li>res.jsonp()	: Send a JSON response with JSONP support.</li>
+                    </ol>
+                    <pre class="text39"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>Express 中使用模板引擎</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text40"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>RESTful</h4>
+            <p>Express 对 RESTful 风格的支持</p>
+            <pre><code class="language-js">// 这路由可以匹配 /users/1 /users/2 ...
+router.get('/users/:id', function (req, res) {
+    console.log('and this matches too');
+    console.log(req.params.id);
+    res.end();
+});</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>AJAX</h3>
+    <section class="vertical">
+        <div class="small">
+            <ol>使用 AJAX 发送请求，代码步骤
+                <li>创建 AJAX 对象；</li>
+                <li>设置请求路径，请求方式等；</li>
+                <li>绑定监听状态改变的处理函数，在处理函数可获取响应数据；</li>
+                <li>发送请求。</li>
+            </ol>
+            <p>兼容性问题兼容性问题</p>
+            <pre><code class="language-js">function createAjax() {
+    var ajax;
+    try {       // 非 IE
+        ajax = new XMLHttpRequest();
+    }
+    catch (e) { // IE
+        ajax = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    return ajax;
+}</code></pre>
+        </div>
+        <div class="small">
+            <h4>响应处理</h4>
+            <p>响应处理，即对服务响应回浏览器的数据根据状态码和 AJAX 对象的状态信息进行不同的处理，在绑定状态改变的处理函数中写对应的逻辑代码即可。</p>
+            <ol>AJAX 对象有 4 个属性：
+                <li>readyState ： 总共有 5 个状态值，分别为 0 ~ 4，每个值代表了不同的含义：
+                    <ol>
+                        <li>0：初始化，AJAX 对象还没有完成初始化</li>
+                        <li>1：载入，AJAX 对象开始发送请求</li>
+                        <li>2：载入完成，AJAX 对象的请求发送完成</li>
+                        <li>3：解析，AJAX 对象开始读取服务器的响应</li>
+                        <li>4：完成，AJAX 对象读取服务器响应结束</li>
+                    </ol>
+                </li>
+                <li>status ： 表示响应的 HTTP 状态码，常见状态码如下：
+                    <ol>
+                        <li>200 ：成功</li>
+                        <li>302 ：重定向</li>
+                        <li>404 ：找不到资源</li>
+                        <li>500 ：服务端错误</li>
+                    </ol>
+                </li>
+                <li>responseText ： 获得字符串形式的响应数据。</li>
+                <li>responseXML ： 获得 XML 形式的响应数据。</li>
+            </ol>
+            <p>综合以上，在状态改变的处理函数一般针对 readyState == 4 且 status == 200 的情况才处理，再根据后台返回的数据类型决定从 responseText 或者 responseXML 获取服务器响应回去来的数据。</p>
+        </div>
+        <div class="small">
+            <a class="btncode" href="javascript:">代码</a>
+            <div class="title">
+                <div>前端代码</div>
+                <div>后端代码</div>
+            </div>
+            <div class="code">
+                <div class="left">
+                    <div class="tapNav">
+                        <div class="tapTop cur">发送 GET 请求</div>
+                        <div class="tapTop">发送 POST 请求</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text42"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text43"><code class="language-js"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <pre class="text44"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <h4 class="subtitle">AJAX 2.0</h4>
+        <div class="small">
+            <h4>FormData API</h4>
+            <ol>用于模拟或者是获取表单数据及异步文件上传。
+                <li>set ：    设置键值对，若指定的 key 已经存在那么会覆盖</li>
+                <li>get ：    根据 key 来获取对应的 value（第一个）</li>
+                <li>getAll ： 根据 key 来获取所有对应所有 value</li>
+                <li>has ：    检查是否存在指定的键值对</li>
+                <li>append ： 设置键值对，若指定的 key 已经存在那么会覆盖</li>
+                <li>delete ： 删除键值对</li>
+                <li>forEach ：遍历</li>
+                <li>keys ：   获取所有 key 迭代器</li>
+                <li>values ： 获取所有 value 迭代器</li>
+                <li>entries ：获取所有键值对迭代器</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text45"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>使用 FormData 处理请求参数</h4>
+            <a class="btnAll" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">GET 方式</div>
+                <div class="tapTop">POST 方式</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text46"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text47"><code class="language-js"></code></pre>
+                </div>
+            </div>
+            <pre class="text48"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>使用 FormData 文件上传</h4>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="title">
+                <div>前端代码</div>
+                <div>后端代码</div>
+            </div>
+            <div class="code">
+                <div class="left">
+                    <pre class="text49"><code class="language-js"></code></pre>
+                </div>
+                <div class="right">
+                    <pre class="text50"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>文件上传度</h4>
+            <pre><code class="language-js">ajax.upload.onprogress = function(e){
+    // console.log("____________");
+    // console.log(e);
+    if(e.lengthComputable){
+        // 这里打印，实际情况在页面显示即可
+        console.log("上传进度:", Math.floor(e.loaded / e.total  * 100) + "%");
+    }
+}</code></pre>
+        </div>
+        <div class="small">
+            <h4>请求超时</h4>
+            <pre><code class="language-js">var ajax = new XMLHttpRequest();
+ajax.open('GET', 'url', true);
+ajax.timeout = 2000; // 设置超时时间，单位是毫秒
+ajax.onload = function () {
+    // 请求完成。在此进行处理。
+};
+ajax.ontimeout = function (e) {
+    // XMLHttpRequest 超时。在此做某事。
+};
+ajax.send(null);</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>jQuery AJAX</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>jQuery 中 ajax 方法使用 : $.ajax({}),对象里的成员</h4>
+            <ol>用于模拟或者是获取表单数据及异步文件上传。
+                <li>async ：默认设置下，所有请求均为异步请求。</li>
+                <li>contentType ：发送信息至服务器时内容编码类型，默认为 "application/x-www-form-urlencoded"。</li>
+                <li>data ：发送到服务器的数据，可以为对象或者 Key=value 格式字符串，若为对象则会自动转换为请求字符串格式。</li>
+                <li>type ：默认: "GET"，其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但取决浏览器支持。</li>
+                <li>url ：发送请求的地址，默认当前页地址。</li>
+                <li>dataType：预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME类型就被识别为 XML，可以不填，可用值："xml"、"html"、"script"、"json"、"jsonp"、"text"。</li>
+                <li>cache：默认为 true（dataType 为 script 和 jsonp 时默认为 false，设置为 false 将禁用缓存。</li>
+                <li>context：这个对象用于设置 AJAX 相关回调函数的上下文。也就是说，让回调函数内 this 的指向（若不指定为当前选项）。</li>
+                <li>beforeSend：发送请求前调用此函数，可用与如添加自定义 HTTP 头，检查请求参数是否合法。XMLHttpRequest 对象是唯一的参数。若在函数中返回 false 可以取消本次请求。
+                    <p>beforeSend： 后面函数：</p>
+                    <pre><code class="language-js">function (XMLHttpRequest) {
+    // this 默认情况下调用本次 AJAX 请求时传递的 option 对象
+}</code></pre>
+                </li>
+                <li>success：请求成功后的回调函数，参数：由服务器返回，并根据 dataType 参数进行处理后的数据；描述状态的字符串。
+                    <p>success： 后面函数：</p>
+                    <pre><code class="language-js">function (data, textStatus) {
+    // data 可能是 xmlDoc, jsonObj, html, text, 等等
+}</code></pre>
+                </li>
+                <li>error：请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、捕获的异常对象。
+                    <p>error： 后面函数：</p>
+                    <pre><code class="language-js">function (XMLHttpRequest, textStatus, errorThrown) {
+}</code></pre>
+                </li>
+                <li>complete：请求完成后回调函数（无论请求成功或失败之后均调用）。参数：XMLHttpRequest 对象和一个描述成功请求类型的字符串。<p>complete： 后面函数：</p>
+                    <pre><code class="language-js">function (XMLHttpRequest, textStatus) {
+}</code></pre>
+                </li>
+            </ol>
+            <pre><code class="language-js">$.ajax({
+    url: 'url',
+    type: 'GET',
+    data: {username:'zs', password:'12345'},
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+        </div>
+        <div class="small">
+            <h4>使用 jQuery 发送AJAX 请求</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">GET 方式</div>
+                <div class="tapTop">POST 方式</div>
+                <div class="tapTop">load 方法</div>
+                <div class="tapTop">PUT 方式</div>
+                <div class="tapTop">DELETE 方式</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>
+                        <li>url ：请求 URL 地址</li>
+                        <li>data ：请求参数。</li>
+                        <li>callback ：请求成功时回调函数。</li>
+                        <li>type ：预期服务器返回的数据类型。</li>
+                    </ol>
+                    <pre><code class="language-js">$.get('url', {username:'zs', password:'12345'}, function(data){
+    // 请求成功业务逻辑
+});</code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>url：请求 URL 地址</li>
+                        <li>data：请求参数。</li>
+                        <li>callback：请求成功时回调函数。</li>
+                        <li>type：预期服务器返回的数据类型。</li>
+                    </ol>
+                    <pre><code class="language-js">$.post('url', {username:'zs', password:'12345'}, function(data){
+    // 请求成功业务逻辑
+});</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">$("#id").load('url');</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">$.ajax({
+    url: 'url/id',
+    type: 'PUT',
+    data: {username:'zs', password:'12345'},
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="language-js">$.ajax({
+    url: 'url/id',
+    type: 'DELETE',
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>全局 AJAX 事件处理器</h4>
+            <ol>
+                <li>$.ajaxSetup([options])：设置全局 AJAX 默认选项。</li>
+                <li>$(document).ajaxStart(fn)：在 AJAX 请求刚开始时执行一个处理函数。</li>
+                <li>$(document).ajaxSend(fn)：在 AJAX 请求发送之前绑定一个要执行的函数。</li>
+                <li>$(document).ajaxSuccess(fn)：绑定一个函数当 AJAX 请求成功完成时执行。</li>
+                <li>$(document).ajaxError(fn)：当 AJAX 请求出错时注册一个回调处理函数。</li>
+                <li>$(document).ajaxComplete(fn)：当 AJAX 请求完成后注册一个回调函数。</li>
+                <li>$(document).ajaxStop(fn)：在AJAX 请求完成时执行一个处理函数。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text51"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>jQuery 中 表单序列化</h4>
+            <ol>
+                <li>serialize()：序列表表格内容为字符串。</li>
+                <li>serializeArray()：序列化表格元素返回数组，存放对象，对象属性是表单元素 name 属性值， 对象属性值是 表单元素的 value 属性值。</li>
+            </ol>
+            <pre><code class="language-js">$('#form').serialize();
+$('#form').serializeArray();</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Axios</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>Promise基本用法</h4>
+            <ol>构造实例：
+                <li>构造函数接受一个函数作为参数；</li>
+                <li>调用构造函数得到实例 p 的同时，作为参数的函数会立即执行；</li>
+                <li>参数函数接受两个回调函数参数 resolve 和 reject；</li>
+                <li>在参数函数被执行的过程中，若在其内部调用 resolve，会将 p 的状态变成 fulfilled，或者调用 reject，会将 p 的状态变成 rejected。</li>
+            </ol>
+            <ol>调用 then：
+                <li>调用 then 可以为实例 p 注册两种状态回调函数；</li>
+                <li>当实例 p 的状态为 fulfilled，会触发第一个函数执行；</li>
+                <li>当实例 p 的状态为 rejected，则触发第二个函数执行。</li>
+            </ol>
+            <ol>调用 catch：
+                <li>调用 catch 用于注册 rejected 状态的回调函数，同时该回调也是程序出错的回调，即如果前面的程序运行过程中出错，也会进入执行该回调函数。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text52"><code class="language-js"></code></pre>
+            <a class="btns" href="javascript:">Promise改造AJAX</a>
+            <pre class="text53"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>Axios</h4>
+            <ol>Axios[艾克丝伊欧姿] 是一个基于 promise 的 HTTP 库，可以用在浏览器和 Node.js 中。其有以下特性：
+                <li>在 浏览器中创建 XMLHttpRequests</li>
+                <li>在 Node.js 创建 http 请求</li>
+                <li>支持 Promise API</li>
+                <li>拦截请求和响应</li>
+                <li>转换请求数据和响应数据</li>
+                <li>取消请求</li>
+                <li>自动转换 JSON 数据</li>
+                <li>客户端支持防御 XSRF</li>
+            </ol>
+            <p>后端使用 ： npm install axios</p>
+            <p>前端使用 ： 导入js文件： src="https://unpkg.com/axios/dist/axios.min.js"</p>
+        </div>
+        <div class="small">
+            <h4>发送请求</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">发送 GET 请求</div>
+                <div class="tapTop">发送 POST 请求</div>
+                <div class="tapTop">发送 PUT 请求</div>
+                <div class="tapTop">发送 DELETE 请求</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text54"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text55"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text56"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text57"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>客户端服务端数据交换类型</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>XML</h4>
+            <ol>XML 是一种标记型语言，和 HTML 类型，主要用于表示和传输数据，XML 文档主要由三部分组成：文档声明 + 元素（开始和结尾标签）+ 属性。
+                <li>标准的 XML 文档只有一个根节点；</li>
+                <li>XML 使用方式和 HTML 相似，通过请求对象中 responseXML 属性访问；</li>
+                <li>相对于 JSON 来说，XML 体积较大。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>JSON</h4>
+            <p>JSON（JavaScript Object Notation, JS 对象简谱）是一种轻量级的数据交换格式。它基于 ECMAScript（欧洲计算机协会制定的 JS 规范）的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。</p>
+            <ol>任何支持的类型都可以通过 JSON 来表示，例如字符串、数字、对象、数组等。但是对象和数组是比较特殊且常用的两种类型。 规则如下:
+                <li>映射用冒号（“:”）表示，标准格式名称用双引号括起来。</li>
+                <li>并列的数据之间用逗号（“,”）分隔。</li>
+                <li>映射的集合（对象）用大括号（“{}”）表示。</li>
+                <li>并列数据的集合（数组）用方括号(“[]”)表示。</li>
+                <li>元素值可具有的类型：string, number, object, array, true, false, null。</li>
+            </ol>
+            <pre class="text58"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>JSON 字符串与 JS 对象之间转换</h4>
+            <p>使用 JSON 中的 parse 和 stringify 方法可以完成。</p>
+            <pre class="text59"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>服务器响应不同格式数据案例</h4>
+            <a class="btncode" href="javascript:">代码</a>
+            <div class="title">
+                <div>前端代码</div>
+                <div>后端代码</div>
+            </div>
+            <div class="code">
+                <div class="left">
+                    <div class="tapNav">
+                        <div class="tapTop cur">响应HTML</div>
+                        <div class="tapTop">响应XML</div>
+                        <div class="tapTop">响应JSON</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text60"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text61"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text62"><code class="language-js"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <pre class="text63"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>前端存储</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>Cookie</h4>
+            <p>cookie 本身就是存储在浏览器中的字符串。但这个字符串是有格式的，由键值对 key=value 构成，键值对之间由一个分号和一个空格隔开。</p>
+            <p>Cookie 选项包括：expires(有效期)、domain、path(domain 和 path一起来限制 cookie 能被哪些 URL 访问)、secure(限制 HTTPS 传输)、HttpOnly(限制 JS 代码操作)。</p>
+            <pre><code class="language-js">'key=name; expires=Thu, 25 Feb 2016 04:18:00 GMT; domain=ppsc.sankuai.com; path=/; secure; HttpOnly'</code></pre>
+            <pre class="text64"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <a class="btns" href="javascript:">Cookie 操作封装</a>
+            <pre class="text65"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>JSON 字符串与 JS 对象之间转换</h4>
+            <p>使用 JSON 中的 parse 和 stringify 方法可以完成。</p>
+            <pre class="text59"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>服务器响应不同格式数据案例</h4>
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="title">
+                <div>前端代码</div>
+                <div>后端代码</div>
+            </div>
+            <div class="code">
+                <div class="left">
+                    <pre class="text66"><code class="language-js"></code></pre>
+                </div>
+                <div class="right rnotop">
+                    <pre class="text67"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>sessionStorage</h4>
+            <div class="wrap text68 js">
+            <ol class="neirong">
+                <li>保存数据 ：sessionStorage.setItem(key, value);</li>
+                <li>读取数据 ：sessionStorage.getItem(key);</li>
+                <li>删除单个数据 ：sessionStorage.removeItem(key);</li>
+                <li>删除所有数据 ：sessionStorage.clear();</li>
+                <li>得到某个索引的 key ：sessionStorage.key(index);</li>
+            </ol>
+            </div>
+        </div>
+        <div class="small">
+            <h4>localStorage</h4>
+            <div class="wrap text69 js">
+                <ol class="neirong">
+                    <li>保存数据 ：localStorage.setItem(key, value);</li>
+                    <li>读取数据 ：localStorage.getItem(key);</li>
+                    <li>删除单个数据 ：localStorage.removeItem(key);</li>
+                    <li>删除所有数据 ：localStorage.clear();</li>
+                    <li>得到某个索引的 key ：localStorage.key(index);</li>
+                </ol>
+            </div>
+        </div>
+        <div class="small">
+            <h4>Base64</h4>
+            <p>JavaScript 提供两个方法来处理 Base64 编码和解码操作：btoa 方法将字符串或二进制值转化为 Base64 编码，atob 方法将Base64 编码转化为原来的编码。</p>
+            <pre><code class="language-js">function base64Encode(str) {
+    return window.btoa(unescape(encodeURIComponent(str)));
+}
+function base64Decode(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+}
+base64Encode('Man');
+base64Decode('TWFu'); </code></pre>
+        </div>
+        <div class="small">
+            <h4>使用 Express 搭建 HTTPS 服务</h4>
+            <pre class="text70"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>跨域访问</h4>
+            <ol>
+                <li><h5>使用 CROS 实现跨域访问</h5>
+                    <p>增加一个响应头就可以实现跨域效果了。</p>
+                    <pre><code class="language-js">res.append('Access-Control-Allow-Origin', '*');</code></pre>
+                </li>
+                <li><h5>使用 JSONP 实现跨域访问</h5>
+                    <p>虽然我们不能直接使用 AJAX 跨域发送请求，但是我们可以利用一些标签是可以跨域。</p>
+                    <ol>
+                        <li>在页面中需要先声明函数，该函数的名称需要和服务器端返回的数据对应，该函数接受一个参数；</li>
+                        <li>大多数情况，会把函数名提交到服务器端。</li>
+                    </ol>
+                    <p>Express 中的响应对象中有一个方法 jsonp，提供这样的功能。</p>
+                    <pre><code class="language-js">res.jsonp(null);
+// => callback(null)
+
+res.jsonp({user: 'tobi'});
+// => callback({"user": "tobi"})
+
+res.status(500).jsonp({error: 'message'});
+// => callback({"error": "message"})</code></pre>
+                    <p>默认情况下，JSONP 回调名称是 callback，可以请求参数进行修改。</p>
+                    <pre><code class="language-js">// 调用的时候传递参数 ?callback=foo
+res.jsonp({user: 'tobi'});
+// => foo({"user": "tobi"})
+
+app.set('jsonp callback name', 'cb');
+// ?cb=foo
+res.status(500).jsonp({error: 'message'});
+// => foo({"error": "message"})</code></pre>
+                </li>
+            </ol>
+            <h5>JSONP 案列 : 需求：当输入框的内容发生变化发送请求（调用百度的 JSONP 接口）来获取结果显示出来</h5>
+            <ol>
+                <li>通过 script 标签来设置 src 为请求路径；</li>
+                <li>先提供函数声明。</li>
+            </ol>
+            <a class="btns" href="javascript:">案例代码</a>
+            <pre class="text71"><code class="language-js"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>MongoDB</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>数据库分类</h4>
+            <ol>分为两大类：关系型数据库和非关系数据库。
+                <li>关系型数据库是由多张能互相联接的二维行列表格组成的数据库。典型的代表：MySQL、PostgreSQL、SQlServer、Oracle、DB2 等。</li>
+                <li>NoSQL（Not Only SQL），非关系型数据库，典型的代表：MongoDB，Redis，HBase，CouchDB 等。</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>BSON</h4>
+            <p>BSON 是一种类似 JSON 的二进制形式的存储格式，简称 Binary JSON，它和 JSON 一样，支持内嵌的文档对象和数组对象，但是 BSON 有 JSON 没有的一些数据类型，如 Date 和 BinData 类型。 后面存在 MongoDB 数据库里面的全部都是 BSON 格式的数据。</p>
+        </div>
+        <div class="small">
+            <h4>MongoDB 使用</h4>
+            <p>对 MongoDB 数据库操作需要其提供的内置命令来操作的。</p>
+            <ol>基本命令
+                <li>show dbs   ：查看有数据的库</li>
+                <li>use  库名   ：若没有则创建库并切换，若有只切换库</li>
+                <li>db     ：显示当前操作的库</li>
+                <li>db.runCommand({"dropDatabase": 1}) ：删除当前数据库，注意此处的 1 没加双引号</li>
+            </ol>
+            <ol>集合操作
+                <li>show collections ：显示库中的集合</li>
+                <li>db.createCollection("集合名字")  ： 创建集合</li>
+                <li>db.集合名.drop() 或 db.runCommand({"drop":"集合名"}) ：删除集合</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>文档操作</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">新增文档</div>
+                <div class="tapTop">查询文档</div>
+                <div class="tapTop">修改文档</div>
+                <div class="tapTop">删除文档</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>
+                        <li>若集合不存在，会自动创建集合。 </li>
+                        <li>保存成功之后，系统会自动给文档增加一个 _id 主键字段，主键是每个文档的唯一标识，其值不能重复，就像身份证是每个人编号是唯一的。</li>
+                    </ol>
+                    <ol>语法格式如下：
+                        <li>db.集合名.insert(BSON 格式数据)，若新增的文档主键已经存在，insert 会不做操作并提示错误。</li>
+                        <li>db.集合名.save(BSON 格式数据)，若新增的文档主键已经存在，save 则更改原来的内容为新内容。</li>
+                    </ol>
+                    <pre><code class="language-js">db.students.insert({"name":"xx","age":18})
+
+db.students.insert({"_id":ObjectId("5c457f78034a8e64b22cd683"),"name":"xx","age":19}) // 报错 duplicate field error collection
+db.students.save({"_id":ObjectId("5c457f78034a8e64b22cd683"),"name":"xx","age":19})  // 修改</code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>db.集合名.find()  ： 查询集合中所有文档</li>
+                        <li>db.集合名.find().pretty() ： 格式化查询到的文档</li>
+                        <li>db.集合名.findOne() ： 查询集合中的第一个文档，即插入最早那个</li>
+                    </ol>
+                </div>
+                <div class="tapSection">
+                    <p>db.集合名.update(BSON 格式数据)：注意：第一个参数查询的条件，第二个参数是修改的内容，但主键是不能修改。</p>
+                    <pre><code class="language-js">db.students.update({"name":"xx"}, {"age":88})                       // 注意原来的数据只剩下 {"age":88}
+db.students.update({"name":"xx"}, {$set:{"age":88}})                // 这里就只改原来文档的 age 的值。
+db.students.update({"name":"xx"}, {$set:{"age":88}}, {multi:true})  // 默认只改先找的一条，若想改多条得设置 multi 参数为 true</code></pre>
+                </div>
+                <div class="tapSection">
+                    <p>db.集合名.remove()  ：删除集合中的文档，可以指定条件</p>
+                    <pre><code class="language-js">db.集合名.remove({})                // 删除集合中所有的文档
+db.集合名.remove({"name":"yy"})     // 删除指定条件 name="yy" 的文档 </code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>高级查询</h4>
+            <a class="btns" href="javascript:">代码</a>
+            <ol>
+                <li>查询 field = value 的文档语法：db.集合名.find({ "field" : value })
+                    <pre><code class="language-js">// 查询女歌星，即查询 sex = "女"的歌星
+db.singers.find({"sex":"女"})</code></pre>
+                </li>
+                <li>查询 field > value 的文档语法：db.集合名.find({ "field" : { $gt: value } })
+                    <pre><code class="language-js">// 查询年龄大于 53 的歌星
+db.singers.find({"age": { $gt: 53 }})</code></pre>
+                </li>
+                <li>查询 field < value 的文档语法：db.集合名.find({ "field" : { $lt: value } })
+                    <pre><code class="language-js">// 查询年龄小于 35 岁的歌星
+db.singers.find({"age": { $lt: 35 }})</code></pre>
+                </li>
+                <li>查询 field >= value 的文档语法：db.集合名.find({ "field" : { $gte: value } })
+                    <pre><code class="language-js">// 查询成绩大于等于 95 的歌星
+db.singers.find({"score": { $gte: 95 }})</code></pre>
+                </li>
+                <li>查询 field <= value 的文档语法：db.集合名.find({ "field" : { $lte: value } })
+                    <pre><code class="language-js">// 查询年龄在小于等于 32 岁的歌星。
+db.singers.find({"age": { $lte: 32 }})</code></pre>
+                </li>
+                <li>查询 min < field < max 的文档语法：db.集合名.find({ "field" : { $gt: min , $lt: max } })
+                    <pre><code class="language-js">// 查询年龄在 (30, 40) 岁之间的歌星
+db.singers.find({"age": { $gt: 30 , $lt: 40 }})</code></pre>
+                </li>
+                <li>查询 field <> value 的文档语法：db.集合名.find({ "field" : { $ne: value } })
+                    <pre><code class="language-js">// 查询外国歌手
+db.singers.find({"country": { $ne: "中国" }})</code></pre>
+                </li>
+                <li>查询 field % divisor == remainder 的文档语法：db.集合名.find({ "field" : { $mod : [ divisor, remainder ] } })
+                    <pre><code class="language-js">// 查询成绩为 5，15，25...95 的歌星。
+db.singers.find({"score" : { $mod : [10, 5] }})</code></pre>
+                </li>
+                <li>查询 field = value1 OR field = value2 ... OR field = valueN OR 的文档语法：db.集合名.{ field: { $in: [value1, value2, ... valueN ] } }
+                <pre><code class="language-js">// 查询序号（num）为 3 或者 6 或者 9 的歌星
+db.singers.find({ "num" : { $in: ["3", "6", "9"] } })</code></pre>
+                </li>
+                <li>查询 field <> value1 AND field <> value2 ... AND field <> valueN 的文档语法：db.集合名.{ field: { $nin: [value1, value2, ... valueN ] } }
+                    <pre><code class="language-js">// 查询国籍不为美国和韩国的歌手
+db.singers.find({"country" : { $nin: ["美国", "韩国"] }})</code></pre>
+                </li>
+                <li>查询文档字段数量的语法：db.集合名.find({ "field" : { $size: num } })，注意 field 的值是数组。
+                    <pre><code class="language-js">// 查询有 3 个代表作品的歌手
+db.singers.find({"works" : { $size: 3 }})</code></pre>
+                </li>
+                <li>查询存在或不存在某个字段的的文档语法：db.集合名.find({ "field" : { $exists : true|false } })
+                    <pre><code class="language-js">// 查询包含 name 字段的歌手
+db.singers.find({"name" : { $exists : true }})</code></pre>
+                </li>
+                <li>查询多个条件是或的关系的文档语法：db.集合名.find({ $or : [expression1, expression2, ..., expressionN] })
+                    <pre><code class="language-js">// 查询名词是刘德华的歌手或者是女歌手
+db.singers.find({$or : [{"name":"刘德华"}, {"sex":"女"}]})</code></pre>
+                </li>
+                <li>查询多个条件是且的关系的文档语法：db.集合名.find({ $and : [expression1, expression2, ..., expressionN] })
+                    <pre><code class="language-js">// 查询名字是刘德华且是女的歌手
+db.singers.find({$and : [{"name":"刘德华"}, {"sex":"女"}]})</code></pre>
+                </li>
+                <li>若字段的值是对象的查询
+                    <pre><code class="language-js">db.students.insert({"name":"zs", "score":{"yw":80, "sx":91}})
+db.students.insert({"name":"ls", "score":{"yw":77, "sx":95}})
+// 查询语文成绩为 80 的同学
+db.students.find({"score.yw": 80})</code></pre>
+                </li>
+                <li>排序查询文档，语法格式：db.集合名.find().sort({ "field" : -1 | 1})，注意 1 代表升序，-1 代表降序
+                    <pre><code class="language-js">// 对所有歌星安年龄排序
+db.singers.find().sort({"age": 1})</code></pre>
+                </li>
+                <li>限制查询的个数，语法格式：db.集合名.find().limit(n)
+                    <pre><code class="language-js">// 实现输出 5 条
+db.singers.find().limit(5)</code></pre>
+                </li>
+                <li>跳过多少条再查询，语法格式：db.集合名.find().skip(n)
+                    <pre><code class="language-js">// 跳过 5 条查询
+db.list.find().skip(5)</code></pre>
+                </li>
+                <li>分页查询：语法格式：db.集合名.find().skip(n).limit(n)
+                    <pre><code class="language-js">// 假如 101 条数据，每页显示 10 条，一共分 11 页，那么要查询第 2 页的文档
+// var pageSize = 10;
+// var start = (2 - 1) * pageSize;
+db.list.find().skip(start).limit(pagesize)</code></pre>
+                </li>
+            </ol>
+        </div>
+        <h4 class="subtitle">Mongoose</h4>
+        <p>Mongoose 库简而言之就是在 Node.js 环境中操作 MongoDB 数据库的一种便捷的封装，一种对象模型工具，Mongoose 将数据库中的数据转换为 JavaScript 对象以供你在应用中使用。（即可以通过 JavaScript 代码去操作 MongoDB 数据库）。</p>
+        <div class="small">
+            <h4>连接数据库</h4>
+            <p>安装 npm install mongoose</p>
+            <p>编写文件，相当于在程序与数据库之间架起一座桥梁，只有这桥梁架设好了，才能使用代码完成对数据库的操作，且这桥梁的只需架设一次就好了。</p>
+            <pre class="text72"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>Mongoose 中的术语</h4>
+            <ol>
+                <li>Schema：Mongoose 中的所有内容都以 Schema 开头。每个 Schema 都映射到 MongoDB 集合，并定义该集合中文档的结构。
+                    <ol>Schema 类型：
+                        <li>String</li>
+                        <li>Number</li>
+                        <li>Date</li>
+                        <li>Boolean</li>
+                        <li>Array</li>
+                        <li>ObjectId</li>
+                        <li>Buffer</li>
+                        <li>Mixed</li>
+                        <li>Decimal128</li>
+                        <li>Map</li>
+                    </ol>
+                </li>
+                <li>Model：由 Schema 生成的模型，其实例称为 Document。一般用来负责从 MongoDB 查询文档，修改文档，删除文档。</li>
+                <li>Document：Mongoose 中 Document 与存储在 MongoDB中 的文档的一对一映射。每个文档都是其模型的一个实例。一般用来负责向 MongoDB 保存文档。</li>
+            </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text73"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>常用操作</h4>
+            <p>操作之前，须建立数据库连接，及创建对应的模型。</p>
+            <div class="tapNav">
+                <div class="tapTop cur">新增文档</div>
+                <div class="tapTop">修改文档</div>
+                <div class="tapTop">删除文档</div>
+                <div class="tapTop">查询文档</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <p>Document.save([fn])：新增文档</p>
+                    <pre class="text74"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>Model.findByIdAndUpdate(id, [update], [options], [callback])</li>
+                        <li>Model.update(conditions, update, [options], [callback])</li>
+                    </ol>
+                    <pre class="text75"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>Model.findByIdAndRemove(id, [options], [callback])</li>
+                        <li>Model.remove(conditions, [callback])</li>
+                        <li>Model.findOneAndRemove(conditions, [options], [callback])  </li>
+                    </ol>
+                    <pre class="text76"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>Model.findById(id, [fields], [options], [callback])</li>
+                        <li>Model.find(conditions, [fields], [options], [callback])</li>
+                        <li>Model.count(conditions, [callback])</li>
+                    </ol>
+                    <pre class="text77"><code class="language-js"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>MongoDB 认证</h4>
+            <ol>
+                <li>开启认证
+                    <ol>
+                        <li>添加用户
+                        <pre><code class="language-js">use admin
+db.createUser({user: "root",pwd: "12345",roles: ["root"]})</code></pre>
+                        </li>
+                        <li>修改 MongoDB 配置文件
+<pre><code class="language-js">security:
+    authorization: enabled</code></pre>
+                        </li>
+                        <li>重启 MongoDB 服务</li>
+                    </ol>
+                </li>
+                <li>使用用户名密码连接数据库
+                    <ol>
+                        <li>命令行
+                            <pre><code class="language-js">mongo -u root -p 12345</code></pre>
+                        </li>
+                        <li>Robo3t ： 在创建页面添加用户名密码</li>
+                        <li>Mongoose
+                            <pre><code class="language-js">const mongoose = require('mongoose');
+const DB_URL = 'mongodb://localhost/test';
+mongoose.connect(DB_URL, {user : 'root', pass : '12345', authSource : 'admin'});</code></pre>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>综合案例</h3>
+    <section class="vertical">
+        <div class="small">
+            <h4>express-generator 使用</h4>
+            <p>使用 express-generator 来完成项目搭建，使用命令搭建项目，提高项目搭建效率。</p>
+            <ol>创建出以下文件：
+                <li>bin  ： 二进制，里面有一个 www 文件</li>
+                <li>public ： 静态资源目录</li>
+                <li>routers  ： 路由目录</li>
+                <li>views  ： 视图目录</li>
+                <li>app.js ： 应用文件</li>
+            </ol>
+            <h5>安装包</h5>
+            <p>在 package.json 中增加 mongoose： "mongoose": "*"</p>
+            <p>通过 npm install 可以一次性安装所有依赖的包, 若不写具体的版本号 可以用 * 表示安装最新版本。</p>
+        </div>
+        <div class="small">
+            <h4>案例代码</h4>
+                <a class="btncode" href="javascript:">代码</a>
+            <div class="title">
+                <div>前端代码</div>
+                <div>后端代码</div>
+            </div>
+            <div class="code">
+                <div class="left">
+                    <div class="tapNav">
+                        <div class="tapTop cur">new.html</div>
+                        <div class="tapTop">view.html</div>
+                        <div class="tapTop">edit.html</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text82"><code class="language-html"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text83"><code class="language-html"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text84"><code class="language-html"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="right rnotop">
+                    <div class="tapNav">
+                        <div class="tapTop cur">app.js</div>
+                        <div class="tapTop">routes/apis.js</div>
+                        <div class="tapTop">Mongoose 封装</div>
+                        <div class="tapTop">ejs</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <pre class="text78"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text79"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text80"><code class="language-js"></code></pre>
+                        </div>
+                        <div class="tapSection">
+                            <pre class="text81"><code class="language-js"></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</article>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/page.js"></script>
+<script src="js/node.js.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
