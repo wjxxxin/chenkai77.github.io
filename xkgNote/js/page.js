@@ -256,6 +256,7 @@ $('.item .wrap.add2').append(oDivcss);
 $('.item .wrap.js,section.js').append(oDivjs);
 
 
+/*
 $('.item').on('click', '.bnt', (function () {
     var mainw = $(this).parent().parent().width() * 0.6;
     if ($(this).parent().width() > mainw) {
@@ -276,6 +277,7 @@ $('.item').on('click', '.bnt', (function () {
         });
     }
 }));
+*/
 
 
 //下方代码按钮

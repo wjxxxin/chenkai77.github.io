@@ -62,7 +62,7 @@
 <article>
 <div class="item">
     <h3>javascript基础</h3>
-    <section class="vertical">
+    <section>
         <div class="small">
             <h4>javaScript组成</h4>
             <ol>
@@ -81,8 +81,7 @@
         </div>
         <div class="small">
             <h4>变量</h4>
-            <div class="wrap js text1">
-                <ol class="neirong">
+                <ol>
                     <li>var关键字声明变量
                         <pre><code class="language-js">var age;</code></pre>
                     </li>
@@ -101,13 +100,14 @@ gender = '男'；</code></pre>
                     <li>变量的命名规则和规范：由字母、数字、下划线、$符号组成，不能以数字开头； 不能是关键字和保留字，例如：var、if、for、enum； 区分大小写； 变量要具有意义，驼峰命名法；
                     </li>
                 </ol>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text1"><code class="js"></code></pre>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>数据类型</h3>
-    <section class="vertical">
+    <section>
         <h4>基本数据类型</h4>
         <div class="tapNav">
             <div class="tapTop cur">Number（数字）</div>
@@ -196,8 +196,7 @@ gender = '男'；</code></pre>
             <h4>获取变量的类型</h4>
             <p>简单类型（基本类型）：String（字符串）、Number（数值）、Boolean（布尔）、Undefined（未定义）、Null（空）</p>
             <p>复杂类型（引用类型/对象类型）：Object、Array、Date ...</p>
-            <div class="wrap js text2">
-                <div class="neirong">
+                <div>
                     <ol>
                         浏览器控制台输出的
                         <li>字符串的颜色是黑色的</li>
@@ -220,7 +219,8 @@ var obj = new Object();
 obj = null;</code></pre>
                         </li>
                     </ol>
-                </div>
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text2"><code class="js"></code></pre>
             </div>
         </div>
         <div class="small">
@@ -359,7 +359,7 @@ console.log(Object.prototype.toString.call([]));//[object Array]</code></pre>
 </div>
 <div class="item">
     <h3>运算符</h3>
-    <section class="vertical">
+    <section >
         <div class="tapNav">
             <div class="tapTop cur">一元运算符</div>
             <div class="tapTop">逻辑运算符（布尔运算符）</div>
@@ -449,7 +449,7 @@ console.log(sNum !== iNum);	//输出 "true"</code></pre></li>
 </div>
 <div class="item">
     <h3>if、switch语句</h3>
-    <section class="vertical">
+    <section >
         <div class="tapNav">
             <div class="tapTop cur">if语句</div>
             <div class="tapTop">switch语句</div>
@@ -497,7 +497,7 @@ console.log(sNum !== iNum);	//输出 "true"</code></pre></li>
 </div>
 <div class="item">
     <h3>循环结构</h3>
-    <section class="vertical">
+    <section >
         <div class="tapNav">
             <div class="tapTop cur">while：</div>
             <div class="tapTop">do...while</div>
@@ -555,7 +555,7 @@ for（初始化表达式1；判断表达式2；自增表达式3）{
 </div>
 <div class="item">
     <h3>数组</h3>
-    <section class="vertical">
+    <section >
         数组是一个有序的列表，可以在数组中存放任意的数据，并且数组的长度可以动态的调整。
         <div class="small">
             <ol>
@@ -615,7 +615,7 @@ console.log(names);</code></pre>
 </div>
 <div class="item">
     <h3>函数</h3>
-    <section class="vertical">
+    <section >
         把一段相对独立的具有特定功能的代码块封装起来，形成一个独立实体，就是函数，起个名字（函数名），在后续开发中可以反复调用。函数的作用就是封装一段代码，将来可以重复使用。
         <p>函数也是一种数据类型,函数可以作为一个函数的参数，在另一个函数中调用。函数也可以作为返回值从函数内部返回。
         </p>
@@ -709,7 +709,7 @@ console.log(fun2(1, 2));//3</code></pre>
 </div>
 <div class="item">
     <h3>闭包</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <div class="tapNav">
                 <div class="tapTop cur">案例一</div>
@@ -732,7 +732,7 @@ console.log(fun2(1, 2));//3</code></pre>
 </div>
 <div class="item">
     <h3>预解析</h3>
-    <section class="vertical">
+    <section >
         <ol>
             <li>把变量的声明提升到当前作用域的最前面，只会提升声明，不会提升赋值。</li>
             <li>把函数的声明提升到当前作用域的最前面，只会提升声明，不会提升调用。</li>
@@ -760,7 +760,7 @@ console.log(fun2(1, 2));//3</code></pre>
 </div>
 <div class="item">
     <h3>对象</h3>
-    <section class="vertical">
+    <section >
         使用 var 对象名 = {键：值 } 格式创建出的对象，就是一个对象字面量。大括号中的“键”是对象的属性名，“值”就是对应的属性值。
         <div class="small">
             <h4>访问对象的成员：</h4>
@@ -815,7 +815,7 @@ console.log(fun2(1, 2));//3</code></pre>
 </div>
 <div class="item">
     <h3>原型</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>constructor属性</h4>
             <p>使用constructor属性可以获取到创建对象使用的构造器函数对象，所以我们可以通过判断构造器的类型来得知创建的对象的类型。</p>
@@ -928,7 +928,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
 </div>
 <div class="item">
     <h3>继承</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <a class="bntTap" href="javascript:">继承代码</a>
             <div class="tapNav">
@@ -971,7 +971,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
 </div>
 <div class="item">
     <h3>call方法和apply方法</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <p>方法借用 ； 设置方法中this的指向</p>
             <ol>
@@ -984,7 +984,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
 </div>
 <div class="item">
     <h3>关键字</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>new关键字</h4>
             <ol>new在调用构造函数中所执行的步骤:
@@ -1005,12 +1005,12 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
         </div>
         <div class="small">
             <h4>in 关键字</h4>
-            <div class="wrap js text34">
-            <ol class="neirong">
+            <ol>
                 <li>判断一个成员（属性或函数）是否在对象中存在，如果存在返回true，反之返回false ； 语法：“成员名” in 对象</li>
                 <li>在for...in循环中，可以遍历对象或者数组</li>
             </ol>
-            </div>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text34"><code class="js"></code></pre>
         </div>
         <div class="small">
             <h4>delete 关键字</h4>
@@ -1022,7 +1022,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
 </div>
 <div class="item">
     <h3>内置对象</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>Math:</h4>
             <ol>
@@ -1141,7 +1141,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
 </div>
 <div class="item">
     <h3>基本包装类型string对象</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>基本包装类型</h4>
             <pre><code class="language-js">//简单类型（基本类型），没有属性和方法
@@ -1215,7 +1215,7 @@ console.log((100).add(100));//200//数值加括号变成表达式</code></pre>
 </div>
 <div class="item">
     <h3>页面元素</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>DOM中的几个常用概念</h4>
             <ol>
@@ -1292,7 +1292,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>事件</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>事件源</h4>
             <ol>
@@ -1398,7 +1398,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>定时器</h3>
-    <section class="vertical">
+    <section >
         <ol>
             <li>setTimeout()  :  在指定的毫秒数到达之后执行指定的函数，只执行一次</li>
             <li>clearTimeout()  :  取消(销毁)定时器</li>
@@ -1411,7 +1411,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>属性操作</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>非表单元素的属性</h4>
             <p>
@@ -1460,7 +1460,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>节点</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <ol>
                 <li>nodeName : 节点名称(如果是元素节点,则是对应的标签名)</li>
@@ -1478,14 +1478,14 @@ function getInnerText(element) {
         </div>
         <div class="small">
             <h4>父子节点</h4>
-            <div class="wrap js text29">
-                <ol class="neirong">
+                <ol>
                     <li>parentNode : 父节点</li>
                     <li>childNodes : 子节点</li>
                     <li>children: 子元素节点</li>
                     <li>判断是否有子节点 :hasChildNodes()</li>
                 </ol>
-            </div>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text29"><code class="js"></code></pre>
         </div>
         <div class="small">
             <h4>第一、最后节点</h4>
@@ -1528,7 +1528,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>BOM</h3>
-    <section class="vertical">
+    <section >
         <p>BOM(Browser Object Model) 是指浏览器对象模型，浏览器对象模型提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。BOM由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象。 我们在浏览器中的一些操作都可以使用BOM的方式进行编程处理， 比如：刷新浏览器、后退、前进、在浏览器中输入URL等
         </p>
         <div class="small">
@@ -1589,7 +1589,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>三大家族</h3>
-    <section class="vertical">
+    <section >
         <ol>三大家族注意：
             <li>获取到的值是一个number类型，不带单位 </li>
             <li>获取的宽高包含border和padding </li>
@@ -1628,7 +1628,7 @@ function getInnerText(element) {
 </div>
 <div class="item">
     <h3>ES6</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>let</h4>
             <ol>使用 let 声明变量的特点：
@@ -1773,7 +1773,7 @@ func(2, 3, 4);</code></pre>
 </div>
 <div class="item">
     <h3>设计模式</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <div class="tapNav">
                 <div class="tapTop cur">单例模式</div>
@@ -1798,7 +1798,7 @@ func(2, 3, 4);</code></pre>
 </div>
 <div class="item">
     <h3>其他</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>伪协议</h4>
             <p>javascript: void(0)</p>
@@ -1879,7 +1879,7 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
 </div>
 <div class="item">
     <h3>IE浏览器兼容性问题</h3>
-    <section class="vertical">
+    <section >
         <div class="small">
             <h4>firstElementChild</h4>
             <pre class="text73"><code class="language-js"></code></pre>
@@ -1926,7 +1926,7 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
 </div>
 <div class="item">
     <h3>案例集合</h3>
-    <section class="vertical">
+    <section >
         <a class="bntTap" href="javascript:">案例</a>
         <div class="tapNav">
             <div class="tapTop cur">检测用户名</div>

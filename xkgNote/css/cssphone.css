@@ -80,3 +80,15 @@ body{
     box-shadow: 0 0 18px #eaeded;
     border:none;
 }
+
+
+.item section .small .code{
+    margin:0 0;
+    display: block;
+}
+.item section .small .code .left{
+    width: 100%;
+}
+.item section .small .code .right{
+    width: 100%;
+}

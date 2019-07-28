@@ -18,6 +18,9 @@ ol {
   padding: 5px 20px;
   border-radius:10px;
 }*/
+img {
+  width: 100%;
+}
 code[class*="language-"],
 pre[class*="language-"] {
   line-height: 1.5;
@@ -29,6 +32,11 @@ pre,
 samp {
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
   font-size: 14px;
+}
+code::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
 }
 li,
 p {
@@ -198,7 +206,6 @@ article {
 .item section {
   width: 100%;
   transition: all 0.3s;
-  display: flex;
 }
 .item section .piece {
   display: block;
@@ -330,9 +337,6 @@ article {
   color: deepskyblue;
   font-size: 12px;
   margin: 20px 0;
-}
-section.vertical {
-  display: block;
 }
 section.vertical .ver .other {
   width: 100%;

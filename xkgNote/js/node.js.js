@@ -43,7 +43,7 @@ let text4 = 'let buf1 = Buffer.from(\'wolfcode\');\n' +
     'console.log(buf.toJSON().type);\n' +
     'console.log(buf.toJSON().data);';
 
-$('.wrap.text4 .other pre code').text(text4);
+$('.text4 code').text(text4);
 
 let text5 = 'const events = require(\'events\');\n' +
     'let emitter = new events.EventEmitter();\n' +
@@ -1783,7 +1783,7 @@ sessionStorage.clear()
 sessionStorage.des = "一位同学";
 delete sessionStorage.des;`;
 
-$('.wrap.text68 code').text(text68);
+$('.text68 code').text(text68);
 
 let text69 = `localStorage.setItem('name', 'zs');
 localStorage.setItem('age', '18');
@@ -1795,7 +1795,7 @@ localStorage.clear()
 localStorage.des = "一位同学";
 delete localStorage.des;`;
 
-$('.wrap.text69 code').text(text69);
+$('.text69 code').text(text69);
 
 let text70 = `var fs = require('fs');
 var http = require('http');

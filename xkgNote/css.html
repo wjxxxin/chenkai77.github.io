@@ -36,7 +36,6 @@
 <div class="item">
     <h3>css基本</h3>
     <section>
-        <div class="main">
             <p>css代码需写在style标签内部，表示环境</p>
             <pre><code class="language-html">&#32;&#60;&#115;&#116;&#121;&#108;&#101;&#62;&#60;&#47;&#115;&#116;&#121;&#108;&#101;&#62;</code></pre>
             <p>css分为两部分，选择器和属性，p{...}</p>
@@ -64,13 +63,11 @@
                 <a class="btns" href="javascript:;">代码</a>
                 <pre class="text15"><code class="html"></code></pre>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>文字控制属性</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <ol>
                     <li>font-size：控制文字的字号大小，需要加上px单位</li>
@@ -104,13 +101,11 @@
                  -webkit-background-clip:text;
                  -webkit-text-fill-color: transparent;</code></pre>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>盒子属性</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <ol>
                     <li>width：宽度</li>
@@ -156,17 +151,14 @@
                 </ol>
                 <img src="images/chuizhijuzhong.jpg" alt="">
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>边框 边距 背景 溢出</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>边框属性</h4>
-                <div class="wrap add2 text2">
-                    <ol class="neirong">
+                    <ol>
                         边框三属性：
                         <li>边框粗细程度：一般以像素为单位</li>
                         <li>边框类型：solid 实线 dotted 点 dashed 虚线</li>
@@ -180,7 +172,8 @@
                             </ol>
                         </li>
                     </ol>
-                </div>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text2"><code></code></pre>
             </div>
             <div class="small">
                 <h4>边距属性</h4>
@@ -232,11 +225,9 @@
                                 class="language-css">background：#ccc url(dog.jpg) no-repeat left top fixed</code></pre>
                     </li>
                     <li>设置多个背景可用逗号隔开，写在前面的背景会显示在前面
-                        <pre><code class="language-css">
-                            background: url("../images/con_bg_l.jpg") no-repeat,
-                                        url("../images/con_bg_center.jpg") repeat-x,
-                                        url("../images/con_bg_r.jpg") no-repeat;
-                        </code></pre>
+                        <pre><code class="language-css">background: url("../images/con_bg_l.jpg") no-repeat,
+            url("../images/con_bg_center.jpg") repeat-x,
+            url("../images/con_bg_r.jpg") no-repeat;</code></pre>
                         设置背景时先指定背景图再指定背景颜色才能把图片显示出来（显示在颜色上）
                     </li>
                     <li>inherit : 背景跟随父元素</li>
@@ -283,13 +274,11 @@
                     <li>inherit 规定会从父元素继承overflow属性的值</li>
                 </ol>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>选择器</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>基本选择器</h4>
                 <ol>
@@ -349,13 +338,11 @@
                     </li>
                 </ol>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>表格 文本域</h3>
-    <section class="add text3">
-        <div class="main">
+    <section>
             <div class="small">
                 表格基本结构：table>tr>td <br>
                 用css添加边框的时候，除了给table添加边框之外，建议给td也添加边框属性，但如果是在table身上给表格添加边框属性的时候，所有的单元格都会有边框。
@@ -384,13 +371,13 @@
                 禁止拉动文本域大小的属性
                 <pre><code class="language-css">textarea{resize:none;}</code></pre>
             </div>
-        </div>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text3"><code class="html"></code></pre>
     </section>
 </div>
 <div class="item">
     <h3>投影 圆角 不透明度</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>box-shadow : 盒子投影属性</h4>
                 <p>box-shadow:20px （水平位置） 30px（垂直位置） 40px（模糊程度） 50px（阴影大小） #000（阴影颜色） inset（内外位置，默认是外面） </p>
@@ -430,13 +417,11 @@
 background: rgba(255,0,0,.5);</code></pre>
                 <p>opacity能够让背景和内容同时透明，rgba只能给元素自身（color）或者背景（background）透明</p>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>hover 转换 过渡属性</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>鼠标移上</h4>
                 <p>hover：想给哪个加上鼠标移上的效果就在哪个标签后面添加：hover</p>
@@ -460,13 +445,11 @@ background: rgba(255,0,0,.5);</code></pre>
                 <p>其中属性名称可以通过一个all来设置所有。动画类型要特殊记住linear表示匀速；其他的属性中可能transition-delay会单独用到。
                 </p>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>自定义动画属性</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>animation：设置自定义的动画</h4>
                 <ol>自定义动画步骤
@@ -508,13 +491,11 @@ background: rgba(255,0,0,.5);</code></pre>
                 <pre><code class="language-css">backface-visibility: visible|hidden;</code></pre>
                 <p>backface-visibility: hidden；图片面向 : 可见； 背向 : 不可见</p>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>伪类和伪元素 自定义字体</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>伪类</h4>
                 <p>比如：hover 表示当鼠标移上指定标签的时候；它表示的是一种状态。</p>
@@ -550,13 +531,11 @@ background: rgba(255,0,0,.5);</code></pre>
             font-size: 40px;
         }</code></pre>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>媒体查询（响应式）</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <h4>添加视口和其它配置</h4>
                 <ol>
@@ -574,7 +553,7 @@ background: rgba(255,0,0,.5);</code></pre>
                 </ol>
                 <a class="piece" href="http://blog.jayself.com/2014/03/22/meta/" target="_blank">移动端常用meta</a>
                 <a class="btns" href="javascript:;">移动端常用公共样式</a>
-                <pre class="text20"><code class="html"></code></pre>
+                <pre class="text20"><code class="css"></code></pre>
             </div>
             <div class="small">
                 <h4>@media（min-width：620px ） and （max-width：980px）{css样式条}</h4>
@@ -583,13 +562,11 @@ background: rgba(255,0,0,.5);</code></pre>
                 <p>外链式css： link标签支持一个叫做media的属性
                 </p>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>flex布局</h3>
     <section>
-        <div class="main">
             <p>display:flex/inline-flex</p>
             <p>设为 Flex布局后，子元素的float、clear和vertical-align属性将失效。但是position属性，依然生效。</p>
             <div class="small">
@@ -646,8 +623,7 @@ background: rgba(255,0,0,.5);</code></pre>
             </div>
             <div class="small">
                 <h4>子元素属性</h4>
-                <div class="wrap add2 text4">
-                    <ol class="neirong">
+                    <ol>
                         <li>order 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
                         <li>flex flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。
                             <ol>
@@ -660,15 +636,14 @@ background: rgba(255,0,0,.5);</code></pre>
                             属性值与align-items相同，默认值为auto，表示继承父容器的align-items属性值。
                         </li>
                     </ol>
-                </div>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text4"><code class="css"></code></pre>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>grid布局</h3>
     <section>
-        <div class="main">
             <p>display:grid/inline-grid</p>
             <p>设为网格布局以后，容器子元素（项目）的float、display: inline-block、display: table-cell、vertical-align和column-*等设置都将失效。</p>
             <div class="small">
@@ -807,12 +782,11 @@ background: rgba(255,0,0,.5);</code></pre>
                     </li>
                 </ol>
             </div>
-        </div>
     </section>
 </div>
 <div class="item">
     <h3>浮动塌陷、外边距塌陷</h3>
-    <section class="vertical">
+    <section>
         <div class="small">
             <h4>浮动塌陷</h4>
             <p>当父级没有高度，内部元素浮动的时候，父级就会因为获取不到元素内部的高度显示异常，那么要想恢复的方式是，给父级添加overflow：hidden；属性，作用就是检测内部浮动元素。</p>
@@ -863,7 +837,7 @@ background: rgba(255,0,0,.5);</code></pre>
 </div>
 <div class="item">
     <h3>经典结构</h3>
-    <section class="vertical">
+    <section>
             <div class="small">
                 <h4>盒子居中方式</h4>
                 <ol>
@@ -908,21 +882,23 @@ background: rgba(255,0,0,.5);</code></pre>
                 <pre class="text14"><code class="language-html"></code></pre>
             </div>
         </div>
-        <pre>1.容器给了宽度再添加margin负值表示，向哪个方向偏移
-2.容器不给宽度再添加margin负值表示，向哪个方向增值
-/栅格化思想/  中间的间距20
-总共是四层。
-第一层是版芯
-第二层超出版芯（列表的父级） margin:0 -10px  -10是中间的间距/2
-第三层(列表) width 1/个数*100%; 并且 指定padding:0 10px 10 是中间的间距/2
-第四层(列表的内容)  这是我们关注的。
-这种方法兼容IE8及以上浏览器</pre>
+        <ol>
+            <li>1.容器给了宽度再添加margin负值表示，向哪个方向偏移</li>
+            <li>2.容器不给宽度再添加margin负值表示，向哪个方向增值</li>
+        </ol>
+        <p>/栅格化思想/  中间的间距20<br>
+            总共是四层。<br>
+            第一层是版芯<br>
+            第二层超出版芯（列表的父级） margin:0 -10px  -10是中间的间距/2<br>
+            第三层(列表) width 1/个数*100%; 并且 指定padding:0 10px 10 是中间的间距/2<br>
+            第四层(列表的内容)  这是我们关注的。<br>
+            这种方法兼容IE8及以上浏览器<br>
+        </p>
     </section>
 </div>
 <div class="item">
     <h3>其他</h3>
     <section>
-        <div class="main">
             <div class="small">
                 <ol>
                     <li>有些时候，插入的图片，会莫名其妙的出现一些间距，这种问题的解决方式就是给这个图片添加属性 dispaly：block；</li>
@@ -976,7 +952,6 @@ background: rgba(255,0,0,.5);</code></pre>
     background: transparent;
   }</code></pre>
             </div>
-        </div>
     </section>
 </div>
 </article>

@@ -10,7 +10,7 @@ var text1 = ' <!DOCTYPE html>\n' +
     '\n' +
     '        </body>\n' +
     '        </html>';
-$('section.text1 .other pre code').text(text1);
+$('.text1 code').text(text1);
 
 var text2 = '<fieldset>\n' +
     '        <legend>用户注册信息</legend>\n' +

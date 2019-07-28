@@ -18,7 +18,7 @@
         'num01 = num01 + num02;//num01 = 11;\n' +
         'num02 = num01 - num02;//11 - 6 = 5;\n' +
         'num01 = num01 - num02;//11 - 5 = 6;';
-    $('.js.text1  .other code').text(text1);
+    $('.text1  code').text(text1);
 
     let text2 = '<script>\n' +
         'console.log(typeof 123);//number\n' +
@@ -54,7 +54,7 @@
         '    //引用数据类型存储是地址，共享同一块内存空间\n' +
         '    console.log(arr1 === arr2);';
 
-    $('.js.text2  .other code').text(text2);
+    $('.text2  code').text(text2);
 
     let text3 = 'switch（expression）{\n' +
         '\tcase 常量1：\n' +
@@ -699,7 +699,7 @@ if (list.hasChildNodes()) {
     }
 }`
 
-    $('.wrap.text29 .other pre code').text(text29);
+    $('.text29  code').text(text29);
 
     let text30 = '<style>\n' +
         '    select {\n' +
@@ -871,7 +871,7 @@ if (list.hasChildNodes()) {
         'var a = "name";\n' +
         'console.log(a in obj);//true';
 
-    $('.wrap.text34 .other pre code').text(text34);
+    $('.text34 code').text(text34);
 
     let text35 = 'var obj = {\n' +
         'name : "zs",\n' +

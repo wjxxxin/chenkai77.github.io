@@ -18,6 +18,9 @@ ol{
   padding: 5px 20px;
   border-radius:10px;
 }*/
+img{
+  width: 100%;
+}
 code[class*="language-"], pre[class*="language-"]{
   line-height:1.5;
   border-radius: 5px;
@@ -25,6 +28,11 @@ code[class*="language-"], pre[class*="language-"]{
 code, kbd, pre, samp{
   font-family:  Menlo,Monaco,Consolas,Courier New,monospace;
   font-size: 14px;
+}
+code::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
 }
 li,p{
   margin-bottom:5px;
@@ -203,7 +211,6 @@ article{
   section{
     width: 100%;
     transition: all 0.3s;
-    display: flex;
     .piece{
       display: block;text-align: center;line-height: 60px;border-radius: 5px;transition: all 0.5s;cursor: pointer;font-weight: bold;height: 60px;width:200px;margin:10px;
       &:hover{
@@ -325,7 +332,6 @@ article{
   }
 }
 section.vertical{
-  display: block;
   .ver{
     .other{
       width: 100%;

@@ -16,7 +16,7 @@ var text2 = 'h2{display:inline;\n' +
     'border-bottom:2px soild #000\n' +
     'border-left:2px dotted #000\n' +
     'border-right:2px dashed #000}';
-$('.add2.text2  .other code').text(text2);
+$('.text2  code').text(text2);
 
 var text3 = '<table> \n' +
     '\t<tr>\n' +
@@ -33,7 +33,7 @@ var text3 = '<table> \n' +
     '        <td>单元格8</td>\n' +
     '\t</tr>\n' +
     '</table>';
-$('.add.text3  .other code').text(text3);
+$('.text3  code').text(text3);
 
 var text4 = '当 flex 取值为 none，则计算值为 0 0 auto，如下是等同的：\n' +
     '.item {flex: none;}\n' +
@@ -56,7 +56,7 @@ var text4 = '当 flex 取值为 none，则计算值为 0 0 auto，如下是等�
     '    flex-shrink: 1;\n' +
     '    flex-basis: 0%;\n' +
     '}';
-$('.add2.text4  .other code').text(text4);
+$('.text4  code').text(text4);
 
 var text5 = '<!DOCTYPE html>\n' +
     '<html>\n' +
