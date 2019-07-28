@@ -1,8 +1,10 @@
 html{
   background: #F5F5F5;
+  font-size: 100px;
+  font-size: 10vw;
 }
 body{
-
+  font-size: 0.12rem;
   color: #444;
 }
 a{
@@ -199,6 +201,8 @@ article{
     color: #FF5722;
   }
   section{
+    width: 100%;
+    transition: all 0.3s;
     display: flex;
     .piece{
       display: block;text-align: center;line-height: 60px;border-radius: 5px;transition: all 0.5s;cursor: pointer;font-weight: bold;height: 60px;width:200px;margin:10px;
@@ -207,8 +211,16 @@ article{
       }
     }
     ol{
+      width: 100%;
       margin-top: 7px;
       padding-left:30px;
+      box-sizing: border-box;
+      li{
+        width: 100%;
+        pre{
+          width: 100%;
+        }
+      }
       ol{
         list-style-type:circle;
         ol{
@@ -254,6 +266,7 @@ article{
       }
     }
       .small{
+        width: 100%;
         margin-bottom:20px;
         .neirong{
           width: 100%;
@@ -319,3 +332,8 @@ section.vertical{
     }
   }
 }
+
+/*响应式相关==============================================================*/
+.pc-show {display: block;}
+
+.pc-hide {display: none;}

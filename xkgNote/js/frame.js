@@ -246,8 +246,8 @@ var app={
     'appSrc':'src/',
     'appBuild':'build/',
     'appDist':'dist/',
-    'appPort':9999,
-}
+    'appPort':8080,
+};
 
 var gulp = require('gulp');
 /*导入gulp-less插件*/
@@ -337,11 +337,21 @@ gulp.task('lib',function () {
         .pipe(connect.reload()) //当内容发生改变时， 重新加载。
 });
 
+/*
+* 6.注册json任务(把src/data下的json文件放到项目中)
+* */
+gulp.task('json',function () {
+    gulp.src(app.appSrc+'data/*.json')
+        .pipe(gulp.dest(app.appBuild+'data'))
+        .pipe(gulp.dest(app.appDist+'data'))
+        .pipe(connect.reload()) //当内容发生改变时， 重新加载。
+})
+
 /**
  * 6.注册一个build任务（同时执行多个任务）
  *   当前 bulid 时，会自动把数组当中的所有任务给执行。
  * */
-gulp.task('build',['html','less','js','image','lib']);
+gulp.task('build',['html','less','js','image','lib','json']);
 
 /**
  * 7.定义server任务
@@ -364,6 +374,7 @@ gulp.task('server',['build'],function () {
     gulp.watch(app.appSrc+'js/**/*.js',['js']);
     gulp.watch(app.appSrc+'images/**/*',['image']);
     gulp.watch(app.appSrc+'style/**/*.less',['less']);
+    gulp.watch(app.appSrc+'data/*.json',['json']);
 
     //open相当于浏览器，下面是通过浏览器打开百度网址
     var options = {

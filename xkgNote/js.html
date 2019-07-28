@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>js</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
     <style>
         /*.navLeft li{height: 20px;line-height: 20px;}*/
         .navLeft ul{
@@ -17,7 +19,7 @@
         .navLeft .activation{
             left: -130px;
         }
-        .zhuanhuan{
+        .navLeft a{
             display: block;
             font-size:12px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
@@ -30,51 +32,16 @@
             bottom: 0;
             left: 0;
             color: #0077aa;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 <div class="navLeft">
-    <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    </ul>
-    <a class="zhuanhuan" href="javascript:">换页</a>
-    <ul class="activation">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    </ul>
+
 </div>
 <ul class="navRight">
-    <li><a href="html.html">HTML</a></li>
-    <li><a href="css.html">CSS</a></li>
-    <li><a href="js.html">JS</a></li>
-    <li><a href="frame.html">框架、工具</a></li>
-    <li><a href="node.js.html">前后端</a></li>
+
 </ul>
 <div class="top">
     JavaScript
@@ -84,6 +51,13 @@
     <div class="searchBut"></div>
     <div class="searchup">↑</div>
     <div class="searchdown">↓</div>
+</div>
+<div class="phone-show pc-hide titleNav">
+    <input type="text" placeholder="搜索">
+    <div class="ssbut ss">搜索</div>
+    <div class="ssbut ok">ok</div>
+    <div class="ssbut sd">下一个</div>
+    <div class="alltitle">展开目录</div>
 </div>
 <article>
 <div class="item">
@@ -138,7 +112,7 @@ gender = '男'；</code></pre>
         <div class="tapNav">
             <div class="tapTop cur">Number（数字）</div>
             <div class="tapTop">String（字符串）</div>
-            <div class="tapTop">Boolean（布尔）/Null（空）/Underfined（未定义）</div>
+            <div class="tapTop">Boolean（布尔）/ Null（空）/ Underfined（未定义）</div>
         </div>
         <div class="tapMain">
             <div class="tapSection">
@@ -342,7 +316,7 @@ console.log(strNum + 0);     //18.60  0先转换成字符串类型，再做拼�
                 <div class="tapTop cur">typeof: 主要用来判断基本类型</div>
                 <div class="tapTop">constructor: 可以用来判断创建对象的构造器的类型</div>
                 <div class="tapTop">instanceof: 判断指定构造函数的原型对象是否在当前实例对象的原型链上</div>
-                <div class="tapTop">Object.prototype.toString(): 获取数据类型对应的字符串</div>
+                <div class="tapTop">Object.prototype. toString(): 获取数据类型对应的字符串</div>
             </div>
             <div class="tapMain">
                 <div class="tapSection">
@@ -388,7 +362,7 @@ console.log(Object.prototype.toString.call([]));//[object Array]</code></pre>
     <section class="vertical">
         <div class="tapNav">
             <div class="tapTop cur">一元运算符</div>
-            <div class="tapTop">辑运算符（布尔运算符）</div>
+            <div class="tapTop">逻辑运算符（布尔运算符）</div>
             <div class="tapTop">关系运算符</div>
             <div class="tapTop">赋值运算符</div>
             <div class="tapTop">运算符优先级</div>
@@ -1073,6 +1047,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                             <ol>获取日期的毫秒
                                 <li>console.log(date.valueOf());</li>
                                 <li>console.log(date.getTime());</li>
+                                <li>console.log(+date);</li>
                             </ol>
                         </li>
                         <li>new Date(value) ： var date2 = new Date(156448658459);</li>
@@ -1339,6 +1314,27 @@ function getInnerText(element) {
             <pre class="text31"><code class="language-js"></code></pre>
         </div>
         <div class="small">
+            <h4>移动端的触摸事件</h4>
+            <ol>touch事件
+                <li>touchstart : 手指触摸屏幕时触发</li>
+                <li>touchmove : 手指在屏幕上移动时触发</li>
+                <li>touchend : 手指离开屏幕时触发</li>
+            </ol>
+            <ol>touchEvent对象
+                <li>touches: 位于屏幕上 的所有手指的列表(  模拟器只能模拟一根手指，所以该数组只有一个touch对象 。如果真机中按下了两个手指，数组就会有两个touch对象 )(注意：一个touch对象代表是一根手指)</li>
+                <li>targetTouches: 位于该元素上 的所有手指的列表（一般与touches相同）</li>
+                <li>target: 当前触摸到的标签对象</li>
+                <li>changedTouches：touchstart 时包含刚与触摸屏接触的触点，touchend 时包含离开触摸屏的触点（监听切换的手指的touch对象。比如当用户按下第一根手指，该数组仅装的是第一根手指的touch对象，当用户接着按下第二根手指，该数组仅装第二根手指的touch对象，以此类推）（事件对象中changedTouches这个比较常用。是一个伪数组对象集合，本质是对象。）</li>
+                <li>target对象：目标元素</li>
+            </ol>
+            <ol>touch对象 （一个touch对象代表是一根手指）
+                <li>clientX/Y 手指相对于  手机屏幕的左上角  的水平/垂直像素距离（）经测试和pageX/Y是一样的。</li>
+                <li>pageX/Y 手指相对于  网页的左上角   的水平/垂直像素距离（含滚动）</li>
+                <li>screenX/Y 手指相对于 电脑屏幕的左上角   的水平/垂直像素距离（含滚动）</li>
+                <li>target 手指最初与屏幕接触时的元素</li>
+            </ol>
+        </div>
+        <div class="small">
             <h4>注册事件</h4>
             <p>addEventListener  :  addEventListener可以将时间监听器注册到btn按钮上，当事件发生时，调用事件处理函数。可以给同一个对象的同一个事件注册多个事件处理函数</p>
             <p>addEventListener的用法，给当前元素添加事件和事件处理函数，并制定事件的阶段（true 捕获阶段，false 冒泡阶段，默认为false）;参数一：事件类型，不加on ； 参数二：事件处理函数 ； 参数三：布尔类型</p>
@@ -1361,7 +1357,7 @@ function getInnerText(element) {
             </ol>
             <ol>addEventListener的第三个参数是一个布尔类型(onclick、attachEvent没有第三个参数)
                 <li>第三个参数是false：事件从里到外执行，这种效果叫事件冒泡</li>
-                <li>第三个参数是true：事件从里到外执行，执行顺序颠倒过来了，这种效果叫做事件捕获。</li>
+                <li>第三个参数是true：事件从外到里执行，执行顺序颠倒过来了，这种效果叫做事件捕获。</li>
             </ol>
         </div>
         <div class="small">
@@ -1382,8 +1378,8 @@ function getInnerText(element) {
             <ol>当事件发生时，通过事件对象可以获取鼠标的位置坐标
                 <li>e.clientX / e.clientY，获取相对于可视区域鼠标位置坐标，所有浏览器都支持。</li>
                 <li>e.pageX / e.pageY，获取相对于整个文档的的位置。</li>
-                <li>document.body.scrollLeft||document.documentElement.scrollLeft : 获取页面滚动出去的距离</li>
-                <li>document.body.scrollTop||document.documentElement.scrollTop : 获取页面滚动出去的距离  (document.documentElement：文档根元素 html)
+                <li>document.body.scrollLeft || document.documentElement.scrollLeft : 获取页面滚动出去的距离</li>
+                <li>document.body.scrollTop || document.documentElement.scrollTop : 获取页面滚动出去的距离  (document.documentElement：文档根元素 html)
                 </li>
                 <li>offsetLeft、offsetTop : div在文档中的偏移量</li>
             </ol>
@@ -1815,6 +1811,8 @@ func(2, 3, 4);</code></pre>
             <li>onchange  : onchange 事件会在域的内容改变时发生,也可用于单选框与复选框改变后触发的事件。</li>
             <li>oninput : oninput事件在元素的值已经改变之后立即发生。当元素失去焦点时，会发生onchange事件。</li>
             <li>animationend : 动画结束事件</li>
+                <li>DOMContentLoaded : 文档加载完事件 （JQ里的$(document).ready()、$(function(){})，都是使用了DOMContentLoaded事件）</li>
+                <li>transitionend ： 过渡动画执行完事件</li>
             </ol>
         </div>
         <div class="small">
@@ -1920,7 +1918,8 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
             <h4>其他</h4>
             <ol>
                 <li>只有谷歌支持.webp， 所以将 .webp 改成 .jpg</li>
-                <li>IE7、8中不支持rgba() 使用  ： filter:alpha(opacity=40)progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFF00,endColorstr=#FFFF00);</li>
+                <li>IE7、8中不支持rgba() 使用  ： filter:alpha(opacity=40) ;
+                    progid:DXImageTransform.Microsoft.gradient (startColorstr=#FFFF00,endColorstr=#FFFF00);</li>
             </ol>
         </div>
     </section>
@@ -1976,6 +1975,20 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
             </div>
             <div class="tapSection">
                 <pre class="text88"><code class="language-js"></code></pre>
+            </div>
+        </div>
+        <a class="bntTap" href="javascript:">移动端案例</a>
+        <div class="tapNav">
+            <div class="tapTop cur">移动端轮播</div>
+            <div class="tapTop">图片懒加载</div>
+        </div>
+        <div class="tapMain">
+            <div class="tapSection">
+                <pre class="text90"><code class="language-html"></code></pre>
+            </div>
+            <div class="tapSection">
+                <p>绑定scroll事件。当每个图片的顶部距离文档顶部的距离 比 可视窗口高度加窗口滚动距离 大 时将我们自定义的data-src标签属性改为src，也就是让图片显示</p>
+                <pre class="text91"><code class="language-js"></code></pre>
             </div>
         </div>
     </section>

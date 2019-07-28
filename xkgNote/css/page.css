@@ -1,7 +1,10 @@
 html {
   background: #F5F5F5;
+  font-size: 100px;
+  font-size: 10vw;
 }
 body {
+  font-size: 0.12rem;
   color: #444;
 }
 a {
@@ -193,6 +196,8 @@ article {
   color: #FF5722;
 }
 .item section {
+  width: 100%;
+  transition: all 0.3s;
   display: flex;
 }
 .item section .piece {
@@ -211,8 +216,16 @@ article {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 .item section ol {
+  width: 100%;
   margin-top: 7px;
   padding-left: 30px;
+  box-sizing: border-box;
+}
+.item section ol li {
+  width: 100%;
+}
+.item section ol li pre {
+  width: 100%;
 }
 .item section ol ol {
   list-style-type: circle;
@@ -256,6 +269,7 @@ article {
   display: block;
 }
 .item section .small {
+  width: 100%;
   margin-bottom: 20px;
 }
 .item section .small .neirong {
@@ -322,4 +336,11 @@ section.vertical {
 }
 section.vertical .ver .other {
   width: 100%;
+}
+/*响应式相关==============================================================*/
+.pc-show {
+  display: block;
+}
+.pc-hide {
+  display: none;
 }

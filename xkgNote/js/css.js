@@ -370,6 +370,120 @@ var text14 = '<!DOCTYPE html>\n' +
 
 $('.tapSection .text14 code').text(text14);
 
+var text15 = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <style>
+
+        *{margin: 0; padding: 0; list-style: none; border: none;}
+        /*指定根字体大小，100px 都是以iphone6屏幕来进行计算的，很多时候，屏幕的内容会随着，屏幕的变大而变大，需要转换为vw值*/
+        /*
+        
+        100px      ?vw\t\t\t\t\t\t\t\t\t\t\t\t 100px*100vw
+ \t   ------ =  ------     --->   100px *100vw = ?vw*375px  -----> -----------  = ?vw
+        375px      100vw\t\t\t\t\t\t\t\t\t\t\t\t375px
+        
+        
+        */
+      
+        html{ font-size: 100px; font-size:26.66667vw;}
+        /*屏幕 尺寸超过640像素，限制根字体大小，到一定的范围*/
+        @media (min-width: 640px) {
+            html{
+                font-size: 170px;
+            }
+        }
+
+        body{font-size:0.12rem;}/*指定默认文字 大小是12像素*/
+        div{ height: 2rem; background: gold;}
+        p{height: 0.1rem; background: purple;}
+
+
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div>宽等于屏幕 的宽度高等于200px我们写移动端 但是要转换成rem</div>
+    <p>宽度等于屏宽度，高度等于10像素</p>
+</body>
+</html>`;
+
+$('.text15 code').text(text15);
+
+var text16 = ` <!--添加视口, 适配移动设备:
+        width=device-width: 让html的宽等于设备的宽（例如设备是iphone6 宽是375 pt）
+        initial-scale=1.0 : 不允许用户进行手动缩放
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">`;
+$('.text16 code').text(text16);
+
+var text17 = `  <!-- 是否启用 WebApp 全屏模式（ content有两个值”yes”和”no”,默认no就是显示苹果工具栏和菜单栏 ） -->
+    <meta name="apple-mobile-web-app-capable" content="yes">`;
+
+$('.text17 code').text(text17);
+
+var text18 = `    <!-- 设置状态栏的背景颜色,只有在 “apple-mobile-web-app-capable” content=”yes” 时生效，默认值为default（白色），可以定为black（黑色） -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">`;
+
+$('.text18 code').text(text18);
+
+var text19 = ` <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta name="format-detection" content="telephone=no">`;
+
+$('.text19 code').text(text19);
+
+var text20 = `@charset "utf-8";
+/* 清零 */
+*:focus{outline: none;}
+html{
+\t/*禁用iPhone中Safari的字号自动调整*/
+\t-webkit-text-size-adjust:100%;
+\t-ms-text-size-adjust:100%;
+\t/* 解决IOS默认滑动很卡的情况 */
+\t-webkit-overflow-scrolling : touch;
+}
+body{font-family:'Microsoft YaHei', Tahoma,Arial,"Roboto","Droid Sans","Helvetica Neue","Droid Sans Fallback","STHeiti",sans-serif;}
+/*去除iPhone中默认的input样式*/
+input{-webkit-appearance:none; resize:none;}
+/*取消链接高亮*/
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,select,p,dl,dt,dd,a,img,button,form,table,th,th,tr,th,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{-webkit-tap-hightlight-color:rgba(0,0,0,0);    -webkit-tap-highlight-color: transparent; margin: 0;padding: 0;border: none; }
+/*设置HTML5元素为块级元素*/
+article,aside,details,figcaption,figure,footer,hgroup,menu,nav,section{display: block;}
+/*图片自适应*/
+img{max-width: 100%;height: auto;width:auto\\9; /*IE8*/-ms-interpolation-mode:bicubic; /*为了照顾IE图片缩放失真*/}
+
+
+em,i,strong{font-style: normal;}
+.clearfix:after{content: "";display: block;visibility: hidden;height: 0; clear: both;}
+.clearfix{zoom:1}
+a{text-decoration: none;color: #929292;font-family:'Microsoft YaHei', Tahoma,Arial,"Roboto","Droid Sans","Helvetica Neue","Droid Sans Fallback","STHeiti",sans-serif;}
+a:hover{color: #929292; text-decoration: none;}
+ul,ol,li{list-style: none;}
+h1,h2,h3,h4,h5,h6{font-size: 100%; font-family:'Microsoft YaHei', Tahoma,Arial,"Roboto","Droid Sans","Helvetica Neue","Droid Sans Fallback","STHeiti",sans-serif;}
+fieldset,img{border: none;}
+table{border-collapse: collapse;border-spacing: 0;}
+caption,th{text-align: left;}
+q:before,q:after{content: "";}
+/*禁止表单使用文本框输入法*/
+input:password{ime-mode: disabled;}
+.scope{max-width: 640px;margin: 0 auto;}
+.clear{clear: both;}
+/*连续英文，数字换行*/
+.wordwrap{word-break: break-all;word-wrap: break-word;}
+/*单行文字超出显示省略号*/
+.omg{overflow: hidden;text-overflow:ellipsis ;white-space: nowrap;}
+
+*{box-sizing: border-box;}
+
+/* 禁止长按链接与图片弹出菜单 */
+a, img {-webkit-touch-callout: none;}
+/* 禁止选中文本（如无文本选中需求，此为必选项） */
+html, body {-webkit-user-select: none;user-select: none;}`;
+
+$('.text20 code').text(text20);
 
 
 /*

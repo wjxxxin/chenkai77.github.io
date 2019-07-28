@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>css</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
-
+    <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
 </head>
 <body>
 <ul class="navLeft">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+
 </ul>
 <ul class="navRight">
-    <li><a href="html.html">HTML</a></li>
-    <li><a href="css.html">CSS</a></li>
-    <li><a href="js.html">JS</a></li>
-    <li><a href="frame.html">框架、工具</a></li>
-    <li><a href="node.js.html">前后端</a></li>
+
 </ul>
 <div class="top">
     CSS笔记(层叠样式表)
@@ -43,10 +25,17 @@
     <div class="searchup">↑</div>
     <div class="searchdown">↓</div>
 </div>
+<div class="phone-show pc-hide titleNav">
+    <input type="text" placeholder="搜索">
+    <div class="ssbut ss">搜索</div>
+    <div class="ssbut ok">ok</div>
+    <div class="ssbut sd">下一个</div>
+    <div class="alltitle">展开目录</div>
+</div>
 <article>
 <div class="item">
     <h3>css基本</h3>
-    <section class="text1">
+    <section>
         <div class="main">
             <p>css代码需写在style标签内部，表示环境</p>
             <pre><code class="language-html">&#32;&#60;&#115;&#116;&#121;&#108;&#101;&#62;&#60;&#47;&#115;&#116;&#121;&#108;&#101;&#62;</code></pre>
@@ -63,6 +52,17 @@
                     <li>层叠性：后面的属性会覆盖前面写的属性；</li>
                     <li>继承性：给父级写的样式子级标签也能生效，文字控制属性是可以继承的，超链接的文本文字属性除外</li>
                 </ol>
+            </div>
+            <div class="small">
+                <h4>css单位</h4>
+                <ul>
+                    <li>em ： em 单位是相对于使用em单位的元素的字体大小( 也是相对于字体大小，有可能是父亲的元素也有可能是自身的元素字体大小。（如果一个 div 有 18px 字体大小，给标签10em 将等同于 180px，即10em × 18px = 180px）</li>
+                    <li>rem ： Rem转化为像素px大小取决于页根元素html的字体大小，即 html 元素的字体大小</li>
+                    <li>vw ：相对于视窗的宽度：视窗宽度是100vw</li>
+                    <li>vh ： 相对于视窗的高度：视窗高度是100vh</li>
+                </ul>
+                <a class="btns" href="javascript:;">代码</a>
+                <pre class="text15"><code class="html"></code></pre>
             </div>
         </div>
     </section>
@@ -97,6 +97,12 @@
             <div class="small">
                 <h4>biu属性</h4>
                 <pre class="text1"><code class="language-html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>文字颜色渐变</h4>
+                <pre><code class="css">background-image: linear-gradient(90deg, #ff0202, #f15ed2);
+                 -webkit-background-clip:text;
+                 -webkit-text-fill-color: transparent;</code></pre>
             </div>
         </div>
     </section>
@@ -552,6 +558,25 @@ background: rgba(255,0,0,.5);</code></pre>
     <section>
         <div class="main">
             <div class="small">
+                <h4>添加视口和其它配置</h4>
+                <ol>
+                    <li><pre class="text16"><code class="html"></code></pre>
+                        <p>width=device-width: 让html的宽等于设备的宽（例如设备是iphone6 宽是375 pt）,那么html的宽也是等于375px,  如果美工给的设计图的宽是750px。那么在使用的时候像素要除于2。把图片转换为375像素之后再量取即可。</p></li>
+                    <li>启用 Web App 全屏模式( 更接近原生APP的风格)
+                    <pre class="text17"><code class="html"></code></pre>
+                    </li>
+                    <li>设置状态栏的背景颜色
+                        <pre class="text18"><code class="html"></code></pre>
+                    </li>
+                    <li>忽略将页面中的数字识别为电话号码（默认会被识别为电话号码，点击后就出现拨号状态）
+                        <pre class="text19"><code class="html"></code></pre>
+                    </li>
+                </ol>
+                <a class="piece" href="http://blog.jayself.com/2014/03/22/meta/" target="_blank">移动端常用meta</a>
+                <a class="btns" href="javascript:;">移动端常用公共样式</a>
+                <pre class="text20"><code class="html"></code></pre>
+            </div>
+            <div class="small">
                 <h4>@media（min-width：620px ） and （max-width：980px）{css样式条}</h4>
                 <p>（有很多坑要注意，and的左右必须要有空格。临界值的css键值对最后一定不要加分号，加了就出错。定义多段范围的时候临界值不要重复。）</p>
                 <p>经验值：移动端最大宽度是620px；pc端最小宽度的经验值是980px</p>
@@ -928,7 +953,28 @@ background: rgba(255,0,0,.5);</code></pre>
                     <li>less运算 : less可以进行属性值的运算，例如宽高 文字大小 颜色等等数值和颜色之间的运算。(运算符与值之间必须以空格分开 ; 在运算的时候，只要有一个有单位就行)</li>
                     <li>less混合 : 通过点去声明使用混合，点后面书写自己定义属性的名称，后面接小括号书写变量属性，大括号里面书写具体的属性和值</li>
                     <li>less函数 : 可以直接使用less定义好的一些方法</li>
+                    <li>less导入其他文件 : 例如 ： @import (inline) "base.css" </li>
                 </ol>
+            </div>
+            <div class="small">
+                <h4>移动端1px的解决方案</h4>
+                <ol>
+                    <li>用::after</li>
+                    <li>设置border-left：1px solid #ddd;</li>
+                    <li>width:1px; height:100%</li>
+                    <li>然后再缩放scaleY(0.5);</li>
+                    <li>绝对定位</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>横向滑动</h4>
+                <p>overflow-x: scroll;</p>
+                <p>隐藏滚动条 : </p>
+                <pre><code class="css">::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }</code></pre>
             </div>
         </div>
     </section>
