@@ -2682,6 +2682,30 @@ Swiper.prototype = {
 
 $('.text91 code').text(text91);
 
+let text92 = `Object.defineProperties(obj,{
+    name:{
+        configurable:true
+    },
+    age:{
+        configurable:false
+    }
+});
+delete obj.name;
+delete obj.age;
+console.log(obj);//{age:10},name属性已被删除`;
+
+    $('.text92 code').text(text92);
+
+    let text93 = `var obj = {name:"Neld", age:10};
+Object.defineProperty(obj,"name",{
+    configurable:false//当前属性不能被删除
+})
+delete obj.name;//删除name属性
+console.log(obj);//{name:"Neld", age:10}，name属性没有被删除`;
+
+    $('.text93 code').text(text93);
+
+
 })();
 /*
 $('.tapMain').each(function (index,ele) {

@@ -924,6 +924,35 @@ return Object.prototype.toString.call(arr) == "[object Array]";
             <pre><code class="language-js">var d = new Date();
 console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
         </div>
+        <div class="small">
+            <h4>Object静态成员</h4>
+            <ol>
+                <li>getOwnPropertyDescriptor：获取当前对象中的指定的属性描述对象
+                    <pre><code class="js">console.log(Object.getOwnPropertyDescriptor(obj,"name"));</code></pre>
+                    <ol>每个属性描述对象都存在下面四个属性：
+                        <li>configurable：属性可配置型，false，当前属性不能被删除，并且后面不能再改变该描述对象</li>
+                        <li>enumerable：可枚举性，false，当前属性不是被循环遍历到</li>
+                        <li>value：当前属性的值</li>
+                        <li>writable：可写性，false，当前属性的值不能被修改</li>
+                    </ol>
+                </li>
+                <li>getOwnPropertyDescriptors：获取所有属性的描述对象</li>
+                <li>defineProperties ： 一次定义多个属性的可操作性（configurable|enumerable|value|writable）
+                    <pre class="text92"><code class="js"></code></pre>
+                </li>
+                <li>defineProperty：定义当前指定属性的可操作性（configurable|enumerable|value|writable）
+                    <pre class="text93"><code class="js"></code></pre>
+                    <p>当为一个存在的属性设置可操作性时，如果只是修改属性描述对象的部分属性，其他的为默认值。<br>当为一个不存在的属性设置可操作性时，如果只是修改属性描述对象的部分属性，其他的为false。
+                    </p>
+                </li>
+                <li>keys：获取当前对象所有属性的名称，不可枚举的属性除外
+                <pre><code class="js">console.log(Object.keys(obj));</code></pre>
+                </li>
+                <li>getOwnPropertyNames：获取当前对象所有属性的名称，包括不可枚举的属性
+                <pre><code class="js">console.log(Object.getOwnPropertyNames(obj));</code></pre>
+                </li>
+            </ol>
+        </div>
     </section>
 </div>
 <div class="item">
@@ -1121,7 +1150,8 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                 </li>
                 <li>concat() : // 把参数拼接到当前数组</li>
                 <li>slice() : // 从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始</li>
-                <li>splice() : // 删除或替换当前数组的某些项，参数start, deleteCount, options(要替换的项目)</li>
+                <li>splice() : // 删除或替换或增加当前数组的某些项，参数start(开始的索引位置), deleteCount(删除数量，写0则为增加), options(要替换的项目)
+                </li>
                 <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
                     <a class="btns" href="javascript:">代码</a>
                     <pre class="text20"><code class="language-js"></code></pre>

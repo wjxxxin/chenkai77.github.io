@@ -92,3 +92,9 @@ body{
 .item section .small .code .right{
     width: 100%;
 }
+
+code::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}

@@ -394,15 +394,38 @@ gulp.task('default',['server']);`;
 
 $('.text11 code').text(text11);
 
+var text12 = `<script>
+var vm = new Vue({
+    el:"绑定的元素"（例如：通过el:"#app" 和html绑定关系 ，最终实现数据呈现。）,
+    data:{
+        数据
+    },
+    methods:{
+        函数
+    }
+})
+</script>`;
 
+$('.text12 code').text(text12);
 
-
-
-
-
-
-
-
+let text13 = `<div id="app">
+<p v-for="(value,key,index) in people">
+{{key}}---{{value}}
+</p>
+</div>
+<script>
+var vm = new Vue({
+el: '#app',
+data: {
+people: {
+    name: "小李",
+    age: 18,
+    sex: "男"
+    }
+  }
+})
+</script>`;
+$('.text13 code').text(text13);
 
 /*
 $(function () {

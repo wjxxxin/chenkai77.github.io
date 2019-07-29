@@ -253,6 +253,7 @@ $('h3').click(function () {
 //添加内容
 
 //左边代码节点==========================================================================
+/*
 var oDiv = $('<div class="other"><pre><code class="language-html"></code></pre></div>');
 var oDivcss = $('<div class="other"><pre><code class="language-css"></code></pre></div>');
 var oDivjs = $('<div class="other"><pre><code class="language-js"></code></pre></div>');
@@ -261,6 +262,7 @@ $('section.add').append(oDiv);
 $('section.add .main,section.js .main,.item .wrap .neirong').append(oa);
 $('.item .wrap.add2').append(oDivcss);
 $('.item .wrap.js,section.js').append(oDivjs);
+*/
 
 
 /*
@@ -319,19 +321,16 @@ $('.btnAll').click(function () {
 
 //===========================
 $(function () {
-
     $('.navLeft a').click(function () {
         $('.navLeft ul').each(function (index, ele) {
             $(ele).toggleClass('activation')
         })
     });
-
     $('.tapMain .tapMain').each(function (index, ele) {
         $(ele).css({
             height: $(ele).children().eq(0).height() + 30
         });
     });
-
     $('.tapMain').each(function (index, ele) {
         $(ele).css({
             height: $(ele).children().eq(0).height() + 30
@@ -348,8 +347,6 @@ $(function () {
     $('.btncode').click(function () {
         $(this).next().next().slideToggle();
     });
-
-
 });
 
 

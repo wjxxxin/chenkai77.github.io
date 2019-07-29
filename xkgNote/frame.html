@@ -496,6 +496,54 @@ $("input").triggerHandler("click");</code></pre>
     </section>
 </div>
 <div class="item">
+    <h3>Vue 基本</h3>
+    <section>
+        <a class="piece" href="https://cn.vuejs.org/v2/guide/" target="_blank">Vue</a>
+        <div class="small">
+            <pre class="text12"><code class="js"></code></pre>
+            <ol>
+                <li>el绑定的元素不可以是body或者html</li>
+                <li>vue中的数据要放在生成实例的参数选项的data对象中。data中的数据不仅仅是字符串，也可以是对象或者数组。</li>
+                <li>使用数据时，直接书写{{数据名称}}，{{}}语法是插值，又称mustache语法[ˈmʌstæʃ]。本义 胡须。
+                <p>插值语法，其实就是{{}}内部可以书写js的简单操作，其实也就是相当于js的表达式。加减乘除，数组操作，函数执行等。</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Vue 指令</h3>
+    <section>
+        <div class="small">
+            <p>指令是书写在html标签身上的功能。是Vue框架赋予了这个属性的一些功能。</p>
+            <ol>
+                <li>v-model ： 是vue针对表单元素和vue的数据做的一层特殊处理
+                    <ol>修饰符：
+                        <li>number ： 强制修改成为数字。</li>
+                        <li>trim ： 去除两端空格。</li>
+                        <li>lazy ： v-model 在每次 input 事件触发后将输入框的值与数据进行同步，lazy 修饰符使其转变为使用 change 事件进行同步。</li>
+                    </ol>
+                </li>
+                <li>v-html / v-text ： 书写在标签属性上，当网络不友好时，也不显示其它字符，等全部加载完，再显示到页面中。v-html ： 值包含标签； v-text ： 值为简单数据</li>
+                <li>v-cloak ： 可以让书写vue代码的部分全部隐藏。等Vue代码加载和编译完全，会让其显示出来。
+                <p>写的时候要加上&lt;style&gt; [v-cloak]{display: none;} &lt;/style&gt;</p>
+                </li>
+                <li>v-show :  v-show ='布尔值' ： 元素切换显示/隐藏 ; v-show 指令当值为true则为显示，值为 false 则为隐藏。</li>
+                <li>绑定事件 ： 直接将事件书写在模板中 v-on:click="指令名称()" 或者简写为 @click="指令名称()"</li>
+                <li>v-for ： 用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要使用  item in items 形式 的特殊语法， items 是源数据数组并且  item 是数组元素迭代的别名。
+                <p>如果希望使用索引值那么提供了 (item,index) in items 第一项为数组元素的别名，第二项为索引值，不可以交换位置</p>
+                    <p>也可以用 v-for 通过一个对象的属性来迭代。value , key , index 第一个是对应的值，第二个是属性名称，第三个是索引。注意这里面的渲染的结果并不一定会按照对象的属性先后显示。</p>
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text13"><code class="html"></code></pre>
+                </li>
+                <li>v-bind : (可以简写为 ： )对标签的属性可以绑定数据;操作元素的类名或者内联样式，是一个常见的需求。可以结合表达式，进行字符串拼接即可。
+                <p>我们可以通过 v-bind 处理 class 和 style 。可以是字符串，也可以是对象(例如：v-bind:style="{k:v,k:v}")或者数组（例如 ： v-bind:class=“[数据1，数据2]”）。</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
     <h3>其他框架</h3>
     <section >
             <div class="small">
