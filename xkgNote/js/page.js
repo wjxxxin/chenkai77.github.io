@@ -60,7 +60,7 @@ Note.prototype = {
             //ele.innerText = h3s[index].innerText;
             var num = index;
             ele.addEventListener('click', function () {
-                console.log(1);
+
                 var h3top = h3s[num];
                 that.windowScroll(h3top)
             })
@@ -85,26 +85,33 @@ Note.prototype = {
     },
     windowScroll: function (target) {
         var that = this;
-        clearInterval(this.animatetimeId);
+        clearInterval(that.animatetimeId);
         var oldcur = document.documentElement.scrollTop || document.body.scrollTop;
         var oldtop = target.offsetTop;
-        this.animatetimeId = setInterval(function () {
-            var cur = document.documentElement.scrollTop || document.body.scrollTop;
-            var top = target.offsetTop;
-            var step = Math.abs(oldcur - oldtop) / 100;
-            if (cur > top) {
-                step = -Math.abs(step);
-            }
-            if (Math.abs(cur - top) <= Math.abs(step)) {
-                clearInterval(that.animatetimeId);
-                document.body.scrollTop = top;
-                document.documentElement.scrollTop = top;
-                return;
-            }
-            cur += step;
-            document.documentElement.scrollTop = cur;
-            document.body.scrollTop = cur;
-        }, 1)
+        var oheight = document.body.offsetHeight;
+        var aheight = window.screen.availHeight;
+        if(oldtop<oheight-aheight) {
+            this.animatetimeId = setInterval(function () {
+                var cur = document.documentElement.scrollTop || document.body.scrollTop;
+                var top = target.offsetTop;
+                var step = Math.abs(oldcur - oldtop) / 100;
+                if (cur > top) {
+                    step = -Math.abs(step);
+                }
+                if (Math.abs(cur - top) <= Math.abs(step)) {
+                    clearInterval(that.animatetimeId);
+                    document.body.scrollTop = top;
+                    document.documentElement.scrollTop = top;
+                    return;
+                }
+                cur += step;
+                document.documentElement.scrollTop = cur;
+                document.body.scrollTop = cur;
+            }, 1);
+        }else{
+            document.documentElement.scrollTop = oldtop;
+            document.body.scrollTop = oldtop;
+        }
     },
     titleClick: function () {
         var hh = 0;
