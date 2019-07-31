@@ -396,12 +396,31 @@ $('.text11 code').text(text11);
 
 var text12 = `<script>
 var vm = new Vue({
-    el:"绑定的元素"（例如：通过el:"#app" 和html绑定关系 ，最终实现数据呈现。）,
+    el:"绑定的元素"//（例如：通过el:"#app" 和html绑定关系 ，最终实现数据呈现。）,
     data:{
-        数据
+        //数据
     },
+    watch :{
+        //watch是时监听data中的数据Key,可以深度监测
+        '要监听的数据':{
+            handler(){
+                //数据发生变化时将变化后的数据处理
+            },
+            deep:true/false(是否深监听)
+        }
+    }
+    computed : {
+        //computed一般是计算一个值,变成实例的属性,值就是函数执行的结果,网页发布时会自动触发一次。
+        //函数默认执行，相当于将返回结果给到 data 中
+        //如果数据发生改变，会重新执行并且再次保存最新结果
+    }
     methods:{
-        函数
+        //函数
+    },
+    mounted(){
+        //将要执行的函数放这里
+        //数据和模板编译完成，并且已经把编译后的html显示到网页中，
+        // 相当于 window.onload = function(){ }  $(function(){})  网页加载完执行
     }
 })
 </script>`;
@@ -426,6 +445,31 @@ people: {
 })
 </script>`;
 $('.text13 code').text(text13);
+
+let text14 = `// 注册一个全局自定义指令 \`v-focus\`
+Vue.directive('focus', {
+  // 当被绑定的元素插入到 DOM 中时……
+  inserted: function (el) {
+    // 聚焦元素
+    el.focus()
+  }
+})`;
+$('.text14 code').text(text14);
+
+let text15 = `directives: {
+  focus: {
+    // 指令的定义
+    inserted: function (el) {
+      el.focus()
+    }
+  }
+}`;
+
+$('.text15 code').text(text15);
+
+
+
+
 
 /*
 $(function () {

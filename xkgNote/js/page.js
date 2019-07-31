@@ -1,7 +1,7 @@
 function Note() {
     this.navRightcolor = ['#df5225', '#4597cf', '#b2394c', '#65934a', '#14446a'];
     this.animatetimeId = null;
-
+    this.sildertimer = null;
 }
 
 Note.prototype = {
@@ -116,21 +116,17 @@ Note.prototype = {
     titleClick: function () {
         var hh = 0;
         var h3s = document.querySelectorAll('h3');
+        var that = this;
         h3s.forEach(function (ele) {
             ele.onclick = function () {
                 var eleNext = ele.nextElementSibling;
-                console.log(eleNext);
                 if (eleNext.offsetHeight !== 0) {
                     hh = eleNext.offsetHeight;
-                    eleNext.style.height = 0;
-                    setTimeout(function () {
-                        eleNext.style.display = 'none';
-                    }, 400)
-                } else {
-                    setTimeout(function () {
-                        eleNext.style.display = 'block';
-                    }, 400);
-                    eleNext.style.height = hh + 'px';
+                    eleNext.style.overflow = 'hidden';
+                    that.slideup(eleNext,hh)
+                }else if(eleNext.offsetHeight === 0) {
+                    eleNext.style.overflow = 'hidden';
+                    that.slidedown(eleNext,0,hh)
                 }
             }
         })
@@ -180,6 +176,7 @@ Note.prototype = {
             ssArr = [];
             newssArr = [];
             ssIndex = 0;
+            $('.titleNav input').val('');
         });
         $('.sd').click(function () {
             ssIndex++;
@@ -189,6 +186,32 @@ Note.prototype = {
             });
         });
     },
+    slideup:function (ele,height) {
+        var that = this;
+        this.sildertimer = setInterval(function () {
+            height = height - 50;
+            ele.style.height = height+'px';
+            if(height<=0){
+                clearInterval(that.sildertimer);
+                ele.style.display = 'none';
+                ele.style.height = 0;
+                ele.style.overflow = 'visible';
+            }
+        },1)
+    },
+    slidedown:function (ele,zero,height) {
+        var that = this;
+        this.sildertimer = setInterval(function () {
+            zero = zero + 50;
+            ele.style.height = zero+'px';
+            if(height>=height){
+                clearInterval(that.sildertimer);
+                ele.style.display = 'none';
+                ele.style.height = height + 'px';
+                ele.style.overflow = 'visible';
+            }
+        },1)
+    }
 };
 var note = new Note();
 note.init();

@@ -885,7 +885,7 @@ ajax.send(null);</code></pre>
                 <li>data ：发送到服务器的数据，可以为对象或者 Key=value 格式字符串，若为对象则会自动转换为请求字符串格式。</li>
                 <li>type ：默认: "GET"，其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但取决浏览器支持。</li>
                 <li>url ：发送请求的地址，默认当前页地址。</li>
-                <li>dataType：预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME类型就被识别为 XML，可以不填，可用值："xml"、"html"、"script"、"json"、"jsonp"、"text"。</li>
+                <li>dataType：预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME类型就被识别为 XML，可以不填，可用值："xml"、 "html"、 "script"、 "json"、 "jsonp"、"text"。</li>
                 <li>cache：默认为 true（dataType 为 script 和 jsonp 时默认为 false，设置为 false 将禁用缓存。</li>
                 <li>context：这个对象用于设置 AJAX 相关回调函数的上下文。也就是说，让回调函数内 this 的指向（若不指定为当前选项）。</li>
                 <li>beforeSend：发送请求前调用此函数，可用与如添加自定义 HTTP 头，检查请求参数是否合法。XMLHttpRequest 对象是唯一的参数。若在函数中返回 false 可以取消本次请求。
@@ -1145,7 +1145,6 @@ $('#form').serializeArray();</code></pre>
             <pre class="text59"><code class="language-js"></code></pre>
         </div>
         <div class="small">
-            <h4>服务器响应不同格式数据案例</h4>
             <a class="bntTap" href="javascript:">代码</a>
             <div class="title">
                 <div>前端代码</div>
@@ -1162,7 +1161,7 @@ $('#form').serializeArray();</code></pre>
         </div>
         <div class="small">
             <h4>sessionStorage</h4>
-            <ol>
+            <ol>临时会话存储:
                 <li>保存数据 ：sessionStorage.setItem(key, value);</li>
                 <li>读取数据 ：sessionStorage.getItem(key);</li>
                 <li>删除单个数据 ：sessionStorage.removeItem(key);</li>
@@ -1174,7 +1173,7 @@ $('#form').serializeArray();</code></pre>
         </div>
         <div class="small">
             <h4>localStorage</h4>
-                <ol>
+                <ol>永久存储:
                     <li>保存数据 ：localStorage.setItem(key, value);</li>
                     <li>读取数据 ：localStorage.getItem(key);</li>
                     <li>删除单个数据 ：localStorage.removeItem(key);</li>
@@ -1183,6 +1182,42 @@ $('#form').serializeArray();</code></pre>
                 </ol>
             <a class="btns" href="javascript:">代码</a>
             <pre class="text69"><code class="js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>cookie、localStorage、sessionStorage 区别和共同点</h4>
+            <table>
+                <tr class="tableup">
+                    <th>特性</th>
+                    <th>cookie</th>
+                    <th>sessionStorage</th>
+                    <th>localStorage</th>
+                </tr>
+                <tr>
+                    <th>生命周期</th>
+                    <td>生成时就会被指定一个maxAge值，这就是cookie的生存周期，在这个周期内cookie有效，默认关闭浏览器失效</td>
+                    <td>页面会话期间可用</td>
+                    <td>除非数据清除，否则 一直存在</td>
+                </tr>
+                <tr>
+                    <th>数据大小</th>
+                    <td>4kb左右(因为每次http请求都会携带cookie)</td>
+                    <td colspan="2">一般5M或者更大</td>
+                </tr>
+                <tr>
+                    <th>与服务器通信</th>
+                    <td>对服务器的请求来传递，每次都会携带在HTTP请求头中，如果使用cookie保存过多数据会带来性能问题</td>
+                    <td colspan="2">数据不是由每个服务器请求传递的，而是只有在请求时使用数据，不参与和服务器的通信</td>
+                </tr>
+                <tr>
+                    <th>易用性</th>
+                    <td>cookie需要自己封闭</td>
+                    <td colspan="2">setCookie, getCookie 可以用原生接口，也可以再次封闭来对Object和Array有更好的支持</td>
+                </tr>
+                <tr>
+                    <th>共同点</th>
+                    <td colspan="3">都保存在浏览器端，和服务器端的session机制不同</td>
+                </tr>
+            </table>
         </div>
         <div class="small">
             <h4>Base64</h4>

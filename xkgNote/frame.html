@@ -81,7 +81,7 @@
             <h4>jQuery操作css</h4>
             <ol>
                 <li>$("selector").css(name,value);</li>
-                <li>$("selector").css(name1,value).css(name2,value)...;</li>
+                <li>$("selector").css(name1,value). css (name2,value) ...;</li>
                 <li>$("selector").css( { name1 : value , name2 : value})</li>
             </ol>
             <a class="btns" href="javascript:">代码</a>
@@ -507,6 +507,7 @@ $("input").triggerHandler("click");</code></pre>
                 <li>使用数据时，直接书写{{数据名称}}，{{}}语法是插值，又称mustache语法[ˈmʌstæʃ]。本义 胡须。
                 <p>插值语法，其实就是{{}}内部可以书写js的简单操作，其实也就是相当于js的表达式。加减乘除，数组操作，函数执行等。</p>
                 </li>
+                <li>computed和data和methods中的key都不能相同</li>
             </ol>
         </div>
     </section>
@@ -538,6 +539,33 @@ $("input").triggerHandler("click");</code></pre>
                 </li>
                 <li>v-bind : (可以简写为 ： )对标签的属性可以绑定数据;操作元素的类名或者内联样式，是一个常见的需求。可以结合表达式，进行字符串拼接即可。
                 <p>我们可以通过 v-bind 处理 class 和 style 。可以是字符串，也可以是对象(例如：v-bind:style="{k:v,k:v}")或者数组（例如 ： v-bind:class=“[数据1，数据2]”）。</p>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>自定义指令</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">注册全局自定义指令</div>
+                <div class="tapTop">注册局部指令</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text14"><code class="js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text15"><code class="js"></code></pre>
+                </div>
+            </div>
+            <ol>一个指令定义对象可以提供如下几个钩子函数:
+                <li>inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</li>
+                <li>update：所在组件的 VNode 更新时调用</li>
+            </ol>
+            <ol>钩子函数的参数：
+                <li>el：指令所绑定的元素，可以用来直接操作 DOM 。</li>
+                <li>binding：一个对象，包含以下属性：
+                    <ol>
+                        <li>value：指令的绑定值，例如：v-my-directive="1 + 1" 中，绑定值为 2。</li>
+                    </ol>
                 </li>
             </ol>
         </div>
@@ -855,7 +883,7 @@ $(function () {
             <ol>
                 <li>git log | git reflog ：提交记录 ； git log ： 记录信息比较全。 git reflog ： 简写的信息。</li>
                 <li>git reset --hard 版本记录值（哈希值） ： 版本回退。
-                    <p>例如 ： git reset --hard 0a88110234f9a3070b212a7fd75e52741c947ada（大于七位就行）</p>
+                    <p>例如 ： git reset --hard 0a88110234f9a3070b212a7fd75e52741c947ada （大于七位就行）</p>
                     <p>回退后再查看git记录git log的方式会发现，变的很少。而通过git reflog的方式。会记录的更全，版本回退的信息也记录下来。</p>
                 </li>
             </ol>

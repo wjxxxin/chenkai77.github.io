@@ -1,10 +1,7 @@
 html {
   background: #F5F5F5;
-  font-size: 100px;
-  font-size: 10vw;
 }
 body {
-  font-size: 0.12rem;
   color: #444;
 }
 a {
@@ -39,10 +36,6 @@ samp {
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
   font-size: 14px;
 }
-li,
-p {
-  margin-bottom: 5px;
-}
 /*.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
   background: none;
 }*/
@@ -66,7 +59,7 @@ p {
   line-height: 30px;
   border-radius: 0 7px 7px 0;
   transition: all 0.3s;
-  margin-bottom: 7px;
+  margin-bottom: 4px;
   background: #eee;
   cursor: pointer;
 }
@@ -82,6 +75,7 @@ p {
   transition: all 0.5s;
 }
 .navRight li {
+  margin-bottom: 5px;
   width: 65px;
   height: 50px;
   text-align: center;
@@ -207,6 +201,10 @@ article {
 .item section {
   width: 100%;
   transition: all 0.3s;
+}
+.item section li,
+.item section p {
+  margin: 5px 0;
 }
 .item section .piece {
   display: block;
@@ -339,8 +337,21 @@ article {
   font-size: 12px;
   margin: 20px 0;
 }
-section.vertical .ver .other {
+table {
   width: 100%;
+}
+table .tableup {
+  color: coral;
+}
+table th {
+  min-width: 65px;
+  border: 1px solid #999;
+  padding: 5px;
+  font-weight: bold;
+}
+table td {
+  border: 1px solid #999;
+  padding: 5px;
 }
 /*响应式相关==============================================================*/
 .pc-show {

@@ -944,6 +944,14 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                     <pre class="text93"><code class="js"></code></pre>
                     <p>当为一个存在的属性设置可操作性时，如果只是修改属性描述对象的部分属性，其他的为默认值。<br>当为一个不存在的属性设置可操作性时，如果只是修改属性描述对象的部分属性，其他的为false。
                     </p>
+                    <h4>利用Object.defineProperty进行数据劫持</h4>
+                    访问器属性提供了getter和setter方法。
+                    <ol>
+                        <li>getter ： 获取时，改为获取函数里return的值</li>
+                        <li>sette ： 修改设置时，改为用函数体里的方法修改</li>
+                    </ol>
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text95"><code class="language-js"></code></pre>
                 </li>
                 <li>keys：获取当前对象所有属性的名称，不可枚举的属性除外
                 <pre><code class="js">console.log(Object.keys(obj));</code></pre>
@@ -1158,13 +1166,32 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                 </li>
                 <li>lastIndexOf() : // 返回指定元素在数组中的最后一个的索引，如果没找到返回-1</li>
                 <li>every() : // 方法测试数组的所有元素是否都通过了指定函数的测试。</li>
-                <li>filter() : // 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。</li>
+                <li>filter() : // 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+                <pre><code class="js">var newArray = arr.filter(callback(element,index,array),thisArg[可不写])  //callback最少要写一个参数 thisArg：执行 callback 时，用于 this 的值。</code></pre>
+                </li>
                 <li>forEach() : // 对数组的每个元素执行一次提供的函数</li>
                 <li>some() : // 测试是否至少有一个元素通过由提供的函数实现的测试</li>
-                <li>map() : // 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果</li>
+                <li>map() : // 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+                <pre><code class="js">var new_array = arr.map(function callback(element, index, array) {
+                    //callback最少要写一个参数
+                    // Return element for new_array
+                    }, thisArg)  thisArg：执行 callback 时，用于 this 的值。</code></pre>
+                </li>
                 <li>join() : // 方法将数组的所有元素连接到一个字符串中,默认使用“，”分割。</li>
+                <li>reduce()://  arr.reduce(callback,[initialValue])  ： 对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+                    <p>initialValue可加可不加，如果加了，acc取值为initialValue，cur取数组中的第一个值（即索引为0的值）；如果没有提供 initialValue，那么acc取数组中的第一个值（索引为0的值），cur取数组中的第二个值（索引为1的值）。</p>
+                <ol>reducer 里的函数接收4个参数(最少要有前两个参数):
+                    <li>Accumulator (acc) (累计器)</li>
+                    <li>Current Value (cur) (当前值)</li>
+                    <li>Current Index (idx) (当前索引)</li>
+                    <li>Source Array (src) (源数组)</li>
+                </ol>
+                    您的 reducer 函数的返回值分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。
+                    <a class="btns" href="javascript:">代码</a>
+                    <pre class="text94"><code class="language-js"></code></pre>
+                </li>
             </ol>
-            <a class="btns" href="javascript:">代码</a>
+            <a class="btns" href="javascript:">小案例</a>
             <pre class="text21"><code class="language-js"></code></pre>
         </div>
     </section>
@@ -1340,6 +1367,7 @@ function getInnerText(element) {
                 <li>onmouseup : 鼠标按键放开时触发</li>
                 <li>onmousedown : 鼠标按键按下触发</li>
                 <li>onmousemove : 鼠标移动触发</li>
+                <li>onhashchange : 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发 。hash不会引起浏览器发生跳转</li>
             </ol>
             <pre class="text31"><code class="language-js"></code></pre>
         </div>

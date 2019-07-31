@@ -2705,6 +2705,144 @@ console.log(obj);//{name:"Neld", age:10}，name属性没有被删除`;
 
     $('.text93 code').text(text93);
 
+    let text94 = `var arr = [1, 2, 3, 4];
+var sum = arr.reduce(function(prev, cur, index, arr) {
+    console.log(prev, cur, index);
+    return prev + cur;
+})
+console.log(arr, sum)//
+              1 2 1
+              3 3 2
+              6 4 3
+            [1, 2, 3, 4] 10;
+
+
+var  arr = [1, 2, 3, 4];
+var sum = arr.reduce(function(prev, cur, index, arr) {
+    console.log(prev, cur, index);
+    return prev + cur;
+}，0) //注意这里设置了初始值
+console.log(arr, sum);//
+            0 1 0
+            1 2 1
+            3 3 2
+            6 4 3
+            [1, 2, 3, 4] 10
+   
+//计算数组中每个元素出现的次数=================================      
+  var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+
+  var countedNames = names.reduce(function (allNames, name) { 
+  if (name in allNames) {
+    allNames[name]++;
+  }
+  else {
+    allNames[name] = 1;
+  }
+  return allNames;
+}, {});
+// countedNames is:
+// { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }                      
+    
+//按属性对object分类==========================================
+    var people = [
+  { name: 'Alice', age: 21 },
+  { name: 'Max', age: 20 },
+  { name: 'Jane', age: 20 }
+];
+
+function groupBy(objectArray, property) {
+  return objectArray.reduce(function (acc, obj) {
+    var key = obj[property];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, {});
+}
+
+var groupedPeople = groupBy(people, 'age');
+// groupedPeople is:
+// { 
+//   20: [
+//     { name: 'Max', age: 20 }, 
+//     { name: 'Jane', age: 20 }
+//   ], 
+//   21: [{ name: 'Alice', age: 21 }] 
+// }
+
+//数组去重=============================================
+
+let arr = [1,2,3,4,4,1]
+let newArr = arr.reduce((pre,cur)=>{
+    if(!pre.includes(cur)){
+      return pre.concat(cur)
+    }else{
+      return pre
+    }
+},[])
+console.log(newArr);// [1, 2, 3, 4]
+
+
+//将二维数组转化为一维========================================
+let arr = [[0, 1], [2, 3], [4, 5]]
+let newArr = arr.reduce((pre,cur)=>{
+    return pre.concat(cur)
+},[])
+console.log(newArr); // [0, 1, 2, 3, 4, 5]
+
+//将多维数组转化为一维======================================
+let arr = [[0, 1], [2, 3], [4,[5,6,7]]]
+const newArr = function(arr){
+   return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
+}
+console.log(newArr(arr)); //[0, 1, 2, 3, 4, 5, 6, 7]
+    
+    `;
+    $('.text94 code').text(text94);
+
+    let text95 = `let obj= {
+   name:'老王'
+}
+var value = obj.name;
+Object.defineProperty(obj, 'name', {
+   get(){
+      return value 
+   },
+   set(val){
+      value = val
+   }
+})
+obj.name = '小李'
+console.log(obj.name) //小李
+
+var obj = {
+        a:1,
+        b:2
+    };
+Object.keys(obj).forEach(key=>{
+    jiechi(obj,key,obj[key]);
+})
+function jiechi(obj,key,value){
+    Object.defineProperty(obj,key,{
+        enumerable:true,//可以被for循环便利出来
+        configurable:true,//可以被删除，可以被修改 如果为 false , 那么不可以修改, 不可以删除.
+        get(){//获取值
+            //处理功能
+            return value+10;
+        },
+        set(newVal){//修改值
+            //处理功能
+            document.getElementById('body').innerHTML = newVal;
+            value = newVal;
+        }
+    })
+}`;
+
+    $('.text95 code').text(text95);
+
+
 
 })();
 /*
