@@ -207,7 +207,7 @@ article{
   }
   section{
     width: 100%;
-    transition: all 0.3s;
+    //transition: all 0.3s;
     li,p{
       margin:5px 0;
     }
@@ -267,25 +267,20 @@ article{
         top: 0;
         left: 0;
         display: none;
+        transition: all 0.4s;
+       /* display: none;*/
         &:nth-of-type(1){
           display: block;
+          z-index: 2;
+       /*   display: block;*/
         }
       }
     }
       .small{
         width: 100%;
         margin-bottom:20px;
-        .neirong{
-          width: 100%;
-        }
-        .title{
-          display: flex;justify-content: space-between;
-          div{
-            height:20px;line-height: 20px;text-align: center;border: 1px solid #000;flex: 1
-          }
-        }
         .code{
-          display: flex;justify-content: space-between;margin: 0 -15%;
+          display: flex; justify-content: space-between;margin: 0 -15%;
           .left{
             width:49%;
           }
@@ -299,10 +294,6 @@ article{
           .tapMain .tapSection{
             width: 100%;
           }
-        }
-
-        .wrap{
-          display: flex;
         }
       }
       h4{

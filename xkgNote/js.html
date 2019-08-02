@@ -1224,7 +1224,7 @@ s1 = null;</code></pre>
                 <li>slice() ： // 从start位置开始，截取到end位置，end取不到</li>
                 <li>substring() ： // 从start位置开始，截取到end位置，end取不到</li>
                 <li>substr(start, length) ： // 从start位置开始，截取length个字符,如果忽略 length，则 substr 提取字符，直到字符串末尾。</li>
-                <li>indexOf() ： // 返回指定内容在元字符串中的位置</li>
+                <li>indexOf() ： // 返回指定内容在原字符串中的位置</li>
                 <li>lastIndexOf() ： // 从后往前找，只找第一个匹配的</li>
                 <li>trim() ： // 只能去除字符串前后的空白</li>
                 <li>to(Locale)UpperCase() ： // 转换大写</li>
@@ -1368,6 +1368,8 @@ function getInnerText(element) {
                 <li>onmousedown : 鼠标按键按下触发</li>
                 <li>onmousemove : 鼠标移动触发</li>
                 <li>onhashchange : 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发 。hash不会引起浏览器发生跳转</li>
+                <li>onchange ： 当用户改变input输入框内容时触发（元素失去焦点时）</li>
+                <li>oninput ： 在元素的值已经改变之后立即发生。</li>
             </ol>
             <pre class="text31"><code class="language-js"></code></pre>
         </div>
@@ -1486,8 +1488,8 @@ function getInnerText(element) {
                 <li>selected 下拉菜单选中属性</li>
             </ol>
             <p>案例 : 给文本框赋值，获取文本框的值并按指定格式（| 分割）输出</p>
-            <a class="btnAll" href="javascript:">代码</a>
             <pre class="text26"><code class="language-html"></code></pre>
+            <a class="bntTap" href="javascript:">代码</a>
             <div class="tapNav">
                 <div class="tapTop cur">方法一</div>
                 <div class="tapTop">方法二</div>
@@ -2054,7 +2056,6 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
 </article>
 </body>
 </html>
-<script src="js/jquery-3.4.1.js"></script>
 <script src="js/page.js"></script>
 <script src="js/js.js"></script>
 <script src="js/highlight.pack.js"></script>

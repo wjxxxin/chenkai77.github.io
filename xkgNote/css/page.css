@@ -200,7 +200,6 @@ article {
 }
 .item section {
   width: 100%;
-  transition: all 0.3s;
 }
 .item section li,
 .item section p {
@@ -270,27 +269,17 @@ article {
   top: 0;
   left: 0;
   display: none;
+  transition: all 0.4s;
+  /* display: none;*/
 }
 .item section .tapMain .tapSection:nth-of-type(1) {
   display: block;
+  z-index: 2;
+  /*   display: block;*/
 }
 .item section .small {
   width: 100%;
   margin-bottom: 20px;
-}
-.item section .small .neirong {
-  width: 100%;
-}
-.item section .small .title {
-  display: flex;
-  justify-content: space-between;
-}
-.item section .small .title div {
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  border: 1px solid #000;
-  flex: 1;
 }
 .item section .small .code {
   display: flex;
@@ -309,9 +298,6 @@ article {
 }
 .item section .small .code .tapMain .tapSection {
   width: 100%;
-}
-.item section .small .wrap {
-  display: flex;
 }
 .item section h4 {
   margin: 10px 0;

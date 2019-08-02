@@ -18,7 +18,7 @@
         'num01 = num01 + num02;//num01 = 11;\n' +
         'num02 = num01 - num02;//11 - 6 = 5;\n' +
         'num01 = num01 - num02;//11 - 5 = 6;';
-    $('.text1  code').text(text1);
+    xk$('.text1  code').innerHTML=zy(text1);
 
     let text2 = '<script>\n' +
         'console.log(typeof 123);//number\n' +
@@ -54,7 +54,7 @@
         '    //引用数据类型存储是地址，共享同一块内存空间\n' +
         '    console.log(arr1 === arr2);';
 
-    $('.text2  code').text(text2);
+    xk$('.text2  code').innerHTML=zy(text2);
 
     let text3 = 'switch（expression）{\n' +
         '\tcase 常量1：\n' +
@@ -74,7 +74,7 @@
         '\t\t\t 语句；\n' +
         '\t\t\t break；\n' +
         '}\n';
-    $('.tapSection .text3 code').text(text3);
+    xk$('.tapSection .text3 code').innerHTML=zy(text3);
 
     let text4 = '<script>\n' +
         '//求一组数中的最大值和最小值，以及所在位置\n' +
@@ -100,7 +100,7 @@
         'console.log(\'最大值：\'+max, maxIndex);\n' +
         '</script>    ';
 
-    $('.tapSection .text4 code').text(text4);
+    xk$('.tapSection .text4 code').innerHTML=zy(text4);
 
     let text5 = '<script>\n' +
         '//将字符串数组用|或其他符号分割成一个字符串\n' +
@@ -125,7 +125,7 @@
         'console.log(str);\n' +
         '</script>  ';
 
-    $('.tapSection .text5 code').text(text5);
+    xk$('.tapSection .text5 code').innerHTML=zy(text5);
 
     let text6 = '<script>\n' +
         '// 翻转数组\n' +
@@ -137,7 +137,7 @@
         'console.log(reverse);\n' +
         '</script>';
 
-    $('.tapSection .text6 code').text(text6);
+    xk$('.tapSection .text6 code').innerHTML=zy(text6);
 
     let text7 = '<script>\n' +
         '//优化：解决已经排序好但还继续循环比较的问题\n' +
@@ -169,7 +169,7 @@
         'console.log(conut);\n' +
         '</script>';
 
-    $('.tapSection .text7 code').text(text7);
+    xk$('.tapSection .text7 code').innerHTML=zy(text7);
 
     let text8 = '<script>\n' +
         '// 素数（质数）：只能被1和自己整除的数\n' +
@@ -193,7 +193,7 @@
         '//调用函数\n' +
         'isPrimeNum(101);\n' +
         '</script>';
-    $('.text8 code').text(text8);
+    xk$('.text8 code').innerHTML=zy(text8);
 
 
     let text9 = '<script>\n' +
@@ -211,7 +211,7 @@
         'var max = getMax(3, 5, 2, 11, 8, 1, 0);\n' +
         'console.log(max);\n' +
         '</script>';
-    $('.text9 code').text(text9);
+    xk$('.text9 code').innerHTML=zy(text9);
 
     let text10 = '<script>\n' +
         'f1();\n' +
@@ -243,7 +243,7 @@
         '    console.log(a);//局部变量\n' +
         '    // 注意：没有使用var关键字声明的变量，会自动成为全局变量\n' +
         '</script>';
-    $('.tapSection .text10 code').text(text10);
+    xk$('.tapSection .text10 code').innerHTML=zy(text10);
 
     let text11 = '<script>\n' +
         'var hero = {\n' +
@@ -263,7 +263,7 @@
         'hero.attach();\n' +
         'hero.run();\n' +
         '</script>';
-    $('.tapSection .text11 code').text(text11);
+    xk$('.tapSection .text11 code').innerHTML=zy(text11);
 
     let text12 = '<script>\n' +
         '//使用new关键字来调用Object()构造函数，创建出一个空的对象\n' +
@@ -285,7 +285,7 @@
         'obj.attach();\n' +
         'obj.run();\n' +
         '</script>';
-    $('.tapSection .text12 code').text(text12);
+    xk$('.tapSection .text12 code').innerHTML=zy(text12);
 
     let text13 = '<script>\n' +
         '//定义一个用于创建对象的工厂函数\n' +
@@ -312,7 +312,7 @@
         'console.log(hero1, hero2);\n' +
         '</script>';
 
-    $('.tapSection .text13 code').text(text13);
+    xk$('.tapSection .text13 code').innerHTML=zy(text13);
 
     let text14 = '<script>\n' +
         '//定义一个构造函数，帕斯卡命名：所有单词首字母都大写。\n' +
@@ -338,7 +338,7 @@
         'console.log(hero1, hero2);\n' +
         '</script>';
 
-    $('.tapSection .text14 code').text(text14);
+    xk$('.tapSection .text14 code').innerHTML=zy(text14);
 
     let text15 = '<script>\n' +
         'function Person(name, age) {\n' +
@@ -361,7 +361,7 @@
         'console.log(p.age);//22\n' +
         '</script>';
 
-    $('.text15 code').text(text15);
+    xk$('.text15 code').innerHTML=zy(text15);
 
 
     var text16 = '<script>\n' +
@@ -394,7 +394,7 @@
         'console.log(dateStr);\n' +
         '</script>';
 
-    $('.tapSection .text16 code').text(text16);
+    xk$('.tapSection .text16 code').innerHTML=zy(text16);
 
     let text17 = '<script>\n' +
         'function getIntervalTime(start, end) {\n' +
@@ -423,7 +423,7 @@
         'console.log(obj.day + \'天\' + obj.hour + \'小时\' + obj.minutes + \'分\' + obj.seconds + \'秒\');\n' +
         '</script>';
 
-    $('.tapSection .text17 code').text(text17);
+    xk$('.tapSection .text17 code').innerHTML=zy(text17);
 
     let text18 = '<script>\n' +
         '//使用自定义的sort方法\n' +
@@ -441,7 +441,7 @@
         'console.log(array);\n' +
         '</script>';
 
-    $('.tapSection .text18 code').text(text18);
+    xk$('.tapSection .text18 code').innerHTML=zy(text18);
 
     let text19 = '// 对数组排序，从小到大   冒泡排序\n' +
         'function sort(array, compareFun) {\n' +
@@ -475,7 +475,7 @@
         '})\n' +
         'console.log(arr);';
 
-    $('.tapSection .text19 code').text(text19);
+    xk$('.tapSection .text19 code').innerHTML=zy(text19);
 
     let text20 = 'ar array = new Array("c", "a", "z", "a", "x", "x", "a");\n' +
         'console.log(array.indexOf(\'a\')); //如果没有找到该元素，则返回-1\n' +
@@ -495,7 +495,7 @@
         'unique(array);\n' +
         'console.log(tempArr);';
 
-    $('.text20 code').text(text20);
+    xk$('.text20 code').innerHTML=zy(text20);
 
     let text21 = '将一个字符串数组的元素的顺序进行反转。["a", "b", "c", "d"] -> [ "d","c","b","a"]。使用两种方式实现。\n' +
         '//方式一\n' +
@@ -515,7 +515,7 @@
         'reverseArr(array1);\n' +
         'console.log(array1);';
 
-    $('.text21 code').text(text21);
+    xk$('.text21 code').innerHTML=zy(text21);
 
     let text22 = '//把字符串中所有的o替换成 !\n' +
         'var str3 = \'abcoefoxyozzopp\';\n' +
@@ -529,7 +529,7 @@
         '}while (index !== -1);\n' +
         'console.log(str3);';
 
-    $('.text22 code').text(text22);
+    xk$('.text22 code').innerHTML=zy(text22);
 
     let text23 = '//把字符串中所有空白去掉 \'  abc   ddd  fff  999  \' \n' +
         'var str = \'  abc   ddd  fff  999  \';\n' +
@@ -544,7 +544,7 @@
         'var s = strArr.join(\'\');\n' +
         'console.log(s);';
 
-    $('.text23 code').text(text23);
+    xk$('.text23 code').innerHTML=zy(text23);
 
     let text24 = '//判断一个字符串中出现次数最多的字符，并统计该字符出现的次数\n' +
         '//统计每一个字符出现的次数\n' +
@@ -573,7 +573,7 @@
         '}\n' +
         'console.log(max, ch);';
 
-    $('.tapSection .text24 code').text(text24);
+    xk$('.tapSection .text24 code').innerHTML=zy(text24);
 
     let text25 = '// 获取URL中的参数  http://www.wolfcode.cn/index.html?name=zs&age=ls&gender=true\n' +
         'var url = \'http://www.wolfcode.cn/index.html?name=zs&age=18&gender=true\';\n' +
@@ -602,7 +602,7 @@
         'var result = getParams(url);\n' +
         'console.log(result);';
 
-    $('.tapSection .text25 code').text(text25);
+    xk$('.tapSection .text25 code').innerHTML=zy(text25);
 
     let text26 = '<input type="text"/><br>\n' +
         '<input type="text"/><br>\n' +
@@ -617,7 +617,7 @@
         '\n' +
         '<input type="button" id="btn" value="获取文本框的值"/><br>';
 
-    $('.text26 code').text(text26);
+    xk$('.text26 code').innerHTML=zy(text26);
 
     let text27 = '// 1、给文本框赋值\n' +
         '//获取所有input元素\n' +
@@ -648,7 +648,7 @@
         '    console.log(str);\n' +
         '}';
 
-    $('.tapSection .text27 code').text(text27);
+    xk$('.tapSection .text27 code').innerHTML=zy(text27);
 
     let text28 = '//使用数组的方式（效率较高，推荐使用）\n' +
         'var bnt = document.getElementById(\'bnt\');\n' +
@@ -665,7 +665,7 @@
         '    console.log(str);\n' +
         '}';
 
-    $('.tapSection .text28 code').text(text28);
+    xk$('.tapSection .text28 code').innerHTML=zy(text28);
 
     let text29 = `<div>
     <ul id="list">
@@ -699,7 +699,7 @@ if (list.hasChildNodes()) {
     }
 }`
 
-    $('.text29  code').text(text29);
+    xk$('.text29  code').innerHTML=zy(text29);
 
     let text30 = '<style>\n' +
         '    select {\n' +
@@ -727,9 +727,9 @@ if (list.hasChildNodes()) {
         '\n' +
         '</select>\n' +
         '\n' +
-        ' var leftSelect = my$(\'leftSelect\');\n' +
-        '    var rightSelect = my$(\'rightSelect\');\n' +
-        '    my$(\'btn1\').onclick = function () {\n' +
+        ' var leftSelect = myxk$(\'leftSelect\');\n' +
+        '    var rightSelect = myxk$(\'rightSelect\');\n' +
+        '    myxk$(\'btn1\').onclick = function () {\n' +
         '        var options = leftSelect.getElementsByTagName(\'option\');\n' +
         '        var len = options.length;\n' +
         '        for (var i = 0; i < len; i++) {\n' +
@@ -738,7 +738,7 @@ if (list.hasChildNodes()) {
         '        }\n' +
         '    };\n' +
         '\n' +
-        '    my$(\'btn2\').onclick = function () {\n' +
+        '    myxk$(\'btn2\').onclick = function () {\n' +
         '        var options = rightSelect.children;\n' +
         '        var len = options.length;\n' +
         '        for (var i = 0; i < len; i++) {\n' +
@@ -747,7 +747,7 @@ if (list.hasChildNodes()) {
         '        }\n' +
         '    };\n' +
         '\n' +
-        '    my$(\'btn3\').onclick = function () {\n' +
+        '    myxk$(\'btn3\').onclick = function () {\n' +
         '        var arr = new Array();\n' +
         '        var options = leftSelect.getElementsByTagName(\'option\');\n' +
         '        for (var i = 0; i <options.length ; i++) {\n' +
@@ -763,7 +763,7 @@ if (list.hasChildNodes()) {
         '    };\n' +
         '\n' +
         '\n' +
-        '    my$(\'btn4\').onclick = function () {\n' +
+        '    myxk$(\'btn4\').onclick = function () {\n' +
         '        var arr = new Array();\n' +
         '        var options= rightSelect.children;\n' +
         '        for (var i = 0; i <options.length ; i++) {\n' +
@@ -777,11 +777,11 @@ if (list.hasChildNodes()) {
         '        }\n' +
         '    };';
 
-    $('.text30 code').text(text30);
+    xk$('.text30 code').innerHTML=zy(text30);
 
     let text31 = '年龄：<input type="text" name="userAge" id="tx"/>\n' +
         '        }\n' +
-        'my$(\'tx\').onkeydown = function (e) {\n' +
+        'myxk$(\'tx\').onkeydown = function (e) {\n' +
         '    //处理事件对象的浏览器兼容性问题\n' +
         '    e = e || window.event;\n' +
         '    // e.keyCode: 键盘码， 在[48, 57]区间内的键盘码，对应着是个数值\n' +
@@ -793,7 +793,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text31 code').text(text31);
+    xk$('.text31 code').innerHTML=zy(text31);
 
     let text32 = '<style>\n' +
         '    body {\n' +
@@ -812,14 +812,14 @@ if (list.hasChildNodes()) {
         '<div id="box"></div>\n' +
         '\n' +
         '//event.type：获取事件名称。\n' +
-        'my$(\'box\').onmouseover = function (e) {\n' +
+        'myxk$(\'box\').onmouseover = function (e) {\n' +
         '    e = e || window.event;\n' +
         '    console.log(e.type);\n' +
         '}\n' +
         '\n' +
-        'my$(\'box\').onclick = fn;\n' +
-        'my$(\'box\').onmouseover = fn;\n' +
-        'my$(\'box\').onmouseout = fn;\n' +
+        'myxk$(\'box\').onclick = fn;\n' +
+        'myxk$(\'box\').onmouseover = fn;\n' +
+        'myxk$(\'box\').onmouseout = fn;\n' +
         '\n' +
         '//当多个（种）事件使用同一个事件处理函数时，可以使用e.type获取到当前发生的事件的名称\n' +
         '//多个事件只使用了一个函数，减少内存的消耗\n' +
@@ -840,7 +840,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text32 code').text(text32);
+    xk$('.text32 code').innerHTML=zy(text32);
 
     let text33 = 'function getScroll(){\n' +
         '    var scrolLeft = document.body.scrollLeft || document.documentElement.scrollLeft;\n' +
@@ -861,7 +861,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text33 code').text(text33);
+    xk$('.text33 code').innerHTML=zy(text33);
 
     let text34 = 'var obj = {\n' +
         'name:"zs",\n' +
@@ -871,7 +871,7 @@ if (list.hasChildNodes()) {
         'var a = "name";\n' +
         'console.log(a in obj);//true';
 
-    $('.text34 code').text(text34);
+    xk$('.text34 code').innerHTML=zy(text34);
 
     let text35 = 'var obj = {\n' +
         'name : "zs",\n' +
@@ -894,7 +894,7 @@ if (list.hasChildNodes()) {
         'console.log(delete window.demo2);//true\n' +
         'console.log(window.demo2);//undefined';
 
-    $('.text35 code').text(text35);
+    xk$('.text35 code').innerHTML=zy(text35);
 
     let text36 = 'var a = 123;\n' +
         '  try{\n' +
@@ -914,7 +914,7 @@ if (list.hasChildNodes()) {
         '    console.log("不管前面的代码有没有出错,都会执行这个代码块中的代码");\n' +
         ' }';
 
-    $('.text36 code').text(text36);
+    xk$('.text36 code').innerHTML=zy(text36);
 
     let text37 = '/*\n' +
         '之前对多个变量赋值\n' +
@@ -939,7 +939,7 @@ if (list.hasChildNodes()) {
         'let [i = func()] = []; // 当没有解构出值的时候，才会执行函数 func\n' +
         'console.log(i);';
 
-    $('.tapSection .text37 code').text(text37);
+    xk$('.tapSection .text37 code').innerHTML=zy(text37);
 
     let text38 = 'let {a, b, c} = {a : "aaa", b : "bbb"};\n' +
         'console.log(a, b, c);\n' +
@@ -956,7 +956,7 @@ if (list.hasChildNodes()) {
         'let {random} = Math;\n' +
         'console.log(random);';
 
-    $('.tapSection .text38 code').text(text38);
+    xk$('.tapSection .text38 code').innerHTML=zy(text38);
 
     let text39 = 'let a = \'Hello World!\';\n' +
         'console.log(a.startsWith(\'Hello\'));     // true\n' +
@@ -969,7 +969,7 @@ if (list.hasChildNodes()) {
         'console.log(b.endsWith(\'Hello\', 5));    // true\n' +
         'console.log(b.includes(\'Hello\', 6));    // false';
 
-    $('.text39 code').text(text39);
+    xk$('.text39 code').innerHTML=zy(text39);
 
     let text40 = '// ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法\n' +
         'function func(x){\n' +
@@ -990,7 +990,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         'fun();';
 
-    $('.text40 code').text(text40);
+    xk$('.text40 code').innerHTML=zy(text40);
 
 
     let text41 = 'function func({name, age}){ \n' +
@@ -1006,7 +1006,7 @@ if (list.hasChildNodes()) {
         'func();                             // 这里就可以省略不传\n' +
         'func({name : \'xx\', age : 18});';
 
-    $('.text41 code').text(text41);
+    xk$('.text41 code').innerHTML=zy(text41);
 
     let text42 = 'function func(a, b, c) {\n' +
         '    console.log(a + b + c);\n' +
@@ -1021,7 +1021,7 @@ if (list.hasChildNodes()) {
         'let arr3 = [...arr1, ...arr2];\n' +
         'console.log(arr3);';
 
-    $('.text42 code').text(text42);
+    xk$('.text42 code').innerHTML=zy(text42);
 
     let text43 = 'function func() {\n' +
         '    setTimeout(() => {\n' +
@@ -1047,7 +1047,7 @@ if (list.hasChildNodes()) {
         '    console.log(params);\n' +
         '}\n' +
         'fun(1, 2);';
-    $('.text43 code').text(text43);
+    xk$('.text43 code').innerHTML=zy(text43);
 
     var text44 = '//混入式继承（拷贝）\n' +
         '//obj2继承到obj1中的成员，可以直接将obj1中的成员拷贝到obj2中即可\n' +
@@ -1060,7 +1060,7 @@ if (list.hasChildNodes()) {
         'console.log(obj1);\n' +
         'console.log(obj2);';
 
-    $('.tapSection .text44 code').text(text44);
+    xk$('.tapSection .text44 code').innerHTML=zy(text44);
 
     let text45 = 'function Animal() {\n' +
         '}\n' +
@@ -1077,7 +1077,7 @@ if (list.hasChildNodes()) {
         'var ani = new Animal();\n' +
         'console.log(ani);';
 
-    $('.tapSection .text45 code').text(text45);
+    xk$('.tapSection .text45 code').innerHTML=zy(text45);
 
     let text46 = ' function Animal(name, weight) {\n' +
         '        this.name = name;\n' +
@@ -1118,7 +1118,7 @@ if (list.hasChildNodes()) {
         '    hashiqi.eat();\n' +
         '    hashiqi.bite()';
 
-    $('.tapSection .text46 code').text(text46);
+    xk$('.tapSection .text46 code').innerHTML=zy(text46);
 
     let text47 = '//所谓借用构造函数，就是在子构造函数中调用父构造函数，达到继承并向父构造函数传参的目的。\n' +
         ' //原型链继承/Peson 姓名、性别、年龄、体重、吃、喝...\n' +
@@ -1147,7 +1147,7 @@ if (list.hasChildNodes()) {
         '    var stu3 = new Student("小苍",18,"男","100kg","10分");\n' +
         '    console.log(stu3.name, stu3.age, stu3.sex, stu3.weight, stu3.score);';
 
-    $('.tapSection .text47 code').text(text47);
+    xk$('.tapSection .text47 code').innerHTML=zy(text47);
 
     let text48 = 'function SubClass(color, name, age) {\n' +
         '//SuperClass.call(this,name,age);\n' +
@@ -1156,7 +1156,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         'SubClass.prototype = new SuperClass();//继承原型链上的成员';
 
-    $('.tapSection .text48 code').text(text48);
+    xk$('.tapSection .text48 code').innerHTML=zy(text48);
 
     let text49 = 'var obj1 = {\n' +
         'name:"Neld",\n' +
@@ -1174,7 +1174,7 @@ if (list.hasChildNodes()) {
         'non-object\n' +
         'console.log(obj1.add.apply(obj2, [2, 2]));//4';
 
-    $('.text49 code').text(text49);
+    xk$('.text49 code').innerHTML=zy(text49);
 
 
     let text50 = '// 方式一：\n' +
@@ -1192,7 +1192,7 @@ if (list.hasChildNodes()) {
         'console.log(num2);\n' +
         'console.log(bool2);';
 
-    $('.text50 code').text(text50);
+    xk$('.text50 code').innerHTML=zy(text50);
 
     let text51 = 'function Person(name, age) {\n' +
         '  var className = "H5";\n' +
@@ -1211,7 +1211,7 @@ if (list.hasChildNodes()) {
         'Person.prototype.des = "H5-JS面向对象";\n' +
         'Person.info = "H5 Information";';
 
-    $('.text51 code').text(text51);
+    xk$('.text51 code').innerHTML=zy(text51);
 
     let text52 = 'console.log("abc".toString());//"abc"\n' +
         'console.log((123).toString());//"123"\n' +
@@ -1227,7 +1227,7 @@ if (list.hasChildNodes()) {
         'console.log(arr.toString());//"1,2,A,false"\n' +
         'console.log(Object.prototype.toString.call(arr));//"[object Array]"';
 
-    $('.text52 code').text(text52);
+    xk$('.text52 code').innerHTML=zy(text52);
 
     let text53 = 'class Person{\n' +
         'constructor(name,age){\n' +
@@ -1244,7 +1244,7 @@ if (list.hasChildNodes()) {
         'var p = new Person("Neld",10);\n' +
         'console.log(p);';
 
-    $('.text53 code').text(text53);
+    xk$('.text53 code').innerHTML=zy(text53);
 
     let text54 = 'class Animal {\n' +
         'constructor(name, age){\n' +
@@ -1268,7 +1268,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         'console.log(new Person("Neld", 10));';
 
-    $('.text54 code').text(text54);
+    xk$('.text54 code').innerHTML=zy(text54);
 
     let text55 = 'function Person(name,age) {\n' +
         '        /*if(this == window){\n' +
@@ -1294,7 +1294,7 @@ if (list.hasChildNodes()) {
         '\n' +
         '    }';
 
-    $('.text55 code').text(text55);
+    xk$('.text55 code').innerHTML=zy(text55);
 
 
     let text56 = 'var p1 = {\n' +
@@ -1312,7 +1312,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         'console.log(p2);';
 
-    $('.text56 code').text(text56);
+    xk$('.text56 code').innerHTML=zy(text56);
 
     let text57 = 'function deepCopy(source,target) {\n' +
         '    for(var key in source){\n' +
@@ -1329,7 +1329,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         'deepCopy(p1,p2);'
 
-    $('.text57 code').text(text57);
+    xk$('.text57 code').innerHTML=zy(text57);
 
     let text58 = '//方式一：最普通的语法结构创建函数\n' +
         'function f1() {\n' +
@@ -1348,7 +1348,7 @@ if (list.hasChildNodes()) {
         'console.log(f3.name);//f4\n' +
         'console.log(f5.name);//anonymous匿名函数';
 
-    $('.text58 code').text(text58);
+    xk$('.text58 code').innerHTML=zy(text58);
 
     let text59 = '(function () {\n' +
         '    console.log("方式一");\n' +
@@ -1369,7 +1369,7 @@ if (list.hasChildNodes()) {
         '    console.log("方式六");\n' +
         '}();';
 
-    $('.text59 code').text(text59);
+    xk$('.text59 code').innerHTML=zy(text59);
 
     let text60 = 'function foo() {\n' +
         '    console.log("初始化操作");\n' +
@@ -1381,7 +1381,7 @@ if (list.hasChildNodes()) {
         'foo();//真正的业务逻辑处理\n' +
         'foo();//真正的业务逻辑处理';
 
-    $('.text60 code').text(text60);
+    xk$('.text60 code').innerHTML=zy(text60);
 
     let text61 = 'function foo() {\n' +
         '    console.log("初始化操作");\n' +
@@ -1394,7 +1394,7 @@ if (list.hasChildNodes()) {
         'f();//初始化操作\n' +
         'f();//初始化操作';
 
-    $('.text61 code').text(text61);
+    xk$('.text61 code').innerHTML=zy(text61);
 
 
     let text62 = 'var a = {\n' +
@@ -1414,7 +1414,7 @@ if (list.hasChildNodes()) {
         '  console.log(des);\n' +
         '}';
 
-    $('.text62 code').text(text62);
+    xk$('.text62 code').innerHTML=zy(text62);
 
     let text63 = 'console.log(a, b, c);// undefined undefined undefined\n' +
         'var a=10,b=20,c=30;\n' +
@@ -1426,7 +1426,7 @@ if (list.hasChildNodes()) {
         'f(10,20);\n' +
         'console.log(a, b, c);// 10,20,100';
 
-    $('.tapSection .text63 code').text(text63);
+    xk$('.tapSection .text63 code').innerHTML=zy(text63);
 
     let text64 = 'function fun() {\n' +
         '\tvar a = 123;\n' +
@@ -1438,7 +1438,7 @@ if (list.hasChildNodes()) {
         'var fun3 = fun();\n' +
         'console.log(fun3());//123';
 
-    $('.tapSection .text64 code').text(text64);
+    xk$('.tapSection .text64 code').innerHTML=zy(text64);
 
     let text65 = 'for (var i = 0; i < 10; i++) {\n' +
         '\tfunction fun(){\n' +
@@ -1449,7 +1449,7 @@ if (list.hasChildNodes()) {
         '   setTimeout(fun(),1000,i);\n' +
         '}';
 
-    $('.tapSection .text65 code').text(text65);
+    xk$('.tapSection .text65 code').innerHTML=zy(text65);
 
     let text66 = '<body>\n' +
         '<div>我是div1</div>\n' +
@@ -1478,7 +1478,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '</script>';
 
-    $('.tapSection .text66 code').text(text66);
+    xk$('.tapSection .text66 code').innerHTML=zy(text66);
 
     let text67 = 'var obj = {\n' +
         'name:\'默认\',\n' +
@@ -1498,7 +1498,7 @@ if (list.hasChildNodes()) {
         'console.log(obj.name);//zs\n' +
         'console.log(obj.age);//19';
 
-    $('.text67 code').text(text67);
+    xk$('.text67 code').innerHTML=zy(text67);
 
     let text68 = '({\n' +
         'name:\'默认\',\n' +
@@ -1517,7 +1517,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         '}).init("lw",19);';
 
-    $('.text68 code').text(text68);
+    xk$('.text68 code').innerHTML=zy(text68);
 
     let text69 = 'var _instance;//一般不修改的变量前面加个下划线\n' +
         'function Person() {\n' +
@@ -1532,7 +1532,7 @@ if (list.hasChildNodes()) {
         'var p2 = new Person();\n' +
         'console.log(p1 == p2); // true，他俩是同一个对象';
 
-    $('.tapSection .text69 code').text(text69);
+    xk$('.tapSection .text69 code').innerHTML=zy(text69);
 
     let text70 = 'function Person() {\n' +
         'if(Person._instance){\n' +
@@ -1546,7 +1546,7 @@ if (list.hasChildNodes()) {
         'var p2 = new Person();\n' +
         'console.log(p1 == p2); // true，他俩是同一个对象';
 
-    $('.tapSection .text70 code').text(text70);
+    xk$('.tapSection .text70 code').innerHTML=zy(text70);
 
     let text71 = 'function MakePhone() {}\n' +
         'MakePhone.prototype = {\n' +
@@ -1581,7 +1581,7 @@ if (list.hasChildNodes()) {
         'iphone1.logDes();\n' +
         'oppo1.logDes();';
 
-    $('.tapSection .text71 code').text(text71);
+    xk$('.tapSection .text71 code').innerHTML=zy(text71);
 
     let text72 = 'var Rose = {\n' +
         '   eat:function () {\n' +
@@ -1602,7 +1602,7 @@ if (list.hasChildNodes()) {
         ' };\n' +
         ' Rose.eat();//可以调用看看';
 
-    $('.tapSection .text72 code').text(text72);
+    xk$('.tapSection .text72 code').innerHTML=zy(text72);
 
 
     let text73 = 'function getFirstElementChild(element) {\n' +
@@ -1617,7 +1617,7 @@ if (list.hasChildNodes()) {
         '    return null;\n' +
         '}';
 
-    $('.text73 code').text(text73);
+    xk$('.text73 code').innerHTML=zy(text73);
 
 
     let text74 = 'function getLastElementChild(element) {\n' +
@@ -1631,7 +1631,7 @@ if (list.hasChildNodes()) {
         '    return null;\n' +
         '}';
 
-    $('.text74 code').text(text74);
+    xk$('.text74 code').innerHTML=zy(text74);
 
 
     let text75 = 'function getNextElementSibling(element) {\n' +
@@ -1656,7 +1656,7 @@ if (list.hasChildNodes()) {
         '    return null;\n' +
         '}';
 
-    $('.text75 code').text(text75);
+    xk$('.text75 code').innerHTML=zy(text75);
 
     let text76 = 'function setInnerText(element, content) {\n' +
         '    //判断当前浏览器中的element元素是否存在innerText属性\n' +
@@ -1666,7 +1666,7 @@ if (list.hasChildNodes()) {
         '        element.textContent = content;\n' +
         '    }\n' +
         '}';
-    $('.text76 code').text(text76);
+    xk$('.text76 code').innerHTML=zy(text76);
 
     let text77 = 'function addEventListener(element, type, fn) {\n' +
         '    if (element.addEventListener) {\n' +
@@ -1680,7 +1680,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text77 code').text(text77);
+    xk$('.text77 code').innerHTML=zy(text77);
 
     let text78 = 'function removeEventListener(element,type,fn) {\n' +
         '    if (element.removeEventListener){\n' +
@@ -1692,7 +1692,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text78 code').text(text78);
+    xk$('.text78 code').innerHTML=zy(text78);
 
     let text79 = 'function getScroll(){\n' +
         '    var scrolLeft = document.body.scrollLeft || document.documentElement.scrollLeft;\n' +
@@ -1703,7 +1703,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text79 code').text(text79);
+    xk$('.text79 code').innerHTML=zy(text79);
 
     let text80 = 'function getPage(e) {\n' +
         '    var pageX = e.pageX || e.clientX + getScroll().scrolLeft;\n' +
@@ -1714,7 +1714,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '}';
 
-    $('.text80 code').text(text80);
+    xk$('.text80 code').innerHTML=zy(text80);
 
 
     let text81 = '<style>\n' +
@@ -1754,7 +1754,7 @@ if (list.hasChildNodes()) {
         '    }\n' +
         '</script>';
 
-    $('.tapSection .text81 code').text(text81);
+    xk$('.tapSection .text81 code').innerHTML=zy(text81);
 
     let text82 = '<input type="button" id="btnSet" value="选中"/>\n' +
         '<select id="selectCity">\n' +
@@ -1788,7 +1788,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         '</script>';
 
-    $('.tapSection .text82 code').text(text82);
+    xk$('.tapSection .text82 code').innerHTML=zy(text82);
 
     let text83 = '<style>\n' +
         '    * {\n' +
@@ -1958,7 +1958,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         '</script>';
 
-    $('.tapSection .text83 code').text(text83);
+    xk$('.tapSection .text83 code').innerHTML=zy(text83);
 
     let text84 = '<script src="common.js"></script>\n' +
         '<input id="btn" type="button" value="关 灯"/>\n' +
@@ -1968,23 +1968,23 @@ if (list.hasChildNodes()) {
         '//定义标记，录开关灯状态， true为关灯，false 为开灯\n' +
         'var isOpen = true;\n' +
         '//1、注册事件\n' +
-        '$my(\'btn\').onclick = function () {\n' +
+        'xk$my(\'btn\').onclick = function () {\n' +
         '    // 2、控制开关灯\n' +
         '    if (isOpen) {\n' +
         '        //关掉灯（设置body背景为黑色）\n' +
         '        document.body.style.backgroundColor = \'black\';\n' +
-        '        $my(\'btn\').value = \'开 灯\';\n' +
+        '        xk$my(\'btn\').value = \'开 灯\';\n' +
         '        isOpen = false;\n' +
         '    }else {\n' +
         '        //开启灯（设置body背景为白色）\n' +
         '        document.body.style.backgroundColor = \'white\';\n' +
-        '        $my(\'btn\').value = \'关 灯\';\n' +
+        '        xk$my(\'btn\').value = \'关 灯\';\n' +
         '        isOpen = true;\n' +
         '    }\n' +
         '}\n' +
         '</script>';
 
-    $('.tapSection .text84 code').text(text84);
+    xk$('.tapSection .text84 code').innerHTML=zy(text84);
 
     let text85 = '<style>\n' +
         '    .nodeSmall {\n' +
@@ -2045,7 +2045,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         '</script>';
 
-    $('.tapSection .text85 code').text(text85);
+    xk$('.tapSection .text85 code').innerHTML=zy(text85);
 
 
     let text86 = '<style>\n' +
@@ -2105,7 +2105,7 @@ if (list.hasChildNodes()) {
         '<script>\n' +
         '// 1、鼠标放到tab栏时，高亮显示，其他栏取消高亮\n' +
         '//获取元素\n' +
-        'var headDiv = my$(\'headDiv\');\n' +
+        'var headDiv = myxk$(\'headDiv\');\n' +
         'var spans = headDiv.getElementsByTagName(\'span\');\n' +
         'for (var i = 0; i < spans.length; i++) {\n' +
         '    var span = spans[i];\n' +
@@ -2127,7 +2127,7 @@ if (list.hasChildNodes()) {
         '    this.className = \'current\';\n' +
         '\n' +
         '    // 3、tab栏对应的div显示，其他div隐藏\n' +
-        '    var bodyDiv = my$(\'bodyDiv\');\n' +
+        '    var bodyDiv = myxk$(\'bodyDiv\');\n' +
         '    var divs = bodyDiv.getElementsByTagName(\'div\');\n' +
         '    for (var i = 0; i < divs.length; i++) {\n' +
         '        var div = divs[i];\n' +
@@ -2139,7 +2139,7 @@ if (list.hasChildNodes()) {
         '}\n' +
         '</script>';
 
-    $('.tapSection .text86 code').text(text86);
+    xk$('.tapSection .text86 code').innerHTML=zy(text86);
 
     let text87 = '<html>\n' +
         '<head>\n' +
@@ -2257,7 +2257,7 @@ if (list.hasChildNodes()) {
         '<script>\n' +
         '    \n' +
         '    //获取所需元素\n' +
-        '    var box = my$(\'box\');\n' +
+        '    var box = myxk$(\'box\');\n' +
         '    //列表\n' +
         '    var screen = box.children[0];\n' +
         '    var ul = screen.children[0];\n' +
@@ -2266,9 +2266,9 @@ if (list.hasChildNodes()) {
         '    var ulLen = ul.children.length;\n' +
         '\n' +
         '    //箭头\n' +
-        '    var arr = my$(\'arr\');\n' +
-        '    var arrLeft = my$(\'left\');\n' +
-        '    var arrRight = my$(\'right\');\n' +
+        '    var arr = myxk$(\'arr\');\n' +
+        '    var arrLeft = myxk$(\'left\');\n' +
+        '    var arrRight = myxk$(\'right\');\n' +
         '\n' +
         '\n' +
         '    // 1、显示图片的序号\n' +
@@ -2407,7 +2407,7 @@ if (list.hasChildNodes()) {
         '</body>\n' +
         '</html>';
 
-    $('.tapSection .text87 code').text(text87);
+    xk$('.tapSection .text87 code').innerHTML=zy(text87);
 
     let text88 = '//获取新闻标题样式\n' +
         'var newsT = document.getElementById(\'newsT\');\n' +
@@ -2450,16 +2450,16 @@ if (list.hasChildNodes()) {
         '\n' +
         '}';
 
-    $('.tapSection .text88 code').text(text88);
+    xk$('.tapSection .text88 code').innerHTML=zy(text88);
 
-    let text89 = '$(window).mousewheel(function (e) {\n' +
+    let text89 = 'xk$(window).mousewheel(function (e) {\n' +
         '    clearTimeout(timeId);\n' +
         '    timeId = setTimeout(function () {\n' +
         '        index = index - e.deltaY;\n' +
         '    }, 300)\n' +
         '});';
 
-    $('.text89 code').text(text89);
+    xk$('.text89 code').innerHTML=zy(text89);
 
     var text90 = ` 
  //html : 
@@ -2607,7 +2607,7 @@ Swiper.prototype = {
      
 </script>     
 `;
-    $('.text90 code').text(text90);
+    xk$('.text90 code').innerHTML=zy(text90);
 
     let text91 = `document.addEventListener('DOMContentLoaded', function () {
   /*
@@ -2680,7 +2680,7 @@ Swiper.prototype = {
   }
 })`;
 
-$('.text91 code').text(text91);
+xk$('.text91 code').innerHTML=zy(text91);
 
 let text92 = `Object.defineProperties(obj,{
     name:{
@@ -2694,7 +2694,7 @@ delete obj.name;
 delete obj.age;
 console.log(obj);//{age:10},name属性已被删除`;
 
-    $('.text92 code').text(text92);
+    xk$('.text92 code').innerHTML=zy(text92);
 
     let text93 = `var obj = {name:"Neld", age:10};
 Object.defineProperty(obj,"name",{
@@ -2703,7 +2703,7 @@ Object.defineProperty(obj,"name",{
 delete obj.name;//删除name属性
 console.log(obj);//{name:"Neld", age:10}，name属性没有被删除`;
 
-    $('.text93 code').text(text93);
+    xk$('.text93 code').innerHTML=zy(text93);
 
     let text94 = `var arr = [1, 2, 3, 4];
 var sum = arr.reduce(function(prev, cur, index, arr) {
@@ -2800,7 +2800,7 @@ const newArr = function(arr){
 console.log(newArr(arr)); //[0, 1, 2, 3, 4, 5, 6, 7]
     
     `;
-    $('.text94 code').text(text94);
+    xk$('.text94 code').innerHTML=zy(text94);
 
     let text95 = `let obj= {
    name:'老王'
@@ -2840,27 +2840,10 @@ function jiechi(obj,key,value){
     })
 }`;
 
-    $('.text95 code').text(text95);
+    xk$('.text95 code').innerHTML=zy(text95);
 
 
 
 })();
-/*
-$('.tapMain').each(function (index,ele) {
-    var num=0;
-   $(ele).children().each(function (index,ele) {
-       if($(ele).height()>num){
-           num=$(ele).height();
-       }
-   });
-    $(this).css({
-        height:num+20
-    })
-});*/
 
-$(function () {
-    $('.navLeft').css({
-        height: $(window).height()*0.85,
-    });
-});
 

@@ -7,7 +7,7 @@ var text1 = ' //在$符号被定义之前使用noConflict方法来重新设置�
     '     jq(function () {\n' +
     '     \tconsole.log("DOM加载完毕");\n' +
     ' \t })'
-$('.text1  code').text(text1);
+xk$('.text1  code').innerHTML = text1;
 
 var text2 = '   //jq的css()方法获取div的宽度的值,只传一个参数获取\n' +
     '        console.log($("div").css("width"));\n' +
@@ -25,7 +25,7 @@ var text2 = '   //jq的css()方法获取div的宽度的值,只传一个参数获
     '                background:"red"\n' +
     '            });\n' +
     '        });'
-$('.text2 code').text(text2);
+xk$('.text2 code').innerHTML=text2;
 
 var text3 = '//【1】使用快捷方法来给按钮添加点击事件\n' +
     '$("button").click(function () {\n' +
@@ -34,13 +34,14 @@ var text3 = '//【1】使用快捷方法来给按钮添加点击事件\n' +
     '$("button").click(function () {\n' +
     ' console.log("点击了按钮---2");\n' +
     ' });\n' +
-    '//【2】使用on方法来给按妞添加点击事件\n' +
+    '//【2】使用on方法来给按妞添加' +
+    '点击事件\n' +
     '$("button").on("click",{name:"Neld"},function (event) {\n' +
     ' \tconsole.log("点击了按钮----on");\n' +
     '    //使用event.data访问传递进来的参数\n' +
     ' \tconsole.log(event.data.name);\n' +
     ' })';
-$('.text3 code').text(text3);
+xk$('.text3 code').innerHTML=text3;
 
 let text4 = '$("button").on("click",{name:"zs"},function (event) {\n' +
     '\tconsole.log("点击了按钮----2");\n' +
@@ -52,7 +53,7 @@ let text4 = '$("button").on("click",{name:"zs"},function (event) {\n' +
     '\tconsole.log(event.data);\n' +
     '})';
 
-$('.text4 code').text(text4);
+xk$('.text4 code').innerHTML=text4;
 
 let text5 = `<!DOCTYPE html>
 <html lang="en">
@@ -104,7 +105,7 @@ let text5 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-$('.text5 code').text(text5);
+xk$('.text5 code').innerHTML=zy(text5);
 
 let text6 = `//01 创建DOM节点
 var oDom = $("<div></div>");
@@ -116,34 +117,34 @@ var oDom = $("<div></div>");
 
 $("body").append($("<div>我是测试的div标签</div>"));`;
 
-$('.tapSection .text6 code').text(text6);
+xk$('.tapSection .text6 code').innerHTML=text6;
 
 
-let text7 = `//引入文件：
+let text7 = `引入文件：
 <script src="js/scrollReveal.js"></script>
 
-//HTML：
+HTML：
 <div class="box"></div>
 
-//JavaScript调用：
+JavaScript调用：
 var sr = ScrollReveal();
 sr.reveal('.box');`;
 
-$('.text7 code').text(text7);
+xk$('.text7 code').innerText=text7;
 
 let text8 = 'var config = {\n' +
-    '    reset    : false,              //鼠标滚动时，动画开关  默认false关闭\n' +
-    '    origin   : "bottom" ,          //动画开始的方向\n' +
-    '    duration : 500,                     //动画持续时间\n' +
-    '    delay    : 0,                          //延迟\n' +
-    '    rotate    : { x: 0, y: 0, z: 0 },   //过渡到0 的初始角度\n' +
-    '    opacity   : 0,               //初始透明度\n' +
-    '    scale     : 0.9              //缩放\n' +
+    '    reset    : false,              鼠标滚动时，动画开关  默认false关闭\n' +
+    '    origin   : "bottom" ,          动画开始的方向\n' +
+    '    duration : 500,                     动画持续时间\n' +
+    '    delay    : 0,                          延迟\n' +
+    '    rotate    : { x: 0, y: 0, z: 0 },   过渡到0 的初始角度\n' +
+    '    opacity   : 0,               初始透明度\n' +
+    '    scale     : 0.9              缩放\n' +
     '};\n' +
     'window.sr = ScrollReveal();\n' +
     'sr.reveal(\'.sr\',config);';
 
-$('.text8 code').text(text8);
+xk$('.text8 code').innerText=text8;
 
 let text9 = '<!DOCTYPE html>\n' +
     '<html lang="en">\n' +
@@ -231,13 +232,13 @@ let text9 = '<!DOCTYPE html>\n' +
     '</body>\n' +
     '</html>';
 
-$('.text9 code').text(text9);
+xk$('.text9 code').innerText=text9;
 
 let text10 = '<div class="swiper-slide">\n' +
     '<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>\n' +
     '</div>';
 
-$('.text10 code').text(text10);
+xk$('.text10 code').innerText=text10;
 
 let text11 = `/**
  * 定义源目录和输出目录
@@ -392,7 +393,7 @@ gulp.task('server',['build'],function () {
  * */
 gulp.task('default',['server']);`;
 
-$('.text11 code').text(text11);
+xk$('.text11 code').innerHTML=zy(text11);
 
 var text12 = `<script>
 var vm = new Vue({
@@ -406,13 +407,22 @@ var vm = new Vue({
             handler(){
                 //数据发生变化时将变化后的数据处理
             },
-            deep:true/false(是否深监听)
+            deep:true / false(是否深监听)
         }
     }
     computed : {
         //computed一般是计算一个值,变成实例的属性,值就是函数执行的结果,网页发布时会自动触发一次。
         //函数默认执行，相当于将返回结果给到 data 中
         //如果数据发生改变，会重新执行并且再次保存最新结果
+        '值' : {
+            get(){
+                return : 输出的值 
+            },
+            set(newval){
+                值状态改变时触发的函数
+            }
+            
+        },
     }
     methods:{
         //函数
@@ -425,7 +435,7 @@ var vm = new Vue({
 })
 </script>`;
 
-$('.text12 code').text(text12);
+xk$('.text12 code').innerHTML=zy(text12);
 
 let text13 = `<div id="app">
 <p v-for="(value,key,index) in people">
@@ -444,7 +454,7 @@ people: {
   }
 })
 </script>`;
-$('.text13 code').text(text13);
+xk$('.text13 code').innerHTML=zy(text13);
 
 let text14 = `// 注册一个全局自定义指令 \`v-focus\`
 Vue.directive('focus', {
@@ -454,7 +464,7 @@ Vue.directive('focus', {
     el.focus()
   }
 })`;
-$('.text14 code').text(text14);
+xk$('.text14 code').innerHTML=zy(text14);
 
 let text15 = `directives: {
   focus: {
@@ -465,19 +475,441 @@ let text15 = `directives: {
   }
 }`;
 
-$('.text15 code').text(text15);
+xk$('.text15 code').innerHTML=zy(text15);
 
 
+let text16 = `<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/todo_base.css">
+    <link rel="stylesheet" href="css/todo_index.css">
+</head>
 
+<body class="learn-bar">
+<section id="todoapp">
+    <header id="header">
+        <h1>todos</h1>
+        <input v-model.trim="user"
+               @keydown.enter="add()"
+               id="new-todo" placeholder="来添加一些大事件?" autofocus="autofocus">
+    </header>
+    <section id="main">
+        <input id="toggle-all" type="checkbox" v-model="toggleall">
+        <label for="toggle-all">选中全部</label>
+        <ul id="todo-list">
+            <li v-for="(item,index) in curlist" :class="{editing:order==index,completed:item.status}">
+                <div class="view">
+                    <input v-model="item.status" type="checkbox" class="toggle">
+                    <label @dblclick="edit(index)">{{item.title}}</label>
+                    <button class="destroy" @click="remove(item)"></button>
+                </div>
+                <input v-focus="order==index"
+                       v-model="item.title"
+                       @keydown.enter="edit(-1)"
+                       @blur="edit(-1)" class="edit">
+            </li>
+        </ul>
+    </section>
+    <footer id="footer"><span id="todo-count"><strong>{{left}}</strong>进行中</span>
+        <ul id="filters">
+            <li>
+                <a :class="{selected:sign=='all'}" href="#all">全部</a>
+            </li>
+            <li>
+                <a :class="{selected:sign=='activing'}" href="#activing">进行中</a>
+            </li>
+            <li>
+                <a :class="{selected:sign=='completed'}" href="#completed">已完成</a>
+            </li>
+        </ul>
+        <button id="clear-completed" v-show="com" @click="removeall()">删除完成</button>
+    </footer>
+</section>
+<script src="js/vue.js"></script>
+<script>
+    //2.封装本地存储
+    var local = {
+        getStorage() {
+            return JSON.parse(localStorage.getItem('todos')) || []
+        },
+        setStorage(newval) {
+            localStorage.setItem('todos', JSON.stringify(newval))
+        }
+    };
 
-/*
-$(function () {
-    $('.tapMain').each(function (index,ele) {
-        $(ele).css({
-            height:$(ele).children().eq(0).height()+30
-        });
+    Vue.directive('focus', {
+        update(el, binding) {
+            //当v-focus=值为true，将元素聚焦
+            if (binding.value) {
+                el.focus()
+            }
+        }
     });
-    $('.bntTap').next('.tapNav').slideUp();
-    $('.bntTap').next('.tapNav').next('.tapMain').slideUp();
-});*/
+
+    var filter = {
+        all(data){
+            return data
+        },
+        activing(data){
+            return data.filter(item=>item.status==false)
+        },
+        completed(data){
+            return data.filter(item=>item.status==true)
+        }
+    };
+    
+    var vm = new Vue({
+        el: '#todoapp',
+        data: {
+            sign: 'all',//标识底栏
+            order: -1,
+            user: '',
+            list: local.getStorage(),
+            curlist:[]
+        },
+        watch: {
+            //1.监测list数据发生变化时，更新本地存储
+            list: {
+                handler() {
+                    local.setStorage(this.list);
+                    this.curlist = filter[this.sign](this.list);//添加或者删除curlist的值，一定要重新从list中获取
+                },
+                deep: true//深度检测
+            }
+        },
+        computed : {
+            toggleall : {
+                get(){
+                    return this.list.length&&this.list.length === filter.completed(this.list).length
+                },
+                set(newval){
+                    this.list.forEach(function (ele) {
+                        ele.status = newval
+                    })
+                }
+            },
+            left(){
+                return filter.activing(this.list).length
+            },
+            com(){
+                return filter.completed(this.list).length
+            }
+        },
+        methods: {
+            add() {
+                if (this.user == '') {
+                    alert('请输入内容');
+                    return;
+                }
+                this.list.unshift({status: false, title: this.user});
+                this.user = ''
+            },
+            remove(item) { //改为根据内容找到该索引删除，因为如果根据索引的话用的是curlist的索引，
+                // 用curlist的索引来list找到对应的内容，导致出现删除错误的现象。curlist和list数组里的项都是对象，所以都是堆存储
+                var index = this.list.indexOf(item);
+                this.list.splice(index, 1)
+            },
+            edit(index) {
+                this.order = index;
+            },
+            cahngeSign(sign){
+                this.sign = sign;
+                this.curlist = filter[this.sign](this.list);//选中当前需要展示的数据
+            },
+            removeall(){
+                this.list = filter.activing(this.list)
+            }
+        }
+    });
+    
+    window.onhashchange = hashChange;
+    hashChange();
+    function hashChange() {
+        var hash = location.hash.split('#')[1]||'all';
+        vm.cahngeSign(hash);
+    }
+    
+</script>
+</body>`;
+
+xk$('.text16 code').innerHTML=zy(text16);
+
+let text17 = `<div id="app">
+<my-article></my-article>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-article',{
+        template:\`<div>
+            <h3>这是标题</h3>
+            <p>段落</p>
+            </div>\`
+    })
+    var vm = new Vue({
+        el:"#app"
+    })
+</script>`;
+
+xk$('.text17 code').innerHTML=zy(text17);
+
+let text18 = `<div id="app">
+<my-article></my-article>
+</div>
+<template id="myarticle">
+    <div>
+        <h3>这是标题</h3>
+        <p>段落</p>
+    </div>
+</template>
+<script>
+    Vue.component('my-artilce',{
+        template:'#myarticle'
+    })
+    var vm = new Vue({
+        el:'#app'
+    })
+</script>`;
+
+xk$('.text18 code').innerHTML=zy(text18);
+
+var text19 =  `1.通过普通的 JavaScript 对象来定义组件：
+var ComponentA = { /* ... */ }
+
+var ComponentB = { /* ... */ }
+
+2.在 components 选项中注册你想要使用的组件：
+
+new Vue({
+  el: '#app',
+  components: {
+    ComponentA,
+    ComponentB
+  }
+})
+
+3.使用注意注册在哪里，那么这个组件就只能这里使用
+
+<component-a></component-a>
+<component-b></component-b>
+
+另一种写法：
+   <script>
+        1.创建一个对象
+        var MyComp = {
+            template:\`<div>这是局部组件</div>\`
+        }
+        2.把这个对象注册到实例或者组件上成为组件使用  通过组件或者实例的 components这个选项上，以key值为组件名称。
+        3.使用这个实例或者组件的环境中（template中）就可以使用这个组件
+        var vm = new Vue({
+            components:{
+                MyComp
+            },
+            template: \`<my-comp></my-comp>\`
+        }).$mount('#app')
+
+    </script>
+`;
+
+xk$('.text19 code').innerText = text19;
+
+var text20 = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>05组件私有化数据</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <btn></btn>
+        <btn></btn>
+        <btn></btn>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+
+        Vue.component('btn',{
+            data(){
+                return {
+                    num:0
+                }
+            },
+            template:\`<button @click="add()">{{num}}</button>\`,
+            methods:{
+                add(){
+                    this.num++;
+                }
+            }
+        })
+        var vue = new Vue({
+            el:'#app',
+            data:{
+                msg:1
+            }
+        })
+    </script>
+</body>
+</html>`;
+
+xk$('.text20 code').innerText = text20;
+
+var text21 = `<div id="app" class="container">
+    <ym-alert a="asdfasdf"></ym-alert>
+</div>
+
+<template id="box">
+    <div class="alert" :class="'alert-'+cn">
+    这是警示框{{a}} {{typeof close}}
+    <span v-show="close" class="close">&times;</span>
+</div>
+</template>
+<script src="vue.js"></script>
+<script>
+    Vue.component('ym-alert', {
+        template: '#box',
+        /*数组是仅接收不验证
+         props: ['a', 'cn', 'close']
+        对象的简单验证方式*/
+        props:{
+            a:String,
+            cn:String,
+            close:Boolean
+        }
+        /*既验证又有默认值，而且还可以必须传递*/
+        props:{
+            a:{
+                type:String, /*类型 的值是 内置构造函数*/
+                default:'',   /*默认值*/
+                required:true   /*必须传递 默认值是false*/
+            },
+            cn:{
+                type: String,
+                default:'warning'
+            },
+            close:{
+                type:Boolean,
+                default:true
+            }
+        }
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+
+        }
+    })
+</script>`;
+
+xk$('.text21 code').innerText = text21;
+
+var text22 =  `<div id="app">
+    <ym-btn @parqie="parChange" :show="show"></ym-btn>
+    <!--第一步：在父组件上指定自定义事件并且指定函数名称。注意绑定事件对应的函数名称不可以加括号-->
+    <p v-show="show"></p>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('ym-btn',{
+      props:['show'],
+      template:\`<button @click="change">按钮{{show}}</button>\`,
+           /*第三步：在子组件中正常绑定事件。并且在当前组件环境的methods下定义该功能change。*/
+      methods:{
+        change(){
+          this.$emit('parqie',!this.show);
+          /*第四步：对应的功能如何才能将父组件中的自定义事件对应的函数功能触发，通过this.$emit('自定义事件名称',参数)*/
+        }
+      }
+    });
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        show:true
+      },
+      methods:{
+      /*第二步：指定的函数名称书写在对应的组件环境的methods下。并且定义该功能时，一般都要传参。*/
+        parChange(value){
+          this.show = value;
+        }
+      }
+    })
+</script>`;
+xk$('.text22 code').innerText = text22;
+
+var text23 = `<div id="app">
+    <my-com></my-com>
+    <my-com>你好</my-com>
+    <my-com>
+        <h2>插槽</h2>
+        <p>果然好用</p>
+    </my-com>
+</div>
+<template id="myCom">
+    <div>
+        <slot>我是默认值</slot>
+    </div>
+</template>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-com',{
+        template:'#myCom'
+    })
+    var vm = new Vue({
+        el:'#app'
+    })
+</script>
+
+结果：我是默认值
+     你好
+     插槽
+     果然好用
+`;
+xk$('.text23 code').innerText = text23;
+
+var text24 = `<div id="app">
+    <my-com></my-com>
+    <hr>
+    <my-com>
+        <span slot="center">叩丁狼</span>
+    </my-com>
+    <hr>
+    <my-com>
+        <span slot="left">返回</span>
+        <span slot="center">叩丁狼</span>
+        <span slot="left">菜单</span>
+    </my-com>
+</div>
+<template id="myCom">
+    <div>
+        <slot name="left">默认左侧</slot>
+        <slot name="center">默认中间</slot>
+        <slot name="right">默认右侧</slot>
+    </div>
+</template>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('my-com',{
+        template:'#myCom'
+    })
+    var vm = new Vue({
+        el:'#app'
+    })
+</script>
+结果: 默认左侧
+      默认中间
+      默认右侧
+      
+      默认左侧
+      叩丁狼
+      默认右侧
+      
+      返回
+      菜单
+      叩丁狼
+      默认右侧
+`;
+xk$('.text24 code').innerText = text24;
+

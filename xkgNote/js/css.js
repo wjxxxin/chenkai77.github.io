@@ -3,7 +3,7 @@ var text1 = '<b></b>\n' +
     '<i></i>\n' +
     '<em></em>(斜体)\n' +
     '<hr></hr>(下划线)';
-$('section pre.text1 code').text(text1);
+xk$('section pre.text1 code').innerHTML=zy(text1);
 
 var text2 = 'h2{display:inline;\n' +
     'border-top:6px soild red;\n' +
@@ -16,7 +16,7 @@ var text2 = 'h2{display:inline;\n' +
     'border-bottom:2px soild #000\n' +
     'border-left:2px dotted #000\n' +
     'border-right:2px dashed #000}';
-$('.text2  code').text(text2);
+xk$('.text2  code').innerHTML=zy(text2);
 
 var text3 = '<table> \n' +
     '\t<tr>\n' +
@@ -33,7 +33,7 @@ var text3 = '<table> \n' +
     '        <td>单元格8</td>\n' +
     '\t</tr>\n' +
     '</table>';
-$('.text3  code').text(text3);
+xk$('.text3  code').innerHTML=zy(text3);
 
 var text4 = '当 flex 取值为 none，则计算值为 0 0 auto，如下是等同的：\n' +
     '.item {flex: none;}\n' +
@@ -56,7 +56,7 @@ var text4 = '当 flex 取值为 none，则计算值为 0 0 auto，如下是等�
     '    flex-shrink: 1;\n' +
     '    flex-basis: 0%;\n' +
     '}';
-$('.text4  code').text(text4);
+xk$('.text4  code').innerHTML=zy(text4);
 
 var text5 = '<!DOCTYPE html>\n' +
     '<html>\n' +
@@ -80,7 +80,7 @@ var text5 = '<!DOCTYPE html>\n' +
     '    </div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text5 code').text(text5);
+xk$('.tapSection .text5 code').innerHTML=zy(text5);
 
 
 var text6 = '<!DOCTYPE html>\n' +
@@ -104,7 +104,7 @@ var text6 = '<!DOCTYPE html>\n' +
     '    </div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text6 code').text(text6);
+xk$('.tapSection .text6 code').innerHTML=zy(text6);
 
 
 var text7='<!DOCTYPE html>\n' +
@@ -157,14 +157,14 @@ var text7='<!DOCTYPE html>\n' +
     '</body>\n' +
     '</html>';
 
-$('.text7 code').text(text7);
+xk$('.text7 code').innerHTML=zy(text7);
 
 var text8 = '.clearfix:after,.clearfix:before{ content:"";height: 0;display: block; font-size: 0; overflow: hidden; clear:both;}\n' +
     '<div class="brother1"></div>\n' +
     '<div class="clearfix"></div>\n' +
     '<div class="brother2"></div>';
 
-$('.text8 code').text(text8);
+xk$('.text8 code').innerHTML=zy(text8);
 
 var text9 = '<!doctype html>\n' +
     '<html>\n' +
@@ -206,7 +206,7 @@ var text9 = '<!doctype html>\n' +
     '</div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text9 code').text(text9);
+xk$('.tapSection .text9 code').innerHTML=zy(text9);
 
 var text10= '<!doctype html>\n' +
     '<html>\n' +
@@ -245,7 +245,7 @@ var text10= '<!doctype html>\n' +
     '</div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text10 code').text(text10);
+xk$('.tapSection .text10 code').innerHTML=zy(text10);
 
 
 var text11 = '<!DOCTYPE html>\n' +
@@ -273,7 +273,7 @@ var text11 = '<!DOCTYPE html>\n' +
     '    </div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text11 code').text(text11);
+xk$('.tapSection .text11 code').innerHTML=zy(text11);
 
 var text12 = '<!DOCTYPE html>\n' +
     '<html>\n' +
@@ -298,7 +298,7 @@ var text12 = '<!DOCTYPE html>\n' +
     '    </div>\n' +
     '</body>\n' +
     '</html>';
-$('.tapSection .text12 code').text(text12);
+xk$('.tapSection .text12 code').innerHTML=zy(text12);
 
 var text13 = '<!DOCTYPE html>\n' +
     '<html>\n' +
@@ -326,7 +326,7 @@ var text13 = '<!DOCTYPE html>\n' +
     '</body>\n' +
     '</html>';
 
-$('.tapSection .text13 code').text(text13);
+xk$('.tapSection .text13 code').innerHTML=zy(text13);
 
 var text14 = '<!DOCTYPE html>\n' +
     '<html>\n' +
@@ -368,7 +368,7 @@ var text14 = '<!DOCTYPE html>\n' +
     '</body>\n' +
     '</html>';
 
-$('.tapSection .text14 code').text(text14);
+xk$('.tapSection .text14 code').innerHTML=zy(text14);
 
 var text15 = `<!DOCTYPE html>
 <html lang="en">
@@ -411,29 +411,29 @@ var text15 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-$('.text15 code').text(text15);
+xk$('.text15 code').innerHTML=zy(text15);
 
 var text16 = ` <!--添加视口, 适配移动设备:
         width=device-width: 让html的宽等于设备的宽（例如设备是iphone6 宽是375 pt）
         initial-scale=1.0 : 不允许用户进行手动缩放
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">`;
-$('.text16 code').text(text16);
+xk$('.text16 code').innerHTML=zy(text16);
 
 var text17 = `  <!-- 是否启用 WebApp 全屏模式（ content有两个值”yes”和”no”,默认no就是显示苹果工具栏和菜单栏 ） -->
     <meta name="apple-mobile-web-app-capable" content="yes">`;
 
-$('.text17 code').text(text17);
+xk$('.text17 code').innerHTML=zy(text17);
 
 var text18 = `    <!-- 设置状态栏的背景颜色,只有在 “apple-mobile-web-app-capable” content=”yes” 时生效，默认值为default（白色），可以定为black（黑色） -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black">`;
 
-$('.text18 code').text(text18);
+xk$('.text18 code').innerHTML=zy(text18);
 
 var text19 = ` <!--告诉设备忽略将页面中的数字识别为电话号码-->
     <meta name="format-detection" content="telephone=no">`;
 
-$('.text19 code').text(text19);
+xk$('.text19 code').innerHTML=zy(text19);
 
 var text20 = `@charset "utf-8";
 /* 清零 */
@@ -483,16 +483,5 @@ a, img {-webkit-touch-callout: none;}
 /* 禁止选中文本（如无文本选中需求，此为必选项） */
 html, body {-webkit-user-select: none;user-select: none;}`;
 
-$('.text20 code').text(text20);
+xk$('.text20 code').innerHTML=zy(text20);
 
-
-/*
-$(function () {
-    $('.tapMain').each(function (index,ele) {
-        $(ele).css({
-            height:$(ele).children().eq(0).height()+30
-        });
-    });
-    $('.bntTap').next('.tapNav').slideUp();
-    $('.bntTap').next('.tapNav').next('.tapMain').slideUp();
-});*/

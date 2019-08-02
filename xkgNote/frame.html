@@ -295,6 +295,11 @@ $.each(arr/obj,function(index,ele){
                     <li>data：可选参数，设计需要传递的数据。</li>
                     <li>function：必传参数，事件发生时，执行的函数。</li>
                 </ol>
+                <ol>on可以用于自定义事件
+                    <li>对一个功能，做不同的处理，而且是对多个对象不同操作，可以通过自定义事件</li>
+                    <li>给对象添加自定义事件 $('.box1').on(自定义事件名称,function(){}),这个指令中就是对当前对象的任何操作</li>
+                    <li>自定义事件默认是不会执行的. 在最终的功能中让它执行即可. $(对象).trigger('自定义事件名称')</li>
+                </ol>
                 <a class="btns" href="javascript:">代码</a>
                 <pre class="text3"><code class="language-js"></code></pre>
                 <p>one方法 是on方法中的一种特殊使用方式，由one方法绑定的事件在执行一次响应之后就会失效。其设计思路是：在事件处理函数的内部注销当前事件</p>
@@ -529,6 +534,7 @@ $("input").triggerHandler("click");</code></pre>
                 <li>v-cloak ： 可以让书写vue代码的部分全部隐藏。等Vue代码加载和编译完全，会让其显示出来。
                 <p>写的时候要加上&lt;style&gt; [v-cloak]{display: none;} &lt;/style&gt;</p>
                 </li>
+                <li>v-if : 用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。false的话元素不会在文档出现</li>
                 <li>v-show :  v-show ='布尔值' ： 元素切换显示/隐藏 ; v-show 指令当值为true则为显示，值为 false 则为隐藏。</li>
                 <li>绑定事件 ： 直接将事件书写在模板中 v-on:click="指令名称()" 或者简写为 @click="指令名称()"</li>
                 <li>v-for ： 用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要使用  item in items 形式 的特殊语法， items 是源数据数组并且  item 是数组元素迭代的别名。
@@ -568,6 +574,110 @@ $("input").triggerHandler("click");</code></pre>
                     </ol>
                 </li>
             </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Vue 组件</h3>
+    <section>
+        <div class="small">
+            <div class="tapNav">
+                <div class="tapTop cur">全局组件</div>
+                <div class="tapTop">局部组件</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text17"><code class="html"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text19"><code class="js"></code></pre>
+                </div>
+            </div>
+            <ol>
+                <li>必须先注册才能使用。而且注册要写在实例之前。否则也不能生效。</li>
+                <li>注册中的模板必须要有一个根节点，不可以全部同级</li>
+                <li>组件内部还可以去使用其它组件</li>
+                <li>组件名称不可以使用浏览器支持的标签。如：div,article……</li>
+                <li>组件名称大小写 kebab-case(肉串/烤串)写法或者 PascalCase(大驼峰)写法 组件使用时都是用kebab-case(肉串/烤串)写法</li>
+                <li>组件不可以直接访问实例数据</li>
+                <li>父子组件，定义注册组件为子组件，使用组件为父组件</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>组件私有数据</h4>
+            <ol>组件数据的存放
+                <li>组件对象也有一个data属性</li>
+                <li>只是这个data属性必须是一个函数,原因是在于Vue让每个组件对象都返回一个新的对象，因为如果是同一个对象的，组件在多次使用后会相互影响。</li>
+                <li>而且这个函数返回一个对象，对象内部保存着数据</li>
+            </ol>
+            <a class="btns" href="javascript:">定时器案例</a>
+            <pre class="text20"><code class="html"></code></pre>
+        </div>
+        <div class="small">
+            <h4>组件通信</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">父组件向子组件传递</div>
+                <div class="tapTop">子组件向父组件传递</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <ol>
+                        <li>通过给父组件添加自定义属性</li>
+                        <li>子组件中通过props接收父组件的自定义属性</li>
+                        <li>在模板中通过{{自定义属性名称}}来显示数据</li>
+                    </ol>
+                    <p>props数据验证 : 支持String、Number、Boolean、Array、Object、Date、Function、Symbol（注意首字母要大写，且不加引号）</p>
+                    <pre class="text21"><code class="html"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <ol>
+                        <li>父组件通过v-on:自定义类型=”函数“</li>
+                        <li>子组件通过this.$emit(自定义事件名称)</li>
+                    </ol>
+                    <pre class="text22"><code class="html"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="small">
+            <h4>组件循环</h4>
+            <p>我们需要在对组件循环时，添加一个属性key且key值为字符串或者数字，且key值不可以重复</p>
+        </div>
+        <div class="small">
+            <h4>插槽</h4>
+            <p>在子组件中，使用特殊的元素&lt;slot&gt;就可以为子组件开启一个插槽。</p>
+            <p>匿名插槽 ： 在父组件内部书写内容 ；在子组件模板中书写slot标签</p>
+            <a class="btns" href="javascript:">匿名插槽</a>
+            <pre class="text23"><code class="html"></code></pre>
+            <ol>具名插槽 ：
+                <li>1、在父组件内部书写内容，内容的标签要添加slot="插槽名称" ；如果父组件内容,如果没有标签,通过template作为空标签.在它的身上添加slot="插槽名称"</li>
+                <li>2、在子组件中书写slot标签,并且添加name属性.</li>
+            </ol>
+            <a class="btns" href="javascript:">具名插槽</a>
+            <pre class="text24"><code class="html"></code></pre>
+        </div>
+        <div class="small">
+            <h4>模板分离</h4>
+            <p>将模板单独拆分到template标签中，并且指定ID名称。在注册对应的template位置放上指定的ID名称即可。</p>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text18"><code class="html"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Vue 综合案例</h3>
+    <section>
+        <div class="small">
+            <a class="bntTap" href="javascript:">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">todos</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text16"><code class="html"></code></pre>
+                </div>
+                <div class="tapSection">
+                </div>
+            </div>
         </div>
     </section>
 </div>
@@ -981,7 +1091,6 @@ $(function () {
 </article>
 </body>
 </html>
-<script src="js/jquery-3.4.1.js"></script>
 <script src="js/page.js"></script>
 <script src="js/frame.js"></script>
 <script src="js/highlight.pack.js"></script>

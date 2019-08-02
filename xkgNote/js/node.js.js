@@ -4,7 +4,7 @@ let text1 = '<form action="请求路径">\n' +
     '    <input type="submit">\n' +
     '</form>';
 
-$('.text1 code').text(text1);
+xk$('.text1 code').innerHTML=zy(text1);
 
 let text2 = '<form action="请求路径" method="POST">\n' +
     '    <input type="text" placeholder="请传入用户名" name="username">\n' +
@@ -12,14 +12,14 @@ let text2 = '<form action="请求路径" method="POST">\n' +
     '    <input type="submit">\n' +
     '</form>';
 
-$('.text2 code').text(text2);
+xk$('.text2 code').innerHTML=zy(text2);
 
 let text3 = '<form action="请求路径" method="POST" enctype="multipart/form-data">\n' +
     '    <input type="file" name="fileName">\n' +
     '    <input type="submit">\n' +
     '</form>';
 
-$('.text3 code').text(text3);
+xk$('.text3 code').innerHTML=zy(text3);
 
 let text4 = 'let buf1 = Buffer.from(\'wolfcode\');\n' +
     'let buf2 = Buffer.from(\'.cn\');\n' +
@@ -43,7 +43,7 @@ let text4 = 'let buf1 = Buffer.from(\'wolfcode\');\n' +
     'console.log(buf.toJSON().type);\n' +
     'console.log(buf.toJSON().data);';
 
-$('.text4 code').text(text4);
+xk$('.text4 code').innerHTML=zy(text4);
 
 let text5 = 'const events = require(\'events\');\n' +
     'let emitter = new events.EventEmitter();\n' +
@@ -55,7 +55,7 @@ let text5 = 'const events = require(\'events\');\n' +
     '});\n' +
     'emitter.emit(\'someEvent\', \'lony\', 1988);        // 触发事件';
 
-$('.text5 code').text(text5);
+xk$('.text5 code').innerHTML=zy(text5);
 
 let text6 = 'let p = \'/foo/bar/baz/asdf/quux.html\';\n' +
     'console.log(path.basename(p));                                                  // quux.html\n' +
@@ -89,7 +89,7 @@ let text6 = 'let p = \'/foo/bar/baz/asdf/quux.html\';\n' +
     'console.log(path.resolve(\'f:\', \'\\\\foo\\\\bar\', \'.\\\\baz\'));                        // f:\\foo\\bar\\baz\n' +
     '// 依次从右边给定的路径开始，解析出绝对路径，若给定的路径没有包含根路径，那则以当前运行文件所以在根路径为准。';
 
-$('.text6 code').text(text6);
+xk$('.text6 code').innerHTML=zy(text6);
 
 let text7 = 'const fs = require(\'fs\');\n' +
     'const path = require(\'path\');\n' +
@@ -114,7 +114,7 @@ let text7 = 'const fs = require(\'fs\');\n' +
     '// console.log(ret);\n' +
     '// console.log(2);';
 
-$('.text7 code').text(text7);
+xk$('.text7 code').innerHTML=zy(text7);
 
 let text8 = 'fs.readFile(path.join(__dirname, \'data.txt\'), (err, data) => {\n' +
     '    console.log(data);\n' +
@@ -130,7 +130,7 @@ let text8 = 'fs.readFile(path.join(__dirname, \'data.txt\'), (err, data) => {\n'
     'let ret = fs.readFileSync(strpath, \'utf8\');\n' +
     'console.log(ret);';
 
-$('.text8 code').text(text8);
+xk$('.text8 code').innerHTML=zy(text8);
 
 let text9 = 'fs.writeFile(path.join(__dirname, \'data.txt\'), \'hello\', \'utf8\', (err) => {\n' +
     '    if(!err){\n' +
@@ -148,7 +148,7 @@ let text9 = 'fs.writeFile(path.join(__dirname, \'data.txt\'), \'hello\', \'utf8\
     '// 同步操作\n' +
     'fs.writeFileSync(path.join(__dirname, \'data.txt\'), \'你好吗\');';
 
-$('.text9 code').text(text9);
+xk$('.text9 code').innerHTML=zy(text9);
 
 let text10 = 'const path = require(\'path\');\n' +
     'const fs = require(\'fs\');\n' +
@@ -190,7 +190,7 @@ let text10 = 'const path = require(\'path\');\n' +
     '// 同步删除目录\n' +
     'fs.rmdirSync(path.join(__dirname, \'abc\'));';
 
-$('.text10 code').text(text10);
+xk$('.text10 code').innerHTML=zy(text10);
 
 let text11 = '/*\n' +
     '    文件操作案例（初始化目录结构）\n' +
@@ -245,7 +245,7 @@ let text11 = '/*\n' +
     '    });\n' +
     '});';
 
-$('.text11 code').text(text11);
+xk$('.text11 code').innerHTML=zy(text11);
 
 let text12 = 'const path = require(\'path\');\n' +
     'const fs = require("fs");\n' +
@@ -268,7 +268,7 @@ let text12 = 'const path = require(\'path\');\n' +
     '    console.log(err.stack);\n' +
     '});';
 
-$('.tapSection .text12 code').text(text12);
+xk$('.tapSection .text12 code').innerHTML=zy(text12);
 
 let text13 = 'const path = require(\'path\');\n' +
     'const fs = require("fs");\n' +
@@ -291,7 +291,7 @@ let text13 = 'const path = require(\'path\');\n' +
     '// 标记文件末尾，表明后面没数据要再写入了\n' +
     'writerStream.end();\n';
 
-$('.tapSection .text13 code').text(text13);
+xk$('.tapSection .text13 code').innerHTML=zy(text13);
 
 let text14 = 'const path = require(\'path\');\n' +
     'const fs = require(\'fs\');\n' +
@@ -300,7 +300,7 @@ let text14 = 'const path = require(\'path\');\n' +
     '// pipe 的作用直接把输入流和输出流 readStream.pipe(writeStream);\n' +
     'fs.createReadStream(spath).pipe(fs.createWriteStream(dpath));';
 
-$('.tapSection .text14 code').text(text14);
+xk$('.tapSection .text14 code').innerHTML=zy(text14);
 
 let text15 = 'const path = require(\'path\');\n' +
     'const fs = require(\'fs\');\n' +
@@ -314,7 +314,7 @@ let text15 = 'const path = require(\'path\');\n' +
     '    console.log(\'源文件已拷贝到目标文件\');\n' +
     '});';
 
-$('.tapSection .text15 code').text(text15);
+xk$('.tapSection .text15 code').innerHTML=zy(text15);
 
 let text16 = 'const http = require(\'http\');\n' +
     '\n' +
@@ -328,7 +328,7 @@ let text16 = 'const http = require(\'http\');\n' +
     '});\n' +
     'server.listen(8888);    // 监听 8888 端口 ';
 
-$('.text16 code').text(text16);
+xk$('.text16 code').innerHTML=zy(text16);
 
 let text17 = 'const http = require(\'http\');\n' +
     'let server = new http.Server();\n' +
@@ -340,7 +340,7 @@ let text17 = 'const http = require(\'http\');\n' +
     '});\n' +
     'server.listen(8888);';
 
-$('.text17 code').text(text17);
+xk$('.text17 code').innerHTML=zy(text17);
 
 let text18 = 'const http = require(\'http\');\n' +
     'const url = require(\'url\');\n' +
@@ -351,7 +351,7 @@ let text18 = 'const http = require(\'http\');\n' +
     '    res.end(params);\n' +
     '}).listen(8888);';
 
-$('.tapSection .text18 code').text(text18);
+xk$('.tapSection .text18 code').innerHTML=zy(text18);
 
 let text19 = 'const http = require(\'http\');\n' +
     'const querystring = require(\'querystring\');\n' +
@@ -370,7 +370,7 @@ let text19 = 'const http = require(\'http\');\n' +
     '    });\n' +
     '}).listen(8888);';
 
-$('.tapSection .text19 code').text(text19);
+xk$('.tapSection .text19 code').innerHTML=zy(text19);
 
 let text20 = 'const http = require(\'http\');\n' +
     'let server = http.createServer((req, res) => {\n' +
@@ -388,7 +388,7 @@ let text20 = 'const http = require(\'http\');\n' +
     '});\n' +
     'server.listen(8888);';
 
-$('.tapSection .text20 code').text(text20);
+xk$('.tapSection .text20 code').innerHTML=zy(text20);
 
 let text21 = 'const http = require(\'http\');\n' +
     'const path = require(\'path\');\n' +
@@ -420,7 +420,7 @@ let text21 = 'const http = require(\'http\');\n' +
     '    });\n' +
     '}).listen(8888);';
 
-$('.tapSection .text21 code').text(text21);
+xk$('.tapSection .text21 code').innerHTML=zy(text21);
 
 let text22 = 'const http = require(\'http\');\n' +
     '// 响应 JSON 格式的数据\n' +
@@ -430,7 +430,7 @@ let text22 = 'const http = require(\'http\');\n' +
     '    res.end(\'{"name":"lony","age":18}\');\n' +
     '}).listen(8888);';
 
-$('.tapSection .text22 code').text(text22);
+xk$('.tapSection .text22 code').innerHTML=zy(text22);
 
 let text23 = 'const http = require(\'http\');\n' +
     '// 响应 HTML 格式的数据\n' +
@@ -450,7 +450,7 @@ let text23 = 'const http = require(\'http\');\n' +
     '    res.end();\n' +
     '}).listen(8888);';
 
-$('.tapSection .text23 code').text(text23);
+xk$('.tapSection .text23 code').innerHTML=zy(text23);
 
 let text24 = '// 模板文件 out.ejs\n' +
     '<h2><%= user.name %></h2>\n' +
@@ -462,7 +462,7 @@ let text24 = '// 模板文件 out.ejs\n' +
     '    // str => 输出绘制后的 HTML 字符串\n' +
     '    console.log(str);\n' +
     '});'
-$('.tapSection .text24 code').text(text24);
+xk$('.tapSection .text24 code').innerHTML=zy(text24);
 
 
 let text25 = '// 模板文件 if.ejs\n' +
@@ -477,7 +477,7 @@ let text25 = '// 模板文件 if.ejs\n' +
     '    console.log(str);\n' +
     '});';
 
-$('.tapSection .text25 code').text(text25);
+xk$('.tapSection .text25 code').innerHTML=zy(text25);
 
 
 let text26 = '// 模板文件 loop.ejs\n' +
@@ -492,7 +492,7 @@ let text26 = '// 模板文件 loop.ejs\n' +
     '    console.log(str);\n' +
     '});';
 
-$('.tapSection .text26 code').text(text26);
+xk$('.tapSection .text26 code').innerHTML=zy(text26);
 
 let text27 = '// books.ejs\n' +
     '<!DOCTYPE html>\n' +
@@ -525,7 +525,7 @@ let text27 = '// books.ejs\n' +
     '    });\n' +
     '}).listen(8888);';
 
-$('.tapSection .text27 code').text(text27);
+xk$('.tapSection .text27 code').innerHTML=zy(text27);
 
 let text28 = 'const express = require(\'express\');\n' +
     'const app = express();\n' +
@@ -561,7 +561,7 @@ let text28 = 'const express = require(\'express\');\n' +
     '        console.log(\'running...\');\n' +
     '    });';
 
-$('.text28 code').text(text28);
+xk$('.text28 code').innerHTML=zy(text28);
 
 let text29 = 'const express = require(\'express\');\n' +
     'const app = express();\n' +
@@ -605,7 +605,7 @@ let text29 = 'const express = require(\'express\');\n' +
     '    console.log(\'running...\');\n' +
     '});';
 
-$('.text29 code').text(text29);
+xk$('.text29 code').innerHTML=zy(text29);
 
 let text30 = 'const express = require(\'express\');\n' +
     'const app = express();\n' +
@@ -635,7 +635,7 @@ let text30 = 'const express = require(\'express\');\n' +
     '    console.log(\'running...\');\n' +
     '});';
 
-$('.text30 code').text(text30);
+xk$('.text30 code').innerHTML=zy(text30);
 
 let text31 = '// 文件位置：myapp/routes/index.js\n' +
     'const express = require(\'express\');\n' +
@@ -683,7 +683,7 @@ let text31 = '// 文件位置：myapp/routes/index.js\n' +
     '    console.log(\'running...\');\n' +
     '});';
 
-$('.text31 code').text(text31);
+xk$('.text31 code').innerHTML=zy(text31);
 
 let text32 = '// 版本 1，不单独抽出中间件\n' +
     'const express = require(\'express\');\n' +
@@ -701,7 +701,7 @@ let text32 = '// 版本 1，不单独抽出中间件\n' +
     '    console.log(\'8888 Running...\');\n' +
     '});';
 
-$('.tapSection .text32 code').text(text32);
+xk$('.tapSection .text32 code').innerHTML=zy(text32);
 
 let text33 = '// 版本 2，单独抽出中间件\n' +
     'const express = require(\'express\');\n' +
@@ -722,7 +722,7 @@ let text33 = '// 版本 2，单独抽出中间件\n' +
     '    console.log(\'8888 Running...\');\n' +
     '});';
 
-$('.tapSection .text33 code').text(text33);
+xk$('.tapSection .text33 code').innerHTML=zy(text33);
 
 let text34 = '// 版本 3，单独抽出中间件，针对多种请求方式\n' +
     'const express = require(\'express\');\n' +
@@ -746,7 +746,7 @@ let text34 = '// 版本 3，单独抽出中间件，针对多种请求方式\n' 
     '    console.log(\'8888 Running...\');\n' +
     '});';
 
-$('.tapSection .text34 code').text(text34);
+xk$('.tapSection .text34 code').innerHTML=zy(text34);
 
 let text35 = '// 版本 4，单独抽出中间模块\n' +
     '// 文件位置 myapp/mylogger.js\n' +
@@ -776,7 +776,7 @@ let text35 = '// 版本 4，单独抽出中间模块\n' +
     '    console.log(\'8888 Running...\');\n' +
     '});';
 
-$('.tapSection .text35 code').text(text35);
+xk$('.tapSection .text35 code').innerHTML=zy(text35);
 
 let text36 = '// GET 方式获取请求参数\n' +
     'const express = require(\'express\');\n' +
@@ -791,7 +791,7 @@ let text36 = '// GET 方式获取请求参数\n' +
     '    console.log(\'Example app listening on port 8888!\');\n' +
     '});';
 
-$('.tapSection .text36 code').text(text36);
+xk$('.tapSection .text36 code').innerHTML=zy(text36);
 
 let text37 = '// POST 方式获取表单类型的请求参数\n' +
     'const express = require(\'express\');\n' +
@@ -808,7 +808,7 @@ let text37 = '// POST 方式获取表单类型的请求参数\n' +
     '    console.log(\'Example app listening on port 8888!\');\n' +
     '}); ';
 
-$('.tapSection .text37 code').text(text37);
+xk$('.tapSection .text37 code').innerHTML=zy(text37);
 
 let text38 = '// POST 方式获取 JSON 类型的请求参数\n' +
     'const express = require(\'express\');\n' +
@@ -825,7 +825,7 @@ let text38 = '// POST 方式获取 JSON 类型的请求参数\n' +
     '    console.log(\'Example app listening on port 8888!\');\n' +
     '}); ';
 
-$('.tapSection .text38 code').text(text38);
+xk$('.tapSection .text38 code').innerHTML=zy(text38);
 
 
 let text39 = '// 响应 JSON 格式数据\n' +
@@ -855,7 +855,7 @@ let text39 = '// 响应 JSON 格式数据\n' +
     '    console.log(\'Example app listening on port 8888!\');\n' +
     '});';
 
-$('.tapSection .text39 code').text(text39);
+xk$('.tapSection .text39 code').innerHTML=zy(text39);
 
 let text40 = '// 文件位置 myapp/views/index.ejs\n' +
     '<h1><%= title %></h1>\n' +
@@ -879,7 +879,7 @@ let text40 = '// 文件位置 myapp/views/index.ejs\n' +
     '    console.log(\'Example app listening on port 8888!\');\n' +
     '}); ';
 
-$('.text40 code').text(text40);
+xk$('.text40 code').innerHTML=zy(text40);
 
 
 let text42 = 'window.onload = function(){\n' +
@@ -912,7 +912,7 @@ let text42 = 'window.onload = function(){\n' +
     '    <input id="login" type="button" value="登录">\n' +
     '</form>';
 
-$('.tapSection .text42 code').text(text42);
+xk$('.tapSection .text42 code').innerHTML=zy(text42);
 
 let text43 = 'window.onload = function(){\n' +
     '    var loginEle = document.querySelector(\'#login\');\n' +
@@ -946,7 +946,7 @@ let text43 = 'window.onload = function(){\n' +
     '    <input id="login" type="button" value="登录">\n' +
     '</form>';
 
-$('.tapSection .text43 code').text(text43);
+xk$('.tapSection .text43 code').innerHTML=zy(text43);
 
 let text44 = 'const express = require(\'express\');\n' +
     'const app = express();\n' +
@@ -979,7 +979,7 @@ let text44 = 'const express = require(\'express\');\n' +
     '    console.log(\'running...\');\n' +
     '});';
 
-$('.text44 code').text(text44);
+xk$('.text44 code').innerHTML=zy(text44);
 
 
 let text45 = '// 使用表单创建 FormData 对象\n' +
@@ -1020,7 +1020,7 @@ let text45 = '// 使用表单创建 FormData 对象\n' +
     'var iteratorEntries = data.entries();\n' +
     'console.log(iteratorEntries.next());';
 
-$('.text45 code').text(text45);
+xk$('.text45 code').innerHTML=zy(text45);
 
 let text46 = 'window.onload = function(){\n' +
     '    var loginEle = document.querySelector(\'#login\');\n' +
@@ -1044,7 +1044,7 @@ let text46 = 'window.onload = function(){\n' +
     '    }\n' +
     '}';
 
-$('.tapSection .text46 code').text(text46);
+xk$('.tapSection .text46 code').innerHTML=zy(text46);
 
 let text47 = 'window.onload = function(){\n' +
     '    var loginEle = document.querySelector(\'#login\');\n' +
@@ -1065,7 +1065,7 @@ let text47 = 'window.onload = function(){\n' +
     '    }\n' +
     '}';
 
-$('.tapSection .text47 code').text(text47);
+xk$('.tapSection .text47 code').innerHTML=zy(text47);
 
 let text48 = '<span id="result"></span>\n' +
     '<form id="loginForm">\n' +
@@ -1074,7 +1074,7 @@ let text48 = '<span id="result"></span>\n' +
     '    <input id="login" type="button" value="登录">\n' +
     '</form>';
 
-$('.text48 code').text(text48);
+xk$('.text48 code').innerHTML=zy(text48);
 
 
 let text49 = 'window.onload = function(){\n' +
@@ -1105,7 +1105,7 @@ let text49 = 'window.onload = function(){\n' +
     '    <input id="login" type="button" value="登录">\n' +
     '</form>'
 
-$('.text49 code').text(text49);
+xk$('.text49 code').innerHTML=zy(text49);
 
 let text50 =  `const express = require('express');
 const fileUpload = require('express-fileupload');
@@ -1132,23 +1132,23 @@ app.listen(8888, () => {
     console.log('running...');
 });`;
 
-$('.text50 code').text(text50);
+xk$('.text50 code').innerHTML=zy(text50);
 
 let text51 = `// 设置 AJAX 请求默认地址为 "/xmlhttp/"，禁止触发全局 AJAX 事件，用 POST 代替默认 GET 方法。其后的 AJAX 请求不再设置任何选项参数。
-$.ajaxSetup({
+xk$.ajaxSetup({
    url: "/xmlhttp/",
    global: true, // 设置这个下面的全局函数才会起作用
    type: "POST"
  
  });
  // 设置全局请求成功的回调函数
- $(document).ajaxSuccess(function(data){
+ xk$(document).ajaxSuccess(function(data){
     console.log(data);
  });
 
- $.ajax({data: {username:'zs', password:'12345'}});`;
+ xk$.ajax({data: {username:'zs', password:'12345'}});`;
 
-$('.text51 code').text(text51);
+xk$('.text51 code').innerHTML=zy(text51);
 
 let text52 = `var isMomHappy = false;
 // Promise
@@ -1178,7 +1178,7 @@ p.then(function (fulfilled) {
         // output: '妈妈不开心'
     });`;
 
-$('.text52 code').text(text52);
+xk$('.text52 code').innerHTML=zy(text52);
 
 let text53 = `let request = obj => {
     return new Promise((resolve, reject) => {
@@ -1209,7 +1209,7 @@ request({url: "employees.json"})
         console.log(error);
     });`;
 
-$('.text53 code').text(text53);
+xk$('.text53 code').innerHTML=zy(text53);
 
 
 let text54 = `axios.get('/users/12345')
@@ -1225,7 +1225,7 @@ let text54 = `axios.get('/users/12345')
         console.log(error);
     });`;
 
-$('.tapSection .text54 code').text(text54);
+xk$('.tapSection .text54 code').innerHTML=zy(text54);
 
 let text55 =  `axios.post('/users', {
         username: 'Fred'
@@ -1237,7 +1237,7 @@ let text55 =  `axios.post('/users', {
         console.log(error);
     });`;
 
-$('.tapSection .text55 code').text(text55);
+xk$('.tapSection .text55 code').innerHTML=zy(text55);
 
 let text56 =  `axios.put('/users/12345')
     .then(function (response) {
@@ -1247,7 +1247,7 @@ let text56 =  `axios.put('/users/12345')
         console.log(error);
     });`;
 
-$('.tapSection .text56 code').text(text56);
+xk$('.tapSection .text56 code').innerHTML=zy(text56);
 
 let text57 = `axios.delete('/users/12345')
     .then(function (response) {
@@ -1257,14 +1257,14 @@ let text57 = `axios.delete('/users/12345')
         console.log(error);
     });`;
 
-$('.tapSection .text57 code').text(text57);
+xk$('.tapSection .text57 code').innerHTML=zy(text57);
 
 let text58 = `var jsonStr1 = '{"name" : "xx", "age" : 17}';  // JSON 字符串，按照 JSON 格式写的字符串
 var jsonStr2 = '[{"name" : "xx", "age" : 17}, {"name": "yy", "age": 18}]'; // JSON 字符串，按照 JSON 格式写的字符串
 var obj = {name : "xx", age : 18};  // JS 对象
 var objArr = [{name : "xx", age : 18}, {name : "yy", age : 19}]; // JS 数组对象`;
 
-$('.text58 code').text(text58);
+xk$('.text58 code').innerHTML=zy(text58);
 
 let text59 = `JSON.parse(jsonStr1);       // JSON 字符串 => JS 对象
 JSON.parse(jsonStr2);       // JSON 字符串 => JS 对象
@@ -1272,7 +1272,7 @@ JSON.parse(jsonStr2);       // JSON 字符串 => JS 对象
 JSON.stringify(obj);        // JS 对象 => JSON 字符串
 JSON.stringify(objArr);     // JS 对象 => JSON 字符串`;
 
-$('.text59 code').text(text59);
+xk$('.text59 code').innerHTML=zy(text59);
 
 let text60 = `<!DOCTYPE html>
 <html lang="en">
@@ -1325,21 +1325,21 @@ let text60 = `<!DOCTYPE html>
 </div>
 <script>
 
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
         axios.get('/product?name=' + name)
         .then(function (response) {
-            $('#product').html(response.data);
+            xk$('#product').html(response.data);
         })
     });
     /*
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
-        $.get('/product?name='+ name, function(data){
+        xk$.get('/product?name='+ name, function(data){
             // console.log(data);
-            $('#product').html(data);
+            xk$('#product').html(data);
         });
     });*/
     /*
@@ -1367,7 +1367,7 @@ let text60 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-$('.tapSection .text60 code').text(text60);
+xk$('.tapSection .text60 code').innerHTML=zy(text60);
 
 
 let text61 = `<!DOCTYPE html>
@@ -1422,41 +1422,41 @@ let text61 = `<!DOCTYPE html>
 <script>
 
     /*
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
         axios.get('/productXML?name=' + name)
         .then(function (response) {
             var xmlData = response.data;
-            var $data = $($.parseXML(xmlData));
-            // console.log($data);
+            var xk$data = xk$(xk$.parseXML(xmlData));
+            // console.log(xk$data);
 
-            var name = $data.find('name').html();
-            var desc = $data.find('des').html();
-            var img = $data.find('img').html();
+            var name = xk$data.find('name').html();
+            var desc = xk$data.find('des').html();
+            var img = xk$data.find('img').html();
            
-            $('#name').html(name);
-            $('#desc').html(desc);
-            $('#img').attr('src', img);
+            xk$('#name').html(name);
+            xk$('#desc').html(desc);
+            xk$('#img').attr('src', img);
         })
     });*/
     
     /*
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
-        $.get('/productXML?name='+ name, function(data){
+        xk$.get('/productXML?name='+ name, function(data){
             // console.log(data);
-            // $('#product').html(data);
-            var $data = $(data);
+            // xk$('#product').html(data);
+            var xk$data = xk$(data);
 
-            var name = $data.find('name').html();
-            var desc = $data.find('des').html();
-            var img = $data.find('img').html();
+            var name = xk$data.find('name').html();
+            var desc = xk$data.find('des').html();
+            var img = xk$data.find('img').html();
            
-            $('#name').html(name);
-            $('#desc').html(desc);
-            $('#img').attr('src', img);
+            xk$('#name').html(name);
+            xk$('#desc').html(desc);
+            xk$('#img').attr('src', img);
         });
     });
     */    
@@ -1491,7 +1491,7 @@ let text61 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-$('.tapSection .text61 code').text(text61);
+xk$('.tapSection .text61 code').innerHTML=zy(text61);
 
 let text62 = `<!DOCTYPE html>
 <html lang="en">
@@ -1545,28 +1545,28 @@ let text62 = `<!DOCTYPE html>
 <script>
 
     
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
         axios.get('/productJSON?name=' + name)
         .then(function (response) {
-            $('#name').html(response.data.name);
-            $('#desc').html(response.data.desc);
-            $('#img').attr('src', response.data.img);
+            xk$('#name').html(response.data.name);
+            xk$('#desc').html(response.data.desc);
+            xk$('#img').attr('src', response.data.img);
         })
     });
     
     /*
-    $('#buttons > button').click(function(){
-        var name = $(this).attr('name');
+    xk$('#buttons > button').click(function(){
+        var name = xk$(this).attr('name');
         // console.log(name);
-        $.get('/productJSON?name='+ name, function(data){
+        xk$.get('/productJSON?name='+ name, function(data){
             // 它会根据响应头里面 Content-Type 的值来判断
             // 若响应数据类型是 application/json 它在调用者函数之前把响应数据转成 JS 对象
             // console.log(data);
-            $('#name').html(data.name);
-            $('#desc').html(data.desc);
-            $('#img').attr('src', data.img);
+            xk$('#name').html(data.name);
+            xk$('#desc').html(data.desc);
+            xk$('#img').attr('src', data.img);
         });
     });*/
     
@@ -1597,7 +1597,7 @@ let text62 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-$('.tapSection .text62 code').text(text62);
+xk$('.tapSection .text62 code').innerHTML=zy(text62);
 
 let text63 = 'const express = require(\'express\');\n' +
     'const path = require(\'path\');\n' +
@@ -1635,9 +1635,9 @@ let text63 = 'const express = require(\'express\');\n' +
     '    \n' +
     '    // let data = `\n' +
     '    // <product id="dress">\n' +
-    '    //     <name>${product.name}</name>\n' +
-    '    //     <des>${product.desc}</des>\n' +
-    '    //     <img>${product.img}</img>\n' +
+    '    //     <name>xk${product.name}</name>\n' +
+    '    //     <des>xk${product.desc}</des>\n' +
+    '    //     <img>xk${product.img}</img>\n' +
     '    // </product>\n' +
     '    // `\n' +
     '    // res.send(data);\n' +
@@ -1655,9 +1655,9 @@ let text63 = 'const express = require(\'express\');\n' +
     '   \n' +
     '    /*\n' +
     '    let data = `\n' +
-    '        <h3 id="name">${product.name}</h3>\n' +
-    '        <h4 id="desc">${product.desc}</h4>\n' +
-    '        <img id="img" src="${product.img}">\n' +
+    '        <h3 id="name">xk${product.name}</h3>\n' +
+    '        <h4 id="desc">xk${product.desc}</h4>\n' +
+    '        <img id="img" src="xk${product.img}">\n' +
     '    `\n' +
     '    res.send(data);*/\n' +
     '\n' +
@@ -1679,7 +1679,7 @@ let text63 = 'const express = require(\'express\');\n' +
     '\n' +
     'app.listen(80, () => console.log(\'启动 80\'));';
 
-$('.text63 code').text(text63);
+xk$('.text63 code').innerHTML=zy(text63);
 
 let text64 = `document.cookie = 'name=zs';            //设置数据  
 document.cookie = 'email=18@126.com';   //设置数据  
@@ -1691,7 +1691,7 @@ date.setDate(date.getDate() + 7);
 document.cookie = 'age=18; expires=' + date; // 设置数据并设置有效期
 console.log(document.cookie)                 // 获取数据  `;
 
-$('.text64 code').text(text64);
+xk$('.text64 code').innerHTML=zy(text64);
 
 let text65 = `var Cookie = {
     getCookie : function(key) {
@@ -1734,7 +1734,7 @@ let text65 = `var Cookie = {
     }
 }`;
 
-$('.text65 code').text(text65);
+xk$('.text65 code').innerHTML=zy(text65);
 
 let text66 = `// 客户端代码
 document.cookie = 'age=18; path=/';
@@ -1750,7 +1750,7 @@ xhr.onload = function () {
 }
 xhr.send();`;
 
-$('.text66 code').text(text66);
+xk$('.text66 code').innerHTML=zy(text66);
 
 let text67 = `// 服务端代码
 // 获取 Cookie 数据
@@ -1771,7 +1771,7 @@ app.get('/a', (req, res) => {
 
 app.listen(80, () => console.log('启动 80'));`;
 
-$('.text67 code').text(text67);
+xk$('.text67 code').innerHTML=zy(text67);
 
 let text68 = `sessionStorage.setItem('name', 'zs');
 sessionStorage.setItem('age', '18');
@@ -1783,7 +1783,7 @@ sessionStorage.clear()
 sessionStorage.des = "一位同学";
 delete sessionStorage.des;`;
 
-$('.text68 code').text(text68);
+xk$('.text68 code').innerHTML=zy(text68);
 
 let text69 = `localStorage.setItem('name', 'zs');
 localStorage.setItem('age', '18');
@@ -1795,7 +1795,7 @@ localStorage.clear()
 localStorage.des = "一位同学";
 delete localStorage.des;`;
 
-$('.text69 code').text(text69);
+xk$('.text69 code').innerHTML=zy(text69);
 
 let text70 = `var fs = require('fs');
 var http = require('http');
@@ -1815,7 +1815,7 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(8080);
 httpsServer.listen(8443);`;
 
-$('.text70 code').text(text70);
+xk$('.text70 code').innerHTML=zy(text70);
 
 
 let text71 = `<input type="text" id="keyword">
@@ -1854,7 +1854,7 @@ let text71 = `<input type="text" id="keyword">
     }
 </script>`;
 
-$('.text71 code').text(text71);
+xk$('.text71 code').innerHTML=zy(text71);
 
 let text72 = `const mongoose = require('mongoose');
 const DB_URL = 'mongodb://localhost/test';
@@ -1875,7 +1875,7 @@ mongoose.connection.on('disconnected', () => {
     console.log('Mongoose connection disconnected');  
 });`;
 
-$('.text72 code').text(text72);
+xk$('.text72 code').innerHTML=zy(text72);
 
 let text73 = `// 编写 student.js，文件位置 mongoose-demo/student.js，内容如下：
 require('./db.js');
@@ -1897,7 +1897,7 @@ const Student = mongoose.model('student', StudentSchema);
 // 导出，因为模型在项目会多个地方使用，而定义的话就需一次就可以了，避免定义重复
 module.exports = Student;`;
 
-$('.text73 code').text(text73);
+xk$('.text73 code').innerHTML=zy(text73);
 
 let text74=`// 编写 student.js，文件位置 mongoose-demo/studentService.js，内容如下：
 const Student = require("./student.js");
@@ -1920,7 +1920,7 @@ function save() {
 }
 save();`;
 
-$('.text74 code').text(text74);
+xk$('.text74 code').innerHTML=zy(text74);
 
 let text75 = `// 在 student.js 中以下内容：
 function update(){
@@ -1952,7 +1952,7 @@ function updateById(){
 }
 updateById();`;
 
-$('.text75 code').text(text75);
+xk$('.text75 code').innerHTML=zy(text75);
 
 let text76 = `function deleteById(){
     let id = '5c73af7ed0ccdb347c899f38';
@@ -1967,7 +1967,7 @@ let text76 = `function deleteById(){
 }
 deleteById();`;
 
-$('.text76 code').text(text76);
+xk$('.text76 code').innerHTML=zy(text76);
 
 let text77 = `// // 根据 id 查询出文档
 function getById(){
@@ -2007,7 +2007,7 @@ selectAll();
 
 function query() {
     // 根据分数范围查询文档
-    let conditions1 = {score : {$gte : 18 , $lte : 20}};
+    let conditions1 = {score : {xk$gte : 18 , xk$lte : 20}};
     Student.find(conditions1).exec((err, data) => {
         if (err) {
             console.log("Error:" + err);
@@ -2017,7 +2017,7 @@ function query() {
     });
 
     // 根据名字模糊查询
-    let conditions2 = {$or : [{name : {$regex : /r/i}}]}; // i 表示不区分大小写
+    let conditions2 = {xk$or : [{name : {xk$regex : /r/i}}]}; // i 表示不区分大小写
     Student.find(conditions2, (err, data) => {
         if (err) {
             console.log("Error:" + err);
@@ -2026,7 +2026,7 @@ function query() {
         console.log(data);
     });
     // 根据分数范围查询文档和名字模糊查询
-    let conditions3 = {score : {$gte : 18 , $lte : 20}, $or : [{name : {$regex : /x/i}}]};
+    let conditions3 = {score : {xk$gte : 18 , xk$lte : 20}, xk$or : [{name : {xk$regex : /x/i}}]};
     Student.find(conditions3, (err, data) => {
         if (err) {
             console.log("Error:" + err);
@@ -2056,7 +2056,7 @@ function page(){
 }
 page();`;
 
-$('.text77 code').text(text77);
+xk$('.text77 code').innerHTML=zy(text77);
 
 let text78=`var createError = require('http-errors');
 var express = require('express');
@@ -2120,7 +2120,7 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;`;
 
-$('.text78 code').text(text78);
+xk$('.text78 code').innerHTML=zy(text78);
 
 let text79 = `var express = require('express');
 var articleService = require('../services/article');
@@ -2177,7 +2177,7 @@ router.put('/articles/:id', function(req, res, next) {
 });
 module.exports = router;`;
 
-$('.text79 code').text(text79);
+xk$('.text79 code').innerHTML=zy(text79);
 
 let text80 = `// models/article.js
 
@@ -2214,7 +2214,7 @@ module.exports = {
     updateById  :   (id, updates) => Article.findByIdAndUpdate(id, updates)
 }`;
 
-$('.text80 code').text(text80);
+xk$('.text80 code').innerHTML=zy(text80);
 
 let text81 = `// views/articles/list.ejs
 
@@ -2260,10 +2260,10 @@ let text81 = `// views/articles/list.ejs
 \t\t\t}
 \t\t</style>
 \t\t<script>
-\t\t\t$(function(){
-\t\t\t\t$('.del').click(function(){
-\t\t\t\t\tvar id = $(this).data('id');
-\t\t\t\t\t$.ajax({
+\t\t\txk$(function(){
+\t\t\t\txk$('.del').click(function(){
+\t\t\t\t\tvar id = xk$(this).data('id');
+\t\t\t\t\txk$.ajax({
 \t\t\t\t\t\turl: '/api/articles/' + id,
 \t\t\t\t\t\ttype: 'DELETE',
 \t\t\t\t\t\tsuccess: function(result) {
@@ -2298,7 +2298,7 @@ let text81 = `// views/articles/list.ejs
 \t</body>
 </html>`;
 
-$('.text81 code').text(text81);
+xk$('.text81 code').innerHTML=zy(text81);
 
 let text82 = `// public/articles/new.html
 
@@ -2350,13 +2350,13 @@ let text82 = `// public/articles/new.html
 \t\t\t}
 \t\t</style>
 \t\t<script>
-\t\t\t$(function(){
-\t\t\t\t$('#btnSave').click(function(){
-\t\t\t\t\tvar id = $(this).data('id');
-\t\t\t\t\t$.ajax({
+\t\t\txk$(function(){
+\t\t\t\txk$('#btnSave').click(function(){
+\t\t\t\t\tvar id = xk$(this).data('id');
+\t\t\t\t\txk$.ajax({
 \t\t\t\t\t\turl: '/api/articles/',
 \t\t\t\t\t\ttype: 'POST',
-\t\t\t\t\t\tdata : $('#articleForm').serialize(),
+\t\t\t\t\t\tdata : xk$('#articleForm').serialize(),
 \t\t\t\t\t\tsuccess: function(result) {
 \t\t\t\t\t\t\talert(result.msg);
 \t\t\t\t\t\t\tlocation.href = '/api/articles';
@@ -2380,7 +2380,7 @@ let text82 = `// public/articles/new.html
 </html>
 `;
 
-$('.text82 code').text(text82);
+xk$('.text82 code').innerHTML=zy(text82);
 
 let text83 = `// public/articles/view.html
 
@@ -2411,20 +2411,20 @@ let text83 = `// public/articles/view.html
 \t\t\t}
 \t\t</style>
 \t\t<script>
-\t\t\t$(function(){
+\t\t\txk$(function(){
 \t\t\t\tvar href = location.href;
 \t\t\t\tvar param = href.split('?')[1];
 \t\t\t\tvar id = param.split('=')[1];
-\t\t\t\t$.ajax({
+\t\t\t\txk$.ajax({
 \t\t\t\t\turl : '/api/articles/' + id,
 \t\t\t\t\ttype : 'GET',
 \t\t\t\t\tdata : param,
 \t\t\t\t\tsuccess: function(result) {
-\t\t\t\t\t\t$('#title').html(result.title);
-\t\t\t\t\t\t$('#author').html(result.author);
-\t\t\t\t\t\t$('#source').html(result.source);
-\t\t\t\t\t\t$('#createTime').html(result.createTime);
-\t\t\t\t\t\t$('#content').html(result.content);
+\t\t\t\t\t\txk$('#title').html(result.title);
+\t\t\t\t\t\txk$('#author').html(result.author);
+\t\t\t\t\t\txk$('#source').html(result.source);
+\t\t\t\t\t\txk$('#createTime').html(result.createTime);
+\t\t\t\t\t\txk$('#content').html(result.content);
 \t\t\t\t\t}
 \t\t\t\t});
 \t\t\t});
@@ -2439,7 +2439,7 @@ let text83 = `// public/articles/view.html
 \t</body>
 </html>`;
 
-$('.text83 code').text(text83);
+xk$('.text83 code').innerHTML=zy(text83);
 
 let text84 = `// public/articles/edit.html
 
@@ -2491,27 +2491,27 @@ let text84 = `// public/articles/edit.html
 \t\t\t}
 \t\t</style>
 \t\t<script>
-\t\t\t$(function(){
+\t\t\txk$(function(){
 \t\t\t\tvar href = location.href;
 \t\t\t\tvar param = href.split('?')[1];
 \t\t\t\tvar id = param.split('=')[1];
-\t\t\t\t$.ajax({
+\t\t\t\txk$.ajax({
 \t\t\t\t\turl : '/api/articles/' + id,
 \t\t\t\t\ttype : 'GET',
 \t\t\t\t\tdata : param,
 \t\t\t\t\tsuccess: function(result) {
-\t\t\t\t\t\t$('#title').val(result.title);
-\t\t\t\t\t\t$('#author').val(result.author);
-\t\t\t\t\t\t$('#source').val(result.source);
-\t\t\t\t\t\t$('#content').val(result.content);
+\t\t\t\t\t\txk$('#title').val(result.title);
+\t\t\t\t\t\txk$('#author').val(result.author);
+\t\t\t\t\t\txk$('#source').val(result.source);
+\t\t\t\t\t\txk$('#content').val(result.content);
 \t\t\t\t\t}
 \t\t\t\t});
 
-\t\t\t\t$('#btnUpdate').click(function(){
-\t\t\t\t\t$.ajax({
+\t\t\t\txk$('#btnUpdate').click(function(){
+\t\t\t\t\txk$.ajax({
 \t\t\t\t\t\turl: '/api/articles/' + id,
 \t\t\t\t\t\ttype: 'PUT',
-\t\t\t\t\t\tdata : $('#articleForm').serialize(),
+\t\t\t\t\t\tdata : xk$('#articleForm').serialize(),
 \t\t\t\t\t\tsuccess: function(result) {
 \t\t\t\t\t\t\talert(result.msg);
 \t\t\t\t\t\t\tlocation.href = '/api/articles';
@@ -2535,7 +2535,7 @@ let text84 = `// public/articles/edit.html
 </html>
 `;
 
-$('.text84 code').text(text84);
+xk$('.text84 code').innerHTML=zy(text84);
 
 
 
@@ -2545,24 +2545,24 @@ $('.text84 code').text(text84);
 
 
 /*
-$(function () {
-    $('.tapMain .tapMain').each(function (index,ele) {
-        $(ele).css({
-            height:$(ele).children().eq(0).height()+30
+xk$(function () {
+    xk$('.tapMain .tapMain').each(function (index,ele) {
+        xk$(ele).css({
+            height:xk$(ele).children().eq(0).height()+30
         });
     });
 
-    $('.tapMain').each(function (index,ele) {
-        $(ele).css({
-            height:$(ele).children().eq(0).height()+30
+    xk$('.tapMain').each(function (index,ele) {
+        xk$(ele).css({
+            height:xk$(ele).children().eq(0).height()+30
         });
     });
-    $('.bntTap').next('.tapNav').hide();
-    $('.bntTap').next('.tapNav').next('.tapMain').hide();
+    xk$('.bntTap').next('.tapNav').hide();
+    xk$('.bntTap').next('.tapNav').next('.tapMain').hide();
     //====================================
-    $('.btncode').next().next().hide();
-    $('.btncode').click(function () {
-        $(this).next().next().slideToggle();
+    xk$('.btncode').next().next().hide();
+    xk$('.btncode').click(function () {
+        xk$(this).next().next().slideToggle();
     });
 
 });*/
