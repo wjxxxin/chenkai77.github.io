@@ -2,7 +2,6 @@ function Note() {
     this.navRightcolor = ['#df5225', '#4597cf', '#b2394c', '#65934a', '#14446a'];
     this.animatetimeId = null;
     this.sildertimer = null;
-    this.timeout=null;
 }
 Note.prototype = {
     init: function () {
@@ -18,10 +17,6 @@ Note.prototype = {
             that.titleClick();
             that.bntTap();
         };
-        window.onresize = function () {
-            clearTimeout(that.timeout);
-            that.timeout = setTimeout(function () { window.location.reload(); }, 500)
-        }
     },
     rightstyle: function () {
         var str = '<li><a href="html.html">HTML</a></li>\n' +
