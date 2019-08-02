@@ -276,7 +276,7 @@ Note.prototype = {
         var that = this;
         var step = height / 50;
         var bw = document.documentElement.clientWidth || document.body.clientWidth;
-        if ((ele.className.indexOf('code') !== -1 || ele.className.indexOf('tapNav') !== -1)&&bw>700) {
+        if ((ele.className.indexOf('code') !== -1 &&bw>700)|| ele.className.indexOf('tapNav') !== -1) {
             ele.style.display = 'flex';
         } else {
             ele.style.display = 'block';
