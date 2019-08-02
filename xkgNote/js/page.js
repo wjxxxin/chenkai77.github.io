@@ -12,10 +12,10 @@ Note.prototype = {
         this.xiangying();
         this.search();
         window.onload = function () {
-            that.btns();
             that.tap();
             that.titleClick();
             that.bntTap();
+            that.btns();
         };
     },
     rightstyle: function () {
@@ -275,7 +275,8 @@ Note.prototype = {
         var zero = 0;
         var that = this;
         var step = height / 50;
-        if (ele.className.indexOf('code') !== -1 || ele.className.indexOf('tapNav') !== -1) {
+        var bw = document.documentElement.clientWidth || document.body.clientWidth;
+        if ((ele.className.indexOf('code') !== -1 || ele.className.indexOf('tapNav') !== -1)&&bw>700) {
             ele.style.display = 'flex';
         } else {
             ele.style.display = 'block';
