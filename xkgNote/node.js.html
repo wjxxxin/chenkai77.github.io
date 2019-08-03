@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>前后端</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="icon" href="images/nodejs.ico">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
@@ -1119,7 +1120,7 @@ $('#form').serializeArray();</code></pre>
 </div>
 <div class="item">
     <h3>前端存储</h3>
-    <section >
+    <section>
         <div class="small">
             <h4>Cookie</h4>
             <p>cookie 本身就是存储在浏览器中的字符串。但这个字符串是有格式的，由键值对 key=value 构成，键值对之间由一个分号和一个空格隔开。</p>
@@ -1134,7 +1135,11 @@ $('#form').serializeArray();</code></pre>
         <div class="small">
             <h4>JSON 字符串与 JS 对象之间转换</h4>
             <p>使用 JSON 中的 parse 和 stringify 方法可以完成。</p>
-            <pre class="text59"><code class="language-js"></code></pre>
+            <pre class="text59"><code class="js">JSON.parse(jsonStr1);       // JSON 字符串 => JS 对象
+JSON.parse(jsonStr2);       // JSON 字符串 => JS 对象
+
+JSON.stringify(obj);        // JS 对象 => JSON 字符串
+JSON.stringify(objArr);     // JS 对象 => JSON 字符串</code></pre>
         </div>
         <div class="small">
             <a class="btns" href="javascript:">前后端代码</a>

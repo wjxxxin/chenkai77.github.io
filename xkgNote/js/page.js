@@ -287,7 +287,8 @@ Note.prototype = {
             ele.style.height = zero + 'px';
             if (zero >= height) {
                 clearInterval(that.sildertimer);
-                ele.style.height = height + 'px';
+                /*ele.style.height = height + 'px';*/
+                ele.style.height = 'auto';
                 ele.style.overflow = 'visible';
             }
         }, 1)

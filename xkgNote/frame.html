@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>框架、工具</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="icon" href="images/frame.ico">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
@@ -761,7 +762,7 @@ wow.init();</code></pre>
         </div>
         <div class="small">
             <h4>zepto.js</h4>
-            <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">scrollreveal.js</a>
+            <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">zepto.js</a>
             <ol>
                 <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
                 <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
@@ -811,28 +812,6 @@ wow.init();</code></pre>
 
             </ol>
         </div>
-    </section>
-</div>
-<div class="item">
-    <h3>其他</h3>
-    <section >
-            <div class="small">
-                <h4>jQuery鼠标滚轮插件</h4>
-               <a class="piece" href="https://github.com/jquery/jquery-mousewheel" target="_blank">滚滚屏插件MouseWheel</a>
-                <ol>
-                    <li>deltaX : 在水平方向滚动的增量，默认是 0</li>
-                    <li>deltaY : 在垂直方向滚动的增量;  增量正数向上滚动，增量负数 向下滚动</li>
-                    <li>deltaFactor : 滚动的帧率，默认是100</li>
-                </ol>
-                <pre><code class="language-js">//1.监听window的滚动
-$(function () {
-
-    $(window).mousewheel(function (event) {
-        //监听屏幕的上下滚动：1 是向上，-1是向下
-        console.log(event.deltaY);
-    })
-})</code></pre>
-            </div>
     </section>
 </div>
 <div class="item">
@@ -1088,6 +1067,43 @@ $(function () {
             <pre class="text11"><code class="language-js"></code></pre>
         </section>
 </div>
+<div class="item">
+        <h3>其他</h3>
+        <section >
+            <div class="small">
+                <h4>jQuery鼠标滚轮插件</h4>
+                <a class="piece" href="https://github.com/jquery/jquery-mousewheel" target="_blank">滚滚屏插件MouseWheel</a>
+                <ol>
+                    <li>deltaX : 在水平方向滚动的增量，默认是 0</li>
+                    <li>deltaY : 在垂直方向滚动的增量;  增量正数向上滚动，增量负数 向下滚动</li>
+                    <li>deltaFactor : 滚动的帧率，默认是100</li>
+                </ol>
+                <pre><code class="language-js">//1.监听window的滚动
+$(function () {
+
+    $(window).mousewheel(function (event) {
+        //监听屏幕的上下滚动：1 是向上，-1是向下
+        console.log(event.deltaY);
+    })
+})</code></pre>
+            </div>
+            <div class="small">
+                <h4>常用网站</h4>
+                <div class="website">
+                    <a class="piece" href="https://www.w3cschool.cn/" target="_blank">W3Cschool</a>
+                    <a class="piece" href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN web docs</a>
+                    <a class="piece" href="http://www.javanx.cn/" target="_blank">Web秀</a>
+                    <a class="piece" href="https://www.cocos.com/" target="_blank">Cocos游戏开发引擎</a>
+                    <a class="piece" href="http://www.zuoyouxi.com/" target="_blank">青瓷引擎</a>
+                    <a class="piece" href="https://www.egret.com/" target="_blank">白鹭科技</a>
+                    <a class="piece" href="https://www.easyicon.net/" target="_blank">easyicon图标</a>
+                    <a class="piece" href="https://segmentfault.com/" target="_blank">SegmentFault思否</a>
+                    <a class="piece" href="https://www.processon.com/" target="_blank">作图工具</a>
+                    <a class="piece" href="https://www.zcool.com.cn/" target="_blank">站酷</a>
+                </div>
+            </div>
+        </section>
+    </div>
 </article>
 </body>
 </html>
