@@ -1369,10 +1369,19 @@ function getInnerText(element) {
                 <li>onmousedown : 鼠标按键按下触发</li>
                 <li>onmousemove : 鼠标移动触发</li>
                 <li>onhashchange : 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发 。hash不会引起浏览器发生跳转</li>
-                <li>onchange ： 当用户改变input输入框内容时触发（元素失去焦点时）</li>
-                <li>oninput ： 在元素的值已经改变之后立即发生。</li>
+                <li>onchange  : 当用户改变input输入框内容时触发（元素失去焦点时）； onchange 事件会在域的内容改变时发生,也可用于单选框与复选框改变后触发的事件。</li>
+                <li>oninput : 在元素的值已经改变之后立即发生。 oninput事件在元素的值已经改变之后立即发生。当元素失去焦点时，会发生onchange事件。</li>
+                <li>animationend : 动画结束事件</li>
+                <li>DOMContentLoaded : 文档加载完事件 （JQ里的$(document).ready()、$(function(){})，都是使用了DOMContentLoaded事件）</li>
+                <li>transitionend ： 过渡动画执行完事件</li>
             </ol>
             <pre class="text31"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>window 事件</h4>
+            <ol>
+                <li>window.οnresize=function(){ } : 浏览器窗口大小改变时事件</li>
+            </ol>
         </div>
         <div class="small">
             <h4>移动端的触摸事件</h4>
@@ -1685,6 +1694,17 @@ function getInnerText(element) {
                 <li>scrollHeight : height + padding  (如果内容超过元素范围，则获取到内容的高和宽)</li>
             </ol>
         </div>
+        <div class="small">
+            <h4>获取window 信息</h4>
+            <ol>
+                <li>document.body.clientWidth ==> BODY对象宽度</li>
+                <li>document.body.clientHeight ==> BODY对象高度</li>
+                <li>document.documentElement.clientWidth ==> 可见区域宽度</li>
+                <li>document.documentElement.clientHeight ==> 可见区域高度</li>
+                <li>document.body.scrollTop || document.documentElement.scrollTop ==>窗口滚动条滚动高度</li>
+                <li>window.screen.availHeight ==> 屏幕可用工作区高度</li>
+            </ol>
+        </div>
     </section>
 </div>
 <div class="item">
@@ -1865,16 +1885,6 @@ func(2, 3, 4);</code></pre>
             <p>javascript: void(0)</p>
             <p>https : 协议 ； javascript : 伪协议</p>
             <p>void(0): 运算符，对给定的表达式进行求值，然后返回 undefined。当返回undefined时，a标签不会做任何事情</p>
-        </div>
-        <div class="small">
-            <h4>其他事件</h4>
-            <ol>
-            <li>onchange  : onchange 事件会在域的内容改变时发生,也可用于单选框与复选框改变后触发的事件。</li>
-            <li>oninput : oninput事件在元素的值已经改变之后立即发生。当元素失去焦点时，会发生onchange事件。</li>
-            <li>animationend : 动画结束事件</li>
-                <li>DOMContentLoaded : 文档加载完事件 （JQ里的$(document).ready()、$(function(){})，都是使用了DOMContentLoaded事件）</li>
-                <li>transitionend ： 过渡动画执行完事件</li>
-            </ol>
         </div>
         <div class="small">
             <h4>其他属性操作</h4>

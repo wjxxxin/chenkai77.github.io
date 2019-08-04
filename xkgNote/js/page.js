@@ -172,13 +172,13 @@ Note.prototype = {
         var ok = document.querySelector('.ok');
         var sd = document.querySelector('.sd');
         sss.onclick = function () {
+            ssArr.forEach(function (ele) {
+                ele.style.backgroundColor = '';
+            });
             ssArr = [];
             newssArr = [];
             ssIndex = 0;
             var val = ssinp.value;
-            ssArr.forEach(function (ele) {
-                ele.style.backgroundColor = '';
-            });
             Array.from(document.querySelectorAll('article h3,article h4,article li,p')).forEach(function (ele) {
                 if (ele.innerText.indexOf(val) !== -1) {
                     ele.style.backgroundColor = 'rgba(252,157,154,0.7)'
@@ -188,7 +188,9 @@ Note.prototype = {
                     }
                 }
             });
-            that.windowScroll(newssArr[0]);
+            if(newssArr[0]){
+                that.windowScroll(newssArr[0]);
+            }
             ssinp.value = ''
         };
         ok.onclick = function () {
@@ -287,8 +289,11 @@ Note.prototype = {
             ele.style.height = zero + 'px';
             if (zero >= height) {
                 clearInterval(that.sildertimer);
-                /*ele.style.height = height + 'px';*/
-                ele.style.height = 'auto';
+                if(ele.className.indexOf('tap')!==-1){
+                    ele.style.height = height + 'px'
+                }else {
+                    ele.style.height = 'auto';
+                }
                 ele.style.overflow = 'visible';
             }
         }, 1)
@@ -329,9 +334,9 @@ Note.prototype = {
                             time1 = null;
                             that.slideup(eleNn, hh2);
                         }
-                    }, 10);
+                    }, 20);
                     target = !target;
-                } else if (!target) {
+                }else if (!target) {
                     that.slidedown(eleNext, hh);
                     var time2 = setInterval(function () {
                         if (eleNext.offsetHeight >= hh) {
@@ -339,7 +344,7 @@ Note.prototype = {
                             time2 = null;
                             that.slidedown(eleNn, hh2);
                         }
-                    }, 10);
+                    }, 20);
                     target = !target;
                 }
             }
