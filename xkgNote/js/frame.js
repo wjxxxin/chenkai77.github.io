@@ -913,3 +913,31 @@ var text24 = `<div id="app">
 `;
 xk$('.text24 code').innerText = text24;
 
+var text25 = `<div id="app">
+    <my-com>
+        <template slot-scope="abc" slot="left">
+            <ul>        //给插槽标签写成template标签写法。并且添加slot-scope属性，
+                          并且书写一个自定义的固定值（xxx）。在template标签中间添加
+                          {{xxx，绑定数据的key值}}
+                <li v-for="(item,index) in abc.data">{{item}}</li>
+            </ul>
+        </template>
+    </my-com>
+</div>
+<script src="js/vue.js"></script>
+<script>
+  Vue.component('my-com', {
+    template: \` <div>
+        <slot :data="language" name="left"></slot>
+    </div>\`,      //插槽绑定数据
+    data() {
+      return {
+        language: ['H5学科', 'Java学科', 'UI学科']
+      }
+    }
+  });
+  var vm = new Vue({
+    el: '#app',
+  });
+</script>`;
+xk$('.text25 code').innerHTML = zy(text25);

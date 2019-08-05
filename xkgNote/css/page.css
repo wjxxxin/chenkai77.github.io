@@ -282,6 +282,14 @@ article {
   width: 100%;
   margin-bottom: 20px;
 }
+.item section .small .bigimg {
+  width: 100%;
+  height: 600px !important;
+  overflow: scroll !important;
+}
+.item section .small .bigimg img {
+  width: 200%;
+}
 .item section .small .code {
   display: flex;
   justify-content: space-between;

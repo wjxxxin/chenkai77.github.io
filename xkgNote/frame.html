@@ -602,6 +602,7 @@ $("input").triggerHandler("click");</code></pre>
                 <li>组件名称大小写 kebab-case(肉串/烤串)写法或者 PascalCase(大驼峰)写法 组件使用时都是用kebab-case(肉串/烤串)写法</li>
                 <li>组件不可以直接访问实例数据</li>
                 <li>父子组件，定义注册组件为子组件，使用组件为父组件</li>
+                <li>实例中的template和el结合会把el的绑定的元素用template替换掉</li>
             </ol>
         </div>
         <div class="small">
@@ -657,10 +658,61 @@ $("input").triggerHandler("click");</code></pre>
             <pre class="text24"><code class="html"></code></pre>
         </div>
         <div class="small">
+            <h4>作用域插槽</h4>
+            <p>默认父组件使用子组件，插槽的数据默认是拿父组件的数据，而不是从子组件拿数据。</p>
+            <p>作用域插槽在父组件使用我们的子组件时，插槽的数据从子组件中拿到数据，而不从父组件拿到。</p>
+            <a class="btns" href="javascript:">作用域插槽</a>
+            <pre class="text25"><code class="html"></code></pre>
+        </div>
+        <div class="small">
             <h4>模板分离</h4>
             <p>将模板单独拆分到template标签中，并且指定ID名称。在注册对应的template位置放上指定的ID名称即可。</p>
             <a class="btns" href="javascript:">代码</a>
             <pre class="text18"><code class="html"></code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Vue 生命周期</h3>
+    <section>
+        <div class="small">
+            <p>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</p>
+            <!--<a class="btns" href="javascript:">定时器案例</a>
+            <pre class="text20"><code class="html"></code></pre>-->
+        </div>
+        <div class="small">
+            <h4>实例和组件生命周期</h4>
+            <p>生命周期钩子：就是生命周期事件的别名而已；</p>
+            <p>生命周期钩子 = 生命周期函数 = 生命周期事件</p>
+            <ol>1、初始
+                <li>beforeCreate : 实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性</li>
+                <li>created ： 实例已经在内存中创建OK，此时 data 和 methods已经创建OK，此时还没有开始编译模板</li>
+            </ol>
+            <ol>2、挂载
+                <li>beforeMount ： 此时已经完成了模板的编译，但是还没有挂载到页面中</li>
+                <li>mounted ： 此时，已经将编译好的模板，挂载到了页面指定的容器中显示</li>
+            </ol>
+            <ol>3、更新
+                <li>beforeUpdate ： 状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点</li>
+                <li>updated ： 实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！</li>
+            </ol>
+            <ol>4、销毁
+                <li>beforeDestroy ： 实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+                <li>destroyed Vue ： 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+            </ol>
+            <ol>5、在keep-alive组件中才能生效的生命周期
+                <li>activated ： keep-alive 组件激活时调用。</li>
+                <li>deactivated ： keep-alive 组件停用时调用</li>
+            </ol>
+            <a class="btns" href="javascript:">生命周期</a>
+            <div class="bigimg"><img src="images/lifecycle.jpg" alt=""></div>
+            <ol>
+                <li>可以进行AJAX操作的生命周期有created、beforeUpdate这两个生命周期。一般用created</li>
+                <li>mounted : 用来操作元素的 之前都不可以操作元素.之后都可以操作元素.</li>
+                <li>this.$el 可以获取到Vue 实例使用的根 DOM 元素。可能会显示到页面中，也可能还没有显示到页面中。在mounted之前是不会显示到页面中的。</li>
+                <li>实例被销毁，是要通过vm.$destroy()调用才可以。不过，它只不过是实例销毁，反应销毁，数据销毁，但是显示到页面中的元素，还依然存在。不过尽可能的不要通过vm.$destroy()方法来销毁。</li>
+                <li>在created、beforeMount、mounted、beforeUpdate和updated是可以对data中数据进行修改。而销毁阶段的生命周期中对数据的修改是不会生效的。</li>
+            </ol>
         </div>
     </section>
 </div>
