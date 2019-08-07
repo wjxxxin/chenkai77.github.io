@@ -1,61 +1,61 @@
-//内容文本代码块=========================================
-var text1 = ' //在$符号被定义之前使用noConflict方法来重新设置名称\n' +
-    '     var jq = $.noConflict();\n' +
-    '     // $符号可能被定义为字符串或其他数据\n' +
-    '     var $ = "重新赋值";\n' +
-    '     //解决冲突之后,使用新设置的名称来操作\n' +
-    '     jq(function () {\n' +
-    '     \tconsole.log("DOM加载完毕");\n' +
-    ' \t })'
-xk$('.text1  code').innerHTML = text1;
+(function f() {
+    var text1 = ' //在$符号被定义之前使用noConflict方法来重新设置名称\n' +
+        '     var jq = $.noConflict();\n' +
+        '     // $符号可能被定义为字符串或其他数据\n' +
+        '     var $ = "重新赋值";\n' +
+        '     //解决冲突之后,使用新设置的名称来操作\n' +
+        '     jq(function () {\n' +
+        '     \tconsole.log("DOM加载完毕");\n' +
+        ' \t })'
+    xk$('.text1  code').innerHTML = text1;
 
-var text2 = '   //jq的css()方法获取div的宽度的值,只传一个参数获取\n' +
-    '        console.log($("div").css("width"));\n' +
-    '        //传两个参数就是修改，方法一\n' +
-    '        $("div").css("width","400px");\n' +
-    '        //同时修改多个css,链式编程\n' +
-    '        $("div").css("width","400px").css("height","400px");\n' +
-    '        //另外一种写法，里面传一个对象\n' +
-    '        $("button").click(function () {\n' +
-    '            $("div").css({\n' +
-    '                width:function(index, value) {\n' +
-    '                    return parseFloat(value) * 1.2;\n' +
-    '                },\n' +
-    '                height:300,\n' +
-    '                background:"red"\n' +
-    '            });\n' +
-    '        });'
-xk$('.text2 code').innerHTML=text2;
+    var text2 = '   //jq的css()方法获取div的宽度的值,只传一个参数获取\n' +
+        '        console.log($("div").css("width"));\n' +
+        '        //传两个参数就是修改，方法一\n' +
+        '        $("div").css("width","400px");\n' +
+        '        //同时修改多个css,链式编程\n' +
+        '        $("div").css("width","400px").css("height","400px");\n' +
+        '        //另外一种写法，里面传一个对象\n' +
+        '        $("button").click(function () {\n' +
+        '            $("div").css({\n' +
+        '                width:function(index, value) {\n' +
+        '                    return parseFloat(value) * 1.2;\n' +
+        '                },\n' +
+        '                height:300,\n' +
+        '                background:"red"\n' +
+        '            });\n' +
+        '        });'
+    xk$('.text2 code').innerHTML=text2;
 
-var text3 = '//【1】使用快捷方法来给按钮添加点击事件\n' +
-    '$("button").click(function () {\n' +
-    ' console.log("点击了按钮---1");\n' +
-    ' });\n' +
-    '$("button").click(function () {\n' +
-    ' console.log("点击了按钮---2");\n' +
-    ' });\n' +
-    '//【2】使用on方法来给按妞添加' +
-    '点击事件\n' +
-    '$("button").on("click",{name:"Neld"},function (event) {\n' +
-    ' \tconsole.log("点击了按钮----on");\n' +
-    '    //使用event.data访问传递进来的参数\n' +
-    ' \tconsole.log(event.data.name);\n' +
-    ' })';
-xk$('.text3 code').innerHTML=text3;
+    var text3 = '//【1】使用快捷方法来给按钮添加点击事件\n' +
+        '$("button").click(function () {\n' +
+        ' console.log("点击了按钮---1");\n' +
+        ' });\n' +
+        '$("button").click(function () {\n' +
+        ' console.log("点击了按钮---2");\n' +
+        ' });\n' +
+        '//【2】使用on方法来给按妞添加' +
+        '点击事件\n' +
+        '$("button").on("click",{name:"Neld"},function (event) {\n' +
+        ' \tconsole.log("点击了按钮----on");\n' +
+        '    //使用event.data访问传递进来的参数\n' +
+        ' \tconsole.log(event.data.name);\n' +
+        ' })';
+    xk$('.text3 code').innerHTML=text3;
 
-let text4 = '$("button").on("click",{name:"zs"},function (event) {\n' +
-    '\tconsole.log("点击了按钮----2");\n' +
-    '\t//获取事件的类型\n' +
-    '\tconsole.log(event.type);\n' +
-    '\t//获取目标对象\n' +
-    '\tconsole.log(event.target);\n' +
-    '\t//获取被省略的对象\n' +
-    '\tconsole.log(event.data);\n' +
-    '})';
+    let text4 = '$("button").on("click",{name:"zs"},function (event) {\n' +
+        '\tconsole.log("点击了按钮----2");\n' +
+        '\t//获取事件的类型\n' +
+        '\tconsole.log(event.type);\n' +
+        '\t//获取目标对象\n' +
+        '\tconsole.log(event.target);\n' +
+        '\t//获取被省略的对象\n' +
+        '\tconsole.log(event.data);\n' +
+        '})';
 
-xk$('.text4 code').innerHTML=text4;
+    xk$('.text4 code').innerHTML=text4;
 
-let text5 = `<!DOCTYPE html>
+    let text5 = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -105,9 +105,9 @@ let text5 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-xk$('.text5 code').innerHTML=zy(text5);
+    xk$('.text5 code').innerHTML=zy(text5);
 
-let text6 = `//01 创建DOM节点
+    let text6 = `//01 创建DOM节点
 var oDom = $("<div></div>");
 //02 设置DOM节点的内容
  oDom.text("测试的div标签");
@@ -117,10 +117,10 @@ var oDom = $("<div></div>");
 
 $("body").append($("<div>我是测试的div标签</div>"));`;
 
-xk$('.tapSection .text6 code').innerHTML=text6;
+    xk$('.tapSection .text6 code').innerHTML=text6;
 
 
-let text7 = `引入文件：
+    let text7 = `引入文件：
 <script src="js/scrollReveal.js"></script>
 
 HTML：
@@ -130,117 +130,117 @@ JavaScript调用：
 var sr = ScrollReveal();
 sr.reveal('.box');`;
 
-xk$('.text7 code').innerText=text7;
+    xk$('.text7 code').innerText=text7;
 
-let text8 = 'var config = {\n' +
-    '    reset    : false,              鼠标滚动时，动画开关  默认false关闭\n' +
-    '    origin   : "bottom" ,          动画开始的方向\n' +
-    '    duration : 500,                     动画持续时间\n' +
-    '    delay    : 0,                          延迟\n' +
-    '    rotate    : { x: 0, y: 0, z: 0 },   过渡到0 的初始角度\n' +
-    '    opacity   : 0,               初始透明度\n' +
-    '    scale     : 0.9              缩放\n' +
-    '};\n' +
-    'window.sr = ScrollReveal();\n' +
-    'sr.reveal(\'.sr\',config);';
+    let text8 = 'var config = {\n' +
+        '    reset    : false,              鼠标滚动时，动画开关  默认false关闭\n' +
+        '    origin   : "bottom" ,          动画开始的方向\n' +
+        '    duration : 500,                     动画持续时间\n' +
+        '    delay    : 0,                          延迟\n' +
+        '    rotate    : { x: 0, y: 0, z: 0 },   过渡到0 的初始角度\n' +
+        '    opacity   : 0,               初始透明度\n' +
+        '    scale     : 0.9              缩放\n' +
+        '};\n' +
+        'window.sr = ScrollReveal();\n' +
+        'sr.reveal(\'.sr\',config);';
 
-xk$('.text8 code').innerText=text8;
+    xk$('.text8 code').innerText=text8;
 
-let text9 = '<!DOCTYPE html>\n' +
-    '<html lang="en">\n' +
-    '<head>\n' +
-    '    <meta charset="UTF-8">\n' +
-    '    <meta name="viewport"\n' +
-    '          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">\n' +
-    '    <title>Title</title>\n' +
-    '    <style>\n' +
-    '        div{\n' +
-    '            width: 100px;\n' +
-    '            height: 100px;\n' +
-    '            background-color: red;\n' +
-    '\n' +
-    '            position: absolute;\n' +
-    '            left: 30px;\n' +
-    '            top: 30px;\n' +
-    '        }\n' +
-    '        /*清楚系统默认的事件*/\n' +
-    '        *{\n' +
-    '            touch-action: none;\n' +
-    '        }\n' +
-    '\n' +
-    '    </style>\n' +
-    '</head>\n' +
-    '<body>\n' +
-    '\n' +
-    '<div class="box"></div>\n' +
-    '\n' +
-    '<script src="js/zepto.min.js"></script>\n' +
-    '<script src="js/touch.js"></script>\n' +
-    '<script src="js/fx.js"></script>\n' +
-    '<script>\n' +
-    '\n' +
-    '    $(function () {\n' +
-    '\n' +
-    '        /**\n' +
-    '         *\n' +
-    '         $(\'.box\').swipe(function () {\n' +
-    '            console.log(\'滑动了\')\n' +
-    '        });\n' +
-    '\n' +
-    '         $(\'.box\').swipeLeft(function () {\n' +
-    '            console.log(\'向左滑动了\')\n' +
-    '        });\n' +
-    '         $(\'.box\').swipeRight(function () {\n' +
-    '            console.log(\'向右滑动了\')\n' +
-    '        });\n' +
-    '\n' +
-    '         $(\'.box\').swipeUp(function () {\n' +
-    '            console.log(\'向上滑动了\')\n' +
-    '        });\n' +
-    '\n' +
-    '         $(\'.box\').swipeDown(function () {\n' +
-    '            console.log(\'向下滑动了\')\n' +
-    '        });\n' +
-    '\n' +
-    '         */\n' +
-    '\n' +
-    '        $(\'.box\').swipeLeft(function () {\n' +
-    '            $(this).animate({\n' +
-    '                left:0,\n' +
-    '            })\n' +
-    '        });\n' +
-    '        $(\'.box\').swipeRight(function () {\n' +
-    '            $(this).animate({\n' +
-    '                left:\'200px\',\n' +
-    '            })\n' +
-    '        });\n' +
-    '\n' +
-    '        $(\'.box\').swipeUp(function () {\n' +
-    '            $(this).animate({\n' +
-    '                top:0,\n' +
-    '            })\n' +
-    '        });\n' +
-    '        $(\'.box\').swipeDown(function () {\n' +
-    '            $(this).animate({\n' +
-    '                top:\'200px\',\n' +
-    '            })\n' +
-    '        });\n' +
-    '\n' +
-    '    })\n' +
-    '\n' +
-    '</script>\n' +
-    '</body>\n' +
-    '</html>';
+    let text9 = '<!DOCTYPE html>\n' +
+        '<html lang="en">\n' +
+        '<head>\n' +
+        '    <meta charset="UTF-8">\n' +
+        '    <meta name="viewport"\n' +
+        '          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">\n' +
+        '    <title>Title</title>\n' +
+        '    <style>\n' +
+        '        div{\n' +
+        '            width: 100px;\n' +
+        '            height: 100px;\n' +
+        '            background-color: red;\n' +
+        '\n' +
+        '            position: absolute;\n' +
+        '            left: 30px;\n' +
+        '            top: 30px;\n' +
+        '        }\n' +
+        '        /*清楚系统默认的事件*/\n' +
+        '        *{\n' +
+        '            touch-action: none;\n' +
+        '        }\n' +
+        '\n' +
+        '    </style>\n' +
+        '</head>\n' +
+        '<body>\n' +
+        '\n' +
+        '<div class="box"></div>\n' +
+        '\n' +
+        '<script src="js/zepto.min.js"></script>\n' +
+        '<script src="js/touch.js"></script>\n' +
+        '<script src="js/fx.js"></script>\n' +
+        '<script>\n' +
+        '\n' +
+        '    $(function () {\n' +
+        '\n' +
+        '        /**\n' +
+        '         *\n' +
+        '         $(\'.box\').swipe(function () {\n' +
+        '            console.log(\'滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeLeft(function () {\n' +
+        '            console.log(\'向左滑动了\')\n' +
+        '        });\n' +
+        '         $(\'.box\').swipeRight(function () {\n' +
+        '            console.log(\'向右滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeUp(function () {\n' +
+        '            console.log(\'向上滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeDown(function () {\n' +
+        '            console.log(\'向下滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         */\n' +
+        '\n' +
+        '        $(\'.box\').swipeLeft(function () {\n' +
+        '            $(this).animate({\n' +
+        '                left:0,\n' +
+        '            })\n' +
+        '        });\n' +
+        '        $(\'.box\').swipeRight(function () {\n' +
+        '            $(this).animate({\n' +
+        '                left:\'200px\',\n' +
+        '            })\n' +
+        '        });\n' +
+        '\n' +
+        '        $(\'.box\').swipeUp(function () {\n' +
+        '            $(this).animate({\n' +
+        '                top:0,\n' +
+        '            })\n' +
+        '        });\n' +
+        '        $(\'.box\').swipeDown(function () {\n' +
+        '            $(this).animate({\n' +
+        '                top:\'200px\',\n' +
+        '            })\n' +
+        '        });\n' +
+        '\n' +
+        '    })\n' +
+        '\n' +
+        '</script>\n' +
+        '</body>\n' +
+        '</html>';
 
-xk$('.text9 code').innerText=text9;
+    xk$('.text9 code').innerText=text9;
 
-let text10 = '<div class="swiper-slide">\n' +
-    '<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>\n' +
-    '</div>';
+    let text10 = '<div class="swiper-slide">\n' +
+        '<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>\n' +
+        '</div>';
 
-xk$('.text10 code').innerText=text10;
+    xk$('.text10 code').innerText=text10;
 
-let text11 = `/**
+    let text11 = `/**
  * 定义源目录和输出目录
  * */
 var app={
@@ -393,9 +393,9 @@ gulp.task('server',['build'],function () {
  * */
 gulp.task('default',['server']);`;
 
-xk$('.text11 code').innerHTML=zy(text11);
+    xk$('.text11 code').innerHTML=zy(text11);
 
-var text12 = `<script>
+    var text12 = `<script>
 var vm = new Vue({
     el:"绑定的元素"//（例如：通过el:"#app" 和html绑定关系 ，最终实现数据呈现。）,
     data:{
@@ -435,9 +435,9 @@ var vm = new Vue({
 })
 </script>`;
 
-xk$('.text12 code').innerHTML=zy(text12);
+    xk$('.text12 code').innerHTML=zy(text12);
 
-let text13 = `<div id="app">
+    let text13 = `<div id="app">
 <p v-for="(value,key,index) in people">
 {{key}}---{{value}}
 </p>
@@ -454,9 +454,9 @@ people: {
   }
 })
 </script>`;
-xk$('.text13 code').innerHTML=zy(text13);
+    xk$('.text13 code').innerHTML=zy(text13);
 
-let text14 = `// 注册一个全局自定义指令 \`v-focus\`
+    let text14 = `// 注册一个全局自定义指令 \`v-focus\`
 Vue.directive('focus', {
   // 当被绑定的元素插入到 DOM 中时……
   inserted: function (el) {
@@ -464,9 +464,9 @@ Vue.directive('focus', {
     el.focus()
   }
 })`;
-xk$('.text14 code').innerHTML=zy(text14);
+    xk$('.text14 code').innerHTML=zy(text14);
 
-let text15 = `directives: {
+    let text15 = `directives: {
   focus: {
     // 指令的定义
     inserted: function (el) {
@@ -475,10 +475,10 @@ let text15 = `directives: {
   }
 }`;
 
-xk$('.text15 code').innerHTML=zy(text15);
+    xk$('.text15 code').innerHTML=zy(text15);
 
 
-let text16 = `<!DOCTYPE html>
+    let text16 = `<!DOCTYPE html>
 <html>
 
 <head>
@@ -635,9 +635,9 @@ let text16 = `<!DOCTYPE html>
 </script>
 </body>`;
 
-xk$('.text16 code').innerHTML=zy(text16);
+    xk$('.text16 code').innerHTML=zy(text16);
 
-let text17 = `<div id="app">
+    let text17 = `<div id="app">
 <my-article></my-article>
 </div>
 <script src="js/vue.js"></script>
@@ -653,9 +653,9 @@ let text17 = `<div id="app">
     })
 </script>`;
 
-xk$('.text17 code').innerHTML=zy(text17);
+    xk$('.text17 code').innerHTML=zy(text17);
 
-let text18 = `<div id="app">
+    let text18 = `<div id="app">
 <my-article></my-article>
 </div>
 <template id="myarticle">
@@ -673,9 +673,9 @@ let text18 = `<div id="app">
     })
 </script>`;
 
-xk$('.text18 code').innerHTML=zy(text18);
+    xk$('.text18 code').innerHTML=zy(text18);
 
-var text19 =  `1.通过普通的 JavaScript 对象来定义组件：
+    var text19 =  `1.通过普通的 JavaScript 对象来定义组件：
 var ComponentA = { /* ... */ }
 
 var ComponentB = { /* ... */ }
@@ -713,9 +713,9 @@ new Vue({
     </script>
 `;
 
-xk$('.text19 code').innerText = text19;
+    xk$('.text19 code').innerText = text19;
 
-var text20 = `<!DOCTYPE html>
+    var text20 = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -754,9 +754,9 @@ var text20 = `<!DOCTYPE html>
 </body>
 </html>`;
 
-xk$('.text20 code').innerText = text20;
+    xk$('.text20 code').innerText = text20;
 
-var text21 = `<div id="app" class="container">
+    var text21 = `<div id="app" class="container">
     <ym-alert a="asdfasdf"></ym-alert>
 </div>
 
@@ -804,9 +804,9 @@ var text21 = `<div id="app" class="container">
     })
 </script>`;
 
-xk$('.text21 code').innerText = text21;
+    xk$('.text21 code').innerText = text21;
 
-var text22 =  `<div id="app">
+    var text22 =  `<div id="app">
     <ym-btn @parqie="parChange" :show="show"></ym-btn>
     <!--第一步：在父组件上指定自定义事件并且指定函数名称。注意绑定事件对应的函数名称不可以加括号-->
     <p v-show="show"></p>
@@ -837,9 +837,9 @@ var text22 =  `<div id="app">
       }
     })
 </script>`;
-xk$('.text22 code').innerText = text22;
+    xk$('.text22 code').innerText = text22;
 
-var text23 = `<div id="app">
+    var text23 = `<div id="app">
     <my-com></my-com>
     <my-com>你好</my-com>
     <my-com>
@@ -867,9 +867,9 @@ var text23 = `<div id="app">
      插槽
      果然好用
 `;
-xk$('.text23 code').innerText = text23;
+    xk$('.text23 code').innerText = text23;
 
-var text24 = `<div id="app">
+    var text24 = `<div id="app">
     <my-com></my-com>
     <hr>
     <my-com>
@@ -911,9 +911,9 @@ var text24 = `<div id="app">
       叩丁狼
       默认右侧
 `;
-xk$('.text24 code').innerText = text24;
+    xk$('.text24 code').innerText = text24;
 
-var text25 = `<div id="app">
+    var text25 = `<div id="app">
     <my-com>
         <template slot-scope="abc" slot="left">
             <ul>        //给插槽标签写成template标签写法。并且添加slot-scope属性，
@@ -940,4 +940,122 @@ var text25 = `<div id="app">
     el: '#app',
   });
 </script>`;
-xk$('.text25 code').innerHTML = zy(text25);
+    xk$('.text25 code').innerHTML = zy(text25);
+
+    var text26 = `{
+  "name": "webpack8.6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\"Error: no test specified\\" && exit 1",
+    "start": "webpack-dev-server --port 7272 --hot --open",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^3.1.0",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}`;
+
+    xk$('.text26 code').innerHTML = zy(text26);
+
+    var text27 = `{
+  "name": "demo1",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack src/main.js -o dist/bundle.js"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  }
+}`;
+
+    xk$('.text27 code').innerHTML = zy(text27);
+
+    var text28 = `//只允许使用common.js
+//它是一个配置文件
+var path = require('path');
+//专门对html模板控制的
+var HtmlWebpakPlugin = require('html-webpack-plugin')
+
+//开发环境 和 生产环境
+//生产环境是要上线。开发环境，配置一些工程化相关的东西，解放双手
+module.exports = {
+// 1模式  只有两个值development开发环境和production上线环境压缩
+    mode: "development",
+//    2入口
+    entry: path.join(__dirname,'./src/main.js'),
+//    3出口
+    output: {
+        path: path.join(__dirname,'./dist'),//目录不存可以帮你 创建
+        filename: "bundle.js"//打包的js文件名称
+    },
+// 4插件 插件每个项都需要new
+    plugins: [
+        new HtmlWebpakPlugin({
+            template: path.join(__dirname,'./src/index.html'),
+            filename: "index.html"
+        })
+    ],
+    // 5.模块，把其它文件进行转化成模块，需要相应的loader
+    //不同的文件需要不同的loader，
+    //module表示是模块的意思，rules是规则的意思，每个规则对应的都是一个对象，
+    //其中test字段表示是书写正则以哪个文件名结尾，use是一个数组，表示 当前类型文件用哪种加载器解释。
+    module: {
+        rules: [
+            //css-loader 将css文件转成模块
+            //style-loader 将css模块插入网页文档中
+            // loader的执行顺序从右往左
+            {test:/\\.css$/,use:['style-loader','css-loader']},
+
+            //less-loader 默认依赖 less 需要安装
+            //把less文件转换成css文件
+            //css-loader 再转成webapck的模块
+            //style-loader css模块插入到网页文档中
+            {test:/\\.less$/,use:['style-loader','css-loader','less-loader']},
+            {
+                test:/\\.(jpg|jpeg|gif|png|webp)$/,
+                use: [
+                        {
+                            loader: "url-loader",
+                            options: {
+                                limit:1024,
+                                name:'[path][name]-[hash:5].[ext]'
+                            }
+                        },
+                    ]
+            },
+            //js文件需要做处理  转换低版本的语法,兼容更多的浏览器   排除node_modules dist两个目录正则
+            {test:/\\.js$/,use:['babel-loader'], exclude:[/node_modules/,/dist/]},
+        ]
+    }
+};`;
+
+    xk$('.text28 code').innerHTML = zy(text28);
+
+
+})();

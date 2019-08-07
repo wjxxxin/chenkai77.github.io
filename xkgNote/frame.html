@@ -514,6 +514,8 @@ $("input").triggerHandler("click");</code></pre>
                 <p>插值语法，其实就是{{}}内部可以书写js的简单操作，其实也就是相当于js的表达式。加减乘除，数组操作，函数执行等。</p>
                 </li>
                 <li>computed和data和methods中的key都不能相同</li>
+                <li>computed会将当前的计算结果保存一下,如果里面的数据发生改变,重新执行并且再次保存最新结果.methods中的函数作为计算，会不断执行。</li>
+                <li>computed和watch都有监听的意思，只不过watch是监听已经存在数据，而computed是为了监听，当前创建的数据，而这个数据在data中不存在，当修改了当前创建的数据，会执行set方法</li>
             </ol>
         </div>
     </section>
@@ -698,7 +700,7 @@ $("input").triggerHandler("click");</code></pre>
             </ol>
             <ol>4、销毁
                 <li>beforeDestroy ： 实例销毁之前调用。在这一步，实例仍然完全可用。</li>
-                <li>destroyed Vue ： 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+                <li>destroyed ：  Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
             </ol>
             <ol>5、在keep-alive组件中才能生效的生命周期
                 <li>activated ： keep-alive 组件激活时调用。</li>
@@ -1117,6 +1119,134 @@ wow.init();</code></pre>
             </div>
             <a class="btns" href="javascript:">代码</a>
             <pre class="text11"><code class="language-js"></code></pre>
+        </section>
+</div>
+<div class="item">
+        <h3>webpack</h3>
+        <section>
+            <div class="small">
+                <p>Webpack 是一个现代 JavaScript 应用程序的静态模块打包器（static module bundler）。在 Webpack 处理应用程序时，它会在内部创建一个依赖图（dependency graph），用于映射到项目需要的每个模块，然后将所有这些依赖生成到一个或多个 bundle。</p>
+                <p>webpack 是从入口文件开始，经过模块依赖加载、分析和打包三个流程完成项目的构建。</p>
+            </div>
+            <div class="small">
+                <h4>初始化</h4>
+                <p>npm init -y 后的package.json文件中</p>
+                <ol>
+                    <li>dependencies为项目的依赖在通过npm install XXX -S或者npm install yyy --save会将xxx及版本号显示在这个位置（项目中需要的）</li>
+                    <li>devdependencies为开发环境依赖通过npm install yyy -D或者npm install yyy --dev-save（开发中需要的）</li>
+                </ol>
+                <p>创建src/main.js和src/index.html</p>
+                <p>安装jquery （项目中需要使用）</p>
+                <pre><code class="js">npm install jquery -S</code></pre>
+                <p>在main.js中导入jq并且书写文件</p>
+                <pre><code class="js">import $ from "jquery"
+$("ul li:even").css({background:'red'})
+$("ul li:odd").css({background:'pink'})</code></pre>
+                <p>执行下面命令将main.js打包可用的js</p>
+                <pre><code class="js">webpack src/main.js -o dist/bundle.js</code></pre>
+                <p>然后将打包后的bundle.js引入index.html中即可得到想要的效果</p>
+                <pre><code>dist
+| ├─bundle.js
+src
+| ├─main.js
+| ├─index.html
+package.json</code></pre>
+                <ol>
+                    <li>dist文件夹 ：用于存放之后打包的文件</li>
+                    <li>src文件夹 ：用于存放我们写的源文件</li>
+                    <li>main.js ：项目的入口文件。具体内容查看下面详情。</li>
+                    <li>index.html ：浏览器打开展示的首页html</li>
+                    <li>package.json ：通过npm init生成的，npm包管理的文件</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>webpack结合npm scripts</h4>
+                <p>安装本地项目依赖</p>
+                <pre><code class="js">npm install webpack webpack-cli -D</code></pre>
+                <p>结合npm scripts来方便我们书写命令，修改package.json文件</p>
+                <pre class="text27"><code class="js"></code></pre>
+                <p>启动命令：npm start 或者npm run start（start是在scripts中定义的key值。）（start这个命令可以省去run其它都不可以）</p>
+                <p>启动后报错：原因是没指定环境：production（生产环境）或者development 开发环境，将命令改为</p>
+                <pre><code class="js">webpack src/main.js -o dist/bundle.js --mode development</code></pre>
+            </div>
+            <div class="small">
+                <h4>webpack配置文件</h4>
+                <p>在项目根目录上新建webpack.config.js</p>
+                <p>相应的npm scripts也要做一些修改"start": "webpack --config webpack.config.js"或者"start": "webpack"</p>
+                <pre><code class="js">"scripts": {
+    "start": "webpack --config webpack.config.js"
+  },</code></pre>
+            </div>
+            <div class="small">
+                <h4>webpack-dev-server</h4>
+                <p>安装npm install webpack-dev-server -D 可自动打包文件</p>
+                <p>修改npm scripts</p>
+                <pre><code class="js">"start": "webpack-dev-server --config webpack.config.js  --open --port 8888 --hot"</code></pre>
+                <ol>
+                    <li>--open  自动打开浏览器 相当于   --open  true</li>
+                    <li>--port  打开的服务端口号 8888  --port 8888</li>
+                    <li>--hot   自动更新      --hot   true</li>
+                </ol>
+                <p>执行npm start后，它会将打包的信息全部放在缓存（内存）中，我们是看不到的（并不会在我们本地去创建一个dist/bundle.js），通过http://localhost:8888/bundle.js可以看到打包的文件</p>
+                <p>安装npm install html-webpack-plugin -D 插件 可以自动将模板index.html和bunddle.js文件结合</p>
+            </div>
+            <div class="small">
+                <h4>除js外的其它模块</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">css</div>
+                    <div class="tapTop">less/sass</div>
+                    <div class="tapTop">图片处理</div>
+                    <div class="tapTop">ES6 转 ES5</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <p>在main.js项目入口文件 通过 import './index.css';导入我们创建的css</p>
+                        <p>然后通过loader加载器将.css文件进行解释成正确的模块</p>
+                        <p>安装 npm install css-loader -D </p>
+                        <p>安装npm install style-loader -D </p>
+                        <p>配置webpack.config.js ; {test:/\.css$/,use:['style-loader','css-loader']}</p>
+                        <p>css-loader 是将index.css正确解释 为webpack的模块，进行打包到了bundle.js，我们可以佐证，但是该样式并未成功的显示到浏览器中。style-loader的作用其实就是将打包到bundle.js中的css样式输出到浏览器中，以style标签的形式显示。</p>
+                    </div>
+                    <div class="tapSection">
+                        <p>安装npm install less-loader less -D</p>
+                        <p>配置：{test:/\.less$/,use:['style-loader','css-loader','less-loader']}</p>
+                        <p>安装npm install sass-loader node-sass -D</p>
+                        <p>配置：{test:/\.scss$/,use:['style-loader','css-loader','sass-loader']}</p>
+                    </div>
+                    <div class="tapSection">
+                        <p>安装npm install url -D</p>
+                        <p>配置：{test:/\.(jpg|jpeg|gif|png|webp)$/,use:['url-loader']},</p>
+                        <p>这样网页的图片都是以base64进行编码；图片不再像以前通过外链的形式打开，而是内嵌在网页上了，图片越大base64的编码信息越多。</p>
+                        <p>一般让小图片使用base64进行加载，这样既能让图片快速加载，又会减少http请求。至于大图片一般就直接以往常的外链形式存在即可。</p>
+                        <p>安装 npm install file-loader -D（文件加载器）</p>
+                        <p>修改loader配置项,limit表示小于后面的1000 byte即接近1kb，用base64显示。超过的限制的话通过外链来读取图片</p>
+                        <pre><code class="js">{
+  test: /\.(jpg|jpeg|gif|png|webp)$/, use: [{
+    loader: 'url-loader',
+    options:{
+      limit:1000,
+      name:'[name].[hash:8].[ext]'
+    }
+  }]
+},</code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>安装</p>
+                        <pre><code class="js">npm install babel-core babel-loader@7.1.5 babel-plugin-transform-runtime babel-preset-env babel-preset-stage-0 -D</code></pre>
+                        <p>配置loader ： {test:/\.js/,use:['babel-loader'],exclude:[/node_modules/,/dist/]}</p>
+                        <p>exclude表示排除掉 node_modules下载的依赖项和dist。这样可以加速网站开发，而且我们也只需要对我们的项目src源文件进行编译即可。</p>
+                        <p>新增.babelrc文件</p>
+                        <pre><code class="js">{
+    "presets":[“env","stage-0"],
+    "plugins":["transform-runtime"]
+}</code></pre>
+                    </div>
+                </div>
+                <a class="btns" href="javascript:">webpack.config.js</a>
+                <pre class="text28"><code class="js"></code></pre>
+                <a class="btns" href="javascript:">package.json</a>
+                <pre class="text26"><code class="js"></code></pre>
+            </div>
         </section>
 </div>
 <div class="item">
