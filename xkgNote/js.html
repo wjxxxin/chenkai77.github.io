@@ -1642,10 +1642,16 @@ function getInnerText(element) {
             <h4>history对象</h4>
             <p>History 对象包含用户（在浏览器窗口中）访问过的 URL。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。</p>
             <ol>常用的history的属性和方法如下:
-                <li>lenght：历史记录的长度</li>
-                <li>back()：向后跳转</li>
-                <li>forward()：向前跳转</li>
-                <li>go()：页面前后跳转，参数 1 表示向前跳转，-1表示向后跳转</li>
+                <li>history.lenght：历史记录的长度</li>
+                <li>history.back()：向后跳转</li>
+                <li>history.forward()：向前跳转</li>
+                <li>history.go()：页面前后跳转，参数 1 表示向前跳转，-1表示向后跳转</li>
+                <li>history.pushState() : 添加(当前路由添加在历史地址记录里面，可以通过前进后退，查看)
+                    <pre><code class="js">history.pushState({},'','/')</code></pre>
+                </li>
+                <li>history.replaceState() : 即替换(当前路由就不再出现在历史地址记录里面)
+                    <pre><code class="js">history.replaceState({},'','/')</code></pre>
+                </li>
             </ol>
         </div>
         <div class="small">
@@ -2013,7 +2019,7 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
             <ol>
                 <li>只有谷歌支持.webp， 所以将 .webp 改成 .jpg</li>
                 <li>IE7、8中不支持rgba() 使用  ： filter:alpha(opacity=40) ;
-                    progid:DXImageTransform.Microsoft.gradient (startColorstr=#FFFF00,endColorstr=#FFFF00);</li>
+                    progid: DXImageTransform.Microsoft.gradient (startColorstr=#FFFF00 ,endColorstr=#FFFF00);</li>
             </ol>
         </div>
     </section>

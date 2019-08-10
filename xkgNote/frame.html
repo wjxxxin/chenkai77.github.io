@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+    <style>
+        /*.navLeft li{height: 20px;line-height: 20px;}*/
+        .navLeft ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.5s;
+        }
+        .navLeft .activation{
+            left: -130px;
+        }
+        .navLeft a{
+            display: block;
+            font-size:12px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 0 7px 7px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #0077aa;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <ul class="navLeft">
@@ -93,7 +120,7 @@
             <ol>
                 <li>$(selector).attr(name) :  访问指定属性的值</li>
                 <li>$(selector).attr(name, "value") : 修改指定属性的值</li>
-                <li>$(selector).attr({name:"value",name:"value",……}) :  多属性修改</li>
+                <li>$(selector).attr({name:"value",name :"value",……}) :  多属性修改</li>
             </ol>
         </div>
         <div class="small">
@@ -675,7 +702,7 @@ $("input").triggerHandler("click");</code></pre>
     </section>
 </div>
 <div class="item">
-    <h3>Vue 生命周期</h3>
+    <h3>Vue生命周期</h3>
     <section>
         <div class="small">
             <p>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</p>
@@ -719,6 +746,64 @@ $("input").triggerHandler("click");</code></pre>
     </section>
 </div>
 <div class="item">
+    <h3>Vue-router</h3>
+    <section>
+        <div class="small">
+            <h4>vue使用路由</h4>
+            <ol>
+                <li>引入vue-router.js</li>
+                <li>定义路由
+                    <pre class="text31"><code class="js"></code></pre>
+                </li>
+                <li>跳转链接&lt;router-link to="/home"&gt;首页&lt;/router-link&gt;</li>
+                <li>显示位置&lt;router-view /&gt;</li>
+            </ol>
+            <p>router-link组件是为了具体跳转到哪个路由属性有totag 等。to 就相当于具体跳转到哪个路由。 默认router-link组件呈现在浏览器上是 a 标签；如果通过 tag="span" 那么它最终是以定义的span元素进行呈现，而且也能跳转。</p>
+            <p>router-view 组件是让最终跳转的路由 path 对应的组件显示的位置。可以称之为占位路由切换时，切换的是 router-view 挂载的组件，其他内容不会发生改变。</p>
+            <p>让路径默认跳到到首页, 并且渲染首页组件</p>
+            <pre><code class="js">{path:'/',redirect:'/home'}</code></pre>
+            <p>在routes中配置了一个映射,path配置的是根路径: / ;redirect是重定向, 也就是我们将根路径重定向到/home的路径下</p>
+        </div>
+        <div class="small">
+            <h4>vue-cli结合vue-router</h4>
+            <ol>
+                <li>导入路由对象，并且调用 Vue.use(VueRouter)</li>
+                <li>创建路由实例，并且传入路由映射配置</li>
+                <li>在Vue实例中挂载创建的路由实例</li>
+            </ol>
+            <ol>
+                <li>linkActiveClass : 在path匹配下才会出现的类名（包含）</li>
+                <li>linkExactActiveClass : 只是在path精准匹配下才会出现的类名</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>编程式的导航</h4>
+            <p>除了使用router-link创建 a 标签来定义导航链接，我们还可以借助 router 的实例方法(即JS)，通过编写代码来实现。</p>
+            <pre class="text32"><code class="js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>动态路由</h4>
+            <p>{path: '/news/:id', name: 'news', component: News} , 在router-link跳转时给id赋值为123 ; 进入组件中通过this.$route.params.id 来取取数据123。</p>
+        </div>
+        <div class="small">
+            <h4>路由懒加载</h4>
+            <pre><code class="js">const Home = () => import(/* webpackChunkName:"kk"(js文件名) */ '../components/Home.vue')</code></pre>
+        </div>
+        <div class="small">
+            <h4>嵌套路由</h4>
+            <pre class="text33"><code class="js"></code></pre>
+            <p>嵌套路由也可以配置默认的路径, 配置方式如下:</p>
+            <pre><code class="js">children: [
+         {path:'',redirect:'message'},
+        {path: 'message', name: 'message', component: () => {
+          return import('../pages/home/Message')}},
+        {path: 'user', name: 'user', component: () => {
+          return import('../pages/home/User')}}
+      ]</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
     <h3>Vue 综合案例</h3>
     <section>
         <div class="small">
@@ -733,138 +818,6 @@ $("input").triggerHandler("click");</code></pre>
                 <div class="tapSection">
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-<div class="item">
-    <h3>其他框架</h3>
-    <section >
-            <div class="small">
-                <h4>Bootstrap</h4>
-               <a class="piece" href="http://getbootstrap.com/" target="_blank">Bootstrap官网</a>
-               <a class="piece" href="http://www.bootcss.com/" target="_blank">BootStrap中文网</a>
-                <p>bootstrap栅格系统</p>
-                <p>栅格的重点在于在排版上更好的进行适配，在不同的分辨率下能够显示显示不同的效果。将所有分辨率下的网页水平方向分成12列，那么在不同的分辨率下，水平方向显示不同的列数进而达到适配。</p>
-                <p>container（包括 container-fluid ）、row、column必须保持特定的层级关系，栅格系统才可以正常工作（版心>行>列） 重点：先有行，再有列</p>
-                <ol>
-                    <li>col-xs-[列数]：在超小屏幕下展示几份</li>
-                    <li>col-sm-[列数]：在小屏幕下展示几份</li>
-                    <li>col-md-[列数]：在中等屏幕下展示几份</li>
-                    <li>col-lg-[列数]：在大屏幕下展示几份</li>
-                    <li>__xs__ : 超小屏幕 手机 (<768px)  </li>
-                    <li>__sm__ : 小屏幕 平板 (≥768px) </li>
-                    <li>__md__ : 中等屏幕 桌面显示器 (≥992px) </li>
-                    <li>__lg__ : 大屏幕 大桌面显示器 (≥1200px)</li>
-                </ol>
-                <br>
-                <br>
-                <ol>
-                    <li>列偏移 ： .col--offset-  一个栅格向右边偏移多少个列</li>
-                    <li>列顺序 ： 使用 .col- * -push- * 和 .col- * -pull-* 类可以改变列（column）的顺序（注意要结合使用）
-                    <p>.col- * -push- * 往右推 ； .col- * -pull-*  往右拉</p>
-                    </li>
-                </ol>
-            </div>
-        <div class="small">
-            <h4>animate.css框架</h4>
-            <a class="piece" href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a>
-            <ol>
-                <li>引入下载好的animate.css文件</li>
-                <li>给要做动画的元素添加类名 ： 要添加两个类名，分别是： animated(控制时间) ； 要添加的动画效果类名（控制效果）</li>
-            </ol>
-        </div>
-        <div class="small">
-            <h4>wow.js框架</h4>
-            <a class="piece" href="http://mynameismatthieu.com/WOW/index.html" target="_blank">wow.js</a>
-            <p>wow.js是做网页滚动动画的js框架，配合animate.css使用，可以在网页滚动的过程中释放animate.css动画效果。</p>
-            <ol>
-                <li>引入animate.css文件和wow.js文件</li>
-                <li>html结构 ： 在要做滚动动画的元素身上添加类名；wow(声明元素使用混动动画) ； 动画名称（滚动释放的动画名称）</li>
-            </ol>
-            <span>举例：</span><pre><code class="language-js">&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#108;&#101;&#102;&#116;&#32;&#119;&#111;&#119;&#32;&#115;&#108;&#105;&#100;&#101;&#73;&#110;&#76;&#101;&#102;&#116;&#34;&#62;&#60;&#47;&#100;&#105;&#118;&#62;</code></pre>
-            <p> js调用（调用前注意要先代码分离） : </p>
-            <pre><code class="language-js"> new WOW().init();</code></pre>
-            <ol>属性设置
-                <li>data-wow-duration ： 动画持续时间，以秒/s为单位</li>
-                <li>data-wow-delay ： 动画延时时间，以秒/s为单位</li>
-                <li>data-wow-iteration ： 动画播放次数，值是纯数字，infinite表示循环播放</li>
-                <li>data-wow-offset ： 元素顶部偏离可视区（容器）底部动画出现的距离（用于设置动画在页面的出场位置）</li>
-            </ol>
-            <p>带参数的调用方法</p>
-            <pre><code class="language-js">var wow = new WOW({
-    boxClass:     'wow',             //动画元素的CSS类 (默认类名 wow)
-    animateClass: 'animated',        //动画CSS类 (默认类名 animated)
-    offset:       0,                 //距离可视区域多少开始执行动画(默认值 0)
-    mobile:       true,              //是否在移动设备上执行动画(默认值 true)
-});
-wow.init();</code></pre>
-        </div>
-        <div class="small">
-            <h4>scrollreveal.js框架</h4>
-            <a class="piece" href="https://scrollrevealjs.org/" target="_blank">scrollreveal.js</a>
-            <p>使用方法</p>
-            <pre class="text7"><code class="language-js"></code></pre>
-            <p>其他参数调用</p>
-            <pre class="text8"><code class="language-js"></code></pre>
-
-            <ol>wow.js和scrollreveal.js对比
-                <li>都不依赖jquery；</li>
-                <li>WOW.js 的动画只播放一次，而 scrollReveal.js 的动画可以播放一次或无限次；</li>
-                <li>WOW.js 依赖 animate.css，而 scrollReveal.js 不依赖其他任何文件;</li>
-                <li>WOW.js 依赖 animate.css使用，动画效果更多一点，可以根据具体需求选择使用</li>
-            </ol>
-        </div>
-        <div class="small">
-            <h4>zepto.js</h4>
-            <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">zepto.js</a>
-            <ol>
-                <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
-                <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
-                    <a class="btns" href="javascript:">代码</a>
-                    <pre class="text9"><code class="language-html"></code></pre>
-                </li>
-            </ol>
-        </div>
-        <div class="small">
-            <h4>Swiper</h4>
-            <p>Swiper 是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为IOS而设计的，同时，在Android、WP8系统以及PC端的浏览器也有着良好的用户体验。</p>
-            <a class="piece" href="https://www.swiper.com.cn/" target="_blank">Swiper</a>
-            <ol>基本使用
-                <li>下载和引入插件。swiper.min.js和swiper.min.css文件。</li>
-                <li>添加HTML内容</li>
-                <li>设置样式。不添加的话，默认等于父容器的宽度，高度为内容高度。</li>
-                <li>初始化Swiper
-                    <pre><code class="language-js">  window.onload = function(){
-    var swiper = new Swiper('.swiper-container');
-  }</code></pre>
-                </li>
-            </ol>
-            <h5>Swiper+Animate.css</h5>
-            <p>这个是Swiper提供的视差过渡效果。需要配合Animate.css使用，同时，还必须添加swiper.animate.js 这个JS是对animate.css进行视觉差过渡的支持。</p>
-            <ol>
-                <li>引入样式和js ： 在之前的基础上引入animate.css即第一天学的animate.css ； 再引入swiper.animate.min.js注意要放置 在swiper.min.js下面。</li>
-                <li>初始化时隐藏元素并在需要的时刻开始动画。
-                <pre><code class="language-js"> on:{
-     init: function(){
-         swiperAnimateCache(this); //隐藏动画元素
-         swiperAnimate(this); //初始化完成开始动画
-     },
-         slideChangeTransitionEnd: function(){
-             swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-             //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
-         }
- },</code></pre>
-                </li>
-                <li>给需要添加视差效果的元素身上添加属性
-                <ol>在需要运动的元素上面增加类名  ani, 然后添加swiper animate 参数：
-                    <li>swiper-animate-effect：切换效果，例如 fadeInUp  即animate.css的效果名称</li>
-                    <li>swiper-animate-duration：动画持续时间（单位秒），例如 0.5s</li>
-                    <li>swiper-animate-delay:   延迟时间（单位秒）</li>
-                </ol>
-                    <pre class="text10"><code class="language-js"></code></pre>
-                </li>
-
-            </ol>
         </div>
     </section>
 </div>
@@ -1026,7 +979,7 @@ wow.init();</code></pre>
             <ol>
                 <li>git log | git reflog ：提交记录 ； git log ： 记录信息比较全。 git reflog ： 简写的信息。</li>
                 <li>git reset --hard 版本记录值（哈希值） ： 版本回退。
-                    <p>例如 ： git reset --hard 0a88110234f9a3070b212a7fd75e52741c947ada （大于七位就行）</p>
+                    <p>例如 ： git reset --hard 0a88110234f9a3070b212a7 fd75e52741c947ada （大于七位就行）</p>
                     <p>回退后再查看git记录git log的方式会发现，变的很少。而通过git reflog的方式。会记录的更全，版本回退的信息也记录下来。</p>
                 </li>
             </ol>
@@ -1242,13 +1195,245 @@ package.json</code></pre>
 }</code></pre>
                     </div>
                 </div>
-                <a class="btns" href="javascript:">webpack.config.js</a>
-                <pre class="text28"><code class="js"></code></pre>
-                <a class="btns" href="javascript:">package.json</a>
-                <pre class="text26"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>Vue结合Webpack</h4>
+                <p>开发中会采用Vue组件化开发的方式，而且每个组件都是一个单文件形式后缀名为(.vue)。</p>
+                <a class="btns" href="javascript:">Vue组件</a>
+                <pre class="text29"><code class="js"></code></pre>
+                <p>安装</p>
+                <pre><code class="js">npm install -D vue-loader vue-template-compiler vue-style-loader</code></pre>
+                <p>Vue Loader 的配置和其它的 loader 不太一样。除了通过一条规则将vue-loader应用到所有扩展名为.vue的文件上之外，请确保在你的 webpack 配置中添加 Vue Loader 的插件：</p>
+                <pre><code class="js">const VueLoaderPlugin = require('vue-loader/lib/plugin')
+plugins: [ new VueLoaderPlugin() ]</code></pre>
+                <p>Vue不同版本构建</p>
+                <div class="tapNav">
+                    <div class="tapTop cur">需要编译器</div>
+                    <div class="tapTop">不需要编译器</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre><code class="js">new Vue({
+  template: '<div>{{ hi }}</div>'
+})
+ module.exports = {
+  // ...
+  resolve: {
+    alias: {
+//别名
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  }
+}</code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre><code class="js">new Vue({
+  render (h) {
+    return h('div', this.hi)
+  }
+})</code></pre>
+                    </div>
+                </div>
+            </div>
+            <a class="btns" href="javascript:">webpack.config.js</a>
+            <pre class="text28"><code class="js"></code></pre>
+            <a class="btns" href="javascript:">package.json</a>
+            <pre class="text26"><code class="js"></code></pre>
+        </section>
+</div>
+<div class="item">
+        <h3>Vue-cli脚手架</h3>
+        <section>
+            <div class="small">
+                <pre><code class="js">npm install -g @vue/cli
+# OR
+yarn global add @vue/cli</code></pre>
+            </div>
+            <div class="small">
+                <h4>创建项目</h4>
+                <pre><code class="js">vue create hello-world(项目名)</code></pre>
+                <p>也可以通过vue ui命令以图形化界面创建和管理项目</p>
+            </div>
+            <div class="small">
+                <h4>Vue-cli 项目结构</h4>
+                <img src="images/vuecli.jpg" alt="">
+                <div class="tapNav">
+                    <div class="tapTop cur">IDE编辑器配置文件</div>
+                    <div class="tapTop">ESLint代码风格检测</div>
+                    <div class="tapTop">vue.config.js</div>
+                    <div class="tapTop">postcss.config.js</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <p>自行添加一个IDE配置文件.editorconfig，这个文件对不同的IDE编辑器可以做到代码风格统一</p>
+                        <pre><code class="js">root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true</code></pre>
+                        <ol>
+                            <li>root=true : 对所有文件生效</li>
+                            <li>end_of_line= lf : 不同操作系统换行符不同</li>
+                            <li>insert_final_newline = true : 代码最后新增一行</li>
+                            <li>trim_trailing_whitespace = true : 修剪尾随空格</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <p>借助 ESLint，可将 静态代码分析 和 问题代码协助修复 集成到 编码、提交 和 打包 过程中，及早发现并协助修复代码中</p>
+                    </div>
+                    <div class="tapSection">
+                        <p>有些针对 @vue/cli 的全局配置，例如你惯用的包管理器和你本地保存的 preset，都保存在 home 目录下一个名叫 .vuerc 的 JSON 文件。</p>
+                        <p>可以使用 vue config 命令来审查或修改全局的 CLI 配置。</p>
+                        <pre class="text30"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>样式转换配置</p>
+                        <pre><code class="js">module.exports = {
+  plugins: {
+    autoprefixer: {}
+  }
+}</code></pre>
+                    </div>
+                </div>
             </div>
         </section>
 </div>
+<div class="item">
+        <h3>其他框架</h3>
+        <section >
+            <div class="small">
+                <h4>Bootstrap</h4>
+                <a class="piece" href="http://getbootstrap.com/" target="_blank">Bootstrap官网</a>
+                <a class="piece" href="http://www.bootcss.com/" target="_blank">BootStrap中文网</a>
+                <p>bootstrap栅格系统</p>
+                <p>栅格的重点在于在排版上更好的进行适配，在不同的分辨率下能够显示显示不同的效果。将所有分辨率下的网页水平方向分成12列，那么在不同的分辨率下，水平方向显示不同的列数进而达到适配。</p>
+                <p>container（包括 container-fluid ）、row、column必须保持特定的层级关系，栅格系统才可以正常工作（版心>行>列） 重点：先有行，再有列</p>
+                <ol>
+                    <li>col-xs-[列数]：在超小屏幕下展示几份</li>
+                    <li>col-sm-[列数]：在小屏幕下展示几份</li>
+                    <li>col-md-[列数]：在中等屏幕下展示几份</li>
+                    <li>col-lg-[列数]：在大屏幕下展示几份</li>
+                    <li>__xs__ : 超小屏幕 手机 (<768px)  </li>
+                    <li>__sm__ : 小屏幕 平板 (≥768px) </li>
+                    <li>__md__ : 中等屏幕 桌面显示器 (≥992px) </li>
+                    <li>__lg__ : 大屏幕 大桌面显示器 (≥1200px)</li>
+                </ol>
+                <br>
+                <br>
+                <ol>
+                    <li>列偏移 ： .col--offset-  一个栅格向右边偏移多少个列</li>
+                    <li>列顺序 ： 使用 .col- * -push- * 和 .col- * -pull-* 类可以改变列（column）的顺序（注意要结合使用）
+                        <p>.col- * -push- * 往右推 ； .col- * -pull-*  往右拉</p>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>animate.css框架</h4>
+                <a class="piece" href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a>
+                <ol>
+                    <li>引入下载好的animate.css文件</li>
+                    <li>给要做动画的元素添加类名 ： 要添加两个类名，分别是： animated(控制时间) ； 要添加的动画效果类名（控制效果）</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>wow.js框架</h4>
+                <a class="piece" href="http://mynameismatthieu.com/WOW/index.html" target="_blank">wow.js</a>
+                <p>wow.js是做网页滚动动画的js框架，配合animate.css使用，可以在网页滚动的过程中释放animate.css动画效果。</p>
+                <ol>
+                    <li>引入animate.css文件和wow.js文件</li>
+                    <li>html结构 ： 在要做滚动动画的元素身上添加类名；wow(声明元素使用混动动画) ； 动画名称（滚动释放的动画名称）</li>
+                </ol>
+                <span>举例：</span><pre><code class="language-js">&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#108;&#101;&#102;&#116;&#32;&#119;&#111;&#119;&#32;&#115;&#108;&#105;&#100;&#101;&#73;&#110;&#76;&#101;&#102;&#116;&#34;&#62;&#60;&#47;&#100;&#105;&#118;&#62;</code></pre>
+                <p> js调用（调用前注意要先代码分离） : </p>
+                <pre><code class="language-js"> new WOW().init();</code></pre>
+                <ol>属性设置
+                    <li>data-wow-duration ： 动画持续时间，以秒/s为单位</li>
+                    <li>data-wow-delay ： 动画延时时间，以秒/s为单位</li>
+                    <li>data-wow-iteration ： 动画播放次数，值是纯数字，infinite表示循环播放</li>
+                    <li>data-wow-offset ： 元素顶部偏离可视区（容器）底部动画出现的距离（用于设置动画在页面的出场位置）</li>
+                </ol>
+                <p>带参数的调用方法</p>
+                <pre><code class="language-js">var wow = new WOW({
+    boxClass:     'wow',             //动画元素的CSS类 (默认类名 wow)
+    animateClass: 'animated',        //动画CSS类 (默认类名 animated)
+    offset:       0,                 //距离可视区域多少开始执行动画(默认值 0)
+    mobile:       true,              //是否在移动设备上执行动画(默认值 true)
+});
+wow.init();</code></pre>
+            </div>
+            <div class="small">
+                <h4>scrollreveal.js框架</h4>
+                <a class="piece" href="https://scrollrevealjs.org/" target="_blank">scrollreveal.js</a>
+                <p>使用方法</p>
+                <pre class="text7"><code class="language-js"></code></pre>
+                <p>其他参数调用</p>
+                <pre class="text8"><code class="language-js"></code></pre>
+
+                <ol>wow.js和scrollreveal.js对比
+                    <li>都不依赖jquery；</li>
+                    <li>WOW.js 的动画只播放一次，而 scrollReveal.js 的动画可以播放一次或无限次；</li>
+                    <li>WOW.js 依赖 animate.css，而 scrollReveal.js 不依赖其他任何文件;</li>
+                    <li>WOW.js 依赖 animate.css使用，动画效果更多一点，可以根据具体需求选择使用</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>zepto.js</h4>
+                <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">zepto.js</a>
+                <ol>
+                    <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
+                    <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
+                        <a class="btns" href="javascript:">代码</a>
+                        <pre class="text9"><code class="language-html"></code></pre>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>Swiper</h4>
+                <p>Swiper 是一款免费以及轻量级的移动设备触控滑块的js框架，主要是为IOS而设计的，同时，在Android、WP8系统以及PC端的浏览器也有着良好的用户体验。</p>
+                <a class="piece" href="https://www.swiper.com.cn/" target="_blank">Swiper</a>
+                <ol>基本使用
+                    <li>下载和引入插件。swiper.min.js和swiper.min.css文件。</li>
+                    <li>添加HTML内容</li>
+                    <li>设置样式。不添加的话，默认等于父容器的宽度，高度为内容高度。</li>
+                    <li>初始化Swiper
+                        <pre><code class="language-js">  window.onload = function(){
+    var swiper = new Swiper('.swiper-container');
+  }</code></pre>
+                    </li>
+                </ol>
+                <h5>Swiper+Animate.css</h5>
+                <p>这个是Swiper提供的视差过渡效果。需要配合Animate.css使用，同时，还必须添加swiper.animate.js 这个JS是对animate.css进行视觉差过渡的支持。</p>
+                <ol>
+                    <li>引入样式和js ： 在之前的基础上引入animate.css即第一天学的animate.css ； 再引入swiper.animate.min.js注意要放置 在swiper.min.js下面。</li>
+                    <li>初始化时隐藏元素并在需要的时刻开始动画。
+                        <pre><code class="language-js"> on:{
+     init: function(){
+         swiperAnimateCache(this); //隐藏动画元素
+         swiperAnimate(this); //初始化完成开始动画
+     },
+         slideChangeTransitionEnd: function(){
+             swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+             //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+         }
+ },</code></pre>
+                    </li>
+                    <li>给需要添加视差效果的元素身上添加属性
+                        <ol>在需要运动的元素上面增加类名  ani, 然后添加swiper animate 参数：
+                            <li>swiper-animate-effect：切换效果，例如 fadeInUp  即animate.css的效果名称</li>
+                            <li>swiper-animate-duration：动画持续时间（单位秒），例如 0.5s</li>
+                            <li>swiper-animate-delay:   延迟时间（单位秒）</li>
+                        </ol>
+                        <pre class="text10"><code class="language-js"></code></pre>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+    </div>
 <div class="item">
         <h3>其他</h3>
         <section >
@@ -1281,6 +1466,7 @@ $(function () {
                     <a class="piece" href="https://www.easyicon.net/" target="_blank">easyicon图标</a>
                     <a class="piece" href="https://segmentfault.com/" target="_blank">SegmentFault思否</a>
                     <a class="piece" href="https://www.processon.com/" target="_blank">作图工具</a>
+                    <a class="piece" href="https://www.draw.io/" target="_blank">作图工具</a>
                     <a class="piece" href="https://www.zcool.com.cn/" target="_blank">站酷</a>
                 </div>
             </div>

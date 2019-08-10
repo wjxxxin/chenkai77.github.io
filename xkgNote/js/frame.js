@@ -956,7 +956,8 @@ new Vue({
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -971,6 +972,9 @@ new Vue({
     "less-loader": "^5.0.0",
     "style-loader": "^0.23.1",
     "url-loader": "^2.1.0",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
@@ -1001,6 +1005,11 @@ new Vue({
 var path = require('path');
 //专门对html模板控制的
 var HtmlWebpakPlugin = require('html-webpack-plugin')
+var VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+function resolve(src) {
+    return path.join(__dirname, src)
+}
 
 //开发环境 和 生产环境
 //生产环境是要上线。开发环境，配置一些工程化相关的东西，解放双手
@@ -1019,7 +1028,8 @@ module.exports = {
         new HtmlWebpakPlugin({
             template: path.join(__dirname,'./src/index.html'),
             filename: "index.html"
-        })
+        }),
+        new VueLoaderPlugin()
     ],
     // 5.模块，把其它文件进行转化成模块，需要相应的loader
     //不同的文件需要不同的loader，
@@ -1051,11 +1061,130 @@ module.exports = {
             },
             //js文件需要做处理  转换低版本的语法,兼容更多的浏览器   排除node_modules dist两个目录正则
             {test:/\\.js$/,use:['babel-loader'], exclude:[/node_modules/,/dist/]},
+            {test:/\\.vue$/,use:['vue-loader']},
         ]
-    }
+    },
+    //设置别名，编译器
+    resolve: {
+        extensions: ['.vue','.js'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            'com':resolve('./src/components')
+        }
+    },
 };`;
 
     xk$('.text28 code').innerHTML = zy(text28);
 
+    var text29=`<template>
+  <div class="example">{{ msg }}</div>
+</template>
 
+<script>
+export default {
+  data () {
+    return {
+      msg: 'Hello world!'
+    }
+  }
+}
+</script>
+
+<style>
+.example {
+  color: red;
+}
+</style>`;
+
+    xk$('.text29 code').innerHTML = zy(text29);
+
+    var text30 = `module.exports = {
+  lintOnSave: false
+}
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname,dir)
+}
+
+module.exports = {
+  //1.基础的配置方式
+  configureWebpack:{
+    resolve:{
+      alias:{
+        'components':'@/components',
+        'pages':'@/pages'
+      }
+    }
+  },
+  //2.利用webpack4的webpack-chain来配置
+  chainWebpack:(config)=>{
+    config.resolve.alias
+      .set('@',resolve('src'))
+      .set('components',resolve('src/components'))
+  }
+}`;
+    xk$('.text30 code').innerHTML = zy(text30);
+
+    var text31 = `var router = new VueRouter({
+    routes:[
+        { 
+            path:'/home',
+            component:组件名称
+        }，
+        { 
+            path:'/about',
+            component:组件名称
+        }
+    ……
+    ]
+})`;
+    xk$('.text31 code').innerHTML = zy(text31);
+
+    var text32 = `<template>
+    <div>
+      <p @click="qie('home')">首页</p>
+      <p @click="qie('about')">关于</p>
+      <router-view></router-view>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "App",
+        methods : {
+            qie(url){
+              this.$router.push(url);
+            }
+        },
+    }
+</script>
+`;
+    xk$('.text32 code').innerHTML = zy(text32);
+
+    var text33 = `{
+      path: '/home', name: 'home', component: Home,
+      children: [
+        {
+        path: 'message', name: 'message', component: () => {
+          return import('../pages/home/Message')
+        }
+      },
+        {
+        path: 'user', name: 'user', component: () => {
+          return import('../pages/home/User')
+        }
+      }
+      ]
+    },
+    
+    <div>
+        Home
+      <router-link to="/home/message">message</router-link>
+      |
+      <router-link to="/home/user">user</router-link>
+      <router-view></router-view>
+    </div>
+    `;
+
+    xk$('.text33 code').innerHTML = zy(text33);
 })();

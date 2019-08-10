@@ -8,7 +8,9 @@ html{
     font-size: 26.66667vw;
 }
 body{
-    font-size: 0.14rem;
+  /*  width: 100%;
+    overflow-x: hidden;*/
+    font-size: 0.16rem;
 }
 
 .top{

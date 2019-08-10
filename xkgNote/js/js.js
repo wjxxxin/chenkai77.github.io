@@ -2842,8 +2842,6 @@ function jiechi(obj,key,value){
 
     xk$('.text95 code').innerHTML=zy(text95);
 
-
-
 })();
 
 

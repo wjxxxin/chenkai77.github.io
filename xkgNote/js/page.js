@@ -46,9 +46,9 @@ Note.prototype = {
             document.querySelector('.navLeft').style.height= window.screen.availHeight*0.75+'px';
             var num = Math.ceil(h3s.length / 14);
             h3s.forEach(function (ele) {
-                str += '<li>' + ele.innerText + '</li> ';
+                str += '<li>' + ele.innerText + '</li>*';
             });
-            var arr = str.split(' ');
+            var arr = str.split('*');
             for (var i = 0; i < num; i++) {
                 var ul2 = document.createElement("ul");
                 document.querySelector('.navLeft').appendChild(ul2);
