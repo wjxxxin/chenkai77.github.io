@@ -1187,4 +1187,113 @@ module.exports = {
     `;
 
     xk$('.text33 code').innerHTML = zy(text33);
+
+    var text34 = `var routers = new Router({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {path:'/cate/home',name:'home',meta:{title:'首页',login:false},/*component:Home*/ components:{default:Home,xxx:JdTabber}},
+        {path:'/cate',name:'cate',meta:{title:'分类',login:false},components:{default:Cate,xxx:JdTabber}},
+        {path:'/spell',name:'spell',meta:{title:'拼购',login:false},components:{default:Spell,xxx:JdTabber}},
+        {path:'/cart',name:'cart',meta:{title:'购物车',login:true},components:{default:Cart,xxx:JdTabber}},
+        {path:'/user',name:'user',meta:{title:'用户',login:true},components:{default:User,xxx:JdTabber}},
+        {path:'/list',name:'list',components:{default:List,xxx:JdTabber}},
+        {path:'/login',name:'login',components:{default:Login,xxx:JdTabber}},
+    ],
+    linkExactActiveClass:'exact-active',
+    linkActiveClass:'active',
+});
+var user = false;
+
+routers.beforeEach((to,from,next)=>{
+  if(!to.meta.login){
+    next()
+  }else{
+    if(user){
+      next()
+    }else{
+      next('/home')
+    }
+  }
+  document.title = to.meta.title;
+});`;
+
+    xk$('.text34 code').innerHTML = zy(text34);
+
+    var text35 = `const Foo = {
+  template: \`...\`,
+  beforeRouteEnter (to, from, next) {
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 \`this\`
+    // 因为当守卫执行前，组件实例还没被创建
+  },
+  beforeRouteUpdate (to, from, next) {
+    // 在当前路由改变，但是该组件被复用时调用
+    // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+    // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+    // 可以访问组件实例 \`this\`
+  },
+  beforeRouteLeave (to, from, next) {
+    // 导航离开该组件的对应路由时调用
+    // 可以访问组件实例 \`this\`
+  }
+}`;
+
+    xk$('.text35 code').innerHTML = zy(text35);
+
+    var text36 = `<!-- 逗号分隔字符串 -->
+<keep-alive include="a,b">
+  <router-view>
+    <!---------所有路径匹配到的视图组件都会被缓存--------------->
+  </router-view>
+</keep-alive>
+
+
+<!-- 数组 (使用 \`v-bind\`) -->
+<keep-alive :include="['a', 'b']">
+  <router-view>
+    <!---------所有路径匹配到的视图组件都会被缓存--------------->
+  </router-view>
+</keep-alive>
+`;
+
+    xk$('.text36 code').innerHTML = zy(text36);
+
+    var text37 = `<template>
+    <div>
+        <router-view name="default"></router-view>
+        <router-view name="xxx"></router-view>
+    </div>
+</template>
+
+
+var routers = new Router({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {path:'/cate/home',name:'home',meta:{title:'首页',login:false},/*component:Home*/ components:{default:Home,xxx:JdTabber}},
+        {path:'/cate',name:'cate',meta:{title:'分类',login:false},components:{default:Cate,xxx:JdTabber}},
+        {path:'/spell',name:'spell',meta:{title:'拼购',login:false},components:{default:Spell,xxx:JdTabber}},
+        {path:'/cart',name:'cart',meta:{title:'购物车',login:true},components:{default:Cart,xxx:JdTabber}},
+        {path:'/user',name:'user',meta:{title:'用户',login:true},components:{default:User,xxx:JdTabber}},
+        {path:'/list',name:'list',components:{default:List,xxx:JdTabber}},
+        {path:'/login',name:'login',components:{default:Login,xxx:JdTabber}},
+    ],
+    linkExactActiveClass:'exact-active',
+    linkActiveClass:'active',
+});`;
+
+    xk$('.text37 code').innerHTML = zy(text37);
+
+    var text38 = `      <router-link to="/home">home</router-link>
+      
+      <router-link to="/home/（id）">home</router-link>
+      
+      <router-link :to="{name:'about'}">about</router-link>
+      
+      <router-link :to="{name:'news',params:{id:7272}}">news</router-link>
+      
+      <router-link to="/home?(query)">home</router-link>  
+`;
+    xk$('.text38 code').innerHTML = zy(text38);
 })();

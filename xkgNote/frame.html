@@ -543,6 +543,7 @@ $("input").triggerHandler("click");</code></pre>
                 <li>computed和data和methods中的key都不能相同</li>
                 <li>computed会将当前的计算结果保存一下,如果里面的数据发生改变,重新执行并且再次保存最新结果.methods中的函数作为计算，会不断执行。</li>
                 <li>computed和watch都有监听的意思，只不过watch是监听已经存在数据，而computed是为了监听，当前创建的数据，而这个数据在data中不存在，当修改了当前创建的数据，会执行set方法</li>
+                <li>vue操作元素 ： 对组件或者元素添加自定义属性ref='自定义名称' ； 在js中通过this.$refs.自定义名称 对元素进行操作。</li>
             </ol>
         </div>
     </section>
@@ -750,16 +751,41 @@ $("input").triggerHandler("click");</code></pre>
     <section>
         <div class="small">
             <h4>vue使用路由</h4>
+            <p>路由就是指随着浏览器地址栏的变化，展示不同的页面。</p>
+            <p>路由就是URL到函数的映射。这是从路由的实现原理上来解释路由是什么的。</p>
             <ol>
                 <li>引入vue-router.js</li>
                 <li>定义路由
                     <pre class="text31"><code class="js"></code></pre>
+                    <p>routes里的对象可以添加meta属性,meta的值为一个对象，对象里可以写需要的数据</p>
                 </li>
-                <li>跳转链接&lt;router-link to="/home"&gt;首页&lt;/router-link&gt;</li>
-                <li>显示位置&lt;router-view /&gt;</li>
+                <li>跳转链接
+                    <pre><code class="js">&lt;router-link to="/home"&gt;首页&lt;/router-link&gt;</code></pre>
+                    <ol>
+                        <li>to = 路由规则的path</li>
+                        <li>:to = 对象，name值为就是路由规则的名称</li>
+                    </ol>
+                    <pre class="text38"><code class="js"></code></pre>
+                </li>
+                <li>显示位置
+                    <pre><code class="js">&lt;router-view&gt;&lt;/router-view&gt;</code></pre>
+                </li>
             </ol>
-            <p>router-link组件是为了具体跳转到哪个路由属性有totag 等。to 就相当于具体跳转到哪个路由。 默认router-link组件呈现在浏览器上是 a 标签；如果通过 tag="span" 那么它最终是以定义的span元素进行呈现，而且也能跳转。</p>
+            <ol>router-link组件是为了具体跳转到哪个路由属性有to，tag，replace等。
+                <li>to 就相当于具体跳转到哪个路由。</li>
+                <li>默认router-link组件呈现在浏览器上是 a 标签；如果通过 tag="span" 那么它最终是以定义的span元素进行呈现，而且也能跳转。</li>
+                <li>replace不会留下history记录, 所以指定replace的情况下, 后退键返回不能返回到上一个页面中</li>
+            </ol>
             <p>router-view 组件是让最终跳转的路由 path 对应的组件显示的位置。可以称之为占位路由切换时，切换的是 router-view 挂载的组件，其他内容不会发生改变。</p>
+            <br>
+            <p>router-view 路由视图</p>
+            <p>将视图添加名称，对应的路由规则中添加的components中的default 以及其它。</p>
+            <pre class="text37"><code class="js"></code></pre>
+            <br>
+            <ol>
+                <li>linkActiveClass : 在path匹配下才会出现的类名（包含）</li>
+                <li>linkExactActiveClass : 只是在path精准匹配下才会出现的类名</li>
+            </ol>
             <p>让路径默认跳到到首页, 并且渲染首页组件</p>
             <pre><code class="js">{path:'/',redirect:'/home'}</code></pre>
             <p>在routes中配置了一个映射,path配置的是根路径: / ;redirect是重定向, 也就是我们将根路径重定向到/home的路径下</p>
@@ -771,10 +797,6 @@ $("input").triggerHandler("click");</code></pre>
                 <li>创建路由实例，并且传入路由映射配置</li>
                 <li>在Vue实例中挂载创建的路由实例</li>
             </ol>
-            <ol>
-                <li>linkActiveClass : 在path匹配下才会出现的类名（包含）</li>
-                <li>linkExactActiveClass : 只是在path精准匹配下才会出现的类名</li>
-            </ol>
         </div>
         <div class="small">
             <h4>编程式的导航</h4>
@@ -782,8 +804,31 @@ $("input").triggerHandler("click");</code></pre>
             <pre class="text32"><code class="js"></code></pre>
         </div>
         <div class="small">
-            <h4>动态路由</h4>
-            <p>{path: '/news/:id', name: 'news', component: News} , 在router-link跳转时给id赋值为123 ; 进入组件中通过this.$route.params.id 来取取数据123。</p>
+            <h4>Vue-router参数传递</h4>
+            <ol>
+                <li>params的类型:
+                    <ol>
+                        <li>配置路由格式 : /router/:id</li>
+                        <li>传递的方式 : 在path后面跟上对应的值</li>
+                        <li>传递后形成的路径 : /router/123, /router/abc</li>
+                    </ol>
+                    <pre><code class="js">{path: '/news/:id', name: 'news', component: News} , 在router-link跳转时给id赋值为123 ;
+                        进入组件中通过this.$route.params.id 来取取数据123。</code></pre>
+                </li>
+                <li>query的类型:
+                    <ol>
+                        <li>配置路由格式 : /router, 也就是普通配置</li>
+                        <li>传递的方式 : 对象中使用query的key作为传递方式</li>
+                        <li>传递后形成的路径 : /router?id=123, /router?id=abc</li>
+                    </ol>
+                </li>
+            </ol>
+            <p>对应的获取参数通过$route对象获取</p>
+            <p>在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。</p>
+            <ol>
+                <li>$router为VueRouter实例，想要导航到不同URL，则使用$router.push方法。一般用来操作跳由跳转的方法</li>
+                <li>$route为当前router跳转对象里面可以获取name、path、query、params等。获取当前匹配路由参数</li>
+            </ol>
         </div>
         <div class="small">
             <h4>路由懒加载</h4>
@@ -800,6 +845,65 @@ $("input").triggerHandler("click");</code></pre>
         {path: 'user', name: 'user', component: () => {
           return import('../pages/home/User')}}
       ]</code></pre>
+        </div>
+        <div class="small">
+            <h4>Vue-router导航守卫</h4>
+            <p>“导航”表示路由正在发生改变。</p>
+            <p>vue-router提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
+            <ol>
+                <li>to : Route : 即将要进入的目标路由对象</li>
+                <li>from : Route : 当前导航正要离开的路由</li>
+                <li>next : Function : 一定要调用该方法来resolve这个钩子。执行效果依赖next方法的调用参数。
+                    <ol>
+                        <li>next() : 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是confirmed(确认的)。</li>
+                        <li>next(false) : 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到from路由对应的地址。</li>
+                        <li>next('/')或者next({ path: '/' }) : 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向next传递任意位置对象，且允许设置诸如replace: true、name: 'home'之类的选项以及任何用在router-link的toprop或router.push中的选项。</li>
+                        <li>next(error): (2.4.0+) 如果传入next的参数是一个Error实例，则导航会被终止且该错误会被传递给router.onError()注册过的回调。</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>全局守卫</h4>
+            <p>routers.beforeEach</p>
+            <pre class="text34"><code class="js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>路由独享守卫</h4>
+            <p>路由独享守卫故名思议，就是当前的守卫只能给路由自己使用。
+            <pre><code class="js">const router = new VueRouter({
+  routes: [
+    {
+      path: '/foo',
+      component: Foo,
+      beforeEnter: (to, from, next) => {
+        // ...
+      }
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="small">
+            <h4>组件守卫</h4>
+            <p>组件守卫，就是如果当前路由匹配成功，那么对应的组件就会显示到页面中。同样的在组件显示的过程中，也会经历三个组件守卫。</p>
+            <ol>
+                <li>beforeRouteEnter</li>
+                <li>beforeRouteUpdate</li>
+                <li>beforeRouteLeave</li>
+            </ol>
+            <pre class="text35"><code class="js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>keep-alive</h4>
+            <p>keep-alive遇见vue-router</p>
+            <p>keep-alive 是 Vue 内置的一个组件，起到缓存作用，可以使被包含的组件保留状态，或避免重新渲染。</p>
+            <ol>
+                <li>include ： 字符串或正则表达，只有匹配的组件会被缓存</li>
+                <li>exclude ： 字符串或正则表达式，任何匹配的组件都不会被缓存</li>
+                <li>max ： 数字。最多可以缓存多少组件实例。</li>
+            </ol>
+            <p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p>
+            <pre class="text36"><code class="js"></code></pre>
         </div>
     </section>
 </div>
