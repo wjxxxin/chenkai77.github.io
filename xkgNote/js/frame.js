@@ -1296,4 +1296,76 @@ var routers = new Router({
       <router-link to="/home?(query)">home</router-link>  
 `;
     xk$('.text38 code').innerHTML = zy(text38);
+
+    var text39 = `//单击 组件1按钮 ，操作组件按钮2的功能触发。
+
+<div class="container" id="app">
+    <com1></com1>
+    <com2></com2>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    //中央数据总线
+    //vue-bus
+    var bus = new Vue();
+    var com1 = {
+        template:\`<button @click="myalert()">组件1</button>\`,
+        methods:{
+            myalert(){
+                bus.$emit('xxx');
+            }
+        }
+    }
+    var com2 = {
+        template:\`<button>组件2</button>\`,
+        mounted(){
+            bus.$on('xxx',function () {
+                alert(1)
+            })
+        }
+    }
+
+    var vm = new Vue({
+        el:"#app",
+        components: {
+            com1,
+            com2
+        }
+    })
+</script>`;
+
+    xk$('.text39 code').innerHTML = zy(text39);
+
+    var text40 = `//plugin文件夹里的VueBus.js文件，
+    //插件原型方法
+    //1，书写对象，
+    var VueBus = {}，
+    
+    //2，给对象添加install
+    VueBus.install = function(Vue){
+        Vue.prototype.bus = new Vue();//原型方法
+        Vue.a = 'a';//静态属性
+        
+        Vue.component('MyHeader',{
+            //template:....
+            render(h){
+                // h 参数：标签名称 子节点数组（文本也是节点，文本节点，标签属性也是节点）
+                return h('div',['全局组件',h('p',['p标签'])])
+            } 
+        })
+    }   
+    
+   //main.js文件
+    import Vue from "vue";
+    import App from "./App";
+    import VueBus from './plugin/VueBus'；
+    
+    Vue.use(VueBus);
+    
+    new Vue({
+        render:h => h(App),
+    }).$mount('#app')
+    `;
+
+    xk$('.text40 code').innerHTML = zy(text40);
 })();
