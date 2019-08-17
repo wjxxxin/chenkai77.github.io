@@ -138,6 +138,7 @@ code, kbd, pre, samp{
   transform: translateX(-77px);
   transition: all 0.4s;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 .searchBut::before{
   content: '';
@@ -176,9 +177,10 @@ code, kbd, pre, samp{
   position: absolute;
   top: 11px;
   left: 80px;
-  transition: all 0.5s;
+  transition: 1s;
   box-shadow:0 0 7px 0 deepskyblue;
-  display: none;
+  opacity: 0;
+  z-index: 0;
 }
 
 

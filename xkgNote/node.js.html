@@ -1059,6 +1059,33 @@ $('#form').serializeArray();</code></pre>
                 </div>
             </div>
         </div>
+        <div class="small">
+            <h4>axiso拦截器</h4>
+            <div class="tapNav">
+                <div class="tapTop cur">请求拦截器</div>
+                <div class="tapTop">响应拦截器</div>
+                <div class="tapTop">移除拦截器</div>
+                <div class="tapTop">为axios实例添加拦截器</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <p>请求拦截器的作用是在请求发送前进行一些操作，例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易。</p>
+                    <pre class="text85"><code class="js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <p>响应拦截器的作用是在接收到响应后进行一些操作，例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页。</p>
+                    <pre class="text86"><code class="js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="js">var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
+axios.interceptors.request.eject(myInterceptor);</code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre><code class="js">var instance = axios.create();
+instance.interceptors.request.use(function () {/*...*/});</code></pre>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 <div class="item">

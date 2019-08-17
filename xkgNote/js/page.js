@@ -426,10 +426,10 @@ Note.prototype = {
                     this.style.backgroundColor = '#ccc';
                     searchinp.style.display = 'block';
                     searchinp.style.width = '180px';
-                    searchup.style.display = 'block';
+                    searchup.style.opacity = '1';
                     searchup.style.transform = 'rotateZ(720deg)';
                     searchup.style.left = '210px';
-                    searchdown.style.display = 'block';
+                    searchdown.style.opacity = '1';
                     searchdown.style.transform = 'rotateZ(720deg)';
                     searchdown.style.left = '250px';
                     searchtrue = true;
@@ -438,10 +438,10 @@ Note.prototype = {
                     this.style.backgroundColor = 'deepskyblue';
                     searchinp.style.display = 'none';
                     searchinp.style.width = '0';
-                    searchup.style.display = 'none';
+                    searchup.style.opacity = '0';
                     searchup.style.transform = 'rotateZ(0deg)';
                     searchup.style.left = '80px';
-                    searchdown.style.display = 'none';
+                    searchdown.style.opacity = '1';
                     searchdown.style.transform = 'rotateZ(0deg)';
                     searchdown.style.left = '80px';
                     searchArr.forEach(function (ele) {
@@ -455,11 +455,17 @@ Note.prototype = {
             }
         };
         searchup.onclick = function () {
+            if(!newsearchArr.length){
+                return;
+            }
             searchIndex--;
             searchIndex = searchIndex < 0 ? 0 : searchIndex;
             that.windowScroll(newsearchArr[searchIndex]);
         };
         searchdown.onclick = function () {
+            if(!newsearchArr.length){
+                return;
+            }
             searchIndex++;
             searchIndex = searchIndex > newsearchArr.length - 1 ? newsearchArr.length - 1 : searchIndex;
             that.windowScroll(newsearchArr[searchIndex]);

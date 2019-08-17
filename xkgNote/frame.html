@@ -1584,6 +1584,31 @@ trim_trailing_whitespace = true</code></pre>
                     </div>
                 </div>
             </div>
+            <div class="small">
+                <h4>跨域请求代理配置</h4>
+                <p>使用 Vue-cli 创建的项目，开发地址是 localhost:8080，需要访问非本机上的接口时。不同域名之间的访问，需要跨域才能正确请求。可以使用vue-cli提供的请求代理，只需要在配置文件上面增加对应的配置（vue.config.js）修改就可以帮助解决开发环境的跨域问题。</p>
+                <pre class="text41"><code class="js"></code></pre>
+                <p>然后请求数据时URL前加上“/api”就可以跨域请求了</p>
+                <p>目前是在开发模式下配的地址，相应的在上线后不需要这个地址。在/src/request/api.js中配置</p>
+                <pre><code class="js">import request from './request.js'
+
+const preUrl = process.env.NODE_ENV === 'development' ? '/api/coding' : ''
+
+// 登陆
+export const loginApi = params => request.post(`${preUrl}/tokens`, params)</code></pre>
+                <p>pathRewrite含义</p>
+                <p>用代理，首先你得有一个标识，告诉他你这个连接要用代理，不然的话，可能你的 html，css，js这些静态资源都跑去代理。所以我们只要接口用代理，静态文件用本地。'/iclient': {}, 就是告诉node，我接口只要是'/iclient'开头的才用代理。所以你的接口就要这么写 /iclient/xx/xx。最后代理的路径就是 http://xxx.xx.com/iclient/xx/xx。可是不对，正确的接口路径里面没有/iclient啊，所以就需要 pathRewrite，用'^/iclient':'', 把'/iclient'去掉，这样既能有正确标识，又能在请求接口的时候去掉iclient。当然如果本身的接口中就有/iclient，那么就可以把pathRewrite这个参数去掉。</p>
+                <pre><code class="js">proxy: {
+  '/list': {
+    target: 'http://api.xxxxxxxx.com',
+    pathRewrite: {
+      '^/list': '/list'
+    }
+  }
+}
+ 这样我们在写url的时候，只用写成/list/1就可以代表api.xxxxxxxx.com/list/1.</code></pre>
+            </div>
+
         </section>
 </div>
 <div class="item">

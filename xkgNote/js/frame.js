@@ -407,7 +407,7 @@ var vm = new Vue({
             handler(){
                 //数据发生变化时将变化后的数据处理
             },
-            deep:true / false(是否深监听)
+            deep:true //  /false(是否深监听)
         }
     }
     computed : {
@@ -416,7 +416,7 @@ var vm = new Vue({
         //如果数据发生改变，会重新执行并且再次保存最新结果
         '值' : {
             get(){
-                return : 输出的值 
+                return //输出的值 
             },
             set(newval){
                 值状态改变时触发的函数
@@ -697,12 +697,12 @@ new Vue({
 
 另一种写法：
    <script>
-        1.创建一个对象
+        //1.创建一个对象
         var MyComp = {
             template:\`<div>这是局部组件</div>\`
         }
-        2.把这个对象注册到实例或者组件上成为组件使用  通过组件或者实例的 components这个选项上，以key值为组件名称。
-        3.使用这个实例或者组件的环境中（template中）就可以使用这个组件
+        //2.把这个对象注册到实例或者组件上成为组件使用  通过组件或者实例的 components这个选项上，以key值为组件名称。
+        //3.使用这个实例或者组件的环境中（template中）就可以使用这个组件
         var vm = new Vue({
             components:{
                 MyComp
@@ -1368,4 +1368,21 @@ var routers = new Router({
     `;
 
     xk$('.text40 code').innerHTML = zy(text40);
+
+    var text41 = `module.exports = {
+    devServer: {
+        proxy: {\t
+            '/api': {  //代理地址
+                target: 'http://192.168.113.117:8080',  //需要代理的地址
+                changeOrigin: true,  //是否跨域
+                pathRewrite: {     
+                    '^/api/coding/': '/'  //本身的接口地址没有 '/api' 这种通用前缀，所以要rewrite，如果本身有则去掉
+                }
+            }
+        }
+    }
+}`;
+
+    xk$('.text41 code').innerHTML = zy(text41);
+
 })();
