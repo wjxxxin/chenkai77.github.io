@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="icon" href="images/titleIcon/vue.jpg">
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+</head>
+<body>
+<ul class="navLeft">
+
+</ul>
+<ul class="navRight">
+
+</ul>
+<div class="top">
+    框架、工具
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<div class="phone-show pc-hide titleNav">
+    <input type="text" placeholder="搜索">
+    <div class="ssbut ss">搜索</div>
+    <div class="ssbut ok">ok</div>
+    <div class="ssbut sd">下一个</div>
+    <div class="alltitle">展开目录</div>
+</div>
+<div class="frameTitle">
+    <div class="frameItem">jQuery</div>
+    <div class="frameItem">Vue</div>
+    <div class="frameItem">React</div>
+    <div class="frameItem">tool</div>
+</div>
+<article>
+    <div class="item">
+        <h3>Vue 基本</h3>
+        <section>
+            <div class="small">
+                <pre class="text12"><code class="js"></code></pre>
+                <ol>
+                    <li>el绑定的元素不可以是body或者html</li>
+                    <li>vue中的数据要放在生成实例的参数选项的data对象中。data中的数据不仅仅是字符串，也可以是对象或者数组。</li>
+                    <li>使用数据时，直接书写{{数据名称}}，{{}}语法是插值，又称mustache语法[ˈmʌstæʃ]。本义 胡须。
+                        <p>插值语法，其实就是{{}}内部可以书写js的简单操作，其实也就是相当于js的表达式。加减乘除，数组操作，函数执行等。</p>
+                    </li>
+                    <li>computed和data和methods中的key都不能相同</li>
+                    <li>computed会将当前的计算结果保存一下,如果里面的数据发生改变,重新执行并且再次保存最新结果.methods中的函数作为计算，会不断执行。</li>
+                    <li>computed和watch都有监听的意思，只不过watch是监听已经存在数据，而computed是为了监听，当前创建的数据，而这个数据在data中不存在，当修改了当前创建的数据，会执行set方法</li>
+                    <li>vue操作元素 ： 对组件或者元素添加自定义属性ref='自定义名称' ； 在js中通过this.$refs.自定义名称 对元素进行操作。</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue 指令</h3>
+        <section>
+            <div class="small">
+                <p>指令是书写在html标签身上的功能。是Vue框架赋予了这个属性的一些功能。</p>
+                <ol>
+                    <li>v-model ： 是vue针对表单元素和vue的数据做的一层特殊处理
+                        <ol>修饰符：
+                            <li>number ： 强制修改成为数字。</li>
+                            <li>trim ： 去除两端空格。</li>
+                            <li>lazy ： v-model 在每次 input 事件触发后将输入框的值与数据进行同步，lazy 修饰符使其转变为使用 change 事件进行同步。</li>
+                        </ol>
+                    </li>
+                    <li>v-html / v-text ： 书写在标签属性上，当网络不友好时，也不显示其它字符，等全部加载完，再显示到页面中。v-html ： 值包含标签； v-text ： 值为简单数据</li>
+                    <li>v-cloak ： 可以让书写vue代码的部分全部隐藏。等Vue代码加载和编译完全，会让其显示出来。
+                        <p>写的时候要加上&lt;style&gt; [v-cloak]{display: none;} &lt;/style&gt;</p>
+                    </li>
+                    <li>v-if : 用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。false的话元素不会在文档出现</li>
+                    <li>v-show :  v-show ='布尔值' ： 元素切换显示/隐藏 ; v-show 指令当值为true则为显示，值为 false 则为隐藏。</li>
+                    <li>绑定事件 ： 直接将事件书写在模板中 v-on:click="指令名称()" 或者简写为 @click="指令名称()"</li>
+                    <li>v-for ： 用 v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要使用  item in items 形式 的特殊语法， items 是源数据数组并且  item 是数组元素迭代的别名。
+                        <p>如果希望使用索引值那么提供了 (item,index) in items 第一项为数组元素的别名，第二项为索引值，不可以交换位置</p>
+                        <p>也可以用 v-for 通过一个对象的属性来迭代。value , key , index 第一个是对应的值，第二个是属性名称，第三个是索引。注意这里面的渲染的结果并不一定会按照对象的属性先后显示。</p>
+                        <a class="btns" href="javascript:">代码</a>
+                        <pre class="text13"><code class="html"></code></pre>
+                    </li>
+                    <li>v-bind : (可以简写为 ： )对标签的属性可以绑定数据;操作元素的类名或者内联样式，是一个常见的需求。可以结合表达式，进行字符串拼接即可。
+                        <p>我们可以通过 v-bind 处理 class 和 style 。可以是字符串，也可以是对象(例如：v-bind:style="{k:v,k:v}")或者数组（例如 ： v-bind:class=“[数据1，数据2]”）。</p>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>自定义指令</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">注册全局自定义指令</div>
+                    <div class="tapTop">注册局部指令</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text14"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text15"><code class="js"></code></pre>
+                    </div>
+                </div>
+                <ol>一个指令定义对象可以提供如下几个钩子函数:
+                    <li>inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</li>
+                    <li>update：所在组件的 VNode 更新时调用</li>
+                </ol>
+                <ol>钩子函数的参数：
+                    <li>el：指令所绑定的元素，可以用来直接操作 DOM 。</li>
+                    <li>binding：一个对象，包含以下属性：
+                        <ol>
+                            <li>value：指令的绑定值，例如：v-my-directive="1 + 1" 中，绑定值为 2。</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue 组件</h3>
+        <section>
+            <div class="small">
+                <div class="tapNav">
+                    <div class="tapTop cur">全局组件</div>
+                    <div class="tapTop">局部组件</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text17"><code class="html"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text19"><code class="js"></code></pre>
+                    </div>
+                </div>
+                <ol>
+                    <li>必须先注册才能使用。而且注册要写在实例之前。否则也不能生效。</li>
+                    <li>注册中的模板必须要有一个根节点，不可以全部同级</li>
+                    <li>组件内部还可以去使用其它组件</li>
+                    <li>组件名称不可以使用浏览器支持的标签。如：div,article……</li>
+                    <li>组件名称大小写 kebab-case(肉串/烤串)写法或者 PascalCase(大驼峰)写法 组件使用时都是用kebab-case(肉串/烤串)写法</li>
+                    <li>组件不可以直接访问实例数据</li>
+                    <li>父子组件，定义注册组件为子组件，使用组件为父组件</li>
+                    <li>实例中的template和el结合会把el的绑定的元素用template替换掉</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>组件私有数据</h4>
+                <ol>组件数据的存放
+                    <li>组件对象也有一个data属性</li>
+                    <li>只是这个data属性必须是一个函数,原因是在于Vue让每个组件对象都返回一个新的对象，因为如果是同一个对象的，组件在多次使用后会相互影响。</li>
+                    <li>而且这个函数返回一个对象，对象内部保存着数据</li>
+                </ol>
+                <a class="btns" href="javascript:">定时器案例</a>
+                <pre class="text20"><code class="html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>组件通信</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">父组件向子组件传递</div>
+                    <div class="tapTop">子组件向父组件传递</div>
+                    <div class="tapTop">非父子组件通信</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>通过给父组件添加自定义属性</li>
+                            <li>子组件中通过props接收父组件的自定义属性</li>
+                            <li>在模板中通过{{自定义属性名称}}来显示数据</li>
+                        </ol>
+                        <p>props数据验证 : 支持String、Number、Boolean、Array、Object、Date、Function、Symbol（注意首字母要大写，且不加引号）</p>
+                        <pre class="text21"><code class="html"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>父组件通过v-on:自定义类型=”函数“</li>
+                            <li>子组件通过this.$emit(自定义事件名称)</li>
+                        </ol>
+                        <pre class="text22"><code class="html"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>Vue-Bus中央事件总线</p>
+                        <pre class="text39"><code class="html"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>组件循环</h4>
+                <p>我们需要在对组件循环时，添加一个属性key且key值为字符串或者数字，且key值不可以重复</p>
+            </div>
+            <div class="small">
+                <h4>插槽</h4>
+                <p>在子组件中，使用特殊的元素&lt;slot&gt;就可以为子组件开启一个插槽。</p>
+                <p>匿名插槽 ： 在父组件内部书写内容 ；在子组件模板中书写slot标签</p>
+                <a class="btns" href="javascript:">匿名插槽</a>
+                <pre class="text23"><code class="html"></code></pre>
+                <ol>具名插槽 ：
+                    <li>1、在父组件内部书写内容，内容的标签要添加slot="插槽名称" ；如果父组件内容,如果没有标签,通过template作为空标签.在它的身上添加slot="插槽名称"</li>
+                    <li>2、在子组件中书写slot标签,并且添加name属性.</li>
+                </ol>
+                <a class="btns" href="javascript:">具名插槽</a>
+                <pre class="text24"><code class="html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>作用域插槽</h4>
+                <p>默认父组件使用子组件，插槽的数据默认是拿父组件的数据，而不是从子组件拿数据。</p>
+                <p>作用域插槽在父组件使用我们的子组件时，插槽的数据从子组件中拿到数据，而不从父组件拿到。</p>
+                <a class="btns" href="javascript:">作用域插槽</a>
+                <pre class="text25"><code class="html"></code></pre>
+            </div>
+            <div class="small">
+                <h4>编译作用域和作用域插槽有什么不同</h4>
+                <ol>
+                    <li>插槽的数据应该是所在的编译环境</li>
+                    <li>作用域插槽希望插槽的数据是当前组件传递数据</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>模板分离</h4>
+                <p>将模板单独拆分到template标签中，并且指定ID名称。在注册对应的template位置放上指定的ID名称即可。</p>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text18"><code class="html"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue生命周期</h3>
+        <section>
+            <div class="small">
+                <p>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</p>
+                <!--<a class="btns" href="javascript:">定时器案例</a>
+                <pre class="text20"><code class="html"></code></pre>-->
+            </div>
+            <div class="small">
+                <h4>实例和组件生命周期</h4>
+                <p>生命周期钩子：就是生命周期事件的别名而已；</p>
+                <p>生命周期钩子 = 生命周期函数 = 生命周期事件</p>
+                <ol>1、初始
+                    <li>beforeCreate : 实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性</li>
+                    <li>created ： 实例已经在内存中创建OK，此时 data 和 methods已经创建OK，此时还没有开始编译模板</li>
+                </ol>
+                <ol>2、挂载
+                    <li>beforeMount ： 此时已经完成了模板的编译，但是还没有挂载到页面中</li>
+                    <li>mounted ： 此时，已经将编译好的模板，挂载到了页面指定的容器中显示</li>
+                </ol>
+                <ol>3、更新
+                    <li>beforeUpdate ： 状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点</li>
+                    <li>updated ： 实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！</li>
+                </ol>
+                <ol>4、销毁
+                    <li>beforeDestroy ： 实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+                    <li>destroyed ：  Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+                </ol>
+                <ol>5、在keep-alive组件中才能生效的生命周期
+                    <li>activated ： keep-alive 组件激活时调用。</li>
+                    <li>deactivated ： keep-alive 组件停用时调用</li>
+                </ol>
+                <a class="btns" href="javascript:">生命周期</a>
+                <div class="bigimg"><img src="images/Vue/lifecycle.jpg" alt=""></div>
+                <ol>
+                    <li>可以进行AJAX操作的生命周期有created、beforeUpdate这两个生命周期。一般用created</li>
+                    <li>mounted : 用来操作元素的 之前都不可以操作元素.之后都可以操作元素.</li>
+                    <li>this.$el 可以获取到Vue 实例使用的根 DOM 元素。可能会显示到页面中，也可能还没有显示到页面中。在mounted之前是不会显示到页面中的。</li>
+                    <li>实例被销毁，是要通过vm.$destroy()调用才可以。不过，它只不过是实例销毁，反应销毁，数据销毁，但是显示到页面中的元素，还依然存在。不过尽可能的不要通过vm.$destroy()方法来销毁。</li>
+                    <li>在created、beforeMount、mounted、beforeUpdate和updated是可以对data中数据进行修改。而销毁阶段的生命周期中对数据的修改是不会生效的。</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue-router</h3>
+        <section>
+            <div class="small">
+                <h4>vue使用路由</h4>
+                <p>路由就是指随着浏览器地址栏的变化，展示不同的页面。</p>
+                <p>路由就是URL到函数的映射。这是从路由的实现原理上来解释路由是什么的。</p>
+                <ol>
+                    <li>引入vue-router.js</li>
+                    <li>定义路由
+                        <pre class="text31"><code class="js"></code></pre>
+                        <p>routes里的对象可以添加meta属性,meta的值为一个对象，对象里可以写需要的数据</p>
+                    </li>
+                    <li>跳转链接
+                        <pre><code class="js">&lt;router-link to="/home"&gt;首页&lt;/router-link&gt;</code></pre>
+                        <ol>
+                            <li>to = 路由规则的path</li>
+                            <li>:to = 对象，name值为就是路由规则的名称</li>
+                        </ol>
+                        <pre class="text38"><code class="js"></code></pre>
+                    </li>
+                    <li>显示位置
+                        <pre><code class="js">&lt;router-view&gt;&lt;/router-view&gt;</code></pre>
+                    </li>
+                </ol>
+                <ol>router-link组件是为了具体跳转到哪个路由属性有to，tag，replace等。
+                    <li>to 就相当于具体跳转到哪个路由。</li>
+                    <li>默认router-link组件呈现在浏览器上是 a 标签；如果通过 tag="span" 那么它最终是以定义的span元素进行呈现，而且也能跳转。</li>
+                    <li>replace不会留下history记录, 所以指定replace的情况下, 后退键返回不能返回到上一个页面中</li>
+                </ol>
+                <p>router-view 组件是让最终跳转的路由 path 对应的组件显示的位置。可以称之为占位路由切换时，切换的是 router-view 挂载的组件，其他内容不会发生改变。</p>
+                <br>
+                <p>router-view 路由视图</p>
+                <p>将视图添加名称，对应的路由规则中添加的components中的default 以及其它。</p>
+                <pre class="text37"><code class="js"></code></pre>
+                <br>
+                <ol>
+                    <li>linkActiveClass : 在path匹配下才会出现的类名（包含）</li>
+                    <li>linkExactActiveClass : 只是在path精准匹配下才会出现的类名</li>
+                </ol>
+                <p>让路径默认跳到到首页, 并且渲染首页组件</p>
+                <pre><code class="js">{path:'/',redirect:'/home'}</code></pre>
+                <p>在routes中配置了一个映射,path配置的是根路径: / ;redirect是重定向, 也就是我们将根路径重定向到/home的路径下</p>
+            </div>
+            <div class="small">
+                <h4>vue-cli结合vue-router</h4>
+                <ol>
+                    <li>导入路由对象，并且调用 Vue.use(VueRouter)</li>
+                    <li>创建路由实例，并且传入路由映射配置</li>
+                    <li>在Vue实例中挂载创建的路由实例</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>编程式的导航</h4>
+                <p>除了使用router-link创建 a 标签来定义导航链接，我们还可以借助 router 的实例方法(即JS)，通过编写代码来实现。</p>
+                <pre class="text32"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>Vue-router参数传递</h4>
+                <ol>
+                    <li>params的类型:
+                        <ol>
+                            <li>配置路由格式 : /router/:id</li>
+                            <li>传递的方式 : 在path后面跟上对应的值</li>
+                            <li>传递后形成的路径 : /router/123, /router/abc</li>
+                        </ol>
+                        <pre><code class="js">{path: '/news/:id', name: 'news', component: News} , 在router-link跳转时给id赋值为123 ;
+                        进入组件中通过this.$route.params.id 来取取数据123。</code></pre>
+                    </li>
+                    <li>query的类型:
+                        <ol>
+                            <li>配置路由格式 : /router, 也就是普通配置</li>
+                            <li>传递的方式 : 对象中使用query的key作为传递方式</li>
+                            <li>传递后形成的路径 : /router?id=123, /router?id=abc</li>
+                        </ol>
+                    </li>
+                </ol>
+                <p>对应的获取参数通过$route对象获取</p>
+                <p>在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。</p>
+                <ol>
+                    <li>$router为VueRouter实例，想要导航到不同URL，则使用$router.push方法。一般用来操作跳由跳转的方法</li>
+                    <li>$route为当前router跳转对象里面可以获取name、path、query、params等。获取当前匹配路由参数</li>
+                </ol>
+                <h5 class="subtitle">参数解耦</h5>
+                <p>一般我们获取路由的参数是通过this.$routes.params来获取；这里用一个新的方法通过在路由中添加props:true,这样就可以容易获取路由的参数,当然也可以获取query中的参数</p>
+                <pre class="text42"><code class="js"></code></pre>
+                <p>这样便可以在任何地方使用该组件，使得该组件更易于重用和测试。</p>
+                <pre class="text43"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>路由懒加载</h4>
+                <pre><code class="js">const Home = () => import(/* webpackChunkName:"kk"(js文件名) */ '../components/Home.vue')</code></pre>
+            </div>
+            <div class="small">
+                <h4>嵌套路由</h4>
+                <pre class="text33"><code class="js"></code></pre>
+                <p>嵌套路由也可以配置默认的路径, 配置方式如下:</p>
+                <pre><code class="js">children: [
+         {path:'',redirect:'message'},
+        {path: 'message', name: 'message', component: () => {
+          return import('../pages/home/Message')}},
+        {path: 'user', name: 'user', component: () => {
+          return import('../pages/home/User')}}
+      ]</code></pre>
+            </div>
+            <div class="small">
+                <h4>Vue-router导航守卫</h4>
+                <p>“导航”表示路由正在发生改变。</p>
+                <p>vue-router提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
+                <ol>
+                    <li>to : Route : 即将要进入的目标路由对象</li>
+                    <li>from : Route : 当前导航正要离开的路由</li>
+                    <li>next : Function : 一定要调用该方法来resolve这个钩子。执行效果依赖next方法的调用参数。
+                        <ol>
+                            <li>next() : 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是confirmed(确认的)。</li>
+                            <li>next(false) : 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到from路由对应的地址。</li>
+                            <li>next('/')或者next({ path: '/' }) : 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向next传递任意位置对象，且允许设置诸如replace: true、name: 'home'之类的选项以及任何用在router-link的toprop或router.push中的选项。</li>
+                            <li>next(error): (2.4.0+) 如果传入next的参数是一个Error实例，则导航会被终止且该错误会被传递给router.onError()注册过的回调。</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>全局守卫</h4>
+                <p>routers.beforeEach</p>
+                <pre class="text34"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>路由独享守卫</h4>
+                <p>路由独享守卫故名思议，就是当前的守卫只能给路由自己使用。
+                <pre><code class="js">const router = new VueRouter({
+  routes: [
+    {
+      path: '/foo',
+      component: Foo,
+      beforeEnter: (to, from, next) => {
+        // ...
+      }
+    }
+  ]
+})</code></pre>
+            </div>
+            <div class="small">
+                <h4>组件守卫</h4>
+                <p>组件守卫，就是如果当前路由匹配成功，那么对应的组件就会显示到页面中。同样的在组件显示的过程中，也会经历三个组件守卫。</p>
+                <ol>
+                    <li>beforeRouteEnter</li>
+                    <li>beforeRouteUpdate</li>
+                    <li>beforeRouteLeave</li>
+                </ol>
+                <pre class="text35"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>keep-alive</h4>
+                <p>keep-alive遇见vue-router</p>
+                <p>keep-alive 是 Vue 内置的一个组件，起到缓存作用，可以使被包含的组件保留状态，或避免重新渲染。</p>
+                <ol>
+                    <li>include ： 字符串或正则表达，只有匹配的组件会被缓存</li>
+                    <li>exclude ： 字符串或正则表达式，任何匹配的组件都不会被缓存</li>
+                    <li>max ： 数字。最多可以缓存多少组件实例。</li>
+                </ol>
+                <p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p>
+                <pre class="text36"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>自定义插件及渲染函数</h3>
+        <section>
+            <div class="small">
+                <h4>自定义插件</h4>
+                <p>Vue.js 的插件应该暴露一个 install 方法。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象</p>
+                <p>只要调用Vue.use(插件) ，那么这个插件的install 会默认执行。</p>
+                <pre class="text40"><code class="js"></code></pre>
+                <p>作用就是为了给Vue原型 对象或者 静态方法；全局组件扩展</p>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vuex</h3>
+        <section>
+            <div class="small">
+                <h4>什么是Vuex</h4>
+                <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。</p>
+                <p>把组件的共享状态抽取出来，以一个全局单例模式管理，在这种模式下，组件树构成了一个巨大的“视图”，不管在树的哪个位置，任何组件都能获取状态或者触发行为！通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。</p>
+                <img src="images/Vue/vuex.png" alt="">
+                <p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：</p>
+                <ol>
+                    <li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
+                    <li>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样使得我们可以方便地跟踪每一个状态的变化。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>Vuex的使用</h4>
+                <ol>
+                    <li>在模块化构建系统中，注入插件 Vue.use(Vuex);</li>
+                    <li>创建vuex实例，创建仓库
+                        <pre><code class="js">var store = new Vuex.Store({
+    //state存储的是公共数据
+    state:{
+        count:0,
+    }
+});</code></pre></li>
+                    <li>在模块化构建系统中，导出store export default store;</li>
+                    <li>在模块化构建系统中，实例挂载
+                        <pre><code class="js">new Vue({
+  store:store,
+  render: h => h(App),
+}).$mount('#app')
+</code></pre></li>
+                </ol>
+                <p>根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。</p>
+            </div>
+            <div class="small">
+                <h4>核心概念</h4>
+                <div class="small">
+                    <div class="tapNav">
+                        <div class="tapTop cur">State</div>
+                        <div class="tapTop">mutations</div>
+                        <div class="tapTop">getters</div>
+                        <div class="tapTop">action</div>
+                    </div>
+                    <div class="tapMain">
+                        <div class="tapSection">
+                            <p>存储数据的容器</p>
+                            <pre><code class="js">state:{ count : 0, }</code></pre>
+                            <ol>任意组件中访问：
+                                <li><pre><code class="js">computed: { count () { return this.$store.state.count } }</code></pre></li>
+                                <li>通过助手函数
+                                    <ol>
+                                        <li>在单独构建的版本中辅助函数为 Vuex.mapState</li>
+                                        <li>在模块化构建系统中，import { mapState } from 'vuex'</li>
+                                    </ol>
+                                    <ol>使用：
+                                        <li>数组直接使用 ([公共状态key值]) ： <pre><code class="js">computed:mapState(['count']),</code></pre></li>
+                                        <li>对象，扩展运算符，书写别名({别名:公共状态值}) <pre><code class="js">computed:{ ...mapState({coun:'count'}),},</code></pre></li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tapSection">
+                            <p>专门修改state中的数据的方法</p>
+                            <pre><code class="js">mutations:{
+        increment(state,payload){
+            state.count++;
+        }
+    }</code></pre>
+                            <ol>任意组件中使用：
+                                <li><pre><code class="js">this.$store.getters.方法名称</code></pre></li>
+                                <li>通过助手函数
+                                    <ol>
+                                        <li>在单独构建的版本中辅助函数为 Vuex.mapGetters</li>
+                                        <li>在模块化构建系统中，import { mapGetters } from 'vuex'</li>
+                                    </ol>
+                                    <p>在computed中添加 ...mapGetters([’方法名称‘])；</p>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tapSection">
+                            <p>针对state中的数据进行计算，并且返回结果</p>
+                            <pre><code class="js"> getters:{
+    total(state,getters){
+      return state.count.reduce((a,b)=>a+b,0)
+    },
+    len(state,getters){
+      return state.count.length
+    },
+    ava(state,getters){
+      return parseInt(getters.total/getters.len||0)
+    }
+  },</code></pre>
+                            <ol>
+                                <li>state可以访问状态</li>
+                                <li>getters 可以获取其它的计算结果</li>
+                            </ol>
+                            <ol>任意组件中使用：
+                                <li><pre><code class="js">this.$store.getters.方法名称</code></pre></li>
+                                <li>通过助手函数
+                                    <ol>
+                                        <li>在单独构建的版本中辅助函数为 Vuex.mapGetters</li>
+                                        <li>在模块化构建系统中，import { mapGetters } from 'vuex'</li>
+                                    </ol>
+                                    <p>在computed中添加 ...mapGetters([’方法名称‘])</p>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tapSection">
+                            <ol>Action 类似于 mutation，不同在于：
+                                <li>Action 提交的是 mutation，而不是直接变更状态。</li>
+                                <li> mutation 有必须同步执行的这个限制；Action 就不受约束！我们可以在 action 内部执行异步操作；Action 可以包含任意异步操作。（针对ajax进行异步获取数据，并且 更新数据）</li>
+                            </ol>
+                            <pre><code class="js">const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    }
+  }
+  //或者用对象解构写为：
+/*actions: {
+    increment ({commit}) {
+      commit('increment')
+    }
+  }*/
+})</code></pre>
+                            <ol>两个参数
+                                <li>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters。</li>
+                                <li>payload，在使用actions，用户主动传递的参数</li>
+                            </ol>
+                            <p></p>
+                            <ol>任意组件中使用：
+                                <li><pre><code class="js">this.$store.dispatch（’方法名称',参数）  （参数就payload）</code></pre></li>
+                                <li>通过助手函数 ： mapActions
+                                    <ol>
+                                        <li>在单独构建的版本中辅助函数为 Vuex.mapActions</li>
+                                        <li>在模块化构建系统中，import { mapActions} from 'vuex'</li>
+                                    </ol>
+                                    <p>在methods中添加...mapActions([‘方法名称’])；在created中再执行this.方法名称(参数)；</p>
+                                    <p>获取数据之后不可以更新state，必须通过commit 来调用mutations中的方法，达到更新数据的目的</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue 综合案例</h3>
+        <section>
+            <div class="small">
+                <a class="bntTap" href="javascript:">代码</a>
+                <div class="tapNav">
+                    <div class="tapTop cur">todos</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text16"><code class="html"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Vue-cli脚手架</h3>
+        <section>
+            <div class="small">
+                <pre><code class="js">npm install -g @vue/cli
+# OR
+yarn global add @vue/cli</code></pre>
+            </div>
+            <div class="small">
+                <h4>创建项目</h4>
+                <pre><code class="js">vue create hello-world(项目名)</code></pre>
+                <p>也可以通过vue ui命令以图形化界面创建和管理项目</p>
+            </div>
+            <div class="small">
+                <h4>Vue-cli 项目结构</h4>
+                <img src="images/Vue/vuecli.jpg" alt="">
+                <div class="tapNav">
+                    <div class="tapTop cur">IDE编辑器配置文件</div>
+                    <div class="tapTop">ESLint代码风格检测</div>
+                    <div class="tapTop">vue.config.js</div>
+                    <div class="tapTop">postcss.config.js</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <p>自行添加一个IDE配置文件.editorconfig，这个文件对不同的IDE编辑器可以做到代码风格统一</p>
+                        <pre><code class="js">root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true</code></pre>
+                        <ol>
+                            <li>root=true : 对所有文件生效</li>
+                            <li>end_of_line= lf : 不同操作系统换行符不同</li>
+                            <li>insert_final_newline = true : 代码最后新增一行</li>
+                            <li>trim_trailing_whitespace = true : 修剪尾随空格</li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <p>借助 ESLint，可将 静态代码分析 和 问题代码协助修复 集成到 编码、提交 和 打包 过程中，及早发现并协助修复代码中</p>
+                    </div>
+                    <div class="tapSection">
+                        <p>有些针对 @vue/cli 的全局配置，例如你惯用的包管理器和你本地保存的 preset，都保存在 home 目录下一个名叫 .vuerc 的 JSON 文件。</p>
+                        <p>可以使用 vue config 命令来审查或修改全局的 CLI 配置。</p>
+                        <pre class="text30"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>样式转换配置</p>
+                        <pre><code class="js">module.exports = {
+  plugins: {
+    autoprefixer: {}
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>跨域请求代理配置</h4>
+                <p>使用 Vue-cli 创建的项目，开发地址是 localhost:8080，需要访问非本机上的接口时。不同域名之间的访问，需要跨域才能正确请求。可以使用vue-cli提供的请求代理，只需要在配置文件上面增加对应的配置（vue.config.js）修改就可以帮助解决开发环境的跨域问题。</p>
+                <pre class="text41"><code class="js"></code></pre>
+                <p>然后请求数据时URL前加上“/api”就可以跨域请求了</p>
+                <p>目前是在开发模式下配的地址，相应的在上线后不需要这个地址。在/src/request/api.js中配置</p>
+                <pre><code class="js">import request from './request.js'
+
+const preUrl = process.env.NODE_ENV === 'development' ? '/api/coding' : ''
+
+// 登陆
+export const loginApi = params => request.post(`${preUrl}/tokens`, params)</code></pre>
+                <p>pathRewrite含义</p>
+                <p>用代理，首先你得有一个标识，告诉他你这个连接要用代理，不然的话，可能你的 html，css，js这些静态资源都跑去代理。所以我们只要接口用代理，静态文件用本地。'/iclient': {}, 就是告诉node，我接口只要是'/iclient'开头的才用代理。所以你的接口就要这么写 /iclient/xx/xx。最后代理的路径就是 http://xxx.xx.com/iclient/xx/xx。可是不对，正确的接口路径里面没有/iclient啊，所以就需要 pathRewrite，用'^/iclient':'', 把'/iclient'去掉，这样既能有正确标识，又能在请求接口的时候去掉iclient。当然如果本身的接口中就有/iclient，那么就可以把pathRewrite这个参数去掉。</p>
+                <pre><code class="js">proxy: {
+  '/list': {
+    target: 'http://api.xxxxxxxx.com',
+    pathRewrite: {
+      '^/list': '/list'
+    }
+  }
+}
+ 这样我们在写url的时候，只用写成/list/1就可以代表api.xxxxxxxx.com/list/1.</code></pre>
+            </div>
+
+        </section>
+    </div>
+</article>
+</body>
+</html>
+<script src="js/page.js"></script>
+<script src="js/frame/vue.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+

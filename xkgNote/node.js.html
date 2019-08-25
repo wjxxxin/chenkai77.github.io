@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>前后端</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="icon" href="images/nodejs.ico">
+    <link rel="icon" href="images/titleIcon/nodejs.ico">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
@@ -283,7 +283,7 @@ emitter.emit('error');</code></pre>
             <h4>url 模块</h4>
             <p>url 模块用于处理与解析 URLurl 模块用于处理与解析 URL</p>
             <p>url.parse 把路径解析 JS 对象</p>
-            <img src="images/url%20attribute.png" alt="">
+            <img src="images/nodejs/url%20attribute.png" alt="">
             <a class="btns" href="javascript:">代码</a>
             <pre><code class="language-js">const url = require('url');
 let myUrl1 = url.parse('https://user:pass@sub.host.com:8080/p/a/t/h?name=xx#hash');
@@ -510,6 +510,12 @@ console.log(util.inspect(obj, true));   // true 代表显示更详细的信息</
                         <li>npm run test 执行的是 scripts 中 test 字段对应命令。</li>
                     </ol>
                 </li>
+            </ol>
+        </div>
+        <div class="small">
+            <ol>npm init -y 后的package.json文件中
+                <li>dependencies为项目的依赖在通过npm install XXX -S或者npm install yyy --save会将xxx及版本号显示在这个位置（项目中需要的）</li>
+                <li>devdependencies为开发环境依赖通过npm install yyy -D或者npm install yyy --dev-save（开发中需要的）</li>
             </ol>
         </div>
     </section>
@@ -794,7 +800,7 @@ router.get('/users/:id', function (req, res) {
                 </div>
             </div>
         </div>
-        <h4 class="subtitle">AJAX 2.0</h4>
+        <h5 class="subtitle">AJAX 2.0</h5>
         <div class="small">
             <h4>FormData API</h4>
             <ol>用于模拟或者是获取表单数据及异步文件上传。
@@ -1085,6 +1091,23 @@ axios.interceptors.request.eject(myInterceptor);</code></pre>
 instance.interceptors.request.use(function () {/*...*/});</code></pre>
                 </div>
             </div>
+        </div>
+        <div class="small">
+            <h4>qs</h4>
+            <p>qs是一个库。里面的stringify方法可以将一个json对象直接转为(以?和&符连接的形式)。</p>
+            <p>在开发中，发送请求的入参大多是一个对象。在发送时，使用该库，就可以自动转化，而不需要手动去拼接</p>
+            <pre><code class="js">if (config.method === 'post' || config.method === 'put' || config.method === 'patch') {
+            if (token) {
+                config.data.token = token
+            }
+            config.data = qs.stringify(config.data, {arrayFormat: 'repeat', allowDots: true})
+
+        } else if (config.method === 'get' || config.method === 'delete') {
+            config.params = config.params || {}
+            config.params.token = token
+            config.url += '?' + qs.stringify(config.params, {arrayFormat: 'repeat'})
+            delete config.params
+        }</code></pre>
         </div>
     </section>
 </div>
@@ -1456,7 +1479,7 @@ db.list.find().skip(start).limit(pagesize)</code></pre>
                 </li>
             </ol>
         </div>
-        <h4 class="subtitle">Mongoose</h4>
+        <h5 class="subtitle">Mongoose</h5>
         <p>Mongoose 库简而言之就是在 Node.js 环境中操作 MongoDB 数据库的一种便捷的封装，一种对象模型工具，Mongoose 将数据库中的数据转换为 JavaScript 对象以供你在应用中使用。（即可以通过 JavaScript 代码去操作 MongoDB 数据库）。</p>
         <div class="small">
             <h4>连接数据库</h4>

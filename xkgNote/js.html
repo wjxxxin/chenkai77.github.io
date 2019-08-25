@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>JavaScript</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="icon" href="images/js.jpg">
+    <link rel="icon" href="images/titleIcon/js.jpg">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
@@ -863,7 +863,7 @@ console.log(fun2(1, 2));//3</code></pre>
                 </li>
             </ol>
             <h4>原型图</h4>
-            <img src="images/yuanxing.JPG" width="100%" alt="">
+            <img src="images/js/yuanxing.JPG" width="100%" alt="">
             <ol>
                 <li>所有的函数对象都是由Function类型的，由Function构造函数创建</li>
                 <li>Function的原型对象是一个匿名空函数，绑定了函数中的通用方法</li>
@@ -975,6 +975,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                 <div class="tapTop">原型链继承</div>
                 <div class="tapTop">借用构造函数继承</div>
                 <div class="tapTop">组合继承</div>
+                <div class="tapTop">寄生式组合继承</div>
             </div>
             <div class="tapMain">
                 <div class="tapSection">
@@ -991,6 +992,10 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                 </div>
                 <div class="tapSection">
                     <pre class="text48"><code class="language-js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <img src="images/js/jishengjc.jpg" alt="">
+                    <pre class="text96"><code></code></pre>
                 </div>
             </div>
         </div>
@@ -1526,6 +1531,9 @@ function getInnerText(element) {
         <p>获取元素（样式）属性值：对象名.style.属性名</p>
         <p>设置元素（样式）属性值：对象名.style.属性名=“属性值”</p>
         <p>通过DOM元素设置样式属性的时候，样式属性是行内样式，优先级最高。在设置样式属性的时候，宽、高、位置样式的值是字符串类型，要加上单位 px。</p>
+        <p>cssText:cssText 的本质就是设置 HTML 元素的 style 属性值。
+        <pre><code class="js">document.getElementById("d1").style.cssText += ";color:red; font-size:13px;";</code></pre>
+        </p>
     </section>
 </div>
 <div class="item">

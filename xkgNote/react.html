@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>React</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="icon" href="images/titleIcon/react.jpg">
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+</head>
+<body>
+<ul class="navLeft">
+
+</ul>
+<ul class="navRight">
+
+</ul>
+<div class="top">
+    框架、工具
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<div class="phone-show pc-hide titleNav">
+    <input type="text" placeholder="搜索">
+    <div class="ssbut ss">搜索</div>
+    <div class="ssbut ok">ok</div>
+    <div class="ssbut sd">下一个</div>
+    <div class="alltitle">展开目录</div>
+</div>
+<div class="frameTitle">
+    <div class="frameItem">jQuery</div>
+    <div class="frameItem">Vue</div>
+    <div class="frameItem">React</div>
+    <div class="frameItem">tool</div>
+</div>
+<article>
+    <div class="item">
+        <h3>React 基本</h3>
+        <section>
+            <div class="small">
+                <h4>虚拟DOM</h4>
+                <p>虚拟DOM就是为了解决浏览器性能问题而被设计出来的。</p>
+                <h5 class="subtitle">描述DOM</h5>
+                <pre class="text1"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>Diff算法</h4>
+                <ol>
+                    <li>tree diff:新旧DOM树，逐层对比的方式，就叫做 tree diff,每当我们从前到后，把所有层的节点对比完后，必然能够找到那些 需要被更新的元素；</li>
+                    <li>component diff：在对比每一层的时候，组件之间的对比，叫做 component diff;当对比组件的时候，如果两个组件的类型相同，则暂时认为这个组件不需要被更新，如果组件的类型不同，则立即将旧组件移除，新建一个组件，替换到被移除的位置；</li>
+                    <li>element diff:在组件中，每个元素之间也要进行对比，那么元素级别的对比，叫做 element diff；</li>
+                    <li>key：key这个属性，可以把 页面上的 DOM节点 和 虚拟DOM中的对象，做一层关联关系； </li>
+                </ol>
+                <img src="images/react/Diff.png" alt="">
+            </div>
+            <div class="small">
+                <h4>基础语法</h4>
+                <ol>React.createElement() 方法，用于创建 虚拟DOM 对象，它接收 3个及以上的参数
+                    <li>参数1： 是个字符串类型的参数，表示要创建的元素类型</li>
+                    <li>参数2： 是一个属性对象，表示创建的这个元素上，有哪些属性 </li>
+                    <li>参数3： 从第三个参数的位置开始，后面可以放任意虚拟DOM对象，表示当前元素的子节点</li>
+                </ol>
+                <pre><code class="js">var myH1 = React.createElement('h1', null, '这是一个大大的H1')
+var myDiv = React.createElement('div', { title: 'this is a div', id: 'mydiv' }, '这是一个div', myH1)</code></pre>
+                <p>ReactDom里面主要封装了和 DOM 操作相关的包，比如，要把 组件渲染到页面上或者卸载组件等等；用 ReactDOM 把元素渲染到页面指定的容器中</p>
+                <pre><code class="js">ReactDOM.render(虚拟DOM或组件,显示的位置)
+ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
+            </div>
+            <div class="small">
+                <h4>JSX语法</h4>
+                <p>JSX内部还是以 React.createElement的形式来实现的</p>
+                <p>编译原理：当 编译引擎，在编译JSX代码的时候，如果遇到了&lt;那么就把它当作 HTML代码去编译，如果遇到了 {} 就把 花括号内部的代码当作 普通JS代码去编译；</p>
+                <ol>
+                    <li>在JSX中，如果要为元素添加class属性了，那么，必须写成className，因为 class在ES6中是一个关键字；和class类似，label标签的 for 属性需要替换为 htmlFor.</li>
+                    <li>在JSX创建DOM的时候，所有的节点，必须有唯一的根元素进行包裹；</li>
+                    <li>如果要写注释了，注释必须放到 {} 内部。单行注释要记得换行。多行注释则不需要。而且这个问题不需要大家格外注意。因为有快捷键 ctrl+?可以快速实现 {/**/}多行注释。</li>
+                </ol>
+                <pre class="text2"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>React 组件</h3>
+        <section>
+            <div class="small">
+                <p>用构造函数创建出来的组件，和用class创建出来的组件，这两种不同的组件之间的本质区别就是：有无state属性！！！</p>
+                <div class="tapNav">
+                    <div class="tapTop cur">普通组件(傻组件)</div>
+                    <div class="tapTop">Class组件（有状态组件）</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <p>通过构造函数定义组件</p>
+                        <pre><code class="js">function Name(){ return null }</code></pre>
+                        <p>使用组件</p>
+                        <pre><code class="js">&lt;Name>&lt;/name></code></pre>
+                        <pre class="text3"><code class="js"></code></pre>
+                        <ol>
+                            <li>组件必须有返回值；若不呈现任何内容，则返回空值</li>
+                            <li>在定义组件时组件名称必须以大写开头。</li>
+                        </ol>
+                        <h5 class="subtitle">组件通信-父向子传递</h5>
+                        <p>父组件通过标签属性来传递。子组件通过构造函数中的形参来进行接收。</p>
+                        <pre class="text5"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>在class创建的组件中，必须定义一个render函数;在render函数中，必须返回一个null或者符合规范的虚拟DOM元素</p>
+                        <pre class="text4"><code class="js"></code></pre>
+                        <h5 class="subtitle">组件通信-父向子传递</h5>
+                        <p>在constructor中接收父组件传递的值。还要记得必须写super(props)因为组件是继承过来的</p>
+                        <pre class="text6"><code class="js"></code></pre>
+                        <h5 class="subtitle">Class组件的私有状态(私有数据)</h5>
+                        <p>Class组件称之为有状态组件。即组件的私有数据的存放位置。相当于Vue组件的data选项。 它的存放位置在constructor中的super(props)下面。 状态存放是通过this.state = {} 来存储。 修改状态 是通过this.setState({})相当于小程序的修改，是异步的方法</p>
+                        <pre class="text7"><code class="js"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+</body>
+</html>
+<script src="js/page.js"></script>
+<script src="js/frame/react.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+

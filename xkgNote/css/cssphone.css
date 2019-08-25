@@ -134,3 +134,11 @@ table th{
     width: 1.4rem;
     font-size: 0.12rem;
 }
+
+.frameTitle{
+    width:100%;
+}
+
+.frameTitle .frameItem{
+    width: 22%;
+}

@@ -1990,7 +1990,7 @@ if (list.hasChildNodes()) {
         '    .nodeSmall {\n' +
         '        width: 50px;\n' +
         '        height: 50px;\n' +
-        '        background: url(images/bgs.png) no-repeat -159px -51px;\n' +
+        '        background: url ( images/bgs.png ) no-repeat -159px -51px;\n' +
         '        position: fixed;\n' +
         '        right: 10px;\n' +
         '        top: 40%;\n' +
@@ -2841,6 +2841,42 @@ function jiechi(obj,key,value){
 }`;
 
     xk$('.text95 code').innerHTML=zy(text95);
+
+    var text96 = `function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.say = function(){
+  console.log('i can say')
+}
+Person.go = function () {
+  console.log('走一下');
+}
+       
+//1.创建F构造函数，并且返回实例 new F();
+function object(parentPro){
+  var F = function () {}
+  F.prototype = parentPro;
+  return new F();
+}
+//2.将返回的实例作为子类的原型对象，同时修改子类原型对象的constructor指向子类。
+function inhert(par,child) {
+  var mid  = object(par.prototype);
+  mid.constructor = child;
+  child.prototype = mid;
+}
+
+function Chinese(skin,language,name,age){
+  this.skin = skin;
+  this.language = language;
+  Person.call(this,name,age)
+}
+inhert(Person,Chinese);
+var p1 = new Chinese('黄皮肤','中文','小白',18)
+console.log(p1);
+p1.say();`;
+
+    xk$('.text96 code').innerHTML=zy(text96);
 
 })();
 
