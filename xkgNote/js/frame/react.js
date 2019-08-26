@@ -13,7 +13,7 @@
             }
   ]
 }`;
-    xk$('.text1 code').innerText = text1;
+    xk$('.text1 code').innerHTML = zy(text1);
 
     var text2 = `var num = 1;
 var myDiv = <div title="this is div" id="mydiv" className="abc">
@@ -28,7 +28,7 @@ var myDiv = <div title="this is div" id="mydiv" className="abc">
 </div>
 ReactDOM.render(myDiv, document.getElementById('app'))`;
 
-    xk$('.text2 code').innerText = text2;
+    xk$('.text2 code').innerHTML = zy(text2);
 
     var text3 = `function Hello() {
   return <div>
@@ -38,7 +38,7 @@ ReactDOM.render(myDiv, document.getElementById('app'))`;
 }
 ReactDOM.render(<Hello></Hello>, document.getElementById('app'))`;
 
-    xk$('.text3 code').innerText = text3;
+    xk$('.text3 code').innerHTML = zy(text3);
 
     var text4 = `class Hi extends React.Component{
      通过报错提示得知：在class创建的组件中，必须定义一个render函数
@@ -50,7 +50,7 @@ ReactDOM.render(<Hello></Hello>, document.getElementById('app'))`;
     }
 }`;
 
-    xk$('.text4 code').innerText = text4;
+    xk$('.text4 code').innerHTML = zy(text4);
 
     var text5 = `function Hello(props) {
   console.log(props);
@@ -70,7 +70,7 @@ var cat = {
 
 ReactDOM.render(<Hello {...cat}></Hello>, document.getElementById('app'))`;
 
-    xk$('.text5 code').innerText = text5;
+    xk$('.text5 code').innerHTML = zy(text5);
 
     var text6 = `class Hi extends React.Component{
     constructor(props){
@@ -83,7 +83,7 @@ ReactDOM.render(<Hello {...cat}></Hello>, document.getElementById('app'))`;
         );
     }
 }`;
-    xk$('.text6 code').innerHTML = text6;
+    xk$('.text6 code').innerHTML = zy(text6);
 
     var text7 = `import React, {Component} from 'react'
 class Hello extends Component {
@@ -100,6 +100,127 @@ class Hello extends Component {
     }
 }`;
 
-    xk$('.text7 code').innerHTML = text7;
+    xk$('.text7 code').innerHTML = zy(text7);
+
+    var text8 = `render() {
+    return (
+        <Fragment>
+            <div style={{background :"red" ,textAlign:'center'}} className="title">评论组件标题</div>
+            <ul>
+                {this.renderList()}
+            </ul>
+        </Fragment>
+    )
+}`;
+    xk$('.text8 code').innerHTML = zy(text8);
+
+    var text9 = `render() {
+    var style = {background:'red',textAlign:'center'};
+    return (
+        <Fragment>
+            <div style={style} className="title">评论组件标题</div>
+            <ul style={style}>
+                {this.renderList()}
+            </ul>
+        </Fragment>
+    )
+}`;
+    xk$('.text9 code').innerHTML = zy(text9);
+
+    var text10 = `import React, {Component} from "react";
+import LifeCircle from "./LifeCircle";
+import ReactDOM from "react-dom";
+
+export default class Life extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      num: 10
+    }
+  }
+
+  mount(){
+    ReactDOM.render(<LifeCircle num={this.state.num}/>,document.getElementById('box'))
+  }
+
+  unmount(){
+    ReactDOM.unmountComponentAtNode(document.getElementById('box'))
+  }
+  updatePropsNum(){
+    this.setState({
+      num:50
+    },()=>{
+      this.mount()
+    })
+  }
+  render() {
+    return <div>
+      <button onClick={this.mount.bind(this)}>加载</button>
+      <button onClick={this.unmount.bind(this)}>卸载</button>
+      <button onClick={this.updatePropsNum.bind(this)}>更新props</button>
+      <div id="box"></div>
+    </div>;
+  }
+}`;
+    xk$('.text10 code').innerHTML = zy(text10);
+
+    var text11 = `import React, {Component} from "react";
+
+export default class LifeCircle extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      ...props,  //和下面的代码是一模一样的
+      // num:props.num
+    };
+    console.log('constructor  1');
+  }
+
+  componentWillMount() {
+    console.log('componentWillMount  2')
+  }
+  updateNum(){
+    this.setState({
+      num:20
+    })
+  }
+  render() {
+    console.log('render  3/7')
+    return <div>
+      LifeCircle {this.props.num} -----{this.state.num}
+      <br/>
+      <button onClick={this.updateNum.bind(this)}>更新state</button>
+    </div>;
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount 4')
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log('componentWillReceiveProps 10')
+    this.setState(nextProps)
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log('shouldComponentUpdate 5')
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState, nextContext) {
+    console.log('componentWillUpdate 6')
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate 8')
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount 9')
+  }
+
+}`;
+    xk$('.text11 code').innerHTML = zy(text11);
+
 
 })();

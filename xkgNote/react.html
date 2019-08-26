@@ -123,6 +123,84 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
             </div>
         </section>
     </div>
+    <div class="item">
+        <h3>React 组件样式管理</h3>
+        <section>
+            <div class="small">
+                <h4>样式组件行内式</h4>
+                <pre class="text8"><code class="js"></code></pre>
+                <p>style属性的值不可以书写字符串，改写一个对象。在style属性上，我们第一个大括号是JS语法符号。内部的大括号则是js对象。</p>
+            </div>
+            <div class="small">
+                <h4>行内式的另一种写法</h4>
+                <pre class="text9"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>css模块化</h4>
+                <p>CSS模块就是所有的类名都只有局部作用域的CSS文件。</p>
+                <p>修改webpack.config.js</p>
+                <pre><code class="js">{test:/\.css$/,use:['style-loader',{loader:'css-loader', options:{
+            modules:true, //将样式模块化
+            sourceMap:true, //样式映射定位
+            localIdentName:'[name]__[local]--[hash:5]'}  //随机字符串规则化，name表示是css文件名称，local表示是原本的类名，hash是根据文件生成的随机字符串。
+     }]},</code></pre>
+                <p>修改commet.js组件。</p>
+                <pre><code class="js">import style from './commet.css'</code></pre>
+                <p>给标签添加类名</p>
+                <pre><code class="js">className={style.className}</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>React生命周期</h3>
+        <section>
+        <p>在组件创建、到加载到页面上运行、以及组件被销毁的过程中，总是伴随着各种各样的事件，这些在组件特定时期，触发的事件，统称为 组件的生命周期。</p>
+        <h5 class="subtitle">React组件的生命周期分为三大阶段</h5>
+        <ol>
+            <li>组件创建阶段:组件创建阶段的生命周期函数，有一个显著的特点：创建阶段的生命周期函数，在组件的一辈子中，只执行一次；
+                <ol>
+                    <li>constructor 组件初始时自动调用</li>
+                    <li>componentWillMount: 组件将要被挂载，此时还没有开始渲染虚拟DOM</li>
+                    <li>render：第一次开始渲染真正的虚拟DOM，当render执行完，内存中就有了完整的虚拟DOM了 render(){}渲染成虚拟dom，将来可以用来去和老的虚拟dom进行diff算法。 页面中没有效果</li>
+                    <li>componentDidMount: 组件完成了挂载，此时，组件已经显示到了页面上，当这个方法执行完，组件就进入了 运行中的状态</li>
+                </ol>
+            </li>
+            <li>组件运行阶段:也有一个显著的特点，根据组件的state和props的改变，有选择性的触发0次或多次；
+                <ol>
+                    <li>componentWillReceiveProps: 组件将要接收新属性，此时，只要这个方法被触发，就证明父组件为当前子组件传递了新的属性值；可以接收新的props和state，但是并未更新</li>
+                    <li>shouldComponentUpdate: 组件是否需要被更新，此时，组件尚未被更新，可以接收新的props和state，但是并未更新 </li>
+                    <li>componentWillUpdate: 组件将要被更新，此时，尚未开始更新，可以接收新的props和state，内存中的虚拟DOM树还是旧的 render: 此时state 和 props,已经是最新的，被更新的同时 重新渲染一棵内存中的 虚拟DOM树，当 render 调用完毕，内存中的旧DOM树，已经被新DOM树替换了！此时页面还是旧的</li>
+                    <li>componentDidUpdate: 此时，页面又被重新渲染了，state 和 虚拟DOM 和 页面已经完全保持同步</li>
+                </ol>
+            </li>
+            <li>组件销毁阶段：一辈子只执行一次；
+                <p>componentWillUnmount: 组件将要被卸载，此时组件还可以正常使用；</p>
+            </li>
+        </ol>
+            <div class="bigimg"><img src="images/react/reactCircle.jpg" alt=""></div>
+            <a class="bntTap" href="javascript:;">代码</a>
+            <div class="tapNav">
+                <div class="tapTop cur">Life.js</div>
+                <div class="tapTop">LifeCircle.js</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection">
+                    <pre class="text10"><code class="js"></code></pre>
+                </div>
+                <div class="tapSection">
+                    <pre class="text11"><code class="js"></code></pre>
+                </div>
+            </div>
+            <ol>
+                <li>数据更新必须是通过this.setState()来进行更新数据，不可以直接对数据进行类似this.state.num++这种前置++或者后置++来实现效果。</li>
+                <li>shouldComponentUpdate ： 必须在这个生命周期中返回true或者false。返回true表示会更新，如果返回false则不更新。</li>
+                <li>通过ReactDOM的unmountComponentAtNode来卸载组件。不过这里卸载组件只能卸载通过ReactDOM.render加载的组件。</li>
+                <li>在render,shouldComponentUpdate,componentWillUpdate,componentDidUpdate中调用setState时，会导致死循环，最终报错。</li>
+                <li>componentWillMount，componentDidMount，componentWillReceiveProps可以更新数据</li>
+                <li>对于ajax而言，可以在componentWillMount 生命周期或者componentDidMount 进行。建议采用componentDidMount 因为以后React-Native是没有componentWillMount 这个生命周期的。</li>
+            </ol>
+        </section>
+    </div>
 </article>
 </body>
 </html>

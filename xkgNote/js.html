@@ -712,6 +712,7 @@ console.log(fun2(1, 2));//3</code></pre>
     <h3>闭包</h3>
     <section >
         <div class="small">
+            <p>由于在js中，变量到的作用域属于函数作用域，在函数执行后作用域会被清除、内存也会随之被回收，但是由于闭包是建立在一个函数内部的子函数，由于其可访问上级作用域的原因，即使上级函数执行完，作用域也不会随之销毁，这时的子函数---也就是闭包，便拥有了访问上级作用域中的变量权限，即使上级函数执行完后，作用域内的值也不会被销毁。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。但由于闭包打破了函数作用域的束缚，导致里面的数据无法清除销毁，当数据过大时会导致数据溢出。</p>
             <div class="tapNav">
                 <div class="tapTop cur">案例一</div>
                 <div class="tapTop">案例二</div>
@@ -965,10 +966,31 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
     </section>
 </div>
 <div class="item">
-    <h3>继承</h3>
+    <h3>函数借用、继承</h3>
     <section >
         <div class="small">
-            <a class="bntTap" href="javascript:">继承代码</a>
+            <h4>call方法、apply方法、bind方法</h4>
+            <p>方法借用 ； 设置方法中this的指向</p>
+            <ol>
+                <li>call方法： 将this指向的对象作为第一个参数，其他参数依次传递即可</li>
+                <li>apply方法： 将this指向的对象作为第一个参数，其他参数封装到数组中传递</li>
+                <li>bind方法： 将this指向的对象作为第一个参数，但bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以。bind传参可以像call那样传参，也可以在调用的时候再进行传参。</li>
+            </ol>
+            <pre class="text49"><code class="language-js"></code></pre>
+        </div>
+        <div class="small">
+            <h4>浅拷贝和深拷贝</h4>
+            <ol>
+                <li>浅拷贝
+                    <pre class="text56"><code class="language-js"></code></pre>
+                </li>
+                <li>深拷贝
+                    <pre class="text57"><code class="language-js"></code></pre>
+                </li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>继承</h4>
             <div class="tapNav">
                 <div class="tapTop cur">混入式继承 (拷贝继承)</div>
                 <div class="tapTop">原型式继承</div>
@@ -998,30 +1020,6 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                     <pre class="text96"><code></code></pre>
                 </div>
             </div>
-        </div>
-        <div class="small">
-            <h4>浅拷贝和深拷贝</h4>
-            <ol>
-                <li>浅拷贝
-                    <pre class="text56"><code class="language-js"></code></pre>
-                </li>
-                <li>深拷贝
-                    <pre class="text57"><code class="language-js"></code></pre>
-                </li>
-            </ol>
-        </div>
-    </section>
-</div>
-<div class="item">
-    <h3>call方法和apply方法</h3>
-    <section >
-        <div class="small">
-            <p>方法借用 ； 设置方法中this的指向</p>
-            <ol>
-                <li>call方法： 将this指向的对象作为第一个参数，其他参数依次传递即可</li>
-                <li>apply方法： 将this指向的对象作为第一个参数，其他参数封装到数组中传递</li>
-            </ol>
-            <pre class="text49"><code class="language-js"></code></pre>
         </div>
     </section>
 </div>

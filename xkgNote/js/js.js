@@ -1170,9 +1170,10 @@ if (list.hasChildNodes()) {
         'age:12\n' +
         '}\n' +
         'console.log(obj1.add.call(obj2, 1, 2));//3\n' +
-        '//console.log(obj1.add.apply(obj2, 1, 2));//CreateListFromArrayLike called on\n' +
-        'non-object\n' +
-        'console.log(obj1.add.apply(obj2, [2, 2]));//4';
+        '//console.log(obj1.add.apply(obj2, 1, 2));//CreateListFromArrayLike called on non-object\n' +
+        'console.log(obj1.add.apply(obj2, [2, 2]));//4\n' +
+        'console.log(obj1.add.bind(obj2, 2, 2)());//4\n'+
+        'console.log(obj1.add.bind(obj2)(2,2));//4';
 
     xk$('.text49 code').innerHTML=zy(text49);
 

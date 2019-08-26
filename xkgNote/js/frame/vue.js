@@ -316,7 +316,7 @@ new Vue({
     </script>
 `;
 
-    xk$('.text19 code').innerText = text19;
+    xk$('.text19 code').innerHTML = zy(text19);
 
     var text20 = `<!DOCTYPE html>
 <html>
@@ -357,7 +357,7 @@ new Vue({
 </body>
 </html>`;
 
-    xk$('.text20 code').innerText = text20;
+    xk$('.text20 code').innerHTML = zy(text20);
 
     var text21 = `<div id="app" class="container">
     <ym-alert a="asdfasdf"></ym-alert>
@@ -407,7 +407,7 @@ new Vue({
     })
 </script>`;
 
-    xk$('.text21 code').innerText = text21;
+    xk$('.text21 code').innerHTML = zy(text21);
 
     var text22 =  `<div id="app">
     <ym-btn @parqie="parChange" :show="show"></ym-btn>
@@ -440,7 +440,7 @@ new Vue({
       }
     })
 </script>`;
-    xk$('.text22 code').innerText = text22;
+    xk$('.text22 code').innerHTML = zy(text22);
 
     var text23 = `<div id="app">
     <my-com></my-com>
@@ -470,7 +470,7 @@ new Vue({
      插槽
      果然好用
 `;
-    xk$('.text23 code').innerText = text23;
+    xk$('.text23 code').innerHTML = zy(text23);
 
     var text24 = `<div id="app">
     <my-com></my-com>
@@ -514,7 +514,7 @@ new Vue({
       叩丁狼
       默认右侧
 `;
-    xk$('.text24 code').innerText = text24;
+    xk$('.text24 code').innerHTML = zy(text24);
 
     var text25 = `<div id="app">
     <my-com>

@@ -7,7 +7,7 @@
         '     jq(function () {\n' +
         '     \tconsole.log("DOM加载完毕");\n' +
         ' \t })'
-    xk$('.text1  code').innerHTML = text1;
+    xk$('.text1  code').innerHTML = zy(text1);
 
     var text2 = '   //jq的css()方法获取div的宽度的值,只传一个参数获取\n' +
         '        console.log($("div").css("width"));\n' +
@@ -25,7 +25,7 @@
         '                background:"red"\n' +
         '            });\n' +
         '        });'
-    xk$('.text2 code').innerHTML=text2;
+    xk$('.text2 code').innerHTML=zy(text2);
 
     var text3 = '//【1】使用快捷方法来给按钮添加点击事件\n' +
         '$("button").click(function () {\n' +
@@ -41,7 +41,7 @@
         '    //使用event.data访问传递进来的参数\n' +
         ' \tconsole.log(event.data.name);\n' +
         ' })';
-    xk$('.text3 code').innerHTML=text3;
+    xk$('.text3 code').innerHTML=zy(text3);
 
     let text4 = '$("button").on("click",{name:"zs"},function (event) {\n' +
         '\tconsole.log("点击了按钮----2");\n' +
@@ -53,7 +53,7 @@
         '\tconsole.log(event.data);\n' +
         '})';
 
-    xk$('.text4 code').innerHTML=text4;
+    xk$('.text4 code').innerHTML=zy(text4);
 
     let text5 = `<!DOCTYPE html>
 <html lang="en">
@@ -109,6 +109,6 @@
 
     let text6 = '//01 创建DOM节点\nvar oDom = $("&lt;div>&lt;/div>");\n//02 设置DOM节点的内容\n oDom.text("测试的div标签");\n//02 把DOM节点添加到页面中\n $("body").append(oDom);\n\n\n$("body").append($("&lt; div>我是测试的div标签&lt;/div>"));';
 
-    xk$('.tapSection .text6 code').innerHTML=text6;
+    xk$('.tapSection .text6 code').innerHTML=zy(text6);
 
 })();
