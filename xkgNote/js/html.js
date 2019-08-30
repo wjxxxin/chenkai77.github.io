@@ -1,8 +1,8 @@
 //内容文本代码块=========================================
-var text1 = ' <!DOCTYPE html>\n' +
-    '        <html lang="">\n' +
+var text1 = ' <! DOCTYPE html>\n' +
+    '        <html lang="zh">\n' +
     '        <head>\n' +
-    '            <meta charset="">\n' +
+    '            <meta charset="UTF-8">\n' +
     '            <title>\n' +
     '            </title>\n' +
     '        </head>\n' +
@@ -10,7 +10,7 @@ var text1 = ' <!DOCTYPE html>\n' +
     '\n' +
     '        </body>\n' +
     '        </html>';
-xk$('.text1 code').innerText=text1;
+xk$('.text1 code').innerHTML=zy(text1);
 
 var text2 = '<fieldset>\n' +
     '        <legend>用户注册信息</legend>\n' +

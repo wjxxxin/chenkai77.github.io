@@ -297,47 +297,43 @@ gulp.task('default',['server']);`;
 
 
 
-
-
-
-
     var text26 = `{
-  "name": "webpack8.6",
+  "name": "webpack-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \\"Error: no test specified\\" && exit 1",
-    "start": "webpack-dev-server --port 7272 --hot --open",
-    "build": "webpack"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "jquery": "^3.4.1",
-    "vue": "^2.6.10"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-loader": "7.1.5",
+    "babel-plugin-transform-runtime": "~6.23.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^3.1.0",
-    "file-loader": "^4.1.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "less": "^3.9.0",
+    "less": "^3.10.2",
     "less-loader": "^5.0.0",
-    "style-loader": "^0.23.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
-    "vue-loader": "^15.7.1",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
-  }
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "scripts": {
+    "test": "echo \\"Error: no test specified\\" && exit 1",
+    "start": "webpack-dev-server --port 8888 --open --hot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }`;
 
     xk$('.text26 code').innerHTML = zy(text26);
@@ -431,6 +427,7 @@ module.exports = {
             'com':resolve('./src/components')
         }
     },
+    devtool: "cheap-module-eval-source-map"
 };`;
 
     xk$('.text28 code').innerHTML = zy(text28);
@@ -456,4 +453,14 @@ export default {
 </style>`;
 
     xk$('.text29 code').innerHTML = zy(text29);
+
+    var text30 = `publicPath: "/assets/",
+
+    //对于一个输出 HTML 的 loader 可能会像这样输出：
+    <link href="/assets/spinner.gif" />
+    //或者在加载 CSS 的一个图片时：
+    background-image: url(/assets/spinner.gif);`;
+
+    xk$('.text30 code').innerHTML = zy(text30);
+
 })();

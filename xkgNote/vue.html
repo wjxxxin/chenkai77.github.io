@@ -41,6 +41,25 @@
 </div>
 <article>
     <div class="item">
+        <h3>MVVM</h3>
+        <section>
+            <div class="small">
+                <h4>MVVM基本</h4>
+                <p>MVVM分为Model、View、ViewModel三部分。</p>
+                <ol>
+                    <li>Model 代表数据模型，数据和业务逻辑都在Model层中定义</li>
+                    <li>View 代表UI视图，负责数据的展示</li>
+                    <li>ViewModel 负责监听 Model 中数据的改变并且控制视图的更新，处理用户交互操作</li>
+                </ol>
+                <p>Model 和 View 并无直接关联，而是通过 ViewModel 来进行联系的，Model 和 ViewModel 之间有着双向数据绑定的联系。因此当 Model 中的数据改变时会触发 View 层的刷新，View 中由于用户交互操作而改变的数据也会在 Model 中同步。这种模式实现了 Model 和 View 的数据自动同步，因此开发者只需要专注对数据的维护操作即可，而不需要自己操作 dom。</p>
+            </div>
+            <div class="small">
+                <h4>mvvm和mvc的区别</h4>
+                <p>mvc和mvvm其实区别不大。都是一种设计思想，主要mvc中controller演变成mvvm中的ViewModel。mvvm主要解决了mvc中大量的DOM操作使页面渲染性能降低，加载速度变慢，影响用户体验。vue数据驱动，通过数据来显示视图层而不是节点操作。</p>
+            </div>
+        </section>
+    </div>
+    <div class="item">
         <h3>Vue 基本</h3>
         <section>
             <div class="small">
@@ -375,6 +394,23 @@
       ]</code></pre>
             </div>
             <div class="small">
+                <h4>keep-alive</h4>
+                <p>keep-alive遇见vue-router</p>
+                <p>keep-alive 是 Vue 内置的一个组件，起到缓存作用，可以使被包含的组件保留状态，或避免重新渲染。</p>
+                <ol>
+                    <li>include ： 字符串或正则表达，只有匹配的组件会被缓存</li>
+                    <li>exclude ： 字符串或正则表达式，任何匹配的组件都不会被缓存</li>
+                    <li>max ： 数字。最多可以缓存多少组件实例。</li>
+                </ol>
+                <p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p>
+                <pre class="text36"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>守卫</h3>
+        <section>
+            <div class="small">
                 <h4>Vue-router导航守卫</h4>
                 <p>“导航”表示路由正在发生改变。</p>
                 <p>vue-router提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
@@ -420,18 +456,6 @@
                     <li>beforeRouteLeave</li>
                 </ol>
                 <pre class="text35"><code class="js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>keep-alive</h4>
-                <p>keep-alive遇见vue-router</p>
-                <p>keep-alive 是 Vue 内置的一个组件，起到缓存作用，可以使被包含的组件保留状态，或避免重新渲染。</p>
-                <ol>
-                    <li>include ： 字符串或正则表达，只有匹配的组件会被缓存</li>
-                    <li>exclude ： 字符串或正则表达式，任何匹配的组件都不会被缓存</li>
-                    <li>max ： 数字。最多可以缓存多少组件实例。</li>
-                </ol>
-                <p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p>
-                <pre class="text36"><code class="js"></code></pre>
             </div>
         </section>
     </div>

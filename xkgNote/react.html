@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="icon" href="images/titleIcon/react.jpg">
     <link rel="stylesheet" href="css/cssreset.css">
-    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+    <link rel="stylesheet" href="css/androidstudiokai.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
 </head>
@@ -121,6 +121,19 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                     </div>
                 </div>
             </div>
+            <div class="small">
+                <h4>组件默认值和数据类型验证</h4>
+                <h5 class="subtitle">给组件设置默认属性：</h5>
+                <p>defaultProps是一个静态属性前面 要加static</p>
+                <h5 class="subtitle">类型校验</h5>
+                <p>需要先安装yarn add prop-types --save 也是静态属性前面要加static ReactTypes这个名字是为了能区分.</p>
+                <a class="btns" href="javascript:;">代码</a>
+                <pre class="text15"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h5 class="subtitle">Fragments</h5>
+                <p>Fragments 可以聚合一个子元素列表，并且不在DOM中增加额外节点。</p>
+            </div>
         </section>
     </div>
     <div class="item">
@@ -140,9 +153,10 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                 <p>CSS模块就是所有的类名都只有局部作用域的CSS文件。</p>
                 <p>修改webpack.config.js</p>
                 <pre><code class="js">{test:/\.css$/,use:['style-loader',{loader:'css-loader', options:{
-            modules:true, //将样式模块化
+            modules:{
+                localIdentName:'[name]__[local]--[hash:5]'}  //随机字符串规则化，name表示是css文件名称，local表示是原本的类名，hash是根据文件生成的随机字符串。
+            } //将样式模块化
             sourceMap:true, //样式映射定位
-            localIdentName:'[name]__[local]--[hash:5]'}  //随机字符串规则化，name表示是css文件名称，local表示是原本的类名，hash是根据文件生成的随机字符串。
      }]},</code></pre>
                 <p>修改commet.js组件。</p>
                 <pre><code class="js">import style from './commet.css'</code></pre>
@@ -199,6 +213,128 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                 <li>componentWillMount，componentDidMount，componentWillReceiveProps可以更新数据</li>
                 <li>对于ajax而言，可以在componentWillMount 生命周期或者componentDidMount 进行。建议采用componentDidMount 因为以后React-Native是没有componentWillMount 这个生命周期的。</li>
             </ol>
+        </section>
+    </div>
+    <div class="item">
+        <h3>React双向数据绑定</h3>
+        <section>
+            <div class="small">
+                <p>对组件身上添加 ref属性，且设置值a。在setState功能中使用 this.refs.a就可以直接获取元素。</p>
+                <pre class="text12"><code class="js"></code></pre>
+            <a href="javascript:;" class="bntTap">todolist例子</a>
+            <div class="tapNav">
+                <div class="tapTop cur">Commet.js组件</div>
+                <div class="tapTop">Item.js组件</div>
+            </div>
+            <div class="tapMain">
+                <div class="tapSection"><pre class="text13"><code class="js html"></code></pre></div>
+                <div class="tapSection"><pre class="text14"><code class="js"></code></pre></div>
+            </div>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>组孙级和非父子组件传递数据</h3>
+        <section>
+            <div class="small">
+                <h4>祖孙级传递数据</h4>
+                <h5 class="subtitle">context特性</h5>
+                <ul>
+                    <li>1.给组先级书写一个方法
+                    <pre><code class="js">getChildContext(){ return {color:this.state.color}}</code></pre>
+                    </li>
+                    <li>2.在祖先级使用属性校验规定一下给子组件的数据类型，需要定义一个静态的（static） childContextTypes
+                        <pre><code class="js">static childContextTypes = {color:ReactProps.string}</code></pre>
+                    </li>
+                    <li>3.孙子组件，使用之前先检验一下数据类型，需要定义一下
+                        <pre><code class="js">static contextTypes = {color:ReactProps.string}</code></pre>
+                    </li>
+                    <li>4.再使用{this.context.color}</li>
+                </ul>
+            </div>
+            <div class="small">
+                <h4>非父子组件通信</h4>
+                <p>使用 EventEmitter 模块（npm包 node的基础模块）进行通信。</p>
+                <p>安装自定义事件库yarn add enentemitter2(类似vue-bus)</p>
+                <a class="btns" href="javascript:;">代码</a>
+                <pre class="text16"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>React 路由</h3>
+        <section>
+            <div class="small">
+                <h4>路由基础</h4>
+                <pre><code class="nodejs">npm install react-router-dom -S</code></pre>
+                <h5 class="subtitle">三个常用的组件</h5>
+                <ol>
+                    <li>HashRouter/BrowserRouter
+                        <p>BrowserRouter：HistoryAPI路由</p>
+                    </li>
+                    <li>Link
+                        <p>有to属性是跳转到哪个页面 exact表示严格</p>
+                    </li>
+                    <li>Route
+                        <p>路由的匹配规则、占位显示</p>
+                        <ol>属性:
+                            <li>path</li>
+                            <li>component</li>
+                            <li>exact(路由严格模式)</li>
+                        </ol>
+                    </li>
+                </ol>
+                <a href="javascript:;" class="btns">代码</a>
+               <pre class="text17"><code class="react"></code></pre>
+            </div>
+            <div class="small">
+                <h4>动态路由</h4>
+                <ul>路由参数
+                    <li>1、注意要添加exact严格模式</li>
+                    <li>2、路由参数和vue一样，通过/:name</li>
+                    <li>3、组件中使用，是通过this.props.match.params.name</li>
+                </ul>
+                <a href="javascript:;" class="btns">入口文件main.js</a>
+                <pre class="text18"><code class="react"></code></pre>
+                <a href="javascript:;" class="btns">news.js组件</a>
+                <pre class="text19"><code class="react"></code></pre>
+            </div>
+            <div class="small">
+                <h4>路由导航定位</h4>
+                <p>路由导航定位的其实就是页面发生跳转，那么页面中对定的导航链接需要被选定。</p>
+                <h5 class="subtitle">利用二级路由实现</h5>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text20"><code class="react"></code></pre>
+                <h5 class="subtitle">使用NavLink组件（比较少用）</h5>
+                <pre class="text21"><code class="react"></code></pre>
+            </div>
+            <div class="small">
+                <h4>路由重定向</h4>
+                <pre><code class="react">import {Link, Route,Redirect} from "react-router-dom";
+ &lt;Redirect to={'/home'} /></code></pre>
+                <h5 class="subtitle">Switch路由组件</h5>
+                <p>可以理解为Switch其实就和JS中的switch语句类似只会匹配一个。</p>
+                <pre class="text22"><code class="react"></code></pre>
+            </div>
+            <div class="small">
+                <h4>路由懒加载</h4>
+                <p>路由懒加载的目的是为了让首页加载速度快，其实也是为了按需加载。但官方没有提供，社区中有提供这方面的代码。需要安装lazyload-loader。</p>
+                <p>使用方法</p>
+                <pre><code class="react">module: {
+  rules: [
+   {
+    test: /\.(js)$/,,
+    use: [
+     'babel-loader',
+     'lazyload-loader'
+    ]
+   },</code></pre>
+                <p>在业务代码中</p>
+                <pre><code class="react">// 使用lazy! 前缀 代表需要懒加载的Router
+import Shop from 'lazy!./src/view/Shop';
+// Router 正常使用
+&lt;Route path="/shop" component={Shop} /></code></pre>
+            </div>
         </section>
     </div>
 </article>

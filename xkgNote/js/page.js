@@ -1,7 +1,8 @@
 function Note() {
     this.navRightcolor = ['#df5225', '#4597cf', '#b2394c', '#65934a', '#14446a'];
-    this.animatetimeId = null;
-    this.sildertimer = null;
+    /*this.animatetimeId = null;
+    this.sildertimer = null;*/
+    this.af=null;
 }
 Note.prototype.init=function(){
     var that = this;
@@ -35,6 +36,8 @@ Note.prototype.leftstyle=function(){
     var that = this;
     var h3s = document.querySelectorAll('.item h3');
     var str = '';
+    var num;
+    var index = 0;
     if (h3s.length <= 16) {
         var ul1 = document.createElement("ul");
         document.querySelector('.navLeft').appendChild(ul1);
@@ -44,7 +47,7 @@ Note.prototype.leftstyle=function(){
         document.querySelector('.navLeft').children[0].innerHTML = str;
     } else if (h3s.length > 16) {
         document.querySelector('.navLeft').style.height= window.screen.availHeight*0.75+'px';
-        var num = Math.ceil(h3s.length / 14);
+        num = Math.ceil(h3s.length / 14);
         h3s.forEach(function (ele) {
             str += '<li>' + ele.innerText + '</li>*';
         });
@@ -61,14 +64,18 @@ Note.prototype.leftstyle=function(){
         newa.innerText = '换页';
         document.querySelector('.navLeft').appendChild(newa);
         newa.addEventListener('click', function () {
-            var uls = document.querySelector('.navLeft').querySelectorAll('ul')
+            var uls = document.querySelector('.navLeft').querySelectorAll('ul');
+            index++;
+            index=(index+num)%num;
             Array.from(uls).forEach(function (ele) {
-                if (ele.className.indexOf('activation') !== -1) {
+               /* if (ele.className.indexOf('activation') !== -1) {
                     ele.className = ''
                 } else {
                     ele.className = 'activation'
-                }
-            })
+                }*/
+                ele.className = 'activation'
+            });
+            uls[index].className=''
         })
     }
     var leftlis = document.querySelectorAll('.navLeft li');
@@ -99,14 +106,45 @@ Note.prototype.asideShow = function(){
     };
 };
 Note.prototype.windowScroll = function(target){
-    var that = this;
-    clearInterval(that.animatetimeId);
+    //var that = this;
+    //clearInterval(that.animatetimeId);
     var oldcur = document.documentElement.scrollTop || document.body.scrollTop;
     var oldtop = target.offsetTop;
     var oheight = document.body.offsetHeight;
     var aheight = window.screen.availHeight;
+    var rAF = window.requestAnimationFrame;
+    var af;
+    
     if (oldtop < oheight - aheight) {
-        this.animatetimeId = setInterval(function () {
+        function Fn() {
+            var cur = document.documentElement.scrollTop || document.body.scrollTop;
+            var top = target.offsetTop;
+            var step = Math.abs(oldcur - oldtop) / 30;
+            if (step < 1) {
+                step = 1
+            }
+            if (cur > top) {
+                step = -Math.abs(step);
+            }
+            if (Math.abs(cur - top) <= Math.abs(step)) {
+                cancelAnimationFrame(af);
+                var bw = document.documentElement.clientWidth || document.body.clientWidth;
+                if(bw<640){
+                    document.body.scrollTop = top-40;
+                    document.documentElement.scrollTop = top-40;
+                }else{
+                    document.body.scrollTop = top;
+                    document.documentElement.scrollTop = top;
+                }
+                return;
+            }
+            cur += step;
+            document.documentElement.scrollTop = cur;
+            document.body.scrollTop = cur;
+            af=rAF(Fn)
+        }
+        af=rAF(Fn)
+        /*this.animatetimeId = setInterval(function () {
             var cur = document.documentElement.scrollTop || document.body.scrollTop;
             var top = target.offsetTop;
             var step = Math.abs(oldcur - oldtop) / 30;
@@ -131,7 +169,7 @@ Note.prototype.windowScroll = function(target){
             cur += step;
             document.documentElement.scrollTop = cur;
             document.body.scrollTop = cur;
-        }, 10);
+        }, 10);*/
     } else {
         document.documentElement.scrollTop = oldtop;
         document.body.scrollTop = oldtop;
@@ -207,21 +245,35 @@ Note.prototype.xiangying = function(){
     };
 };
 Note.prototype.slideup = function(ele, height){
-    clearInterval(this.sildertimer);
+    //clearInterval(this.sildertimer);
+    cancelAnimationFrame(this.af);
     ele.style.cssText = ';height:'+height+';overflow:hidden;';
     var that = this;
     var step = height / 20;
-    this.sildertimer = setInterval(function () {
+    var rAF = window.requestAnimationFrame;
+    //var af;
+    function Fn() {
+        height = height - step;
+        ele.style.height = height + 'px';
+        if (height <= 0) {
+            ele.style.cssText = ';display:none;height:0;overflow:visible;';
+            cancelAnimationFrame(that.af);
+        }
+        that.af=rAF(Fn)
+    }
+    that.af=rAF(Fn);
+    /*this.sildertimer = setInterval(function () {
         height = height - step;
         ele.style.height = height + 'px';
         if (height <= 0) {
             clearInterval(that.sildertimer);
             ele.style.cssText = ';display:none;height:0;overflow:visible;';
         }
-    }, 10)
+    }, 10)*/
 };
 Note.prototype.slidedown = function(ele, height){
-    clearInterval(this.sildertimer);
+    //clearInterval(this.sildertimer);
+    cancelAnimationFrame(this.af);
     ele.style.height = 0;
     var zero = 0;
     var that = this;
@@ -233,7 +285,24 @@ Note.prototype.slidedown = function(ele, height){
         ele.style.display = 'block';
     }
     ele.style.overflow = 'hidden';
-    this.sildertimer = setInterval(function () {
+    var rAF = window.requestAnimationFrame;
+    //var af;
+    function Fn() {
+        zero = zero + step;
+        ele.style.height = zero + 'px';
+        if (zero >= height) {
+            if(ele.className.indexOf('tap')!==-1){
+                ele.style.height = height + 'px'
+            }else {
+                ele.style.height = 'auto';
+            }
+            ele.style.overflow = 'visible';
+            cancelAnimationFrame(that.af);
+        }
+        that.af=rAF(Fn)
+    }
+    that.af=rAF(Fn);
+    /*this.sildertimer = setInterval(function () {
         zero = zero + step;
         ele.style.height = zero + 'px';
         if (zero >= height) {
@@ -245,7 +314,7 @@ Note.prototype.slidedown = function(ele, height){
             }
             ele.style.overflow = 'visible';
         }
-    }, 10)
+    }, 10)*/
 };
 Note.prototype.btns = function(){
     var that = this;
@@ -270,36 +339,47 @@ Note.prototype.bntTap = function(){
         var target = 0;
         var eleNext = ele.nextElementSibling;
         var eleNn = eleNext.nextElementSibling;
-        var hh = eleNext.offsetHeight;
+        //var hh = eleNext.offsetHeight;
         var hh2 = eleNn.offsetHeight;
         eleNext.style.display = 'none';
         eleNn.style.display = 'none';
         ele.onclick = function () {
             if (target) {
-                that.slideup(eleNext, hh);
-                var time1 = setInterval(function () {
+                eleNext.style.display='none';
+                //that.slideup(eleNext, hh);
+             /*   var time1 = setInterval(function () {
                     if (eleNext.offsetHeight <= 0) {
                         clearInterval(time1);
                         time1 = null;
                         that.slideup(eleNn, hh2);
                     }
-                }, 20);
+                }, 20);*/
+                that.slideup(eleNn, hh2);
                 target = !target;
             }else if (!target) {
-                that.slidedown(eleNext, hh);
+                //eleNext.style.display='none';
+                /*that.slidedown(eleNext, hh);
                 var time2 = setInterval(function () {
                     if (eleNext.offsetHeight >= hh) {
                         clearInterval(time2);
                         time2 = null;
                         that.slidedown(eleNn, hh2);
                     }
-                }, 20);
+                }, 20);*/
+                var bw = document.documentElement.clientWidth || document.body.clientWidth;
+                if ((eleNext.className.indexOf('code') !== -1 &&bw>700)|| eleNext.className.indexOf('tapNav') !== -1) {
+                    eleNext.style.display = 'flex';
+                } else {
+                    eleNext.style.display = 'block';
+                }
+                that.slidedown(eleNn, hh2);
                 target = !target;
             }
         }
     })
 };
 Note.prototype.tap = function(){
+    var that = this;
     var tapMainli = document.querySelectorAll('.tapMain .tapMain');
     Array.from(tapMainli).forEach(function (ele) {
         var mainh = ele.children[0].offsetHeight + 30;
@@ -312,6 +392,7 @@ Note.prototype.tap = function(){
     });
     var tapNavs = document.querySelectorAll('.tapNav');
     Array.from(tapNavs).forEach(function (ele) {
+
         var tapTops = ele.children;
         var main = ele.nextElementSibling;
         var secs = main.children;
@@ -324,6 +405,7 @@ Note.prototype.tap = function(){
                 for (var i = 0; i < secs.length; i++) {
                     secs[i].style.display = 'none';
                 }
+                cancelAnimationFrame(that.af);
                 this.classList.add('cur');
                 var index = this.getAttribute('index');
                 secs[index].style.display = 'block';

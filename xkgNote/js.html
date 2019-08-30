@@ -985,7 +985,23 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                     <pre class="text56"><code class="language-js"></code></pre>
                 </li>
                 <li>深拷贝
+                    <h5 class="subtitle">递归方式实现</h5>
                     <pre class="text57"><code class="language-js"></code></pre>
+                    <h5 class="subtitle">借用JSON对象的parse和stringify</h5>
+                    <pre><code class="js">newobj = JSON.parse(JSON.stringify(obj))</code></pre>
+                    <h5 class="subtitle">借用JQ的extend方法。</h5>
+                    <p>$.extend( [deep ], target, object1 [, objectN ] )</p>
+                    <ol>
+                        <li>deep表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝</li>
+                        <li>target Object类型 目标对象，其他对象的成员属性将被附加到该对象上。</li>
+                        <li>object1  objectN可选。 Object类型 第一个以及第N个被合并的对象。</li>
+                    </ol>
+                    <pre><code class="js">let a=[0,1,[2,3],4],
+    b=$.extend(true,[],a);
+a[0]=1;
+a[2][0]=1;
+console.log(a,b);
+</code></pre>
                 </li>
             </ol>
         </div>
@@ -1042,6 +1058,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                 <li>一般函数直接执行，内部this指向全局window</li>
                 <li>函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象</li>
                 <li>构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现对象的创建</li>
+                <li>setInterval和setTimeout的回调函数中this的指向都是window。这是因为JS的定时器方法是定义在window下的。</li>
             </ol>
         </div>
         <div class="small">
@@ -1161,7 +1178,7 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                     </div>
                 </li>
                 <li>concat() : // 用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])  ； valueN可取数组或值</li>
-                <li>slice() : // 从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始</li>
+                <li>slice() : // 返回一个从开始到结束(不包括结束)选择的数组的一部分进行浅拷贝到一个新的数组对象,并且原对象不会被修改，参数start从0开始,end从1开始</li>
                 <li>splice() : // 删除或替换或增加当前数组的某些项，参数start(开始的索引位置), deleteCount(删除数量，写0则为增加), options(要替换的项目)
                 </li>
                 <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
@@ -1480,6 +1497,7 @@ function getInnerText(element) {
         </ol>
         <p>滚滚屏使用timeout进行节流,让最后一次滚动有效；在pc端节流一般控制在300-500毫秒。</p>
         <pre class="text89"><code class="language-js"></code></pre>
+        <p>settimeout会在响应的时间后把回调函数放入队列中，队列里的函数需要等栈为空时才会被推入栈中执行。如果队列中有其他函数，需要等队列前面的函数被堆入调用栈中之后才会运行。</p>
     </section>
 </div>
 <div class="item">
@@ -1833,13 +1851,6 @@ func();
     console.log(values);
 }
 func(2, 3, 4);</code></pre>
-            <h5>扩展运算符</h5>
-            <ol>
-                <li>调用函数函数时，若在数组类型的实参前使用 ... 运算符，那么数组值元素取出来按顺序赋值给函数的参数。 </li>
-                <li>可以用来合并数组。</li>
-            </ol>
-            <a class="btns" href="javascript:">代码</a>
-            <pre class="text42"><code class="language-js"></code></pre>
             <h5>箭头函数</h5>
             <p>ES6 允许使用“箭头”（=>）简化函数的定义。</p>
             <ol>
@@ -1848,7 +1859,7 @@ func(2, 3, 4);</code></pre>
                 <li>箭头函数有返回值，若没有花括号时，不写 return，反之须写。</li>
             </ol>
             <ol>注意：
-                <li>箭头函数没有自己的作用域，即箭头函数 this 都是使用外部非箭头函数的 this；</li>
+                <li>箭头函数没有自己的作用域，this指向所定义的当前箭头函数所在的作用域中的this(即箭头函数 this 都是使用外部非箭头函数的 this)</li>
                 <li>箭头函数不可以 new；</li>
                 <li>箭头函数不可以使用 arguments 获取参数列表，可以使用 rest 参数代替。</li>
             </ol>
@@ -1906,6 +1917,9 @@ add(...numbers) // 42</code></pre></li>
                     <pre><code class="js">const arr1 = [1, 2];
 const arr2 = [...arr1];</code></pre>
                 </li>
+                <li>合并数组
+                    <pre class="text42"><code class="language-js"></code></pre>
+                </li>
                 <li>扩展运算符可以与解构赋值结合起来，用于生成数组
                     <pre><code class="js">const [first, ...rest] = [1, 2, 3, 4, 5];
 first // 1
@@ -1926,6 +1940,32 @@ rest  // [2, 3, 4, 5]</code></pre>
         </div>
     </section>
 </div>
+<div class="item">
+        <h3>ES6 Promise</h3>
+        <section>
+            <div class="small">
+                <h4>Promise基本用法</h4>
+                <ol>构造实例：
+                    <li>构造函数接受一个函数作为参数；</li>
+                    <li>调用构造函数得到实例 p 的同时，作为参数的函数会立即执行；</li>
+                    <li>参数函数接受两个回调函数参数 resolve 和 reject；</li>
+                    <li>在参数函数被执行的过程中，若在其内部调用 resolve，会将 p 的状态变成 fulfilled，或者调用 reject，会将 p 的状态变成 rejected。</li>
+                </ol>
+                <ol>调用 then：
+                    <li>调用 then 可以为实例 p 注册两种状态回调函数；</li>
+                    <li>当实例 p 的状态为 fulfilled，会触发第一个函数执行；</li>
+                    <li>当实例 p 的状态为 rejected，则触发第二个函数执行。</li>
+                </ol>
+                <ol>调用 catch：
+                    <li>调用 catch 用于注册 rejected 状态的回调函数，同时该回调也是程序出错的回调，即如果前面的程序运行过程中出错，也会进入执行该回调函数。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text97"><code class="language-js"></code></pre>
+                <h5 class="subtitle">Promise解决回调地狱问题</h5>
+                <pre class="text98"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
 <div class="item">
     <h3>设计模式</h3>
     <section >

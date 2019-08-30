@@ -485,3 +485,44 @@ html, body {-webkit-user-select: none;user-select: none;}`;
 
 xk$('.text20 code').innerHTML=zy(text20);
 
+var text21 = `
+html{
+\tcolor:#000;
+\tbackground:#FFF;
+}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,footer,article,aside,header,section,nav,figure,figcaption,hgroup{
+\tmargin:0;
+\tpadding:0;
+}table{
+\tborder-collapse:collapse;
+\tborder-spacing:0;
+}fieldset,img{
+\tborder:0;
+}address,caption,cite,code,dfn,em,strong,th,var{
+\tfont-style:normal;
+\tfont-weight:normal;
+}ol,ul{
+\tlist-style:none;
+}caption,th{
+\ttext-align:left;
+}h1,h2,h3,h4,h5,h6{
+\tfont-size:100%;
+\tfont-weight:normal;
+}q:before,q:after{
+\tcontent:'';
+}abbr,acronym{
+\tborder:0;
+\tfont-variant:normal;
+}sup{
+\tvertical-align:text-top;
+}sub{
+\tvertical-align:text-bottom;
+}input,textarea,select{
+\tfont-family:inherit;
+\tfont-size:inherit;
+\tfont-weight:inherit;
+\t*font-size:100%;
+}legend{
+\tcolor:#000;
+}#yui3-css-stamp.cssreset{ display:none}`;
+
+xk$('.text21 code').innerHTML=zy(text21);

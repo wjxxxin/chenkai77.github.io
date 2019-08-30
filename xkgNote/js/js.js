@@ -2879,6 +2879,78 @@ p1.say();`;
 
     xk$('.text96 code').innerHTML=zy(text96);
 
+    let text97 = `var isMomHappy = false;
+// Promise 容器一旦创建，就开始执行里面的代码
+var p = new Promise(
+    function (resolve, reject) {
+        if (isMomHappy) {
+            //容器中的任务成功了
+            var phone = {
+                brand: 'Samsung',
+                color: 'black'
+            };           
+            resolve(phone); //把容器的Pending状态改为Resolved
+            //这里调用的resolve方法实际上就是then方法传递的那个function
+        } else {
+            //容器中的任务失败了
+            var reason = new Error('妈妈不开心');
+            reject(reason); // 把容器的Pending状态改为Rejected
+            //这里调用的reject方法实际上就是catch方法传递的那个function
+        }
+    }
+); 
+
+p.then(function (fulfilled) {
+        // 太好啦, 你获得了一个新手机
+        console.log(fulfilled);
+        // output: { brand: 'Samsung', color: 'black' }
+    })
+    .catch(function (error) {
+        // 好不幸，你妈妈没买手机
+        console.log(error.message);
+        // output: '妈妈不开心'
+    });
+
+//由于isMomHappy = false; 所以这里打印结果是'妈妈不开心' 
+    `;
+    xk$('.text97 code').innerHTML = zy(text97);
+
+    let text98 = `var fs =  require('fs')
+    var p1 = new Promise(function(resolve,reject){
+        fs.readFile('./data/a.txt','utf8',function(err,data){
+            if(err){
+                reject(err)
+            }else{
+                resolve(data)
+            }
+        })
+    })
+    
+    var p2 = new Promise(function(resolve,reject){
+        fs.readFile('./data/a.txt','utf8',function(err,data){
+            if(err){
+                reject(err)
+            }else{
+                resolve(data)
+            }
+        })
+    })
+    
+    p1.then(function(data){
+        console.log(data)
+        return p2 //当前函数中return 的结果可以在后面的then中function接收到，没有return则后面then接收到的是undefined
+        //当return的是一个Promise对象的时候，后续的then中的方法的第一个参数会作为p2的resolve;后续的catch中的方法的第一个参数会作为p2的reject
+    }).catch(function(err){
+        console.log('文件读取失败'，err)
+        return p2 //同理
+    }).then(function(data){
+        console.log(data)
+    }).catch(function(err){
+        console.log(err)
+    })
+    `;
+    xk$('.text98 code').innerHTML = zy(text98);
+
 })();
 
 

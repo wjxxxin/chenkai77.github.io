@@ -871,6 +871,6 @@ const router = new VueRouter({
 
     xk$('.text43 code').innerHTML = zy(text43);
 
-    var text44 = ``;
+
 
 })();

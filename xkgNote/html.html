@@ -37,8 +37,16 @@
     <h3>基本标签</h3>
     <section>
         <div class="small">
-            <a class="btns" href="javascript:">代码</a>
             <pre class="text1"><code class="html"></code></pre>
+            <p>Doctype是作用于文档最顶部的文档声明，是告诉浏览器是以标准模式还是以怪异模式展示该页面。Doctype不存在或格式错误都会导致页面以怪异模式展示页面。(标准模式的页面排版和JS运作模式都是浏览器支持的最高标准，而怪异模式是向后兼容，模拟老浏览器模式行为，防止页面无法正常工作)</p>
+        </div>
+        <div class="small">
+            <h4>行内元素/块级元素/空元素</h4>
+            <ol>
+                <li>行内元素:  a/img/span/b/strong/input/select/section</li>
+                <li>块级元素: div/p/table/ul/ol/li/h1-h6</li>
+                <li>空元素: br/hr/img/input/link/meta</li>
+            </ol>
         </div>
             <div class="small">
                 <h4>h1~h6(标题)</h4>
@@ -97,6 +105,36 @@
                     <li>dl>dt+dd*X:项目列表标签</li>
                 </ol>
             </div>
+    </section>
+</div>
+<div class="item">
+    <h3>浏览器</h3>
+    <section>
+        <div class="small">
+            <h5 class="subtitle">浏览器主要分为两个部分:渲染引擎和JS引擎</h5>
+            <ol>
+                <li>渲染引擎：主要负责获取页面内容和排版渲染页面</li>
+                <li>JS引擎：解析和执行JS来实现页面的动态效果，以及交互内容</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>常用的浏览器内核</h4>
+            <ol>
+                <li>Trident内核：IE，MaxThon,TT,the World,360,搜狗浏览器等。[又称MSHTML]</li>
+                <li>Gecko内核：Netscape6及以上版本，FF，MozillaSuite/SeaMonkey等</li>
+                <li>Presto内核：Opera7及以上。 [Opera内核原为：Presto，现为：Blink；]</li>
+                <li>Webkit内核：Safari，Chrome等 [Chrome的：Blink(Webkit的分支)]</li>
+            </ol>
+        </div>
+        <div class="small">
+            <h4>浏览器是怎么对HTML5的离线储存资源进行管理和加载的？</h4>
+            <ul>
+                <li>在线的情况下，浏览器发现 html 标签有 manifest 属性，它会请求 manifest 文件</li>
+                <li>如果是第一次访问app，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储</li>
+                <li>如果已经访问过app且资源已经离线存储了，浏览器会对比新的 manifest 文件与旧的 manifest 文件，如果文件没有发生改变，就不做任何操作。如果文件改变了，那么就会重新下载文件中的资源并进行离线存储</li>
+                <li>离线的情况下，浏览器就直接使用离线存储的资源。</li>
+            </ul>
+        </div>
     </section>
 </div>
 <div class="item">
@@ -175,7 +213,7 @@
                 <h4>video 视频标签</h4>
                 <ol>
                     <li>src：视频路径（必选属性）</li>
-                    <li>- controls：控制条，表示是否添加播放控件；（一般情况这个都是不开放给用户的）</li>
+                    <li>controls：控制条，表示是否添加播放控件；（一般情况这个都是不开放给用户的）</li>
                     <li>autoplay：是否自动播放，在谷歌浏览器中是不能自动播放的，在最新的火狐浏览器也是默认被禁用，需要手动打开</li>
                     <li>width：宽度</li>
                     <li>height：高度</li>
@@ -193,6 +231,51 @@
                 <h4>audio 视频标签</h4>
                 <p>audio几乎拥有所有的video属性，除了3个可见属性：width，height，poster。</p>
             </div>
+    </section>
+</div>
+<div class="item">
+    <h3>页面导入</h3>
+    <section>
+        <div class="small">
+            <h4>页面导入样式时,使用link和@import的区别</h4>
+            <ol>
+                <li>link属于XHTML标签,除了加载CSS之外还能用于定义RSS,@import是CSS提供的,只能用于加载CSS</li>
+                <li>link加载的文件,在页面加载的时候,link文件会同时加载,而@import引入的CSS文件,是页面在加载完成后再加载的</li>
+                <li>@import有兼容性问题,IE5以下的浏览器是无法识别的,而link无兼容性问题</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>iframe标签</h3>
+    <section>
+        <div class="small">
+            <p>iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。(在页面嵌套iframe标签指定src)</p>
+            <pre><code class="html">&lt;iframe src="demo_iframe_sandbox.html">&lt;/iframe></code></pre>
+        </div>
+        <div class="smal">
+            <h4>Iframe的缺点</h4>
+            <ol>
+                <li>Iframe会阻碍页面的onload事件</li>
+                <li>浏览器的搜索引擎一般读无法解读iframe页面,不利于SEO的搜索</li>
+                <li>Iframe和主页面共享链接池,会影响页面的并行加载</li>
+                <li>使用js动态添加iframe  src属性,可以避免一三问题</li>
+            </ol>
+        </div>
+    </section>
+</div>
+<div class="item">
+    <h3>Canvas和Svg</h3>
+    <section>
+        <div class="small">
+        </div>
+        <div class="smal">
+            <h4>Canvas和Svg的区别</h4>
+            <ol>
+                <li>svg绘制出来的每一个图形的元素都是独立的DOM节点,能够方便的绑定事件或用来修改。canvas输出的是一副画布</li>
+                <li>svg输出的图形是矢量图形，后期可以修改参数来自由放大缩小，不会失真和锯齿。而canvas输出标量画布，就像一张图片一样，放大会失真或者锯齿</li>
+            </ol>
+        </div>
     </section>
 </div>
 <div class="item">

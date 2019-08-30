@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+    <style>
+        /*.navLeft li{height: 20px;line-height: 20px;}*/
+        .navLeft ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.5s;
+        }
+        .navLeft .activation{
+            left: -130px;
+        }
+        .navLeft a{
+            display: block;
+            font-size:12px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 0 7px 7px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #0077aa;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <ul class="navLeft">
@@ -37,14 +64,27 @@
 <div class="item">
     <h3>css基本</h3>
     <section>
+        <div class="small">
+            <h4>浏览器盒模型?</h4>
+            <p>盒模型分为两种: IE盒模型和W3C盒模型</p>
+            <ol>
+                <li>W3C: 宽度/padding/border/margin都是单独分开的</li>
+                <li>IE盒模型: 宽度 = 内容宽度+padding+border 是一起的</li>
+            </ol>
+        </div>
             <p>css代码需写在style标签内部，表示环境</p>
             <pre><code class="language-html">&#32;&#60;&#115;&#116;&#121;&#108;&#101;&#62;&#60;&#47;&#115;&#116;&#121;&#108;&#101;&#62;</code></pre>
             <p>css分为两部分，选择器和属性，p{...}</p>
             <p>css属性的语法规则：键值对规则，就是K:V;</p>
             <div class="small">
                 <h4>css书写格式</h4>
-                <p>css的书写格式有三种：内嵌式，链接式，行内式</p>
-                <p> 行内式的优先级最高，内联式和链接式哪个距离html对象越近，优先级越高。</p>
+                <p>css的书写格式有三种：内嵌式，内联式，外联式</p>
+                <h5 class="subtitle">CSS样式优先级计算法:</h5>
+                <ol>
+                    <li>就近原则,后加样式优于前面的样式</li>
+                    <li>内嵌样式>内联样式>外联样式（内联式和外联式哪个距离html对象越近，优先级越高。）</li>
+                    <li>!Important 大于一切样式</li>
+                </ol>
             </div>
             <div class="small">
                 <h4>css两个最大特性</h4>
@@ -64,6 +104,17 @@
                 <a class="btns" href="javascript:;">代码</a>
                 <pre class="text15"><code class="html"></code></pre>
             </div>
+        <div class="small">
+            <h4>浏览器私有前缀</h4>
+            浏览器私有前缀，世界上一共有5大浏览器厂商但是却只有4大浏览器内核；相当于有两家用的是同一个内核。
+            <ol>
+                <li>ie浏览器 --- 微软 --- -ms-</li>
+                <li>谷歌 -webkit-</li>
+                <li>苹果 -webkit-</li>
+                <li>欧朋 -o-</li>
+                <li>火狐 -moz-</li>
+            </ol>
+        </div>
     </section>
 </div>
 <div class="item">
@@ -87,7 +138,19 @@
                         <ol>
                             <li>clip：p溢出的内容直接裁剪掉（字符可能会显示不完整）</li>
                             <li>pellipsis：溢出那行的结尾处用省略号表示</li>
-                            <li>text-overflow:ellipsis 溢出文字结尾处用省略号显示(与overflow: hidden;white-space: nowrap配合使用)</li>
+                            <li>text-overflow:ellipsis 溢出文字结尾处用省略号显示(与overflow: hidden;white-space: nowrap配合使用)
+                                <h5 class="subtitle">实现多行文本溢出显示...</h5>
+                                <pre><code class="css">display : -wedkit-box ;
+-webkit-box-orient : vertical ;
+-webkit-line-clamp : 3 ;
+overflow : hidden ;</code></pre>
+                                <p>因使用了Webkit的CSS扩展属性,该方法适用于Webkit浏览器以及移动端</p>
+                                <ol>
+                                    <li>-webkit-line-clamp用来限制在一个块元素显示的文本的行数</li>
+                                    <li>display：-webkit-box； 必须结合的属性，将对象作为弹性伸缩盒子模式显示。</li>
+                                    <li>-webkit-box-orient  必须结合的属性，设置或减缩伸缩盒对象的子元素排列方式。</li>
+                                </ol>
+                            </li>
                         </ol>
                     </li>
                 </ol>
@@ -121,7 +184,7 @@
                 <h4>浮动属性</h4>
                 <ol>float：
                     <li>right</li>
-                    <li>right</li>
+                    <li>left</li>
                 </ol>
                 <p>clear:both:清除左右所有浮动元素对当前元素的影响。</p>
                 <p>浮动塌陷:一个没有指定高度的盒子中，内部的盒子浮动了，会导致这个盒子没有高度范围，这种情况是浮动塌陷。解决方法：给塌陷的盒子添加overflow:hidden;</p>
@@ -267,14 +330,26 @@
             </div>
             <div class="small">
                 <h4>溢出属性</h4>
-                <ol>
+                <ol>overflow:
                     <li>visible 默认值。内容不会被修剪，会呈现在元素框之外。</li>
                     <li>hidden 内容会被修剪，并且其余内容是不可见的！还可用来处理外边距塌陷（嵌套关系）问题，会触发BFC</li>
                     <li>scroll 内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。（横向竖向的都会有）</li>
                     <li>auto 如果内容被修剪，那么浏览器会显示滚动条以便查看其余的内容。（只会根据情况出现滚动条）</li>
                     <li>inherit 规定会从父元素继承overflow属性的值</li>
                 </ol>
+                <p>横向滚动:父元素:overflow-x:auto; overflow-y:hidden;</p>
+                <p>竖向滚动:父元素 overflow-x:hidden;overflow-x:auto;</p>
             </div>
+    </section>
+</div>
+<div class="item">
+    <h3>初始化css样式</h3>
+    <section>
+        <p>浏览器的兼容性问题,有些浏览器对标签的默认值是不一样的,如果没有			设置CSS初始化,浏览器之间的页面会有差异</p>
+        <div class="small">
+            <a href="javascript:;" class="btns">cssreset</a>
+            <pre class="text21"><code class="css"></code></pre>
+        </div>
     </section>
 </div>
 <div class="item">
@@ -492,14 +567,23 @@ background: rgba(255,0,0,.5);</code></pre>
                 <pre><code class="language-css">backface-visibility: visible|hidden;</code></pre>
                 <p>backface-visibility: hidden；图片面向 : 可见； 背向 : 不可见</p>
             </div>
+        <div class="small">
+            <h4>手写动画的最小时间间隔</h4>
+            <p>多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔1/60*1000ms = 16.7ms</p>
+        </div>
     </section>
 </div>
 <div class="item">
     <h3>伪类和伪元素 自定义字体</h3>
     <section>
             <div class="small">
-                <h4>伪类</h4>
-                <p>比如：hover 表示当鼠标移上指定标签的时候；它表示的是一种状态。</p>
+                <h4>伪类用于向某些选择器添加特殊效果</h4>
+                <ol>
+                    <li>:hover 表示当鼠标移上指定标签的时候,向元素添加样式;它表示的是一种状态。</li>
+                    <li>:focus 当元素被选中时，向元素添加样式</li>
+                    <li>:active 用于选择活动链接，在一个链接上点击时，它就会成为活动的（激活的），当元素被激活时，向元素添加样式</li>
+                    <li></li>
+                </ol>
             </div>
             <div class="small">
                 <h4>伪元素</h4>
@@ -512,12 +596,14 @@ background: rgba(255,0,0,.5);</code></pre>
             background: url("favicon.ico") no-repeat;
 
         }
-        div::after{
+div::after{
             content: "不留下一个活口";
-        }</code></pre>
+}</code></pre>
                 <ol>
                     <li>::before 表示在元素的内部的前面追加内容</li>
-                    <li> ::after 表示在元素的内部的后面追加内容</li>
+                    <li>::after 表示在元素的内部的后面追加内容</li>
+                    <li>::first-letter 将特殊的样式添加到文本的首字母</li>
+                    <li>::first-line 将特殊的样式添加到文本的首行</li>
                     伪元素使用的时候，必须要有content属性，如果没有文字内容，那么content属性为空！
                 </ol>
             </div>
@@ -793,7 +879,7 @@ background: rgba(255,0,0,.5);</code></pre>
             <p>浮动元素会导致父级没有高度或者高度为0.导致原因：父级没有指定高度，子元素又浮动</p>
             <ol>解决方法：
                 <li>给父级添加overflow：hidden;</li>
-                <li>给父级内部添加一个元素，高度为0，且溢出隐藏，字体大小为0，并且要清除浮动。</li>
+                <li>给父级内部(子元素并级)添加一个元素，高度为0，且溢出隐藏，字体大小为0，并且要清除浮动。</li>
                 <li>使用伪元素清除浮动</li>
             </ol>
             <a class="bntTap" href="javascript:">代码</a>
@@ -897,21 +983,34 @@ background: rgba(255,0,0,.5);</code></pre>
     </section>
 </div>
 <div class="item">
+    <h3>less</h3>
+    <section>
+        <div class="small">
+            <ol>
+                <li>less变量 : 通过@变量名称</li>
+                <li>less嵌套 : 可以在选择器里面嵌套另外一个选择器去书写样式</li>
+                <li>less运算 : less可以进行属性值的运算，例如宽高 文字大小 颜色等等数值和颜色之间的运算。(运算符与值之间必须以空格分开 ; 在运算的时候，只要有一个有单位就行)</li>
+                <li>less混合 : 通过点去声明使用混合，点后面书写自己定义属性的名称，后面接小括号书写变量属性，大括号里面书写具体的属性和值</li>
+                <li>less函数 : 可以直接使用less定义好的一些方法</li>
+                <li>less导入其他文件 : 例如 ： @import (inline) "base.css" </li>
+            </ol>
+            <h5 class="subtitle">less的优势</h5>
+            <ol>
+                <li>结构清晰，便于扩展</li>
+                <li>可以方便的屏蔽浏览器私有语法差异</li>
+                <li>可以轻松实现多重继承</li>
+                <li>完全兼容CSS代码，可以方便的应用到老项目中。Less知识在CSS语法上做了扩展，所以老的CSS代码也可以与Less代码一同编译</li>
+            </ol>
+            <p>缺点：必须要编译，无论在客户端还是服务器端，都是一种额外的花销</p>
+        </div>
+    </section>
+</div>
+<div class="item">
     <h3>其他</h3>
     <section>
             <div class="small">
                 <ol>
                     <li>有些时候，插入的图片，会莫名其妙的出现一些间距，这种问题的解决方式就是给这个图片添加属性 dispaly：block；</li>
-                    <li>
-                        浏览器私有前缀，世界上一共有5大浏览器厂商但是却只有4大浏览器内核；相当于有两家用的是同一个内核。
-                        <ol>
-                            <li>ie浏览器 --- 微软 --- -ms-</li>
-                            <li>谷歌 -webkit-</li>
-                            <li>苹果 -webkit-</li>
-                            <li>欧朋 -o-</li>
-                            <li>火狐 -moz-</li>
-                        </ol>
-                    </li>
                     <li>iconfont
                         <pre><code class="language-css">.footer .up dt:after{content:"\e616";font-family:iconfont;......}</code></pre>
                         <pre><code class="language-html">&#60;&#105;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#105;&#99;&#111;&#110;&#102;&#111;&#110;&#116;&#32;&#105;&#99;&#111;&#110;&#45;&#46;&#46;&#46;&#46;&#46;&#34;&#32;&#62;&#60;&#47;&#105;&#62;</code></pre>
@@ -919,17 +1018,6 @@ background: rgba(255,0,0,.5);</code></pre>
                     <li>鼠标移上变手:cursor: pointer</li>
                     <li>百分比表示法所表示的仅仅是父元素“内容”的百分比，不包括padding。</li>
                     <li>filter 滤镜属性 blur(px) 高斯模糊</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>less</h4>
-                <ol>
-                    <li>less变量 : 通过@变量名称</li>
-                    <li>less嵌套 : 可以在选择器里面嵌套另外一个选择器去书写样式</li>
-                    <li>less运算 : less可以进行属性值的运算，例如宽高 文字大小 颜色等等数值和颜色之间的运算。(运算符与值之间必须以空格分开 ; 在运算的时候，只要有一个有单位就行)</li>
-                    <li>less混合 : 通过点去声明使用混合，点后面书写自己定义属性的名称，后面接小括号书写变量属性，大括号里面书写具体的属性和值</li>
-                    <li>less函数 : 可以直接使用less定义好的一些方法</li>
-                    <li>less导入其他文件 : 例如 ： @import (inline) "base.css" </li>
                 </ol>
             </div>
             <div class="small">

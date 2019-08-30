@@ -41,6 +41,20 @@
 </div>
 <article>
     <div class="item">
+        <h3>JQuery</h3>
+        <section >
+            <div class="small">
+                <p>jQuery的源码封装在一个匿名函数的自执行环境中，解决命名空间和变量污染问题，在闭包当中将jQuery和$绑定到window上，从而将jQuery和$暴露为全局变量,window.jQuery = window.$ = jQuery,然后通过传入窗口对象参数，可以使窗口对象作为局部变量使用，好处是当jQuery的中访问窗口对象的时候，就不用将作用域链退回到顶层作用域了，从而可以更快的访问窗口对象。同样，传入未定义参数，可以缩短查找未定义时的作用域链</p>
+                <ol>
+                    <li>jQuery的将一些原型属性和方法封装在了jquery.prototype中，为了缩短名称，又赋值给了jquery.fn，这是很形象的写法</li>
+                    <li>有一些数组或对象的方法经常能使用到，jQuery的将其保存为局部变量以提高访问速度</li>
+                    <li>jQuery的实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率</li>
+                    <li>jQuery.fn的init方法返回的这就是jQuery对象,用户使用jQuery（）或$（）即可初始化jQuery对象，不需要动态的去调用init方法</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
         <h3>JQ基本</h3>
         <section >
             <div class="small">
@@ -507,7 +521,36 @@ $("input").triggerHandler("click");</code></pre>
         </section>
     </div>
     <div class="item">
-        <h3>其他</h3>
+        <h3>JQuery队列</h3>
+        <section>
+            <div class="small">
+                <p>JQuery核心中有一组队列控制方法.由以下三个方法组成</p>
+                <ol>
+                    <li>query( )</li>
+                    <li>dequeue( )</li>
+                    <li>clearQueue( )</li>
+                </ol>
+                <pre class="text7"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>jQuery性能优化</h3>
+        <section>
+            <div class="small">
+                <h4>针对jQuery的优化方法</h4>
+                <ol>
+                    <li>缓存频繁操作DOM对象</li>
+                    <li>尽量使用ID选择器代替类选择器</li>
+                    <li>总是从#ID选择器来继承</li>
+                    <li>尽量使用链式操作</li>
+                    <li>在绑定事件上使用时间委托</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>jQ插件</h3>
         <section>
             <div class="small">
                 <h4>jQuery鼠标滚轮插件</h4>
