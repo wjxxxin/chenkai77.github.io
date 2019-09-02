@@ -916,138 +916,6 @@ if (list.hasChildNodes()) {
 
     xk$('.text36 code').innerHTML=zy(text36);
 
-    let text37 = '/*\n' +
-        '之前对多个变量赋值\n' +
-        'let a = 1;\n' +
-        'let b = 2;\n' +
-        'let c = 3;\n' +
-        '*/\n' +
-        'let [a, b, c] = [1, 2, 3];\n' +
-        'console.log(a, b, c);\n' +
-        'let [d, e, f] = [, 2, ];\n' +
-        'console.log(d, e, f);\n' +
-        '\n' +
-        '==============================\n' +
-        'let [x = 1] = [undefined];\n' +
-        'let [y = 2] = [null];\n' +
-        'let [z = 3] = [\'\'];\n' +
-        'console.log(x, y, z);\n' +
-        '\n' +
-        'function func() {\n' +
-        '    return 1;\n' +
-        '}  \n' +
-        'let [i = func()] = []; // 当没有解构出值的时候，才会执行函数 func\n' +
-        'console.log(i);';
-
-    xk$('.tapSection .text37 code').innerHTML=zy(text37);
-
-    let text38 = 'let {a, b, c} = {a : "aaa", b : "bbb"};\n' +
-        'console.log(a, b, c);\n' +
-        '\n' +
-        '// 当前变量名与对象的属性不一致的时候，可以起别名，比如下面给变量 f 起别名为 e\n' +
-        'let {e : f} = {e : "eee"};\n' +
-        'console.log(f);\n' +
-        '\n' +
-        '// 指定默认值 \n' +
-        'let {x, y = 5} = {x : 1};\n' +
-        'console.log(x, y);\n' +
-        '\n' +
-        '// 方便地将现有对象的方法，赋值到某个变量\n' +
-        'let {random} = Math;\n' +
-        'console.log(random);';
-
-    xk$('.tapSection .text38 code').innerHTML=zy(text38);
-
-    let text39 = 'let a = \'Hello World!\';\n' +
-        'console.log(a.startsWith(\'Hello\'));     // true\n' +
-        'console.log(a.endsWith(\'!\'));           // true\n' +
-        'console.log(a.includes(\'o\'));           // true\n' +
-        '\n' +
-        '\n' +
-        'let b = \'Hello World!\';\n' +
-        'console.log(b.startsWith(\'world\', 6));  // true\n' +
-        'console.log(b.endsWith(\'Hello\', 5));    // true\n' +
-        'console.log(b.includes(\'Hello\', 6));    // false';
-
-    xk$('.text39 code').innerHTML=zy(text39);
-
-    let text40 = '// ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法\n' +
-        'function func(x){\n' +
-        '    x = x || 1;\n' +
-        '    console.log(x);\n' +
-        '}\n' +
-        'func();\n' +
-        '\n' +
-        '\n' +
-        '// ES6 做法，代码简洁易阅读\n' +
-        'function func(x = 1){ // 注意当 x 为 undefined 时 x 赋值为 1\n' +
-        '    console.log(x);\n' +
-        '}\n' +
-        'func();\n' +
-        '\n' +
-        'function fun(name = \'xx\', age = \'18\'){\n' +
-        '    console.log(name, age);\n' +
-        '}\n' +
-        'fun();';
-
-    xk$('.text40 code').innerHTML=zy(text40);
-
-
-    let text41 = 'function func({name, age}){ \n' +
-        '    console.log(name, age);\n' +
-        '}\n' +
-        'func();      // 因为你传递的实参是 undefined，所以抛出 TypeError: Cannot destructure property `name` of \'undefined\' or \'null\'.\n' +
-        'func({});    // 这调用不会报错 \n' +
-        '\n' +
-        '\n' +
-        'function func({name, age} = {}){    // 給函数参数设置默认值\n' +
-        '    console.log(name, age);        \n' +
-        '}\n' +
-        'func();                             // 这里就可以省略不传\n' +
-        'func({name : \'xx\', age : 18});';
-
-    xk$('.text41 code').innerHTML=zy(text41);
-
-    let text42 = 'function func(a, b, c) {\n' +
-        '    console.log(a + b + c);\n' +
-        '}\n' +
-        'let arr = [1, 2, 3];\n' +
-        'func.apply(null, arr);  // 以前的做法\n' +
-        'func(...arr);           // ES6 的做法\n' +
-        '\n' +
-        '\n' +
-        'let arr1 = [1, 2, 3];\n' +
-        'let arr2 = [3, 4, 5];\n' +
-        'let arr3 = [...arr1, ...arr2];\n' +
-        'console.log(arr3);';
-
-    xk$('.text42 code').innerHTML=zy(text42);
-
-    let text43 = 'function func() {\n' +
-        '    setTimeout(() => {\n' +
-        '        console.log(\'id:\', this.id); // this 与外部的函数 func 的 this 是一样的\n' +
-        '    }, 100);\n' +
-        '}\n' +
-        '\n' +
-        'var id = 21;\n' +
-        'func.call({ id: 42 });\n' +
-        '\n' +
-        '\n' +
-        'let func = () => { this.a = 123 };\n' +
-        'new func(); // 运行会报错 TypeError: func is not a constructor\n' +
-        '\n' +
-        '\n' +
-        'let func = (a, b) => {\n' +
-        '    console.log(a, b);\n' +
-        '    console.log(arguments); // 这种方式获取不到实参列表\n' +
-        '}\n' +
-        'func(1, 2);\n' +
-        '\n' +
-        'let fun = (...params) => {  // 使用 rest 参数代替\n' +
-        '    console.log(params);\n' +
-        '}\n' +
-        'fun(1, 2);';
-    xk$('.text43 code').innerHTML=zy(text43);
 
     var text44 = '//混入式继承（拷贝）\n' +
         '//obj2继承到obj1中的成员，可以直接将obj1中的成员拷贝到obj2中即可\n' +
@@ -1230,46 +1098,7 @@ if (list.hasChildNodes()) {
 
     xk$('.text52 code').innerHTML=zy(text52);
 
-    let text53 = 'class Person{\n' +
-        'constructor(name,age){\n' +
-        'this.name = name;\n' +
-        'this.age = age;\n' +
-        '}\n' +
-        'doWork(){\n' +
-        'console.log("E6中在原型对象上添加方法");\n' +
-        '}\n' +
-        'static doWork2(){\n' +
-        'console.log("静态方法");\n' +
-        '}\n' +
-        '}\n' +
-        'var p = new Person("Neld",10);\n' +
-        'console.log(p);';
 
-    xk$('.text53 code').innerHTML=zy(text53);
-
-    let text54 = 'class Animal {\n' +
-        'constructor(name, age){\n' +
-        'this.name = name;\n' +
-        'this.age = age;\n' +
-        '}\n' +
-        'eat(){\n' +
-        'console.log("吃饭");\n' +
-        '}\n' +
-        'sleep(){\n' +
-        'console.log("睡觉");\n' +
-        '}\n' +
-        '}\n' +
-        'class Person extends Animal{\n' +
-        'constructor(name,age){\n' +
-        'super(name,age);//①\n' +
-        '}\n' +
-        'play(){\n' +
-        'console.log("打豆豆");\n' +
-        '}\n' +
-        '}\n' +
-        'console.log(new Person("Neld", 10));';
-
-    xk$('.text54 code').innerHTML=zy(text54);
 
     let text55 = 'function Person(name,age) {\n' +
         '        /*if(this == window){\n' +
@@ -2879,77 +2708,40 @@ p1.say();`;
 
     xk$('.text96 code').innerHTML=zy(text96);
 
-    let text97 = `var isMomHappy = false;
-// Promise 容器一旦创建，就开始执行里面的代码
-var p = new Promise(
-    function (resolve, reject) {
-        if (isMomHappy) {
-            //容器中的任务成功了
-            var phone = {
-                brand: 'Samsung',
-                color: 'black'
-            };           
-            resolve(phone); //把容器的Pending状态改为Resolved
-            //这里调用的resolve方法实际上就是then方法传递的那个function
-        } else {
-            //容器中的任务失败了
-            var reason = new Error('妈妈不开心');
-            reject(reason); // 把容器的Pending状态改为Rejected
-            //这里调用的reject方法实际上就是catch方法传递的那个function
-        }
-    }
-); 
 
-p.then(function (fulfilled) {
-        // 太好啦, 你获得了一个新手机
-        console.log(fulfilled);
-        // output: { brand: 'Samsung', color: 'black' }
-    })
-    .catch(function (error) {
-        // 好不幸，你妈妈没买手机
-        console.log(error.message);
-        // output: '妈妈不开心'
-    });
 
-//由于isMomHappy = false; 所以这里打印结果是'妈妈不开心' 
-    `;
-    xk$('.text97 code').innerHTML = zy(text97);
+    let text99 = `var arr = ["a", "b", "c"];
+console.log(Object.getOwnPropertyNames(arr).sort()); // ["0", "1", "2", "length"]
 
-    let text98 = `var fs =  require('fs')
-    var p1 = new Promise(function(resolve,reject){
-        fs.readFile('./data/a.txt','utf8',function(err,data){
-            if(err){
-                reject(err)
-            }else{
-                resolve(data)
-            }
-        })
-    })
-    
-    var p2 = new Promise(function(resolve,reject){
-        fs.readFile('./data/a.txt','utf8',function(err,data){
-            if(err){
-                reject(err)
-            }else{
-                resolve(data)
-            }
-        })
-    })
-    
-    p1.then(function(data){
-        console.log(data)
-        return p2 //当前函数中return 的结果可以在后面的then中function接收到，没有return则后面then接收到的是undefined
-        //当return的是一个Promise对象的时候，后续的then中的方法的第一个参数会作为p2的resolve;后续的catch中的方法的第一个参数会作为p2的reject
-    }).catch(function(err){
-        console.log('文件读取失败'，err)
-        return p2 //同理
-    }).then(function(data){
-        console.log(data)
-    }).catch(function(err){
-        console.log(err)
-    })
-    `;
-    xk$('.text98 code').innerHTML = zy(text98);
+// 类数组对象
+var obj = { 0: "a", 1: "b", 2: "c"};
+console.log(Object.getOwnPropertyNames(obj).sort()); // ["0", "1", "2"]
+
+// 使用Array.forEach输出属性名和属性值
+Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {
+  console.log(val + " -> " + obj[val]);
+});
+// 输出
+// 0 -> a
+// 1 -> b
+// 2 -> c
+
+//不可枚举属性
+var my_obj = Object.create({}, {
+  getFoo: {
+    value: function() { return this.foo; },
+    enumerable: false
+  }
+});
+my_obj.foo = 1;
+
+console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"]`;
+
+    xk$('.text99 code').innerHTML = zy(text99);
+
+    var text100 = `array.sort(function(a,b){ return Math.rendom()>.5? -1:1 })`;
+
+    xk$('.text100 code').innerHTML = zy(text100);
 
 })();
 

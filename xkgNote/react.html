@@ -55,7 +55,7 @@
                     <li>tree diff:新旧DOM树，逐层对比的方式，就叫做 tree diff,每当我们从前到后，把所有层的节点对比完后，必然能够找到那些 需要被更新的元素；</li>
                     <li>component diff：在对比每一层的时候，组件之间的对比，叫做 component diff;当对比组件的时候，如果两个组件的类型相同，则暂时认为这个组件不需要被更新，如果组件的类型不同，则立即将旧组件移除，新建一个组件，替换到被移除的位置；</li>
                     <li>element diff:在组件中，每个元素之间也要进行对比，那么元素级别的对比，叫做 element diff；</li>
-                    <li>key：key这个属性，可以把 页面上的 DOM节点 和 虚拟DOM中的对象，做一层关联关系； </li>
+                    <li>key：key这个属性，可以把 页面上的 DOM节点 和 虚拟DOM中的对象，做一层关联关系； 在开发过程中，我们需要保证某个元素的key在其统计元素中具有唯一性。在React Diff算法中React会借助元素的Key值来判断该元素是新近创建的还是被移动而来的元素，从而减少不必要的元素重渲染。此外React还需要借助key值来判断元素与本地状态的关联关系。</li>
                 </ol>
                 <img src="images/react/Diff.png" alt="">
             </div>
@@ -91,10 +91,21 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
             <div class="small">
                 <p>用构造函数创建出来的组件，和用class创建出来的组件，这两种不同的组件之间的本质区别就是：有无state属性！！！</p>
                 <div class="tapNav">
-                    <div class="tapTop cur">普通组件(傻组件)</div>
-                    <div class="tapTop">Class组件（有状态组件）</div>
+                    <div class="tapTop cur">Class组件（有状态组件）</div>
+                    <div class="tapTop">普通组件(傻组件)</div>
                 </div>
                 <div class="tapMain">
+                    <div class="tapSection">
+                        <p>在class创建的组件中，必须定义一个render函数;在render函数中，必须返回一个null或者符合规范的虚拟DOM元素</p>
+                        <pre class="text4"><code class="js"></code></pre>
+                        <h5 class="subtitle">组件通信-父向子传递</h5>
+                        <p>在constructor中接收父组件传递的值。还要记得必须写super(props)因为组件是继承过来的</p>
+                        <pre class="text6"><code class="js"></code></pre>
+                        <h5 class="subtitle">Class组件的私有状态(私有数据)</h5>
+                        <p>Class组件称之为有状态组件。即组件的私有数据的存放位置。相当于Vue组件的data选项。 它的存放位置在constructor中的super(props)下面。 状态存放是通过this.state = {} 来存储。 修改状态 是通过this.setState({})相当于小程序的修改，是异步的方法</p>
+                        <pre class="text7"><code class="js"></code></pre>
+                        <p>在调用setState函数之后，React会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程（Reconciliation）。经过调和过程，React会以相对高效的方法根据新的状态构建React元素树并且着手重新渲染整个UI界面。React得到元素树之后，React会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染。在差异计算算法中，React能够相对精确的知道哪些位置发生了改变以及应该如何改变，这就保证了按需更新，而不是全部重新渲染。</p>
+                    </div>
                     <div class="tapSection">
                         <p>通过构造函数定义组件</p>
                         <pre><code class="js">function Name(){ return null }</code></pre>
@@ -108,16 +119,6 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                         <h5 class="subtitle">组件通信-父向子传递</h5>
                         <p>父组件通过标签属性来传递。子组件通过构造函数中的形参来进行接收。</p>
                         <pre class="text5"><code class="js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <p>在class创建的组件中，必须定义一个render函数;在render函数中，必须返回一个null或者符合规范的虚拟DOM元素</p>
-                        <pre class="text4"><code class="js"></code></pre>
-                        <h5 class="subtitle">组件通信-父向子传递</h5>
-                        <p>在constructor中接收父组件传递的值。还要记得必须写super(props)因为组件是继承过来的</p>
-                        <pre class="text6"><code class="js"></code></pre>
-                        <h5 class="subtitle">Class组件的私有状态(私有数据)</h5>
-                        <p>Class组件称之为有状态组件。即组件的私有数据的存放位置。相当于Vue组件的data选项。 它的存放位置在constructor中的super(props)下面。 状态存放是通过this.state = {} 来存储。 修改状态 是通过this.setState({})相当于小程序的修改，是异步的方法</p>
-                        <pre class="text7"><code class="js"></code></pre>
                     </div>
                 </div>
             </div>
@@ -211,7 +212,7 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                 <li>通过ReactDOM的unmountComponentAtNode来卸载组件。不过这里卸载组件只能卸载通过ReactDOM.render加载的组件。</li>
                 <li>在render,shouldComponentUpdate,componentWillUpdate,componentDidUpdate中调用setState时，会导致死循环，最终报错。</li>
                 <li>componentWillMount，componentDidMount，componentWillReceiveProps可以更新数据</li>
-                <li>对于ajax而言，可以在componentWillMount 生命周期或者componentDidMount 进行。建议采用componentDidMount 因为以后React-Native是没有componentWillMount 这个生命周期的。</li>
+                <li>对于ajax而言，应该在componentDidMount进行。因为React下一代调用算法Fiber会通过开始或停止渲染的方式优化应用性能，其会影响到componentWillMount的触发次数。对于componentWillMount这个生命周期函数的嗲用次数会不确定，React可能会多次频繁调用componentWillMount。如果我们将AJAX请求放到componentWillMount函数中，那么显而易见其会被触发多次，自然也就不是最好的选择。而且在React-Native中是没有componentWillMount 这个生命周期的。</li>
             </ol>
         </section>
     </div>
@@ -219,8 +220,10 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
         <h3>React双向数据绑定</h3>
         <section>
             <div class="small">
-                <p>对组件身上添加 ref属性，且设置值a。在setState功能中使用 this.refs.a就可以直接获取元素。</p>
-                <pre class="text12"><code class="js"></code></pre>
+                <p>refs是React提供给我们的安全访问DOM元素或者某个组件实例的句柄。对组件身上添加 ref属性，且设置值a。在setState功能中使用 this.refs.a就可以直接获取元素。</p>
+                <pre class="text12"><code class="react"></code></pre>
+<p>可以为元素添加ref属性然后在回调函数中接受该元素在DOM树中的句柄，该值会作为回调函数的第一个参数返回：</p>
+                <pre class="text23"><code class="react"></code></pre>
             <a href="javascript:;" class="bntTap">todolist例子</a>
             <div class="tapNav">
                 <div class="tapTop cur">Commet.js组件</div>
@@ -270,7 +273,14 @@ ReactDOM.render(myDiv, document.getElementById('app'))</code></pre>
                 <h5 class="subtitle">三个常用的组件</h5>
                 <ol>
                     <li>HashRouter/BrowserRouter
-                        <p>BrowserRouter：HistoryAPI路由</p>
+                        <ol>
+                            <li>HashHistory :  浏览器的url是这样的：/#/user/liuna?_k=adseis
+                            <p>使用hashHistory时，因为有 # 的存在，浏览器不会发送request,react-router 自己根据 url 去 render 相应的模块。</p>
+                            </li>
+                            <li>BrowserHistory : HistoryAPI路由,浏览器的url是这样的：/user/liuna
+                            <p>使用browserHistory时，从 / 到 /user/liuna, 浏览器会向server发送request，所以server要做特殊请求，比如用的 express 的话，你需要 handle所有的路由 app.get('*', (req, res) => { ... })，使用了 nginx 的话，nginx也要做相应的配置。</p>
+                            </li>
+                        </ol>
                     </li>
                     <li>Link
                         <p>有to属性是跳转到哪个页面 exact表示严格</p>

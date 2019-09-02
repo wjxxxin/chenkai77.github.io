@@ -76,6 +76,14 @@
                     <li>vue操作元素 ： 对组件或者元素添加自定义属性ref='自定义名称' ； 在js中通过this.$refs.自定义名称 对元素进行操作。</li>
                 </ol>
             </div>
+            <div class="small">
+                <h4>VNode</h4>
+                <p>Vue在羽绒棉上渲染的节点，及其子节点成为“虚拟节”，简写为“VNode”。“虚拟DOM”是由Vue组件树简历起来的整个VNode树的称呼</p>
+            </div>
+            <div class="small">
+                <h4>Vue的双向数据绑定原理</h4>
+                <p>vue.js是采用数据劫持，发布-订阅者模式的方法，通过object.defineProperty()来劫持各个属性的setter和getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+            </div>
         </section>
     </div>
     <div class="item">
@@ -108,6 +116,10 @@
                         <p>我们可以通过 v-bind 处理 class 和 style 。可以是字符串，也可以是对象(例如：v-bind:style="{k:v,k:v}")或者数组（例如 ： v-bind:class=“[数据1，数据2]”）。</p>
                     </li>
                 </ol>
+            </div>
+            <div class="small">
+                <h5 class="subtitle">为什么避免v-if和v-for用在一起</h5>
+                <p>当vue处理指令时，v-for比v-if具有更高的优先级，通过v-if移动到容器元素，不会再重复遍历列表中的每个值，取而代之的事，我们只检查它一次，且不会再v-if为否的时候运行v-for。</p>
             </div>
             <div class="small">
                 <h4>自定义指令</h4>
@@ -208,6 +220,7 @@
             <div class="small">
                 <h4>组件循环</h4>
                 <p>我们需要在对组件循环时，添加一个属性key且key值为字符串或者数字，且key值不可以重复</p>
+                <p>当有相同标签名的元素切换时，需要通过key特性设置唯一的值来标记已让vue区分它们，否则vue为了效率只会替换相同标签内部的内容。</p>
             </div>
             <div class="small">
                 <h4>插槽</h4>
@@ -249,6 +262,7 @@
         <section>
             <div class="small">
                 <p>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</p>
+                <p>也就是从开始创建、初始化数据、编译模板、挂载DOM→渲染、更新→渲染、卸载等一系列过程，我们称这是Vue的生命周期。</p>
                 <!--<a class="btns" href="javascript:">定时器案例</a>
                 <pre class="text20"><code class="html"></code></pre>-->
             </div>
@@ -378,6 +392,10 @@
                 <pre class="text43"><code class="js"></code></pre>
             </div>
             <div class="small">
+                <h4>Vue中，用watch去监听router变化</h4>
+                <pre class="text1"><code class="vue"></code></pre>
+            </div>
+            <div class="small">
                 <h4>路由懒加载</h4>
                 <pre><code class="js">const Home = () => import(/* webpackChunkName:"kk"(js文件名) */ '../components/Home.vue')</code></pre>
             </div>
@@ -476,7 +494,7 @@
         <section>
             <div class="small">
                 <h4>什么是Vuex</h4>
-                <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。</p>
+                <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。统一管理和维护各个Vue组件的可变化状态。</p>
                 <p>把组件的共享状态抽取出来，以一个全局单例模式管理，在这种模式下，组件树构成了一个巨大的“视图”，不管在树的哪个位置，任何组件都能获取状态或者触发行为！通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。</p>
                 <img src="images/Vue/vuex.png" alt="">
                 <p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。Vuex 和单纯的全局对象有以下两点不同：</p>
@@ -628,20 +646,11 @@
         </section>
     </div>
     <div class="item">
-        <h3>Vue 综合案例</h3>
+        <h3>经典todos案例</h3>
         <section>
             <div class="small">
-                <a class="bntTap" href="javascript:">代码</a>
-                <div class="tapNav">
-                    <div class="tapTop cur">todos</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <pre class="text16"><code class="html"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                    </div>
-                </div>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text16"><code class="vue"></code></pre>
             </div>
         </section>
     </div>
@@ -728,7 +737,11 @@ export const loginApi = params => request.post(`${preUrl}/tokens`, params)</code
 }
  这样我们在写url的时候，只用写成/list/1就可以代表api.xxxxxxxx.com/list/1.</code></pre>
             </div>
-
+            <div class="small">
+                <h4>自定义组件</h4>
+                <p>开发中会采用Vue组件化开发的方式，而且每个组件都是一个单文件形式后缀名为(.vue)。</p>
+                <pre class="text44"><code class="vue"></code></pre>
+            </div>
         </section>
     </div>
 </article>

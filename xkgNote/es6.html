@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="icon" href="images/titleIcon/js.jpg">
+    <link rel="stylesheet" href="css/cssreset.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/railscastskai.css">
+    <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+</head>
+<body>
+<div class="navLeft">
+
+</div>
+<ul class="navRight">
+
+</ul>
+<div class="top">
+    ES6
+</div>
+<div class="search">
+    <input type="text" placeholder="Search...">
+    <div class="searchBut"></div>
+    <div class="searchup">↑</div>
+    <div class="searchdown">↓</div>
+</div>
+<div class="phone-show pc-hide titleNav">
+    <input type="text" placeholder="搜索">
+    <div class="ssbut ss">搜索</div>
+    <div class="ssbut ok">ok</div>
+    <div class="ssbut sd">下一个</div>
+    <div class="alltitle">展开目录</div>
+</div>
+<article>
+    <div class="item">
+        <h3>变量、字符串</h3>
+        <section>
+            <div class="small">
+                <h4>let</h4>
+                <ol>使用 let 声明变量的特点：
+                    <li>同一作用域中不允许重复定义</li>
+                    <li>变量声明不会提前</li>
+                    <li>具有块级作用域。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>const</h4>
+                <ol>使用 const 用来声明常，其有以下特点：
+                    <li>变量声明不会提前；</li>
+                    <li>具有块级作用域；</li>
+                    <li>值不可改变；</li>
+                    <li>声明时需同时赋值。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>变量的解构赋值</h4>
+                <p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。有数组解构赋值，对象解构赋值等。</p>
+                <ol>
+                    <li>若解构不成功，变量的值就等于 undefined；</li>
+                    <li>解构赋值允许指定默认值：
+                        <ol>
+                            <li>ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于 undefined，默认值才会生效;</li>
+                            <li>默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="tapNav">
+                    <div class="tapTop cur">数组解构赋值</div>
+                    <div class="tapTop">对象解构赋值</div>
+                    <div class="tapTop">字符串解构赋值</div>
+                    <div class="tapTop">数值和布尔值的解构赋值</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        从数组中提取值，按照对应位置，对变量赋值。
+                        <pre class="text37"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+                        <pre class="text38"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>字符串被转换成了一个类似数组的对象，可进行数组解构赋值；
+                            </li>
+                            <li>数组的对象都有一个 length 属性，可进行对象解构赋值。</li>
+                        </ol>
+                        <pre><code class="language-js">let [a, b, c, d, e] = 'hello';
+console.log(a, b, c, d, e);
+let {length} = 'hello';
+console.log(length);</code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。</li>
+                            <li>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于 undefined 和 null 无法转为对象，所以对它们进行解构赋值，都会报错。</li>
+                        </ol>
+                        <pre><code class="language-js">let {toString: s} = 123;
+let {toString: s} = true;
+
+let {prop: x} = undefined;    // TypeError: Cannot destructure property `prop` of 'undefined' or 'null'
+let {prop: y} = null;         // TypeError: Cannot destructure property `prop` of 'undefined' or 'null'</code></pre>
+                    </div>
+                </div>
+
+            </div>
+            <div class="small">
+                <h4>字符串的扩展</h4>
+                <ol>
+                    <li>includes()：返回布尔值，表示是否找到了参数字符串。</li>
+                    <li>startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
+                    <li>endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
+                    三个方法都支持第二个参数，表示开始搜索的位置。
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text39"><code class="language-js"></code></pre>
+                <h5 class="subtitle">模板字符串</h5>
+                模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
+                <pre><code class="language-js">let person = {name : 'yy', age : 18};
+let str4 = `Hello ${person.name}, your age is ${person.age + 1}.`;
+console.log(str4);</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>函数扩展</h3>
+        <section>
+            <div class="small">
+                <h5>函数参数的默认值</h5>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text40"><code class="language-js"></code></pre>
+                <h5>函数参数的解构赋值</h5>
+                <ol>
+                    <li>解构赋值可以方便地将一组参数与变量名对应起来
+                        <pre class="text41"><code class="language-js"></code></pre>
+                    </li>
+                    <li>配置解构赋值指定参数的默认值
+                        <pre><code class="language-js">function func({name = 'xx', age = 18} = {}){    // 給函数参数设置默认值，并给解构赋值设置默认参数
+    console.log(name, age);                     // xx 18
+}
+func();
+// 01. 调用时，因为没有传递实参，函数参数的默认值起作用即 {name = 'xx', age = 18} = {}
+// 02. 对象解构赋值，因为传递的 {} 空对象，所以解构赋值的默认值起作用，及 name = 'xx', age = 18</code></pre>
+                    </li>
+                </ol>
+                <h5>rest 参数</h5>
+                <p>用于获取函数的多余参数，这样就不需要使用 arguments 对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。 注意，rest
+                    参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。</p>
+                <pre><code class="language-js">function func(a, ...values) {
+    console.log(a);
+    console.log(values);
+}
+func(2, 3, 4);</code></pre>
+                <h5>箭头函数</h5>
+                <p>ES6 允许使用“箭头”（=>）简化函数的定义。</p>
+                <ol>
+                    <li>箭头函数若有多个形参或者无形参，须使用圆括号，否者可以省略；</li>
+                    <li>箭头函数体有多行语句，须使用花括号，否则可以省略；(一行语句可以省略花括号)</li>
+                    <li>箭头函数有返回值，若没有花括号时，不写 return，反之须写。</li>
+                </ol>
+                <ol>注意：
+                    <li>箭头函数没有自己的作用域，this指向所定义的当前箭头函数所在的作用域中的this(即箭头函数 this 都是使用外部非箭头函数的 this)</li>
+                    <li>箭头函数不可以 new；</li>
+                    <li>箭头函数不可以使用 arguments 获取参数列表，可以使用 rest 参数代替。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text43"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>class</h4>
+                <a class="btns" href="javascript:">class的基本使用</a>
+                <pre class="text53"><code class="language-js"></code></pre>
+                <a class="btns" href="javascript:">class的继承结构</a>
+                <pre class="text54"><code class="language-js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>模块化、扩展运算符</h3>
+        <section>
+            <div class="small">
+                <h4>ES6模块化</h4>
+                <ol>
+                    <li>默认导出 ： export default 模块名</li>
+                    <li>默认导入 ： import 模块名称/别名 from '模块地址'</li>
+                </ol>
+                <br>
+                <ol>
+                    <li>定义模块导出
+                        <ol>
+                            <li>export {模块名称,模块名称……}</li>
+                            <li><p>export var a = 1;</p>
+                                export function a(){}
+                            </li>
+                        </ol>
+                    </li>
+                    <li>定义模块导入
+                        <ol>
+                            <li>解构 ： import {模块名称，变量} from "模块地址"</li>
+                            <li>集中式导入 ： import * as 别名 from 模块地址</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>扩展运算符(…)</h4>
+                <p>扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中。</p>
+                <ol>
+                    <li><pre><code class="js">let bar = { a: 1, b: 2 };
+let baz = { ...bar }; // { a: 1, b: 2 }</code></pre>
+                        <p>等价于</p>
+                        <pre><code class="js">let bar = { a: 1, b: 2 };
+let baz = Object.assign({}, bar); // { a: 1, b: 2 }</code></pre>
+                    </li>
+                    <li>可以将数组转换为参数序列
+                        <pre><code class="js">function add(x, y) {
+  return x + y;
+}
+
+const numbers = [4, 38];
+add(...numbers) // 42</code></pre>
+                    </li>
+                    <li>复制数组（深拷贝）
+                        <pre><code class="js">const arr1 = [1, 2];
+const arr2 = [...arr1];</code></pre>
+                    </li>
+                    <li>合并数组
+                        <pre class="text42"><code class="language-js"></code></pre>
+                    </li>
+                    <li>扩展运算符可以与解构赋值结合起来，用于生成数组
+                        <pre><code class="js">const [first, ...rest] = [1, 2, 3, 4, 5];
+first // 1
+rest  // [2, 3, 4, 5]</code></pre>
+                        <p>如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。</p>
+                    </li>
+                    <li>将字符串转为真正的数组
+                        <pre><code class="js">[...'hello']
+// [ "h", "e", "l", "l", "o" ]
+</code></pre>
+                        <p>querySelectorAll方法返回的是一个NodeList对象。它不是数组，而是一个类似数组的对象。这时，扩展运算符可以将其转为真正的数组，原因就在于NodeList对象实现了
+                            Iterator .</p>
+                    </li>
+                    <li>实现了 Iterator 接口的对象
+                        <pre><code class="js">let nodelist = document.querySelectorAll('div')
+                    let array = [...nodelist]</code></pre>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Promise</h3>
+        <section>
+            <div class="small">
+                <h4>Promise基本用法</h4>
+                <ol>构造实例：
+                    <li>构造函数接受一个函数作为参数；</li>
+                    <li>调用构造函数得到实例 p 的同时，作为参数的函数会立即执行；</li>
+                    <li>参数函数接受两个回调函数参数 resolve 和 reject；</li>
+                    <li>在参数函数被执行的过程中，若在其内部调用 resolve，会将 p 的状态变成 fulfilled，或者调用 reject，会将 p 的状态变成 rejected。</li>
+                </ol>
+                <ol>调用 then：
+                    <li>调用 then 可以为实例 p 注册两种状态回调函数；</li>
+                    <li>当实例 p 的状态为 fulfilled，会触发第一个函数执行；</li>
+                    <li>当实例 p 的状态为 rejected，则触发第二个函数执行。</li>
+                </ol>
+                <ol>调用 catch：
+                    <li>调用 catch 用于注册 rejected 状态的回调函数，同时该回调也是程序出错的回调，即如果前面的程序运行过程中出错，也会进入执行该回调函数。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text97"><code class="language-js"></code></pre>
+                <h5 class="subtitle">Promise解决回调地狱问题</h5>
+                <pre class="text98"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>fetch</h3>
+        <section>
+            <div class="small">
+                <p>fetch 不同于  jQuery.ajax() 主要有两个方面：</p>
+                <ol>
+                    <li>即使响应是HTTP 404或500，返回的Promise fetch() 也不会拒绝HTTP错误状态。相反，它将正常解析（ok状态设置为false），它只会拒绝网络故障或阻止要求完成。</li>
+                    <li>默认情况下， 如果站点依靠维护用户会话（发送cookie，必须设置credentials init选项），  fetch 则不会发送或接收来自服务器的任何cookie，从而导致未经身份 验证的请求。</li>
+                </ol>
+                <pre class="text3"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>async/await</h3>
+        <section>
+            <div class="small">
+                <h5 class="subtitle">async</h5>
+                <p>async作为一个关键字放到函数前面，用于表示函数是一个异步函数，async就是异步的意思。</p>
+                <p>async 函数返回的是一个promise 对象，如果在函数中 return 一个直接量，async 会把这个直接量通过 Promise.resolve() 封装成 Promise 对象。</p>
+                <p>因为Promise 的特点——无等待，所以在没有 await 的情况下执行 async 函数，它会立即执行，返回一个 Promise 对象，并且，绝不会阻塞后面的语句。这和普通返回 Promise 对象的函数并无二致。</p>
+                <h5 class="subtitle">await</h5>
+                <p>await 是个运算符，用于组成表达式，await 表达式的运算结果取决于它等的东西。如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西。如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。</p>
+                <p> 所以await 必须用在 async 函数中的原因。async 函数调用不会造成阻塞，它内部所有的阻塞都被封装在一个 Promise 对象中异步执行。</p>
+                <pre class="text4"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>for...of语句</h3>
+        <section>
+            <div class="small">
+                <p>for...of语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句</p>
+                <p>for...of和for...in的区别</p>
+                <pre class="text2"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>generator</h3>
+        <section>
+            <div class="small">
+                <p>generator（生成器）是ES6标准引入的新的数据类型。一个generator看上去像一个函数，但可以返回多次。Generator的出现让一个函数被执行之后还能暂停的情况变成可能。</p>
+                <h5 class="subtitle">function*</h5>
+                <p>通过function*（注意有*号）来定义的函数称之为“生成器函数”（generator function），它的特点是可以中断函数的执行，每次执行yield语句之后，函数即暂停执行，直到调用返回的生成器对象的next()函数它才会继续执行。</p>
+                <h5 class="subtitle">yield关键字</h5>
+                <p>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</p>
+                <pre class="text1"><code class="js"></code></pre>
+                <p>next()方法会执行generator的代码，然后，每次遇到yield x;就返回一个对象{value: x, done: true/false}，然后“暂停”。返回的value就是yield的返回值，done表示这个generator是否已经执行结束了。如果done为true，则value就是return的返回值。 当执行到done为true时，这个generator对象就已经全部执行完毕，不要再继续调用next()了。</p>
+                <h5 class="subtitle">也可以直接用for ... of循环迭代generator对象，这种方式不需要我们自己判断done</h5>
+                <pre><code class="js">for (var x of fib(10)) {
+    console.log(x); // 依次输出0, 1, 1, 2, 3, ...
+}</code></pre>
+            </div>
+        </section>
+    </div>
+</article>
+</body>
+</html>
+<script src="js/page.js"></script>
+<script src="js/es6.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

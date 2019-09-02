@@ -20,11 +20,14 @@ Note.prototype.init=function(){
     };
 };
 Note.prototype.rightstyle = function(){
-    var str = '<li><a href="html.html">HTML</a></li>\n' +
-        '    <li><a href="css.html">CSS</a></li>\n' +
-        '    <li><a href="js.html">JS</a></li>\n' +
-        '    <li><a href="vue.html">框架、工具</a></li>\n' +
-        '    <li><a href="node.js.html">前后端</a></li>';
+    var url = window.location.href;
+    console.log(url);
+    var arr = ['<li><a href="html.html">HTML</a></li>','<li><a href="css.html">CSS</a></li>','<li><a href="js.html">JS</a></li>','<li><a href="vue.html">框架、工具</a></li>','<li><a href="node.js.html">node.js</a></li>'];
+    if(url.indexOf('/js.html')!==-1){
+        arr[2] = '<li><a href="es6.html">ES6</a></li>';
+        console.log(arr);
+    }
+    var str = arr.join('');
     document.querySelector('.navRight').innerHTML = str;
     var that = this;
     var rightlis = document.querySelectorAll('.navRight li');

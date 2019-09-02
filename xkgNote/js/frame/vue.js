@@ -1,4 +1,17 @@
 (function f() {
+    var text1 = `let vm = new Vue({
+el:"#app",
+data:{},
+router,
+watch:{
+$router(to,from){
+console.log(to.path);
+}
+}
+})`;
+
+    xk$('.text1 code').innerHTML=zy(text1);
+
     var text12 = `<script>
 var vm = new Vue({
     el:"绑定的元素"//（例如：通过el:"#app" 和html绑定关系 ，最终实现数据呈现。）,
@@ -824,7 +837,8 @@ var routers = new Router({
                 changeOrigin: true,  //是否跨域
                 pathRewrite: {     
                     '^/api/coding/': '/'  //本身的接口地址没有 '/api' 这种通用前缀，所以要rewrite，如果本身有则去掉
-                }
+                },
+                secure:true  //允许https
             }
         }
     }
@@ -871,6 +885,22 @@ const router = new VueRouter({
 
     xk$('.text43 code').innerHTML = zy(text43);
 
+    var text44 = `<template>
+    <div>
+        Name
+    </div>
+</template>
 
+<script>
+    export default {
+        name: 'Name',
+    }
+</script>
+
+<style scoped> //scope属性 让CSS只在当前组件中起作用
+
+</style>`;
+
+    xk$('.text44 code').innerHTML = zy(text44);
 
 })();
