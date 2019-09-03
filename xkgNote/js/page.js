@@ -1,5 +1,5 @@
 function Note() {
-    this.navRightcolor = ['#df5225', '#4597cf', '#b2394c', '#65934a', '#14446a'];
+    this.navRightcolor = ['#df5225', '#4597cf', '#b2394c', '#65934a', '#14446a','#f07d17'];
     /*this.animatetimeId = null;
     this.sildertimer = null;*/
     this.af=null;
@@ -21,8 +21,7 @@ Note.prototype.init=function(){
 };
 Note.prototype.rightstyle = function(){
     var url = window.location.href;
-    console.log(url);
-    var arr = ['<li><a href="html.html">HTML</a></li>','<li><a href="css.html">CSS</a></li>','<li><a href="js.html">JS</a></li>','<li><a href="vue.html">框架、工具</a></li>','<li><a href="node.js.html">node.js</a></li>'];
+    var arr = ['<li><a href="html.html">HTML</a></li>','<li><a href="css.html">CSS</a></li>','<li><a href="js.html">JS</a></li>','<li><a href="vue.html">框架、工具</a></li>','<li><a href="node.js.html">node.js</a></li>','<li><a href="mobile.html">移动端</a></li>'];
     if(url.indexOf('/js.html')!==-1){
         arr[2] = '<li><a href="es6.html">ES6</a></li>';
         console.log(arr);
@@ -95,18 +94,20 @@ Note.prototype.asideShow = function(){
     var left = document.querySelector('.navLeft');
     var right = document.querySelector('.navRight');
     var htmlw = document.body.offsetWidth;
-    window.onmousemove = function (e) {
-        if (e.pageX < 120) {
-            left.style.left = 0;
-        } else {
-            left.style.left = '-120px';
-        }
-        if (e.pageX > (htmlw - 50)) {
-            right.style.right = '-15px';
-        } else {
-            right.style.right = '-65px';
-        }
-    };
+    // if(htmlw>640){
+        window.onmousemove = function (e) {
+            if (e.pageX < 120) {
+                left.style.left = 0;
+            } else {
+                left.style.left = '-120px';
+            }
+            if (e.pageX > (htmlw - 50)) {
+                right.style.right = '-15px';
+            } else {
+                right.style.right = '-65px';
+            }
+        };
+
 };
 Note.prototype.windowScroll = function(target){
     //var that = this;
@@ -194,7 +195,11 @@ Note.prototype.titleClick = function(){
 Note.prototype.xiangying = function(){
     document.querySelector('.navLeft').classList.add('phone-hide');
     document.querySelector('.search').classList.add('phone-hide');
-    document.querySelector('.titleNav .alltitle').addEventListener('touchend', function () {
+    var navRight = document.querySelector('.navRight');
+    var alltitle = document.querySelector('.titleNav .alltitle');
+    alltitle.addEventListener('touchend', function () {
+        window.onmousemove=null;
+        navRight.style.right = '0.37rem';
         var h3s = document.querySelectorAll('h3');
         Array.from(h3s).forEach(function (ele) {
             var eleNext = ele.nextElementSibling;
@@ -202,6 +207,11 @@ Note.prototype.xiangying = function(){
             eleNext.style.display = 'none';
         })
     });
+    document.body.ontouchend=function (e) {
+        if(e.target!==alltitle){
+            navRight.style.right = '-2rem';
+        }
+    };
     var that = this;
     var ssArr = [];
     var ssIndex = 0;
@@ -220,7 +230,7 @@ Note.prototype.xiangying = function(){
         var val = ssinp.value;
         Array.from(document.querySelectorAll('article h3,article h4,article li,p')).forEach(function (ele) {
             if (ele.innerText.indexOf(val) !== -1) {
-                ele.style.backgroundColor = 'rgba(252,157,154,0.7)'
+                ele.style.backgroundColor = 'rgba(252,157,154,0.7)';
                 ssArr.push(ele);
                 if (ele.offsetTop >= 40) {
                     newssArr.push(ele)

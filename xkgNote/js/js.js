@@ -2743,6 +2743,39 @@ console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"]`;
 
     xk$('.text100 code').innerHTML = zy(text100);
 
+    var text101 = `function list() {
+  return Array.prototype.slice.call(arguments);//也可以用[].slice.call(arguments)
+}
+
+var list1 = list(1, 2, 3); // [1, 2, 3]
+
+var unboundSlice = Array.prototype.slice;
+var slice = Function.prototype.call.bind(unboundSlice);
+
+function list() {
+  return slice(arguments);
+}
+
+var list1 = list(1, 2, 3); // [1, 2, 3]`;
+
+    xk$('.text101 code').innerHTML = zy(text101);
+
+    var text102 = `<ul id="ul"></ul>
+var element  = document.getElementById('ul'); // assuming ul exists
+var fragment = document.createDocumentFragment();
+var browsers = ['Firefox', 'Chrome', 'Opera', 
+    'Safari', 'Internet Explorer'];
+
+browsers.forEach(function(browser) {
+    var li = document.createElement('li');
+    li.textContent = browser;
+    fragment.appendChild(li);
+});
+
+element.appendChild(fragment);`;
+
+    xk$('.text102 code').innerHTML = zy(text102);
+
 })();
 
 

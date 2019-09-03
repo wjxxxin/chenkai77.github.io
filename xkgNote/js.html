@@ -60,7 +60,7 @@
     <div class="ssbut ss">搜索</div>
     <div class="ssbut ok">ok</div>
     <div class="ssbut sd">下一个</div>
-    <div class="alltitle">展开目录</div>
+    <div class="alltitle">导航</div>
 </div>
 <!--<div id="bk"><a href="https://chenkai72.github.io/index.html" target="_blank"></a></div>-->
 <article>
@@ -329,6 +329,18 @@ console.log(strNum + 0);     //18.60  0先转换成字符串类型，再做拼�
                             true。</p>
                     </div>
                 </div>
+            </div>
+            <div class="samll">
+                <h4>隐式转换</h4>
+                <p>隐式转换是系统默认的，不需要加以声明就可以进行的转换。一般情况下，数据的类型转换通常是由编译系统自动进行的，不需要人工干预</p>
+                <ol>
+                    <li>对象和布尔值比较 : 对象和布尔值比较时，对象先转换为字符串，然后再转换为数字，布尔值直接转换为数字</li>
+                    <li>对象和字符串比较 : 对象和字符串进行比较时，对象转换为字符串，然后两者进行比较</li>
+                    <li>对象和数字比较 : 对象和数字进行比较时，字符串转换为数字，二者再比较</li>
+                    <li>字符串和数字比较 : 字符串和数字进行比较时，字符串转换成数字，二者再比较，true=1，false=0</li>
+                    <li>字符串和布尔值比较 : 字符串和布尔值进行比较时，二者全部转换成数值再比较</li>
+                    <li>布尔值和数字比较 : 布尔值和数字进行比较时，布尔转换为数字，二者比较</li>
+                </ol>
             </div>
             <div class="small">
                 <h4>基本数据与引用数据的区别</h4>
@@ -1085,9 +1097,9 @@ typeof  arr;    //object    typeof是无法判断是否为数组的</code></pre>
                     <li>valueOf() : // 返回数组对象本身</li>
                     <li>push() : // 将一个或多个元素添加到数组的末尾，并返回该数组的新长度</li>
                     <li>pop() : // 从数组中删除最后一个元素，并返回该元素的值</li>
-                    <li>shift() : // 取出数组中的第一个元素，修改length属性</li>
+                    <li>shift() : // 取出数组中的第一个元素，修改length属性,返回被删除的元素</li>
                     <li>unshift() : // 在数组最前面插入项，返回数组的长度</li>
-                    <li>reverse() : // 将数组中元素的位置颠倒,并返回该数组。该方法会改变原数组。</li>
+                    <li>reverse() : // 将数组中元素的位置颠倒,返回反转后的数组。该方法会改变原数组。</li>
                     <li>sort() : // 即使是数组sort也是根据字符，从小到大排序
                         <p>
                             数组调用sort()进行排序的时候，底层会先调用toString()将数组转换成字符串，然后再按ASCII进行比较。这种比较方式，会将数值数组转换成字符串，这时就会出现不合理的效果，比如“80”排在“9”的前面。如果想对数值进行排序，我们要使用带参数的sort方法。</p>
@@ -1112,7 +1124,11 @@ typeof  arr;    //object    typeof是无法判断是否为数组的</code></pre>
                     <li>concat() : // 用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。var new_array = old_array.concat(value1[,
                         value2[, ...[, valueN]]]) ； valueN可取数组或值
                     </li>
-                    <li>slice() : // 返回一个从开始到结束(不包括结束)选择的数组的一部分进行浅拷贝到一个新的数组对象,并且原对象不会被修改，参数start从0开始,end从1开始</li>
+                    <li>slice() : // 返回一个从开始到结束(不包括结束)选择的数组的一部分进行浅拷贝到一个新的数组对象,并且原对象不会被修改，参数start如果未定义则从0开始,参数end如果未定义则从1开始
+                        <p>slice也可以调用方法将类似Array的对象/集合(阵列状物体)转换为新的Array。</p>
+                        <a href="javaScript:;" class="btns">代码</a>
+                    <pre class="text101"><code class="js"></code></pre>
+                    </li>
                     <li>splice() : // 删除或替换或增加当前数组的某些项，参数start(开始的索引位置), deleteCount(删除数量，写0则为增加), options(要替换的项目)
                     </li>
                     <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
@@ -1186,7 +1202,7 @@ s1 = null;</code></pre>
                     <li>trim() ： // 只能去除字符串前后的空白</li>
                     <li>to(Locale)UpperCase() ： // 转换大写</li>
                     <li>to(Locale)LowerCase() ： // 转换小写</li>
-                    <li>search() ： // 执行正则表达式和对象之间的一个搜索匹配。</li>
+                    <li>search() ： // 执行正则表达式和对象之间的一个搜索匹配。如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引;否则，返回 -1。</li>
                     <li>replace() ： // 替换
                         <a class="btns" href="javascript:">代码</a>
                         <pre class="text22"><code class="language-js"></code></pre>
@@ -1438,13 +1454,27 @@ for (var i = 0; i < boxes.length; i++) {
                 </ol>
             </div>
             <div class="small">
-                <h4>创建元素的三种方式</h4>
+                <h4>创建元素的方式</h4>
                 <ol>
                     <li>
                         document.write():将一个文本字符串写入由document.open()打开的一个文档流。默认情况之下，页面由上而下地加载，形成一个文档流，当执行完毕时，文档流就会关闭。当使用documen.write()创建元素时，实际是开启一了个新的文档流，而将之前文档流冲刷掉。
                     </li>
                     <li>innerHTML:设置或获取HTML语法表示的元素的后代。</li>
                     <li>document.createElement(tagName): 创建由tagName 指定的HTML元素</li>
+                    <li>createDocumentFragment ： 创建一个新的空白的文档片段
+                    <pre class="text102"><code class="js"></code></pre>
+                    </li>
+                </ol>
+                <h5 class="subtitle">createElement与createDocumentFragment的区别</h5>
+                <ol>共同点
+                    <li>添加子元素后返回值都是新添加的子元素</li>
+                    <li>都可以通过appendChild添加子元素，并且子元素必须是node类型，不能为文本</li>
+                    <li>若添加的子元素是文档中存在的元素，则通过appendChild在为其添加子元素时，会从文档中删除之存在的元素</li>
+                </ol>
+                <ol>区别
+                    <li>createElement创建的是元素节点，节点类型为1，createDocumentFragment创建的是文档碎片，节点类型是11</li>
+                    <li>通过createElement新建元素必须指定元素tagName，因为其可用innerHTML添加子元素。通过createDocumentFragment则不必</li>
+                    <li>通过createElement创建的元素是直接插入到文档中，而通过createDocumentFragment创建的元素插入到文档中的是他的子元素</li>
                 </ol>
                 <h4>innerHTML和innerText</h4>
                 <ol>
@@ -1470,27 +1500,51 @@ function getInnerText(element) {
         <section>
             <div class="small">
                 <h4>事件源</h4>
+                <h5 class="subtitle">window 事件</h5>
                 <ol>
                     <li>onload : 当页面加载完成执行</li>
                     <li>onunload : 卸载页面的时候触发</li>
+                    <li>window.οnresize=function(){ } : 浏览器窗口大小改变时事件</li>
+                    <li>DOMContentLoaded : 文档加载完事件 （JQ里的$(document).ready()、$(function(){})，都是使用了DOMContentLoaded事件）</li>
+                    <li>onhashchange : 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发 。hash不会引起浏览器发生跳转</li>
+                </ol>
+                <h5 class="subtitle">鼠标 事件</h5>
+                <ol>
                     <li>onclick : 当鼠标点击</li>
                     <li>onmouseover : 当鼠标移入</li>
                     <li>onmousenter : 当鼠标移入（不会触发事件冒泡）</li>
                     <li>onmouseout : 当鼠标移出</li>
                     <li>onmouseleave : 当鼠标移出（不会触发事件冒泡）</li>
-                    <li>onfocus : 当获得焦点</li>
-                    <li>onblur : 当失去焦点</li>
+                    <li>onmousedown : 鼠标按键按下触发</li>
+                    <li>onmousemove : 鼠标移动触发</li>
+                </ol>
+                <h5 class="subtitle">键盘 事件</h5>
+                <ol>
                     <li>onkeyup : 键盘按键抬起触发</li>
                     <li>onkeydown : 键盘按键按下触发</li>
                     <li>onmouseup : 鼠标按键放开时触发</li>
-                    <li>onmousedown : 鼠标按键按下触发</li>
-                    <li>onmousemove : 鼠标移动触发</li>
-                    <li>onhashchange : 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发 。hash不会引起浏览器发生跳转</li>
+                </ol>
+                <h5 class="subtitle">拖拽事件</h5>
+                <ol>
+                    <li>dragstart ： 拖拽开始时在被拖拽元素上触发此事件，监听器需要设置拖拽所需数据，操作系统拖拽文件到浏览器时不触发此事件</li>
+                    <li>dragenter : 拖拽鼠标进入元素时在该元素上触发，用于给拖放的元素设置视觉反馈，如高亮</li>
+                    <li>dragover : 拖拽时鼠标在目标元素上移动时触发，监听器通过组织浏览器默认行为设置元素为可拖放元素</li>
+                    <li>dragleave : 拖拽时鼠标移出目标元素时在目标元素上触发，此时监听器可以取消掉前面设置的视觉效果</li>
+                    <li>drag : 拖拽期间在被拖拽元素上连续触发</li>
+                    <li>drop : 鼠标在拖放目标上释放时，在拖放目标上触发，此时监听器需要收集数据并且执行所需操作，如果是从操作系统拖放文件到浏览器，需要取消浏览器默认行为</li>
+                    <li>dragend : 鼠标在拖放目标上释放时，在拖拽元素上触发，将元素从浏览器拖放到操作系统时不会触发此事件</li>
+                </ol>
+                <h5 class="subtitle">元素 事件</h5>
+                <ol>
+                    <li>onfocus : 当获得焦点（不冒泡）</li>
+                    <li>onblur : 当失去焦点（不冒泡）</li>
+                    <li>onfocusin ： 当获得焦点（冒泡）/</li>
+                    <li>onfocusout ： 当失去焦点（冒泡）
+                        <p>可获得焦点的元素 : window/链接被点击或键盘操作/表单控件被点击或键盘操作/设置tabindex属性的元素被点击或键盘操作</p>
+                    </li>
                     <li>onchange : 当用户改变input输入框内容时触发（元素失去焦点时）； onchange 事件会在域的内容改变时发生,也可用于单选框与复选框改变后触发的事件。</li>
                     <li>oninput : 在元素的值已经改变之后立即发生。 oninput事件在元素的值已经改变之后立即发生。当元素失去焦点时，会发生onchange事件。</li>
                     <li>animationend : 动画结束事件</li>
-                    <li>DOMContentLoaded : 文档加载完事件 （JQ里的$(document).ready()、$(function(){})，都是使用了DOMContentLoaded事件）
-                    </li>
                     <li>transitionend ： 过渡动画执行完事件</li>
                 </ol>
                 <pre class="text31"><code class="language-js"></code></pre>
@@ -1498,7 +1552,7 @@ function getInnerText(element) {
             <div class="small">
                 <h4>window 事件</h4>
                 <ol>
-                    <li>window.οnresize=function(){ } : 浏览器窗口大小改变时事件</li>
+
                 </ol>
             </div>
             <div class="small">
@@ -1828,8 +1882,8 @@ function getInnerText(element) {
                 <ol>
                     <li>clientLeft : clientLeft = border</li>
                     <li>clientTop : clientTop = border</li>
-                    <li>clientWidth : witdh + padding</li>
-                    <li>clientHeight : hetight + padding</li>
+                    <li>clientWidth : witdh + padding（如果有滚动条，也不包含滚动条）</li>
+                    <li>clientHeight : hetight + padding（如果有滚动条，也不包含滚动条）</li>
                 </ol>
             </div>
             <div class="small">
@@ -1947,6 +2001,16 @@ console.log(eval(jsonStr));//转换成JS的对象</code></pre>
                         <p>用途：表明脚本在执行时不会影响页面的构造。也就是所，脚本会被延迟到整个页面解析完毕之后再执行。</p><pre><code class="js">&lt;script  src=”XXX.js” defer=“defer”>&lt;/script></code></pre></li>
                     <li>async属性：（页面load前执行）: script标签定义了async属性。与defer属性类似，都用于改变处理脚本的行为。同样，只适用于外部脚本文件
                         <p>目的：不让页面等待脚本下载和执行，从而异步加载页面其他内容。异步脚本一定会在页面load事件前执行。不能保证脚本会按顺序执行</p><pre><code class="js">&lt;script src=”XXX.js” async>&lt;/script></code></pre></li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>js中常见的内存泄漏</h4>
+                <ol>
+                    <li>内存泄漏会导致一系列问题，比如：运行缓慢、崩溃、高延迟</li>
+                    <li>内存泄漏是指你用不到（访问不到）的变量，依然占据着内存空间，不能被再次利用起来</li>
+                    <li>意外的全局变量，这些都是不会被回收的变量（除非设置null或者被重新赋值），特别是那些用来临时存储大量信息的变量</li>
+                    <li>周期函数一直在运行，处理函数并不会被回收，jq在移除节点前都会，将事件监听移除</li>
+                    <li>js代码中有对DOM节点的引用，dom节点被移除的时候，引用还维持</li>
                 </ol>
             </div>
         </section>
