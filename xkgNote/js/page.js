@@ -21,7 +21,7 @@ Note.prototype.init=function(){
 };
 Note.prototype.rightstyle = function(){
     var url = window.location.href;
-    var arr = ['<li><a href="html.html">HTML</a></li>','<li><a href="css.html">CSS</a></li>','<li><a href="js.html">JS</a></li>','<li><a href="vue.html">框架、工具</a></li>','<li><a href="node.js.html">node.js</a></li>','<li><a href="mobile.html">移动端</a></li>'];
+    var arr = ['<li><a href="html.html">HTML</a></li>','<li><a href="css.html">CSS</a></li>','<li><a href="js.html">JS</a></li>','<li><a href="vue.html">框架、工具</a></li>','<li><a href="node.js.html">前后端</a></li>','<li><a href="mobile.html">移动端</a></li>'];
     if(url.indexOf('/js.html')!==-1){
         arr[2] = '<li><a href="es6.html">ES6</a></li>';
         console.log(arr);

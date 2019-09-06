@@ -35,6 +35,164 @@
 </div>
 <article>
     <div class="item">
+        <h3>网页从输入网址到渲染完成经历的过程</h3>
+        <section>
+            <div class="small">
+                <ul>
+                    <li>1、输入网址</li>
+                    <li>2、发送到DNS服务器，并获取域名对应的web服务器对应的IP地址</li>
+                    <li>3、与web服务器建立TCP连接</li>
+                    <li>4、浏览器向web服务器发送http请求</li>
+                    <li>5、web服务器响应请求，并返回一定url的数据（或错误信息，或重定向的新url地址）</li>
+                    <li>6、浏览器下载web服务器返回的数据及解析html源文件</li>
+                    <li>7、生成DOM树，解析css和js，渲染页面，直至显示完成</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>前端存储</h3>
+        <section>
+            <div class="small">
+                <h4>Cookie</h4>
+                <p>cookie 本身就是存储在浏览器中的字符串。但这个字符串是有格式的，由键值对 key=value 构成，键值对之间由一个分号和一个空格隔开。</p>
+                <p>Cookie 选项包括：expires(有效期)、domain、path(domain 和 path一起来限制 cookie 能被哪些 URL 访问)、secure(限制 HTTPS
+                    传输)、HttpOnly(限制 JS 代码操作)。</p>
+                <pre><code class="language-js">'key=name; expires=Thu, 25 Feb 2016 04:18:00 GMT; domain=ppsc.sankuai.com; path=/; secure; HttpOnly'</code></pre>
+                <pre class="text64"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <a class="btns" href="javascript:">Cookie 操作封装</a>
+                <pre class="text65"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <a class="btns" href="javascript:">前后端代码</a>
+                <div class="code">
+                    <div class="left">
+                        <pre class="text66"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="right rnotop">
+                        <pre class="text67"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>sessionStorage</h4>
+                <ol>临时会话存储:
+                    <li>保存数据 ：sessionStorage.setItem(key, value);</li>
+                    <li>读取数据 ：sessionStorage.getItem(key);</li>
+                    <li>删除单个数据 ：sessionStorage.removeItem(key);</li>
+                    <li>删除所有数据 ：sessionStorage.clear();</li>
+                    <li>得到某个索引的 key ：sessionStorage.key(index);</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text68"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>localStorage</h4>
+                <ol>永久存储:
+                    <li>保存数据 ：localStorage.setItem(key, value);</li>
+                    <li>读取数据 ：localStorage.getItem(key);</li>
+                    <li>删除单个数据 ：localStorage.removeItem(key);</li>
+                    <li>删除所有数据 ：localStorage.clear();</li>
+                    <li>得到某个索引的 key ：localStorage.key(index);</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text69"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>cookie、localStorage、sessionStorage 区别和共同点</h4>
+                <table>
+                    <tr class="tableup">
+                        <th>特性</th>
+                        <th>cookie</th>
+                        <th>sessionStorage</th>
+                        <th>localStorage</th>
+                    </tr>
+                    <tr>
+                        <th>生命周期</th>
+                        <td>生成时就会被指定一个maxAge值，这就是cookie的生存周期，在这个周期内cookie有效，默认关闭浏览器失效</td>
+                        <td>页面会话期间可用</td>
+                        <td>除非数据清除，否则 一直存在</td>
+                    </tr>
+                    <tr>
+                        <th>数据大小</th>
+                        <td>4kb左右(因为每次http请求都会携带cookie)</td>
+                        <td colspan="2">一般5M或者更大</td>
+                    </tr>
+                    <tr>
+                        <th>与服务器通信</th>
+                        <td>对服务器的请求来传递，每次都会携带在HTTP请求头中，如果使用cookie保存过多数据会带来性能问题</td>
+                        <td colspan="2">数据不是由每个服务器请求传递的，而是只有在请求时使用数据，不参与和服务器的通信</td>
+                    </tr>
+                    <tr>
+                        <th>易用性</th>
+                        <td>cookie需要自己封闭</td>
+                        <td colspan="2">setCookie, getCookie 可以用原生接口，也可以再次封闭来对Object和Array有更好的支持</td>
+                    </tr>
+                    <tr>
+                        <th>共同点</th>
+                        <td colspan="3">都保存在浏览器端，和服务器端的session机制不同</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="small">
+                <h4>Base64</h4>
+                <p>JavaScript 提供两个方法来处理 Base64 编码和解码操作：btoa 方法将字符串或二进制值转化为 Base64 编码，atob 方法将Base64 编码转化为原来的编码。</p>
+                <pre><code class="language-js">function base64Encode(str) {
+    return window.btoa(unescape(encodeURIComponent(str)));
+}
+function base64Decode(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+}
+base64Encode('Man');
+base64Decode('TWFu'); </code></pre>
+            </div>
+            <div class="small">
+                <h4>跨域访问</h4>
+                <ol>
+                    <li><h5>使用 CROS 实现跨域访问</h5>
+                        <p>增加一个响应头就可以实现跨域效果了。</p>
+                        <pre><code class="language-js">res.append('Access-Control-Allow-Origin', '*');</code></pre>
+                    </li>
+                    <li>nodejs中间件代理跨域</li>
+                    <li><h5>使用 JSONP 实现跨域访问</h5>
+                        <p>虽然我们不能直接使用 AJAX 跨域发送请求，但是我们可以利用一些标签是可以跨域。</p>
+                        <ol>
+                            <li>在页面中需要先声明函数，该函数的名称需要和服务器端返回的数据对应，该函数接受一个参数；</li>
+                            <li>大多数情况，会把函数名提交到服务器端。</li>
+                        </ol>
+                        <p>Express 中的响应对象中有一个方法 jsonp，提供这样的功能。</p>
+                        <pre><code class="language-js">res.jsonp(null);
+// => callback(null)
+
+res.jsonp({user: 'tobi'});
+// => callback({"user": "tobi"})
+
+res.status(500).jsonp({error: 'message'});
+// => callback({"error": "message"})</code></pre>
+                        <p>默认情况下，JSONP 回调名称是 callback，可以请求参数进行修改。</p>
+                        <pre><code class="language-js">// 调用的时候传递参数 ?callback=foo
+res.jsonp({user: 'tobi'});
+// => foo({"user": "tobi"})
+
+app.set('jsonp callback name', 'cb');
+// ?cb=foo
+res.status(500).jsonp({error: 'message'});
+// => foo({"error": "message"})</code></pre>
+                    </li>
+                </ol>
+                <h5>JSONP 案列 : 需求：当输入框的内容发生变化发送请求（调用百度的 JSONP 接口）来获取结果显示出来</h5>
+                <ol>
+                    <li>通过 script 标签来设置 src 为请求路径；</li>
+                    <li>先提供函数声明。</li>
+                </ol>
+                <a class="btns" href="javascript:">案例代码</a>
+                <pre class="text71"><code class="language-js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
         <h3>使用表单发送请求</h3>
         <section>
             <p>表单中需要提交的表单控件元素必须具有name属性 ； form中的method 表示请求方式 ， 有get、post等；action表示请求地址；</p>
@@ -58,10 +216,383 @@
         </section>
     </div>
     <div class="item">
+        <h3>AJAX</h3>
+        <section>
+            <div class="samll">
+                <p>Ajax程序的优势在于： 通过异步模式，提升了用户体验 ;Ajax引擎在客户端运行，承担了一部分本来有服务器承担的工作，从而减少了服务负载 ;基于标准化的被广发支持的技术，不需要下载插件或小程序</p>
+                <p>但：Ajax不支持浏览器back按钮；暴露了与服务器交互的细节，有安全问题；对搜索引擎的支持比较弱 ；破坏了程序的异常机制 ；不容易调试</p>
+            </div>
+            <div class="small">
+                <ol>使用 AJAX 发送请求，代码步骤
+                    <li>创建 AJAX 对象；</li>
+                    <li>设置请求路径，请求方式等；</li>
+                    <li>绑定监听状态改变的处理函数，在处理函数可获取响应数据；</li>
+                    <li>发送请求。</li>
+                </ol>
+                <p>兼容性问题兼容性问题</p>
+                <pre><code class="language-js">function createAjax() {
+    var ajax;
+    try {       // 非 IE
+        ajax = new XMLHttpRequest();
+    }
+    catch (e) { // IE
+        ajax = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    return ajax;
+}</code></pre>
+            </div>
+            <div class="small">
+                <h4>响应处理</h4>
+                <p>响应处理，即对服务响应回浏览器的数据根据状态码和 AJAX 对象的状态信息进行不同的处理，在绑定状态改变的处理函数中写对应的逻辑代码即可。</p>
+                <ol>XMLHttpRequest通用属性和方法
+                    <li>readyState ： 总共有 5 个状态值，分别为 0 ~ 4，每个值代表了不同的含义：
+                        <ol>
+                            <li>0：初始化，AJAX 对象还没有完成初始化</li>
+                            <li>1：载入，AJAX 对象开始发送请求</li>
+                            <li>2：载入完成，AJAX 对象的请求发送完成</li>
+                            <li>3：解析，AJAX 对象开始读取服务器的响应</li>
+                            <li>4：完成，AJAX 对象读取服务器响应结束</li>
+                        </ol>
+                    </li>
+                    <li>status ： 表示响应的 HTTP 状态码，常见状态码如下：
+                        <ol>
+                            <li>200 ：成功</li>
+                            <li>302 ：重定向</li>
+                            <li>404 ：找不到资源</li>
+                            <li>500 ：服务端错误</li>
+                        </ol>
+                    </li>
+                    <li>statusText : 服务器返回的HTTP状态信息 (如 : OK、No Content)</li>
+                    <li>responseText ： 获得字符串形式的响应数据。</li>
+                    <li>responseXML ： 获得 XML 形式的响应数据。</li>
+                    <li>abort(): 取消异步HTTP请求</li>
+                    <li>open（method，url，asynchronous，[user，password]）：初始化准备发送到服务器上的请求。method是HTTP方法，不区分大小写；url是请求发送的相对或绝对URL；asynchronous表示请求是否异步；user和password提供身份验证</li>
+                    <li>send（body）：对服务器进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null</li>
+                </ol>
+                <p>综合以上，在状态改变的处理函数一般针对 readyState == 4 且 status == 200 的情况才处理，再根据后台返回的数据类型决定从 responseText 或者
+                    responseXML 获取服务器响应回去来的数据。</p>
+            </div>
+            <div class="small">
+                <a class="btns" href="javascript:">前后端代码</a>
+                <div class="code">
+                    <div class="left">
+                        <div class="tapNav">
+                            <div class="tapTop cur">发送 GET 请求</div>
+                            <div class="tapTop">发送 POST 请求</div>
+                        </div>
+                        <div class="tapMain">
+                            <div class="tapSection">
+                                <pre class="text42"><code class="language-js"></code></pre>
+                            </div>
+                            <div class="tapSection">
+                                <pre class="text43"><code class="language-js"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <pre class="text44"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <h5 class="subtitle">AJAX 2.0</h5>
+            <div class="small">
+                <h4>FormData API</h4>
+                <ol>用于模拟或者是获取表单数据及异步文件上传。
+                    <li>set ： 设置键值对，若指定的 key 已经存在那么会覆盖</li>
+                    <li>get ： 根据 key 来获取对应的 value（第一个）</li>
+                    <li>getAll ： 根据 key 来获取所有对应所有 value</li>
+                    <li>has ： 检查是否存在指定的键值对</li>
+                    <li>append ： 设置键值对，若指定的 key 已经存在那么会覆盖</li>
+                    <li>delete ： 删除键值对</li>
+                    <li>forEach ：遍历</li>
+                    <li>keys ： 获取所有 key 迭代器</li>
+                    <li>values ： 获取所有 value 迭代器</li>
+                    <li>entries ：获取所有键值对迭代器</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text45"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>使用 FormData 处理请求参数</h4>
+                <pre class="text48"><code class="language-js"></code></pre>
+                <a class="bntTap" href="javascript:">代码</a>
+                <div class="tapNav">
+                    <div class="tapTop cur">GET 方式</div>
+                    <div class="tapTop">POST 方式</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text46"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text47"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>使用 FormData 文件上传</h4>
+                <a class="btns" href="javascript:">代码</a>
+                <div class="code">
+                    <div class="left">
+                        <pre class="text49"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="right">
+                        <pre class="text50"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>文件上传度</h4>
+                <pre><code class="language-js">ajax.upload.onprogress = function(e){
+    // console.log("____________");
+    // console.log(e);
+    if(e.lengthComputable){
+        // 这里打印，实际情况在页面显示即可
+        console.log("上传进度:", Math.floor(e.loaded / e.total  * 100) + "%");
+    }
+}</code></pre>
+            </div>
+            <div class="small">
+                <h4>请求超时</h4>
+                <pre><code class="language-js">var ajax = new XMLHttpRequest();
+ajax.open('GET', 'url', true);
+ajax.timeout = 2000; // 设置超时时间，单位是毫秒
+ajax.onload = function () {
+    // 请求完成。在此进行处理。
+};
+ajax.ontimeout = function (e) {
+    // XMLHttpRequest 超时。在此做某事。
+};
+ajax.send(null);</code></pre>
+            </div>
+            <a class="btns" href="javascript:">Promise改造AJAX</a>
+            <pre class="text53"><code class="language-js"></code></pre>
+        </section>
+    </div>
+    <div class="item">
+        <h3>jQuery AJAX</h3>
+        <section>
+            <div class="small">
+                <h4>jQuery 中 ajax 方法使用 : $.ajax({}),对象里的成员</h4>
+                <ol>用于模拟或者是获取表单数据及异步文件上传。
+                    <li>async ：默认设置下，所有请求均为异步请求。</li>
+                    <li>contentType ：发送信息至服务器时内容编码类型，默认为 "application/x-www-form-urlencoded"。</li>
+                    <li>data ：发送到服务器的数据，可以为对象或者 Key=value 格式字符串，若为对象则会自动转换为请求字符串格式。</li>
+                    <li>type ：默认: "GET"，其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但取决浏览器支持。</li>
+                    <li>url ：发送请求的地址，默认当前页地址。</li>
+                    <li>dataType：预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME类型就被识别为
+                        XML，可以不填，可用值："xml"、 "html"、 "script"、 "json"、 "jsonp"、"text"。
+                    </li>
+                    <li>cache：默认为 true（dataType 为 script 和 jsonp 时默认为 false，设置为 false 将禁用缓存。</li>
+                    <li>context：这个对象用于设置 AJAX 相关回调函数的上下文。也就是说，让回调函数内 this 的指向（若不指定为当前选项）。</li>
+                    <li>beforeSend：发送请求前调用此函数，可用与如添加自定义 HTTP 头，检查请求参数是否合法。XMLHttpRequest 对象是唯一的参数。若在函数中返回 false
+                        可以取消本次请求。
+                        <p>beforeSend： 后面函数：</p>
+                        <pre><code class="language-js">function (XMLHttpRequest) {
+    // this 默认情况下调用本次 AJAX 请求时传递的 option 对象
+}</code></pre>
+                    </li>
+                    <li>success：请求成功后的回调函数，参数：由服务器返回，并根据 dataType 参数进行处理后的数据；描述状态的字符串。
+                        <p>success： 后面函数：</p>
+                        <pre><code class="language-js">function (data, textStatus) {
+    // data 可能是 xmlDoc, jsonObj, html, text, 等等
+}</code></pre>
+                    </li>
+                    <li>error：请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、捕获的异常对象。
+                        <p>error： 后面函数：</p>
+                        <pre><code class="language-js">function (XMLHttpRequest, textStatus, errorThrown) {
+}</code></pre>
+                    </li>
+                    <li>complete：请求完成后回调函数（无论请求成功或失败之后均调用）。参数：XMLHttpRequest 对象和一个描述成功请求类型的字符串。<p>complete： 后面函数：</p>
+                        <pre><code class="language-js">function (XMLHttpRequest, textStatus) {
+}</code></pre>
+                    </li>
+                </ol>
+                <pre><code class="language-js">$.ajax({
+    url: 'url',
+    type: 'GET',
+    data: {username:'zs', password:'12345'},
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+            </div>
+            <div class="small">
+                <h4>使用 jQuery 发送AJAX 请求</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">GET 方式</div>
+                    <div class="tapTop">POST 方式</div>
+                    <div class="tapTop">load 方法</div>
+                    <div class="tapTop">PUT 方式</div>
+                    <div class="tapTop">DELETE 方式</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>url ：请求 URL 地址</li>
+                            <li>data ：请求参数。</li>
+                            <li>callback ：请求成功时回调函数。</li>
+                            <li>type ：预期服务器返回的数据类型。</li>
+                        </ol>
+                        <pre><code class="language-js">$.get('url', {username:'zs', password:'12345'}, function(data){
+    // 请求成功业务逻辑
+});</code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>url：请求 URL 地址</li>
+                            <li>data：请求参数。</li>
+                            <li>callback：请求成功时回调函数。</li>
+                            <li>type：预期服务器返回的数据类型。</li>
+                        </ol>
+                        <pre><code class="language-js">$.post('url', {username:'zs', password:'12345'}, function(data){
+    // 请求成功业务逻辑
+});</code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre><code class="language-js">$("#id").load('url');</code></pre>
+                    </div>
+                    <div class="tapSection">
+                    <pre><code class="language-js">$.ajax({
+    url: 'url/id',
+    type: 'PUT',
+    data: {username:'zs', password:'12345'},
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+                    </div>
+                    <div class="tapSection">
+                    <pre><code class="language-js">$.ajax({
+    url: 'url/id',
+    type: 'DELETE',
+    success: function(data){
+        // 请求成功业务逻辑
+    }
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>全局 AJAX 事件处理器</h4>
+                <ol>
+                    <li>$.ajaxSetup([options])：设置全局 AJAX 默认选项。</li>
+                    <li>$(document).ajaxStart(fn)：在 AJAX 请求刚开始时执行一个处理函数。</li>
+                    <li>$(document).ajaxSend(fn)：在 AJAX 请求发送之前绑定一个要执行的函数。</li>
+                    <li>$(document).ajaxSuccess(fn)：绑定一个函数当 AJAX 请求成功完成时执行。</li>
+                    <li>$(document).ajaxError(fn)：当 AJAX 请求出错时注册一个回调处理函数。</li>
+                    <li>$(document).ajaxComplete(fn)：当 AJAX 请求完成后注册一个回调函数。</li>
+                    <li>$(document).ajaxStop(fn)：在AJAX 请求完成时执行一个处理函数。</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text51"><code class="language-js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>jQuery 中 表单序列化</h4>
+                <ol>
+                    <li>serialize()：序列表表格内容为字符串。</li>
+                    <li>serializeArray()：序列化表格元素返回数组，存放对象，对象属性是表单元素 name 属性值， 对象属性值是 表单元素的 value 属性值。</li>
+                </ol>
+                <pre><code class="language-js">$('#form').serialize();
+$('#form').serializeArray();</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Axios</h3>
+        <section>
+            <div class="small">
+                <h4>Axios</h4>
+                <ol>Axios[艾克丝伊欧姿] 是一个基于 promise 的 HTTP 库，可以用在浏览器和 Node.js 中。其有以下特性：
+                    <li>在 浏览器中创建 XMLHttpRequests</li>
+                    <li>在 Node.js 创建 http 请求</li>
+                    <li>支持 Promise API</li>
+                    <li>拦截请求和响应</li>
+                    <li>转换请求数据和响应数据</li>
+                    <li>取消请求</li>
+                    <li>自动转换 JSON 数据</li>
+                    <li>客户端支持防御 XSRF</li>
+                </ol>
+                <p>后端使用 ： npm install axios</p>
+                <p>前端使用 ： 导入js文件： src="https://unpkg.com/axios/dist/axios.min.js"</p>
+            </div>
+            <div class="small">
+                <h4>发送请求</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">发送 GET 请求</div>
+                    <div class="tapTop">发送 POST 请求</div>
+                    <div class="tapTop">发送 PUT 请求</div>
+                    <div class="tapTop">发送 DELETE 请求</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text54"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text55"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text56"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text57"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>axiso拦截器</h4>
+                <div class="tapNav">
+                    <div class="tapTop cur">请求拦截器</div>
+                    <div class="tapTop">响应拦截器</div>
+                    <div class="tapTop">移除拦截器</div>
+                    <div class="tapTop">为axios实例添加拦截器</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <p>请求拦截器的作用是在请求发送前进行一些操作，例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易。</p>
+                        <pre class="text85"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <p>响应拦截器的作用是在接收到响应后进行一些操作，例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页。</p>
+                        <pre class="text86"><code class="js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                    <pre><code class="js">var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
+axios.interceptors.request.eject(myInterceptor);</code></pre>
+                    </div>
+                    <div class="tapSection">
+                    <pre><code class="js">var instance = axios.create();
+instance.interceptors.request.use(function () {/*...*/});</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>qs</h4>
+                <p>qs是一个库。里面的stringify方法可以将一个json对象直接转为(以?和&符连接的形式)。</p>
+                <p>在开发中，发送请求的入参大多是一个对象。在发送时，使用该库，就可以自动转化，而不需要手动去拼接</p>
+                <pre><code class="js">if (config.method === 'post' || config.method === 'put' || config.method === 'patch') {
+            if (token) {
+                config.data.token = token
+            }
+            config.data = qs.stringify(config.data, {arrayFormat: 'repeat', allowDots: true})
+
+        } else if (config.method === 'get' || config.method === 'delete') {
+            config.params = config.params || {}
+            config.params.token = token
+            config.url += '?' + qs.stringify(config.params, {arrayFormat: 'repeat'})
+            delete config.params
+        }</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
         <h3>node.js</h3>
         <section>
-            <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。说白了就是 Node.js 可以让用
-                JavaScript 语言编写的程序运行在服务端，另外提供操作文件，读取系统信息等等功能。</p>
+            <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境,单进程、单线程。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。说白了就是 Node.js 可以让用 JavaScript 语言编写的程序运行在服务端，另外提供操作文件，读取系统信息等等功能。</p>
+            <ol>
+                <li>优点：高并发（最重要的优点）</li>
+                <li>缺点：只支持单核CPU，不能充分利用CPU可靠性地，一旦代码某个环节崩溃，整个系统都崩溃</li>
+            </ol>
             <div class="small">
                 <h4>全局对象</h4>
                 <p>JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。</p>
@@ -708,375 +1239,9 @@ router.get('/users/:id', function (req, res) {
     res.end();
 });</code></pre>
             </div>
-        </section>
-    </div>
-    <div class="item">
-        <h3>AJAX</h3>
-        <section>
-            <div class="samll">
-                <p>Ajax程序的优势在于： 通过异步模式，提升了用户体验 ;Ajax引擎在客户端运行，承担了一部分本来有服务器承担的工作，从而减少了服务负载 ;基于标准化的被广发支持的技术，不需要下载插件或小程序</p>
-                <p>但：Ajax不支持浏览器back按钮；暴露了与服务器交互的细节，有安全问题；对搜索引擎的支持比较弱 ；破坏了程序的异常机制 ；不容易调试</p>
-            </div>
             <div class="small">
-                <ol>使用 AJAX 发送请求，代码步骤
-                    <li>创建 AJAX 对象；</li>
-                    <li>设置请求路径，请求方式等；</li>
-                    <li>绑定监听状态改变的处理函数，在处理函数可获取响应数据；</li>
-                    <li>发送请求。</li>
-                </ol>
-                <p>兼容性问题兼容性问题</p>
-                <pre><code class="language-js">function createAjax() {
-    var ajax;
-    try {       // 非 IE
-        ajax = new XMLHttpRequest();
-    }
-    catch (e) { // IE
-        ajax = new ActiveXObject('Microsoft.XMLHTTP');
-    }
-    return ajax;
-}</code></pre>
-            </div>
-            <div class="small">
-                <h4>响应处理</h4>
-                <p>响应处理，即对服务响应回浏览器的数据根据状态码和 AJAX 对象的状态信息进行不同的处理，在绑定状态改变的处理函数中写对应的逻辑代码即可。</p>
-                <ol>XMLHttpRequest通用属性和方法
-                    <li>readyState ： 总共有 5 个状态值，分别为 0 ~ 4，每个值代表了不同的含义：
-                        <ol>
-                            <li>0：初始化，AJAX 对象还没有完成初始化</li>
-                            <li>1：载入，AJAX 对象开始发送请求</li>
-                            <li>2：载入完成，AJAX 对象的请求发送完成</li>
-                            <li>3：解析，AJAX 对象开始读取服务器的响应</li>
-                            <li>4：完成，AJAX 对象读取服务器响应结束</li>
-                        </ol>
-                    </li>
-                    <li>status ： 表示响应的 HTTP 状态码，常见状态码如下：
-                        <ol>
-                            <li>200 ：成功</li>
-                            <li>302 ：重定向</li>
-                            <li>404 ：找不到资源</li>
-                            <li>500 ：服务端错误</li>
-                        </ol>
-                    </li>
-                    <li>statusText : 服务器返回的HTTP状态信息 (如 : OK、No Content)</li>
-                    <li>responseText ： 获得字符串形式的响应数据。</li>
-                    <li>responseXML ： 获得 XML 形式的响应数据。</li>
-                    <li>abort(): 取消异步HTTP请求</li>
-                    <li>open（method，url，asynchronous，[user，password]）：初始化准备发送到服务器上的请求。method是HTTP方法，不区分大小写；url是请求发送的相对或绝对URL；asynchronous表示请求是否异步；user和password提供身份验证</li>
-                    <li>send（body）：对服务器进行初始化。参数body包含请求的主体部分，对于POST请求为键值对字符串；对于GET请求，为null</li>
-                </ol>
-                <p>综合以上，在状态改变的处理函数一般针对 readyState == 4 且 status == 200 的情况才处理，再根据后台返回的数据类型决定从 responseText 或者
-                    responseXML 获取服务器响应回去来的数据。</p>
-            </div>
-            <div class="small">
-                <a class="btns" href="javascript:">前后端代码</a>
-                <div class="code">
-                    <div class="left">
-                        <div class="tapNav">
-                            <div class="tapTop cur">发送 GET 请求</div>
-                            <div class="tapTop">发送 POST 请求</div>
-                        </div>
-                        <div class="tapMain">
-                            <div class="tapSection">
-                                <pre class="text42"><code class="language-js"></code></pre>
-                            </div>
-                            <div class="tapSection">
-                                <pre class="text43"><code class="language-js"></code></pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <pre class="text44"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <h5 class="subtitle">AJAX 2.0</h5>
-            <div class="small">
-                <h4>FormData API</h4>
-                <ol>用于模拟或者是获取表单数据及异步文件上传。
-                    <li>set ： 设置键值对，若指定的 key 已经存在那么会覆盖</li>
-                    <li>get ： 根据 key 来获取对应的 value（第一个）</li>
-                    <li>getAll ： 根据 key 来获取所有对应所有 value</li>
-                    <li>has ： 检查是否存在指定的键值对</li>
-                    <li>append ： 设置键值对，若指定的 key 已经存在那么会覆盖</li>
-                    <li>delete ： 删除键值对</li>
-                    <li>forEach ：遍历</li>
-                    <li>keys ： 获取所有 key 迭代器</li>
-                    <li>values ： 获取所有 value 迭代器</li>
-                    <li>entries ：获取所有键值对迭代器</li>
-                </ol>
-                <a class="btns" href="javascript:">代码</a>
-                <pre class="text45"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>使用 FormData 处理请求参数</h4>
-                <pre class="text48"><code class="language-js"></code></pre>
-                <a class="bntTap" href="javascript:">代码</a>
-                <div class="tapNav">
-                    <div class="tapTop cur">GET 方式</div>
-                    <div class="tapTop">POST 方式</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <pre class="text46"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre class="text47"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>使用 FormData 文件上传</h4>
-                <a class="btns" href="javascript:">代码</a>
-                <div class="code">
-                    <div class="left">
-                        <pre class="text49"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="right">
-                        <pre class="text50"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>文件上传度</h4>
-                <pre><code class="language-js">ajax.upload.onprogress = function(e){
-    // console.log("____________");
-    // console.log(e);
-    if(e.lengthComputable){
-        // 这里打印，实际情况在页面显示即可
-        console.log("上传进度:", Math.floor(e.loaded / e.total  * 100) + "%");
-    }
-}</code></pre>
-            </div>
-            <div class="small">
-                <h4>请求超时</h4>
-                <pre><code class="language-js">var ajax = new XMLHttpRequest();
-ajax.open('GET', 'url', true);
-ajax.timeout = 2000; // 设置超时时间，单位是毫秒
-ajax.onload = function () {
-    // 请求完成。在此进行处理。
-};
-ajax.ontimeout = function (e) {
-    // XMLHttpRequest 超时。在此做某事。
-};
-ajax.send(null);</code></pre>
-            </div>
-            <a class="btns" href="javascript:">Promise改造AJAX</a>
-            <pre class="text53"><code class="language-js"></code></pre>
-        </section>
-    </div>
-    <div class="item">
-        <h3>jQuery AJAX</h3>
-        <section>
-            <div class="small">
-                <h4>jQuery 中 ajax 方法使用 : $.ajax({}),对象里的成员</h4>
-                <ol>用于模拟或者是获取表单数据及异步文件上传。
-                    <li>async ：默认设置下，所有请求均为异步请求。</li>
-                    <li>contentType ：发送信息至服务器时内容编码类型，默认为 "application/x-www-form-urlencoded"。</li>
-                    <li>data ：发送到服务器的数据，可以为对象或者 Key=value 格式字符串，若为对象则会自动转换为请求字符串格式。</li>
-                    <li>type ：默认: "GET"，其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但取决浏览器支持。</li>
-                    <li>url ：发送请求的地址，默认当前页地址。</li>
-                    <li>dataType：预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如 XML MIME类型就被识别为
-                        XML，可以不填，可用值："xml"、 "html"、 "script"、 "json"、 "jsonp"、"text"。
-                    </li>
-                    <li>cache：默认为 true（dataType 为 script 和 jsonp 时默认为 false，设置为 false 将禁用缓存。</li>
-                    <li>context：这个对象用于设置 AJAX 相关回调函数的上下文。也就是说，让回调函数内 this 的指向（若不指定为当前选项）。</li>
-                    <li>beforeSend：发送请求前调用此函数，可用与如添加自定义 HTTP 头，检查请求参数是否合法。XMLHttpRequest 对象是唯一的参数。若在函数中返回 false
-                        可以取消本次请求。
-                        <p>beforeSend： 后面函数：</p>
-                        <pre><code class="language-js">function (XMLHttpRequest) {
-    // this 默认情况下调用本次 AJAX 请求时传递的 option 对象
-}</code></pre>
-                    </li>
-                    <li>success：请求成功后的回调函数，参数：由服务器返回，并根据 dataType 参数进行处理后的数据；描述状态的字符串。
-                        <p>success： 后面函数：</p>
-                        <pre><code class="language-js">function (data, textStatus) {
-    // data 可能是 xmlDoc, jsonObj, html, text, 等等
-}</code></pre>
-                    </li>
-                    <li>error：请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、捕获的异常对象。
-                        <p>error： 后面函数：</p>
-                        <pre><code class="language-js">function (XMLHttpRequest, textStatus, errorThrown) {
-}</code></pre>
-                    </li>
-                    <li>complete：请求完成后回调函数（无论请求成功或失败之后均调用）。参数：XMLHttpRequest 对象和一个描述成功请求类型的字符串。<p>complete： 后面函数：</p>
-                        <pre><code class="language-js">function (XMLHttpRequest, textStatus) {
-}</code></pre>
-                    </li>
-                </ol>
-                <pre><code class="language-js">$.ajax({
-    url: 'url',
-    type: 'GET',
-    data: {username:'zs', password:'12345'},
-    success: function(data){
-        // 请求成功业务逻辑
-    }
-});</code></pre>
-            </div>
-            <div class="small">
-                <h4>使用 jQuery 发送AJAX 请求</h4>
-                <div class="tapNav">
-                    <div class="tapTop cur">GET 方式</div>
-                    <div class="tapTop">POST 方式</div>
-                    <div class="tapTop">load 方法</div>
-                    <div class="tapTop">PUT 方式</div>
-                    <div class="tapTop">DELETE 方式</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <ol>
-                            <li>url ：请求 URL 地址</li>
-                            <li>data ：请求参数。</li>
-                            <li>callback ：请求成功时回调函数。</li>
-                            <li>type ：预期服务器返回的数据类型。</li>
-                        </ol>
-                        <pre><code class="language-js">$.get('url', {username:'zs', password:'12345'}, function(data){
-    // 请求成功业务逻辑
-});</code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <ol>
-                            <li>url：请求 URL 地址</li>
-                            <li>data：请求参数。</li>
-                            <li>callback：请求成功时回调函数。</li>
-                            <li>type：预期服务器返回的数据类型。</li>
-                        </ol>
-                        <pre><code class="language-js">$.post('url', {username:'zs', password:'12345'}, function(data){
-    // 请求成功业务逻辑
-});</code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre><code class="language-js">$("#id").load('url');</code></pre>
-                    </div>
-                    <div class="tapSection">
-                    <pre><code class="language-js">$.ajax({
-    url: 'url/id',
-    type: 'PUT',
-    data: {username:'zs', password:'12345'},
-    success: function(data){
-        // 请求成功业务逻辑
-    }
-});</code></pre>
-                    </div>
-                    <div class="tapSection">
-                    <pre><code class="language-js">$.ajax({
-    url: 'url/id',
-    type: 'DELETE',
-    success: function(data){
-        // 请求成功业务逻辑
-    }
-});</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>全局 AJAX 事件处理器</h4>
-                <ol>
-                    <li>$.ajaxSetup([options])：设置全局 AJAX 默认选项。</li>
-                    <li>$(document).ajaxStart(fn)：在 AJAX 请求刚开始时执行一个处理函数。</li>
-                    <li>$(document).ajaxSend(fn)：在 AJAX 请求发送之前绑定一个要执行的函数。</li>
-                    <li>$(document).ajaxSuccess(fn)：绑定一个函数当 AJAX 请求成功完成时执行。</li>
-                    <li>$(document).ajaxError(fn)：当 AJAX 请求出错时注册一个回调处理函数。</li>
-                    <li>$(document).ajaxComplete(fn)：当 AJAX 请求完成后注册一个回调函数。</li>
-                    <li>$(document).ajaxStop(fn)：在AJAX 请求完成时执行一个处理函数。</li>
-                </ol>
-                <a class="btns" href="javascript:">代码</a>
-                <pre class="text51"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>jQuery 中 表单序列化</h4>
-                <ol>
-                    <li>serialize()：序列表表格内容为字符串。</li>
-                    <li>serializeArray()：序列化表格元素返回数组，存放对象，对象属性是表单元素 name 属性值， 对象属性值是 表单元素的 value 属性值。</li>
-                </ol>
-                <pre><code class="language-js">$('#form').serialize();
-$('#form').serializeArray();</code></pre>
-            </div>
-        </section>
-    </div>
-    <div class="item">
-        <h3>Axios</h3>
-        <section>
-            <div class="small">
-                <h4>Axios</h4>
-                <ol>Axios[艾克丝伊欧姿] 是一个基于 promise 的 HTTP 库，可以用在浏览器和 Node.js 中。其有以下特性：
-                    <li>在 浏览器中创建 XMLHttpRequests</li>
-                    <li>在 Node.js 创建 http 请求</li>
-                    <li>支持 Promise API</li>
-                    <li>拦截请求和响应</li>
-                    <li>转换请求数据和响应数据</li>
-                    <li>取消请求</li>
-                    <li>自动转换 JSON 数据</li>
-                    <li>客户端支持防御 XSRF</li>
-                </ol>
-                <p>后端使用 ： npm install axios</p>
-                <p>前端使用 ： 导入js文件： src="https://unpkg.com/axios/dist/axios.min.js"</p>
-            </div>
-            <div class="small">
-                <h4>发送请求</h4>
-                <div class="tapNav">
-                    <div class="tapTop cur">发送 GET 请求</div>
-                    <div class="tapTop">发送 POST 请求</div>
-                    <div class="tapTop">发送 PUT 请求</div>
-                    <div class="tapTop">发送 DELETE 请求</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <pre class="text54"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre class="text55"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre class="text56"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre class="text57"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>axiso拦截器</h4>
-                <div class="tapNav">
-                    <div class="tapTop cur">请求拦截器</div>
-                    <div class="tapTop">响应拦截器</div>
-                    <div class="tapTop">移除拦截器</div>
-                    <div class="tapTop">为axios实例添加拦截器</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <p>请求拦截器的作用是在请求发送前进行一些操作，例如在每个请求体里加上token，统一做了处理如果以后要改也非常容易。</p>
-                        <pre class="text85"><code class="js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <p>响应拦截器的作用是在接收到响应后进行一些操作，例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页。</p>
-                        <pre class="text86"><code class="js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                    <pre><code class="js">var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
-axios.interceptors.request.eject(myInterceptor);</code></pre>
-                    </div>
-                    <div class="tapSection">
-                    <pre><code class="js">var instance = axios.create();
-instance.interceptors.request.use(function () {/*...*/});</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>qs</h4>
-                <p>qs是一个库。里面的stringify方法可以将一个json对象直接转为(以?和&符连接的形式)。</p>
-                <p>在开发中，发送请求的入参大多是一个对象。在发送时，使用该库，就可以自动转化，而不需要手动去拼接</p>
-                <pre><code class="js">if (config.method === 'post' || config.method === 'put' || config.method === 'patch') {
-            if (token) {
-                config.data.token = token
-            }
-            config.data = qs.stringify(config.data, {arrayFormat: 'repeat', allowDots: true})
-
-        } else if (config.method === 'get' || config.method === 'delete') {
-            config.params = config.params || {}
-            config.params.token = token
-            config.url += '?' + qs.stringify(config.params, {arrayFormat: 'repeat'})
-            delete config.params
-        }</code></pre>
+                <h4>使用 Express 搭建 HTTPS 服务</h4>
+                <pre class="text70"><code class="language-js"></code></pre>
             </div>
         </section>
     </div>
@@ -1136,161 +1301,6 @@ instance.interceptors.request.use(function () {/*...*/});</code></pre>
                         <pre class="text63"><code class="language-js"></code></pre>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
-    <div class="item">
-        <h3>前端存储</h3>
-        <section>
-            <div class="small">
-                <h4>Cookie</h4>
-                <p>cookie 本身就是存储在浏览器中的字符串。但这个字符串是有格式的，由键值对 key=value 构成，键值对之间由一个分号和一个空格隔开。</p>
-                <p>Cookie 选项包括：expires(有效期)、domain、path(domain 和 path一起来限制 cookie 能被哪些 URL 访问)、secure(限制 HTTPS
-                    传输)、HttpOnly(限制 JS 代码操作)。</p>
-                <pre><code class="language-js">'key=name; expires=Thu, 25 Feb 2016 04:18:00 GMT; domain=ppsc.sankuai.com; path=/; secure; HttpOnly'</code></pre>
-                <pre class="text64"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <a class="btns" href="javascript:">Cookie 操作封装</a>
-                <pre class="text65"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>JSON 字符串与 JS 对象之间转换</h4>
-                <p>使用 JSON 中的 parse 和 stringify 方法可以完成。</p>
-                <pre class="text59"><code class="js">JSON.parse(jsonStr1);       // JSON 字符串 => JS 对象
-JSON.parse(jsonStr2);       // JSON 字符串 => JS 对象
-
-JSON.stringify(obj);        // JS 对象 => JSON 字符串
-JSON.stringify(objArr);     // JS 对象 => JSON 字符串</code></pre>
-            </div>
-            <div class="small">
-                <a class="btns" href="javascript:">前后端代码</a>
-                <div class="code">
-                    <div class="left">
-                        <pre class="text66"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="right rnotop">
-                        <pre class="text67"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>sessionStorage</h4>
-                <ol>临时会话存储:
-                    <li>保存数据 ：sessionStorage.setItem(key, value);</li>
-                    <li>读取数据 ：sessionStorage.getItem(key);</li>
-                    <li>删除单个数据 ：sessionStorage.removeItem(key);</li>
-                    <li>删除所有数据 ：sessionStorage.clear();</li>
-                    <li>得到某个索引的 key ：sessionStorage.key(index);</li>
-                </ol>
-                <a class="btns" href="javascript:">代码</a>
-                <pre class="text68"><code class="js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>localStorage</h4>
-                <ol>永久存储:
-                    <li>保存数据 ：localStorage.setItem(key, value);</li>
-                    <li>读取数据 ：localStorage.getItem(key);</li>
-                    <li>删除单个数据 ：localStorage.removeItem(key);</li>
-                    <li>删除所有数据 ：localStorage.clear();</li>
-                    <li>得到某个索引的 key ：localStorage.key(index);</li>
-                </ol>
-                <a class="btns" href="javascript:">代码</a>
-                <pre class="text69"><code class="js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>cookie、localStorage、sessionStorage 区别和共同点</h4>
-                <table>
-                    <tr class="tableup">
-                        <th>特性</th>
-                        <th>cookie</th>
-                        <th>sessionStorage</th>
-                        <th>localStorage</th>
-                    </tr>
-                    <tr>
-                        <th>生命周期</th>
-                        <td>生成时就会被指定一个maxAge值，这就是cookie的生存周期，在这个周期内cookie有效，默认关闭浏览器失效</td>
-                        <td>页面会话期间可用</td>
-                        <td>除非数据清除，否则 一直存在</td>
-                    </tr>
-                    <tr>
-                        <th>数据大小</th>
-                        <td>4kb左右(因为每次http请求都会携带cookie)</td>
-                        <td colspan="2">一般5M或者更大</td>
-                    </tr>
-                    <tr>
-                        <th>与服务器通信</th>
-                        <td>对服务器的请求来传递，每次都会携带在HTTP请求头中，如果使用cookie保存过多数据会带来性能问题</td>
-                        <td colspan="2">数据不是由每个服务器请求传递的，而是只有在请求时使用数据，不参与和服务器的通信</td>
-                    </tr>
-                    <tr>
-                        <th>易用性</th>
-                        <td>cookie需要自己封闭</td>
-                        <td colspan="2">setCookie, getCookie 可以用原生接口，也可以再次封闭来对Object和Array有更好的支持</td>
-                    </tr>
-                    <tr>
-                        <th>共同点</th>
-                        <td colspan="3">都保存在浏览器端，和服务器端的session机制不同</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="small">
-                <h4>Base64</h4>
-                <p>JavaScript 提供两个方法来处理 Base64 编码和解码操作：btoa 方法将字符串或二进制值转化为 Base64 编码，atob 方法将Base64 编码转化为原来的编码。</p>
-                <pre><code class="language-js">function base64Encode(str) {
-    return window.btoa(unescape(encodeURIComponent(str)));
-}
-function base64Decode(str) {
-    return decodeURIComponent(escape(window.atob(str)));
-}
-base64Encode('Man');
-base64Decode('TWFu'); </code></pre>
-            </div>
-            <div class="small">
-                <h4>使用 Express 搭建 HTTPS 服务</h4>
-                <pre class="text70"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>跨域访问</h4>
-                <ol>
-                    <li><h5>使用 CROS 实现跨域访问</h5>
-                        <p>增加一个响应头就可以实现跨域效果了。</p>
-                        <pre><code class="language-js">res.append('Access-Control-Allow-Origin', '*');</code></pre>
-                    </li>
-                    <li>nodejs中间件代理跨域</li>
-                    <li><h5>使用 JSONP 实现跨域访问</h5>
-                        <p>虽然我们不能直接使用 AJAX 跨域发送请求，但是我们可以利用一些标签是可以跨域。</p>
-                        <ol>
-                            <li>在页面中需要先声明函数，该函数的名称需要和服务器端返回的数据对应，该函数接受一个参数；</li>
-                            <li>大多数情况，会把函数名提交到服务器端。</li>
-                        </ol>
-                        <p>Express 中的响应对象中有一个方法 jsonp，提供这样的功能。</p>
-                        <pre><code class="language-js">res.jsonp(null);
-// => callback(null)
-
-res.jsonp({user: 'tobi'});
-// => callback({"user": "tobi"})
-
-res.status(500).jsonp({error: 'message'});
-// => callback({"error": "message"})</code></pre>
-                        <p>默认情况下，JSONP 回调名称是 callback，可以请求参数进行修改。</p>
-                        <pre><code class="language-js">// 调用的时候传递参数 ?callback=foo
-res.jsonp({user: 'tobi'});
-// => foo({"user": "tobi"})
-
-app.set('jsonp callback name', 'cb');
-// ?cb=foo
-res.status(500).jsonp({error: 'message'});
-// => foo({"error": "message"})</code></pre>
-                    </li>
-                </ol>
-                <h5>JSONP 案列 : 需求：当输入框的内容发生变化发送请求（调用百度的 JSONP 接口）来获取结果显示出来</h5>
-                <ol>
-                    <li>通过 script 标签来设置 src 为请求路径；</li>
-                    <li>先提供函数声明。</li>
-                </ol>
-                <a class="btns" href="javascript:">案例代码</a>
-                <pre class="text71"><code class="language-js"></code></pre>
             </div>
         </section>
     </div>
@@ -1556,6 +1566,38 @@ mongoose.connect(DB_URL, {user : 'root', pass : '12345', authSource : 'admin'});
                             </li>
                         </ol>
                     </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>web安全及防护</h3>
+        <section>
+            <div class="small">
+                <h4>sql注入</h4>
+                <p>sql注入原理：SQL注入即是指web应用程序对用户输入数据的合法性没有判断，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的SQL语句，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息。</p>
+                <ol>
+                    <li>永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双引号以及-进行转换等</li>
+                    <li>永远不要使用动态拼接SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取</li>
+                    <li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接</li>
+                    <li>不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>XSS原理及防范方法</h4>
+                <p>xss（cross-site-scripting）攻击指的是攻击者往web页面里插入恶意html标签或者javascript代码。比如：攻击者在论坛中放一个看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，当用户提交表单的时候，却把信息传送到攻击者的服务器汇总，而不是用户原本以为的信任站点</p>
+                <p>防范措施：    首先代码里对用户输入的地方和变量都需要仔细检查长度和对“<> , ; . ”等字进行过滤；其次仁和内容写到页面之前都必须加encode，避免不小心把html tag弄出来。</p>
+            </div>
+            <div class="small">
+                <h4>CSRF的原理及防御</h4>
+                <p>CSRF是什么呢？CSRF全名是Cross-site request forgery;要完成一次CSRF攻击，受害者必须一次完成两个步骤 ;登录受信任网站A，并在本地生成cookie;在不登出A的情况下，访问危险网站B</p>
+                <p>防御方法：服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数；通过 referer、token 或者 验证码 来检测用户提交;尽量不要在页面的链接中暴露用户隐私信息;对于用户修改删除等操作最好都使用post 操作;避免全站通用的cookie，严格设置cookie的域。</p>
+            </div>
+            <div class="samll">
+                <h4>XSS与CSRF两种跨站攻击</h4>
+                <ol>
+                    <li>XSS跨站脚本攻击，主要是前端层面，用户在输入层面插入攻击脚本，改变页面的显示，或则窃取网站cookie，预防方法：不相信用户的所有操作，对用户输入进行一个转移，不运行js对cookie的读写</li>
+                    <li>CSRF跨站请求伪造，以你的名义，发送恶意请求，通过cookie加参数等形式过滤</li>
                 </ol>
             </div>
         </section>

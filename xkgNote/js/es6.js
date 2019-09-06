@@ -85,6 +85,24 @@ async function testResult() {
 `;
     xk$('.text4 code').innerHTML=zy(text4);
 
+    var text5 = `<script>
+    //定义被侦听的目标对象
+    var engineer = {name:"Join",salary:50};
+    //定义处理程序
+    var interceptor = {
+        set:function(receiver,property,value){
+            console.log(property,"is changed to",value);
+            receiver[property] = value;
+        }
+    }
+//创建代理以进行侦听
+    engineer = new Proxy(engineer,interceptor);
+    //做一些改动来触发代理
+    engineer.salary = 60; //控制台输出:salary is changed to 60
+</script>`;
+    xk$('.text5 code').innerHTML=zy(text5);
+
+
     let text37 = '/*\n' +
         '之前对多个变量赋值\n' +
         'let a = 1;\n' +

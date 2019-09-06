@@ -122,6 +122,14 @@ let {prop: y} = null;         // TypeError: Cannot destructure property `prop` o
 let str4 = `Hello ${person.name}, your age is ${person.age + 1}.`;
 console.log(str4);</code></pre>
             </div>
+            <div class="small">
+                <h4>增强的对象字面量</h4>
+                <p>对象字面量被增强了，写法更加简洁: 定义方法可以不用function关键词</p>
+                <pre><code class="js"><   var human = {
+        breathe(){
+            console.log('breathing...');
+        }  };</code></pre>
+            </div>
         </section>
     </div>
     <div class="item">
@@ -202,6 +210,12 @@ func(2, 3, 4);</code></pre>
                             <li>集中式导入 ： import * as 别名 from 模块地址</li>
                         </ol>
                     </li>
+                </ol>
+                <h5 class="subtitle">ES6模块与CommonJS模块的差异</h5>
+                <ol>
+                    <li>CommonJS模块输出的是一个值的拷贝，ES6模块输出的是一个值的引用</li>
+                    <li>CommonJS模块时运行时加载，ES6模块时编译输出接口</li>
+                    <li>ES6输入的模块变量，知识一个符号链接，所以这个变量是只读的，对它进行重新赋值就会报错</li>
                 </ol>
             </div>
             <div class="small">
@@ -329,6 +343,16 @@ rest  // [2, 3, 4, 5]</code></pre>
                 <pre><code class="js">for (var x of fib(10)) {
     console.log(x); // 依次输出0, 1, 1, 2, 3, ...
 }</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>Proxies</h3>
+        <section>
+            <div class="small">
+                <p>proxy可以监听对象身上发生了什么事情，并在这些事情发生后执行一些相应的操作。加强了对对象的跟踪能力，同时在数据绑定方面也很有用处。</p>
+                <pre class="text2"><code class="js"></code></pre>
+                <p>对于处理程序，是在被侦听的对象身上发生了相应事件之后，处理程序里面的方法会被调用，上面例子中设置了set的处理函数，表明。如果侦听对象的属性被更改，也就是被set了，那这个处理程序就会被调用，同时通过参数能够的值是哪个属性被更改，更改为什么值。</p>
             </div>
         </section>
     </div>

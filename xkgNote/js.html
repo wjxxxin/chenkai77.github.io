@@ -1163,6 +1163,13 @@ typeof  arr;    //object    typeof是无法判断是否为数组的</code></pre>
                         <a class="btns" href="javascript:">代码</a>
                         <pre class="text94"><code class="language-js"></code></pre>
                     </li>
+                    <li>includes() :  方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。
+                        <p>arr.includes(valueToFind[, fromIndex])</p>
+                        <ol>
+                            <li>valueToFind : 需要查找的元素值。</li>
+                            <li>fromIndex(可选) :  从fromIndex 索引处开始查找 valueToFind。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜 （即使从末尾开始往前跳 fromIndex 的绝对值个索引，然后往后搜寻）。默认为 0。</li>
+                        </ol>
+                    </li>
                 </ol>
                 <a class="btns" href="javascript:">例子</a>
                 <pre class="text21"><code class="language-js"></code></pre>
@@ -1496,6 +1503,135 @@ function getInnerText(element) {
         </section>
     </div>
     <div class="item">
+        <h3>属性操作</h3>
+        <section>
+            <div class="small">
+                <h4>非表单元素的属性</h4>
+                <p>
+                    href、title、id、src、className，以上几个属性是指DOM元素中的属性；使用DOM对象操作属性，通常操作就是通过样式获取属性值，以及通过元素修改属性值。class在JS中是关键字，不能作为属性名，DOM中规定了对象中对应标签class属性的名称为className。
+                </p>
+            </div>
+            <div class="small">
+                <h4>表单元素属性</h4>
+                <ol>
+                    <li>value 用于大部分表单元素的内容获取(option除外)</li>
+                    <li>type 可以获取input标签的类型(输入框或复选框等)</li>
+                    <li>gdisabled 禁用属性</li>
+                    <li>checked 复选框选中属性</li>
+                    <li>selected 下拉菜单选中属性</li>
+                </ol>
+                <p>案例 : 给文本框赋值，获取文本框的值并按指定格式（| 分割）输出</p>
+                <pre class="text26"><code class="language-html"></code></pre>
+                <a class="bntTap" href="javascript:">代码</a>
+                <div class="tapNav">
+                    <div class="tapTop cur">方法一</div>
+                    <div class="tapTop">方法二</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <pre class="text27"><code class="language-js"></code></pre>
+                    </div>
+                    <div class="tapSection">
+                        <pre class="text28"><code class="language-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="small">
+                <h4>自定义属性操作</h4>
+                <ol>
+                    <li>getAttribute() 获取标签行内属性</li>
+                    <li>setAttribute() 设置标签行内属性</li>
+                    <li>removeAttribute() 移除标签行内属性</li>
+                    <li>与element.属性的区别: 上述三个方法用于获取任意的行内属性，称为标准方法。</li>
+                </ol>
+            </div>
+            <h4>样式属性操作</h4>
+            <h4>类名</h4>
+            <ol>
+                <li>classList.add : 增加类名</li>
+                <li>classList.remove : 删除类名</li>
+            </ol>
+            <p>获取元素（样式）属性值：对象名.style.属性名</p>
+            <p>设置元素（样式）属性值：对象名.style.属性名=“属性值”</p>
+            <p>通过DOM元素设置样式属性的时候，样式属性是行内样式，优先级最高。在设置样式属性的时候，宽、高、位置样式的值是字符串类型，要加上单位 px。</p>
+            <p>cssText:cssText 的本质就是设置 HTML 元素的 style 属性值。</p>
+            <pre><code
+                    class="js">document.getElementById("d1").style.cssText += ";color:red; font-size:13px;";</code></pre>
+        </section>
+    </div>
+    <div class="item">
+        <h3>节点</h3>
+        <section>
+            <div class="small">
+                <ol>
+                    <li>nodeName : 节点名称(如果是元素节点,则是对应的标签名)</li>
+                    <li>nodeType : 节点类型
+                        <ol>
+                            <li>元素节点: 1</li>
+                            <li>属性节点: 2</li>
+                            <li>文本节点: 3</li>
+                            <li>注释节点: 8</li>
+                        </ol>
+                    </li>
+                    <li>null : 节点值 默认null</li>
+                    <li>children: 节点的子节点</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>父子节点</h4>
+                <ol>
+                    <li>parentNode : 父节点</li>
+                    <li>childNodes : 子节点</li>
+                    <li>children: 子元素节点</li>
+                    <li>判断是否有子节点 :hasChildNodes()</li>
+                </ol>
+                <a class="btns" href="javascript:">代码</a>
+                <pre class="text29"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>第一、最后节点</h4>
+                <ol>
+                    <li>firstChild 第一个子节点</li>
+                    <li>lastChild 最后一个节点</li>
+                    <li>firstElementChild: 获取第一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
+                    <li>lastElementChild: 获取最后一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>兄弟节点</h4>
+                <ol>
+                    <li>nextSibling 获取下一个兄弟节点</li>
+                    <li>nextElementSibling 获取下一个兄弟元素节点</li>
+                    <li>previousSibling 获取上一个兄弟节点</li>
+                    <li>previousElementSibling 获取上一个兄弟元素节点</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>节点操作</h4>
+                <ol>
+                    <li>createElement(tagName) : 创建由指定名称的HTML元素</li>
+                    <li>appenChild(childNode): 将指定的childNode参数作为最后一个节点添加到当前节点,返回childNode。如果参数引用了 DOM
+                        树上的现有节点，则节点将从当前位置分离，并附加到新位置。
+                    </li>
+                    <li>insertBefore(newNode, referenceNode) :
+                        在当前节点之前插入子节点。如果给定的子节点已存在当前文档中，则insertBefore()会将其从当前位置移动到新位置。
+                    </li>
+                    <li>removeChild(child) : 从当前节点中删除指定的子节点，并返回被删除的子节点</li>
+                    <li>replaceChild(newChild, oldChild) : 在当前节点中，用 newChild 替换 oldChild 并返回被替换掉的 oldChild</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>克隆元素</h4>
+                <ol>cloneNode: 要克隆的元素.cloneNode(true/false)
+                    <li>true:克隆元素和内容</li>
+                    <li>false:只克隆元素</li>
+                </ol>
+            </div>
+            <a class="btns" href="javascript:">代码</a>
+            <pre class="text30"><code class="language-js"></code></pre>
+        </section>
+    </div>
+    <div class="item">
         <h3>事件</h3>
         <section>
             <div class="small">
@@ -1656,135 +1792,6 @@ function getInnerText(element) {
             <p>滚滚屏使用timeout进行节流,让最后一次滚动有效；在pc端节流一般控制在300-500毫秒。</p>
             <pre class="text89"><code class="language-js"></code></pre>
             <p>settimeout会在响应的时间后把回调函数放入队列中，队列里的函数需要等栈为空时才会被推入栈中执行。如果队列中有其他函数，需要等队列前面的函数被堆入调用栈中之后才会运行。</p>
-        </section>
-    </div>
-    <div class="item">
-        <h3>属性操作</h3>
-        <section>
-            <div class="small">
-                <h4>非表单元素的属性</h4>
-                <p>
-                    href、title、id、src、className，以上几个属性是指DOM元素中的属性；使用DOM对象操作属性，通常操作就是通过样式获取属性值，以及通过元素修改属性值。class在JS中是关键字，不能作为属性名，DOM中规定了对象中对应标签class属性的名称为className。
-                </p>
-            </div>
-            <div class="small">
-                <h4>表单元素属性</h4>
-                <ol>
-                    <li>value 用于大部分表单元素的内容获取(option除外)</li>
-                    <li>type 可以获取input标签的类型(输入框或复选框等)</li>
-                    <li>gdisabled 禁用属性</li>
-                    <li>checked 复选框选中属性</li>
-                    <li>selected 下拉菜单选中属性</li>
-                </ol>
-                <p>案例 : 给文本框赋值，获取文本框的值并按指定格式（| 分割）输出</p>
-                <pre class="text26"><code class="language-html"></code></pre>
-                <a class="bntTap" href="javascript:">代码</a>
-                <div class="tapNav">
-                    <div class="tapTop cur">方法一</div>
-                    <div class="tapTop">方法二</div>
-                </div>
-                <div class="tapMain">
-                    <div class="tapSection">
-                        <pre class="text27"><code class="language-js"></code></pre>
-                    </div>
-                    <div class="tapSection">
-                        <pre class="text28"><code class="language-js"></code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="small">
-                <h4>自定义属性操作</h4>
-                <ol>
-                    <li>getAttribute() 获取标签行内属性</li>
-                    <li>setAttribute() 设置标签行内属性</li>
-                    <li>removeAttribute() 移除标签行内属性</li>
-                    <li>与element.属性的区别: 上述三个方法用于获取任意的行内属性，称为标准方法。</li>
-                </ol>
-            </div>
-            <h4>样式属性操作</h4>
-            <h4>类名</h4>
-            <ol>
-                <li>classList.add : 增加类名</li>
-                <li>classList.remove : 删除类名</li>
-            </ol>
-            <p>获取元素（样式）属性值：对象名.style.属性名</p>
-            <p>设置元素（样式）属性值：对象名.style.属性名=“属性值”</p>
-            <p>通过DOM元素设置样式属性的时候，样式属性是行内样式，优先级最高。在设置样式属性的时候，宽、高、位置样式的值是字符串类型，要加上单位 px。</p>
-            <p>cssText:cssText 的本质就是设置 HTML 元素的 style 属性值。</p>
-            <pre><code
-                    class="js">document.getElementById("d1").style.cssText += ";color:red; font-size:13px;";</code></pre>
-        </section>
-    </div>
-    <div class="item">
-        <h3>节点</h3>
-        <section>
-            <div class="small">
-                <ol>
-                    <li>nodeName : 节点名称(如果是元素节点,则是对应的标签名)</li>
-                    <li>nodeType : 节点类型
-                        <ol>
-                            <li>元素节点: 1</li>
-                            <li>属性节点: 2</li>
-                            <li>文本节点: 3</li>
-                            <li>注释节点: 8</li>
-                        </ol>
-                    </li>
-                    <li>null : 节点值 默认null</li>
-                    <li>children: 节点的子节点</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>父子节点</h4>
-                <ol>
-                    <li>parentNode : 父节点</li>
-                    <li>childNodes : 子节点</li>
-                    <li>children: 子元素节点</li>
-                    <li>判断是否有子节点 :hasChildNodes()</li>
-                </ol>
-                <a class="btns" href="javascript:">代码</a>
-                <pre class="text29"><code class="js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>第一、最后节点</h4>
-                <ol>
-                    <li>firstChild 第一个子节点</li>
-                    <li>lastChild 最后一个节点</li>
-                    <li>firstElementChild: 获取第一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
-                    <li>lastElementChild: 获取最后一个子元素节点,有浏览器兼容性问题，从IE9开始支持</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>兄弟节点</h4>
-                <ol>
-                    <li>nextSibling 获取下一个兄弟节点</li>
-                    <li>nextElementSibling 获取下一个兄弟元素节点</li>
-                    <li>previousSibling 获取上一个兄弟节点</li>
-                    <li>previousElementSibling 获取上一个兄弟元素节点</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>节点操作</h4>
-                <ol>
-                    <li>createElement(tagName) : 创建由指定名称的HTML元素</li>
-                    <li>appenChild(childNode): 将指定的childNode参数作为最后一个节点添加到当前节点,返回childNode。如果参数引用了 DOM
-                        树上的现有节点，则节点将从当前位置分离，并附加到新位置。
-                    </li>
-                    <li>insertBefore(newNode, referenceNode) :
-                        在当前节点之前插入子节点。如果给定的子节点已存在当前文档中，则insertBefore()会将其从当前位置移动到新位置。
-                    </li>
-                    <li>removeChild(child) : 从当前节点中删除指定的子节点，并返回被删除的子节点</li>
-                    <li>replaceChild(newChild, oldChild) : 在当前节点中，用 newChild 替换 oldChild 并返回被替换掉的 oldChild</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>克隆元素</h4>
-                <ol>cloneNode: 要克隆的元素.cloneNode(true/false)
-                    <li>true:克隆元素和内容</li>
-                    <li>false:只克隆元素</li>
-                </ol>
-            </div>
-            <a class="btns" href="javascript:">代码</a>
-            <pre class="text30"><code class="language-js"></code></pre>
         </section>
     </div>
     <div class="item">

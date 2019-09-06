@@ -1241,7 +1241,7 @@ var objArr = [{name : "xx", age : 18}, {name : "yy", age : 19}]; // JS 数组对
 
     var text59 = 'JSON.parse(jsonStr1);       // JSON 字符串 => JS 对象\nJSON.parse(jsonStr2);       // JSON 字符串 => JS 对象\n\nJSON.stringify(obj);        // JS 对象 => JSON 字符串\nJSON.stringify(objArr);     // JS 对象 => JSON 字符串';
 
-    xk$('.small .text59 code').innerHTML = text59;
+    xk$('.small .text59 code').innerHTML = zy(text59);
 
     let text60 = `<!DOCTYPE html>
 <html lang="en">

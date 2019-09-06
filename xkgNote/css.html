@@ -1006,6 +1006,26 @@ div::after{
     </section>
 </div>
 <div class="item">
+    <h3>calc() 函数</h3>
+    <section>
+        <div class="small">
+            <p>calc()支持CSS3；任何长度值都可以使用calc()函数进行计算；calc()函数支持 "+", "-", "*", "/" 运算; calc()函数使用标准的数学运算优先级规则</p>
+            <ol>
+                <li>需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；</li>
+                <li>任何长度值都可以使用calc()函数进行计算；</li>
+                <li>calc()函数支持 "+", "-", "*", "/" 运算；</li>
+                <li>calc()函数使用标准的数学运算优先级规则；</li>
+            </ol>
+            <h5 class="subtitle">calc()嵌套使用</h5>
+<pre><code class="css">.demo  {
+
+    width: calc( 100% / calc(100px * 2) );
+
+}</code></pre>
+        </div>
+    </section>
+</div>
+<div class="item">
     <h3>其他</h3>
     <section>
             <div class="small">
@@ -1018,16 +1038,6 @@ div::after{
                     <li>鼠标移上变手:cursor: pointer</li>
                     <li>百分比表示法所表示的仅仅是父元素“内容”的百分比，不包括padding。</li>
                     <li>filter 滤镜属性 blur(px) 高斯模糊</li>
-                </ol>
-            </div>
-            <div class="small">
-                <h4>移动端1px的解决方案</h4>
-                <ol>
-                    <li>用::after</li>
-                    <li>设置border-left：1px solid #ddd;</li>
-                    <li>width:1px; height:100%</li>
-                    <li>然后再缩放scaleY(0.5);</li>
-                    <li>绝对定位</li>
                 </ol>
             </div>
             <div class="small">

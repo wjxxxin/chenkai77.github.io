@@ -7,8 +7,11 @@
     <link rel="icon" href="images/titleIcon/mobile.png">
     <link rel="stylesheet" href="css/cssreset.css">
     <link rel="stylesheet" href="css/page.css">
-    <link rel="stylesheet" href="css/monokai-sublimekai.css">
+<!--    <link rel="stylesheet" href="css/monokai-sublimekai.css">-->
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+<!--    <link rel="stylesheet" href="css/railscastskai.css">-->
+<!--    <link rel="stylesheet" href="css/pojoaquekai.css">-->
+    <link rel="stylesheet" href="css/androidstudiokai.css">
 </head>
 <body>
 <ul class="navLeft">
@@ -146,6 +149,7 @@
             </div>
             <div class="small">
                 <h4>scroll-view组件</h4>
+                <p>该组件要用弹性布局flex，需要enable-flex=true</p>
                 <ol>
                     <li>添加form组件 和 添加bindsubmit事件( form 是行内标签 )</li>
                     <li>给button 添加 form-type 属性</li>
@@ -296,6 +300,513 @@
                     <li>import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。(即：B import A，C import B，在C中可以使用B定义的template，在B中可以使用A定义的template，但是C不能使用A定义的template)</li>
                     <li>include 可以将目标文件除了  < template/>   < wxs /> 外的整个代码引入，相当于是拷贝到 include 位置。</li>
                 </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>事件</h3>
+        <section>
+            <div class="small">
+                <h4>事件的使用</h4>
+                <a class="btns" href="javascript:;">事件对象e</a>
+                <pre class="text12"><code class="js"></code></pre>
+                <p>bindtap ： bind ： 是绑定事件的意思， tap ： 是说绑定的事件是一个点击事件</p>
+            </div>
+            <div class="small">
+                <h4>事件分类</h4>
+                <ol>事件分为冒泡( bubble )事件和非冒泡事件：
+                    <li>冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。</li>
+                    <li>非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。</li>
+                </ol>
+                <h5 class="subtitle">WXML的冒泡事件(冒泡事件一般以bind开头)</h5>
+                <ol>
+                    <li>touchstart : 手指触摸动作开始</li>
+                    <li>touchmove : 手指触摸后移动</li>
+                    <li>touchcancel : 手指触摸动作被打断，如来电提醒，弹窗</li>
+                    <li>touchend : 手指触摸动作结束</li>
+                    <li>tap : 手指触摸后马上离开</li>
+                    <li>longpress : 手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发</li>
+                    <li>longtap : 手指触摸后，超过350ms再离开（推荐使用longpress事件代替）</li>
+                    <li>transitionend : 会在 WXSS transition 或 wx.createAnimation 动画结束后触发</li>
+                    <li>animationstart : 会在一个 WXSS animation 动画开始时触发</li>
+                    <li>animationiteration : 会在一个 WXSS animation 一次迭代结束时触发</li>
+                    <li>animationend : 会在一个 WXSS animation 动画完成时触发</li>
+                </ol>
+                <p>除上表之外的其他组件自定义事件如无特殊申明都是非冒泡事件，如的submit事件，的input事件，的scroll事件</p>
+                <p>将bind改为catch可以阻止冒泡事件</p>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>WXS</h3>
+        <section>
+            <div class="small">
+                <p>WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。</p>
+                <ol>
+                    <li>wxs 不依赖于运行时的基础库版本，可以在所有版本的小程序中运行。</li>
+                    <li>wxs 与 javascript 是不同的语言，有自己的语法，并不和 javascript 一致。</li>
+                    <li>wxs 的运行环境和其他 javascript 代码是隔离的，wxs 中不能调用其他 javascript 文件中定义的函数，也不能调用小程序提供的API。</li>
+                    <li>由于运行环境的差异，在 iOS 设备上小程序内的 wxs 会比 javascript 代码快 2 ~ 20 倍。在 android 设备上二者运行效率无差异。</li>
+                    <li>小程序脚本语言 主要是用来增强页面的表达能力</li>
+                    <li>对es6的支持不友好。比如，const  let 箭头函数不支持。</li>
+                    <li>由于view 与 App Service是不同线程,之前是传递数据。现在当遇到一些数据需要在view中处理时, 就可以用wxs来处理。</li>
+                </ol>
+                <p>bindtap ： bind ： 是绑定事件的意思， tap ： 是说绑定的事件是一个点击事件</p>
+            </div>
+            <div class="small">
+                <h5 class="subtitle">变量</h5>
+                <ol>
+                    <li>WXS 中的变量均为值的引用。</li>
+                    <li>没有声明的变量直接赋值使用，会被定义为全局变量。</li>
+                    <li>如果只声明变量而不赋值，则默认值为 undefined。</li>
+                    <li>var表现与javascript一致，会有变量提升。</li>
+                    <li>变量命名规则
+                        <ol>
+                            <li>首字符必须是：字母（a-zA-Z），下划线（_）</li>
+                            <li>剩余字符可以是：字母（a-zA-Z），下划线（_）， 数字（0-9）</li>
+                        </ol>
+                    </li>
+                </ol>
+                <pre class="text13"><code class="js"></code></pre>
+            </div>
+            <div class="samll">
+                <h4>wxs导入</h4>
+                <pre><code class="js"><!-- 引用外部wxs定义的工具 -->
+&lt;wxs src="../wxs/tools.wxs" module="tools">&lt;/wxs>
+&lt;view>{{ tools.message}}:{{ tools.formPrice('112.242343') }}&lt;/view></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>自定义组件</h3>
+        <section>
+            <div class="small">
+                <p>开发者可以将页面内的功能模块抽象成自定义组件，以便在不同的页面中重复使用；也可以将复杂的页面拆分成多个低耦合的模块，有助于代码维护。</p>
+                <h5 class="subtitle">创建自定义组件</h5>
+                <p>类似于页面，一个自定义组件由 json wxml wxss js 4个文件组成。要编写一个自定义组件，首先需要在 json 文件中进行自定义组件声明（将 component 字段设为 true 可这一组文件设为自定义组件）：</p>
+                <h5 class="subtitle">使用自定义组件</h5>
+                <p>使用已注册的自定义组件前，首先要在使用该组件页面的 json 文件中进行引用声明。此时需要提供每个自定义组件的标签名和对应的自定义组件文件路径：</p>
+                <pre><code class="js">{
+    "usingComponents": {
+      "my-view": "../../components/my-view/my-view"
+    }
+}</code></pre>
+                <p>这样，在页面的 wxml 中就可以像使用基础组件一样使用自定义组件。节点名即自定义组件的标签名，节点属性即传递给组件的属性值。</p>
+                <p>开发者工具 1.02.1810190 及以上版本支持在 app.json 中声明 usingComponents 字段，在此处声明的自定义组件视为全局自定义组件，在小程序内的页面或自定义组件中可以直接使用而无需再声明。</p>
+            </div>
+            <div class="small">
+                <h4>自定义组件插槽</h4>
+                <p>定义多个插槽需要在组件js中声明启用。</p>
+                <pre><code class="js">options: {
+    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+},</code></pre>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text14"><code class="js"></code></pre>
+            </div>
+            <div class="samll">
+                <h4>自定义组件的样式</h4>
+                <p>组件可以指定它所在节点的默认样式，使用 :host 选择器</p>
+                <ol>组件内部样式-class（组件对应 wxss 文件的样式，只对组件wxml内的节点生效。）
+                    <li>组件和引用组件的页面不能使用id选择器（#a）、属性选择器（[a]）和标签名选择器，请改用class选择器。</li>
+                    <li>组件和引用组件的页面中使用后代选择器（.a .b）在一些极端情况下会有非预期的表现，如遇，请避免使用。</li>
+                    <li>子元素选择器（.a>.b）只能用于 view 组件与其子节点之间，用于其他组件可能导致非预期的情况。</li>
+                    <li>继承样式，如 font 、 color ，会从组件外继承到组件内。</li>
+                    <li>除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>组件外部样式-external</h4>
+                <p>外部传递样式类到组件内部</p>
+                <pre class="text16"><code class="js"></code></pre>
+                <p>组件希望接受外部传入的样式类（类似于 view 组件的 hover-class 属性）。此时可以在 Component 中用 externalClasses 定义段定义若干个外部样式类。</p>
+                <pre><code class="js">// 1.定义该组件可以接收的外部样式类
+  externalClasses: ['my-view-class','my-view-active-class'],</code></pre>
+                <p>组件使用定义的样式类</p>
+                <pre class="text15"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>使用Component构造器构造页面</h4>
+                <p>小程序的页面也可以视为自定义组件。因而，页面也可以使用Component构造器构造，拥有与普通组件一样的定义段与实例方法。但此时要求对应 json 文件中包含 usingComponents 定义段。</p>
+                <pre><code class="js">{
+  "usingComponents": {}
+}</code></pre>
+                <p>此时，组件的属性可以用于接收页面的参数，如访问页面 /pages/index/index?paramA=123&paramB=xyz ，如果声明有属性 paramA 或 paramB ，则它们会被赋值为 123或 xyz。</p>
+                <p> 页面的生命周期方法（即 on 开头的方法），应写在 methods 定义段中。</p>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text18"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>组件生命周期</h4>
+                   <p>组件的的生命周期也可以在lifetimes字段内进行声明</p>
+                   <p>特殊的生命周期:组件所在页面的生命周期;在 pageLifetimes 定义段中定义</p>
+                   <a href="javascript:;" class="btns">代码</a>
+                   <pre class="text19"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>组件通信</h3>
+        <section>
+            <div class="samll">
+                <h4>组件间的基本通信方式</h4>
+                <ol>
+                    <li>WXML 数据绑定( 传递参数 )：用于父组件向子组件的指定属性设置数据，仅能设置 JSON 兼容数据</li>
+                    <li>事件：用于子组件向父组件传递数据，可以传递任意数据。</li>
+                    <li>如果以上两种方式不足以满足需要，父组件还可以通过this.selectComponent方法获取子组件实例对象，这样就可以直接访问组件的任意数据和方法。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>WXML 数据绑定( 传递参数 )</h4>
+                <p>通过properties接受页面自定义属性传过来的数据;properties 中定义的属性直接在模版中使用</p>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text17"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>组件的事件-通讯</h4>
+                <h5 class="subtitle">组件内部触发事件</h5>
+                <pre class="text20"><code class="js"></code></pre>
+                <h5 class="subtitle">调用组件内部的方法</h5>
+                <pre class="text21"><code class="js"></code></pre>
+                <ol>触发事件的选项myEventOption包括：（默认都为false）
+                    <li>bubbles 布尔值: 事件是否冒泡</li>
+                    <li>composed 布尔值: 事件是否可以穿越组件边界，为false时，事件将只能在引用组件的节点树上触发，不进入其他任何组件内部</li>
+                    <li>capturePhase 布尔值: 事件是否拥有捕获阶段</li>
+                </ol>
+                <h4>父组件还可以通过 this.selectComponent 方法获取子组件实例对象，这样就可以直接访问组件的任意数据和方法。</h4>
+                <pre class="text22"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>组件的behaviors</h3>
+        <section>
+            <div class="small">
+                <p>behaviors 是用于组件间代码共享的特性</p>
+                <p>每个 behavior 可以包含一组属性、数据、生命周期函数和方法，组件引用它时，它的属性、数据和方法会被合并到组件中，生命周期函数也会在对应时机被调用。每个组件可以引用多个behavior。behavior也可以引用其他behavior。</p>
+                <p>behavior 需要使用 Behavior() 构造器定义。</p>
+                <h5 class="subtitle">字段的覆盖和组合规则</h5>
+                <ol>组件和它引用的 `behavior` 中可以包含同名的字段，对这些字段的处理方法如下：
+                    <li>如果有同名的属性或方法，组件本身的属性或方法会覆盖 behavior 中的属性或方法，如果引用了多个 behavior ，在定义段中靠后 behavior 中的属性或方法会覆盖靠前的属性或方法；</li>
+                    <li>如果有同名的数据字段，如果数据是对象类型，会进行对象合并，如果是非对象类型则会进行相互覆盖；</li>
+                    <li>生命周期函数不会相互覆盖，而是在对应触发时机被逐个调用。如果同一个 behavior 被一个组件多次引用，它定义的生命周期函数只会被执行一次。</li>
+                </ol>
+            </div>
+            <div class="small">
+                <a href="javascript:;" class="btns">定义及使用</a>
+                <pre class="text23"><code class="js"></code></pre>
+                <a href="javascript:;" class="btns">使用behaviors</a>
+                <pre class="text24"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>数据缓存</h3>
+        <section>
+            <div class="small">
+                <h4>保存数据到本地</h4>
+                <strong>wx.setStorage(OBJECT)</strong>
+                <p>将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。</p>
+                <pre class="text25"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>获取本地数据</h4>
+                <h5 class="subtitle">获取指定key的数据</h5>
+                <pre class="text26"><code class="js"></code></pre>
+                <h5 class="subtitle">获取所有的数据</h5>
+                <p>wx.getStorageInfo(OBJECT)    //获取所有的keys</p>
+                <pre class="text27"><code class="js"></code></pre>
+            </div>
+            <div class="small">
+                <h4>删除本地数据</h4>
+                <h5 class="subtitle">删除指定key的数据</h5>
+                <pre class="text28"><code class="js"></code></pre>
+                <h5 class="subtitle">删除所有的数据</h5>
+                <pre><code class="js">wx.clearStorage()</code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>导航栏API</h3>
+        <section>
+            <div class="small">
+                <h4>NavigationBar</h4>
+                <ol>这些api仅仅对调用的那个页面起作用，不会作用于其它页面
+                    <li>setNavigationBarTitle</li>
+                    <li>setNavigationBarColor</li>
+                    <li>showNavigationBarLoading</li>
+                </ol>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text29"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>操作反馈小工具</h3>
+        <section>
+            <div class="small">
+                <h4>Toast 吐司</h4>
+                <p>显示Toast</p>
+                <p>icon :  success/loading</p>
+                <pre><code class="js">wx.showToast({ })</code></pre>
+                <p>隐藏Toast</p>
+                <p>wx.hideToast()</p>
+            </div>
+            <div class="small">
+                <h4>Modal弹窗</h4>
+                <p>wx.showModal({})</p>
+            </div>
+            <div class="small">
+                <h4>ActionSheet操作菜单</h4>
+                <pre class="text30"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>需要授权的API</h3>
+        <section>
+            <div class="small">
+                <p>部分接口需要经过用户授权同意才能调用</p>
+                <p>我们把这些接口按使用范围分成多个 scope ，用户选择对 scope来进行授权，当授权给一个scope之后，其对应的所有接口都可以直接使用。</p>
+                <ol>scope 列表:
+                    <li>scope.userInfo : 用户信息</li>
+                    <li>scope.userLocation : 地理位置</li>
+                    <li>scope.address : 通讯地址</li>
+                    <li>scope.invoiceTitle : 发票抬头</li>
+                    <li>scope.invoice : 获取发票</li>
+                    <li>scope.werun : 微信运动步数</li>
+                    <li>scope.record : 录音功能</li>
+                    <li>scope.writePhotosAlbum : 保存到相册</li>
+                    <li>scope.camera : 摄像头</li>
+                </ol>
+            </div>
+            <div class="small">
+                <p>使用button授权</p>
+                <pre><code class="js">&lt;button open-type='getUserInfo'>授权&lt;/button></code></pre>
+                <p>打开设置界管理授权</p>
+                <pre><code class="js">wx.openSetting(); // 好处，例如当取消授权后, 还可以重新进入这个页面授权等（  可以管理授权  ）</code></pre>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text31"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>小程序登陆</h3>
+        <section>
+            <div class="small">
+                <ol>登录流程时序
+                    <li>wx.login() </li>
+                    <li>拿到返回的code </li>
+                    <li>把code提交给后端 ( 不是微信后端 )</li>
+                    <li>后端程序员拿着code等信息请求微信后台</li>
+                    <li>拿到微信返回的openid等信息，然后返回 token 给前端</li>
+                    <li>前端拿到token后记录用户的登录状态 ，实现登陆成功</li>
+                </ol>
+                <a href="javascript:;" class="btns">代码</a>
+                <pre class="text32"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>zepto</h3>
+        <section>
+            <div class="small">
+                <h4>zepto.js</h4>
+                <a class="piece" href="http://www.css88.com//doc//zeptojs_api//" target="_blank">zepto.js</a>
+                <ol>
+                    <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
+                    <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
+                        <a class="btns" href="javascript:">代码</a>
+                        <pre class="text9"><code class="language-html"></code></pre>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>IOS/Andriod浏览器适配问题</h3>
+        <section>
+            <div class="small">
+                <ol>但是由于移动端设备的不统一，而造成的一些兼容性问题。
+                    <li>Img标签src属性无值（php渲染过的），在苹果机上显示无图片，在安卓机上显示图片裂开。可添加alt属性及值</li>
+                    <li>click事件在IOS系统上有时会失效，给绑定click事件的元素加上cursor：pointer解决</li>
+                </ol>
+                <br>
+                <ol>
+                    <li>禁止文本选中
+                        <pre><code class="css">Element {
+-webkit-user-select:none;
+-moz-user-select:none;
+-khtml-user-select:none;
+user-select:none;
+}</code></pre></li>
+                    <li>一些情况下，对非可点击元素（如label，span）监听click事件，IOS不会触发
+                        <pre><code>css增加cursor：pointer；</code></pre></li>
+                    <li>加上一个CSS3的属性后，让所关联的元素事件监听失效
+                        <pre><code class="css">pointer-events: none;</code></pre></li>
+                    <li>上下拉动滚动条时卡顿，慢
+                        <pre><code class="css">body {
+-webkit-overflow-scrolling:touch;
+overflow-scrolling: touch;
+}</code></pre></li>
+                    <li>html5调用安卓或者IOS的拨号功能
+                        <p>H5提供了自动调用拨号的标签:只要在a标签的href中添加tel: 就可以实现</p>
+                        <pre><code class="html">&lt;a href="tel:15677776767">点击拨打15677776767&lt;/a></code></pre></li>
+                    <li>关于IOS 和 OSX 端字体的优化(横竖屏会出现字体加粗不一致的现象);IOS浏览器横屏时会重置字体大小，设置text-size-adjust为none可以阻止旋转屏幕时自动调整字体大小
+                        <pre><code class="css">html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+-webkit-text-size-adjust:none;
+}</code></pre>
+                    <p>但是桌面版Safari的字体缩放功能会失效，因此最佳方案是将text-size-adjust为100%</p>
+                    <pre><code class="css">-webkit-text-size-adjust:100%;
+-ms-text-size-adjust:100%;
+text-size-adjust:100%;</code></pre></li>
+                    <li>移动端H5的input data不支持placeholder的问题
+                        <pre><code class="html">&lt;input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"></code></pre>
+                    </li>
+                    <li>type为search的input，部分机型会自带close按钮样式
+                        <p>有些机型的搜索input控件会自带close按钮（一个伪元素）。</p>
+                        <p>而为了兼容所有浏览器，通常会自己实现一个，此时取掉原生close按钮的方法为：</p>
+                        <pre><code class="css">Search::-webkit-search-cancel-button{
+display:none;
+}</code></pre>
+                    </li>
+                    <li>select下拉选择设置右对齐
+                        <pre><code class="css">select option {
+direction: rtl ;
+}</code></pre></li>
+                    <li>通过transform进行skew变形, rotate旋转 会产生 锯齿现象
+                    <pre><code class="css">-webkit-transform: rotate(-4deg) skew(10deg) translateZ(0);
+transform: rotate(-4deg) skew(10deg) translateZ(0);
+outline: 1px solid rgba(255,255,255,0);</code></pre></li>
+                    <li>在移动端修改难看的点击的高亮效果，IOS和安卓下都有效：
+                        <pre><code class="css">*{
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+//不过此方法在现在Andriod浏览器下，只能取掉橙色的背景色，点击产生的高亮边框并没有去掉。</code></pre></li>
+                    <li>不让安卓手机识别邮箱
+                        <pre><code class="css">&lt;meta content="email=no" name="format-detection" /></code></pre></li>
+                    <li>Android下取消语音按钮
+                        <pre><code class="css">input::-webkit-input-speech-button {display: none}</code></pre></li>
+                    <li>圆角bug;某些Android手机圆角失效
+                    <pre><code class="css">解决方案 : background-clip : padding-box;</code></pre></li>
+                    <li>禁止 IOS 识别长串数字为电话
+                        <pre><code class="css">&lt;meta content="telephone=no" name="format-detection" /></code></pre></li>
+                    <li>禁止IOS 弹出各种操作窗口
+                        <pre><code class="css">-webkit-touch-callout:none</code></pre></li>
+                    <li>IOS 系统 中文输入法 输入英文时，字母之间可能会出现一个六分之一空格
+                        <pre><code class="js">//使用正则去掉: 
+                    this.value = this.value.replace( /\u2006/g , '' );</code></pre></li>
+                    <li>IOS下取消input在输入时默认的英文首字母大写
+                        <pre><code class="css">&lt;input autocapitalize="off" autocorrect="off" /></code></pre>
+                    </li>
+                    <li>去掉IPhone和IPad下输入框默认内阴影
+                        <pre><code class="css">Element {-webkit-appearance: none;}</code></pre>
+                    </li>
+                    <li>IOS设置input按钮样式按钮会被默认样式覆盖
+                        <pre><code class="css">//解决方案：设置默认样式为none
+input,textarea {
+border: 0;
+-webkit-appearance : none ;
+}</code></pre>
+                    </li>
+                </ol>
+                <h4>Input的placeholder会出现文本位置偏上的情况</h4>
+                <ol>
+                    <li>PC端： 设置line-height = height；</li>
+                    <li>移动端： 设置line-height：normal；</li>
+                </ol>
+                <h4>移动端1px的解决方案</h4>
+                <ol>
+                    <li>用::after</li>
+                    <li>设置border-left：1px solid #ddd;</li>
+                    <li>width:1px; height:100%</li>
+                    <li>然后再缩放scaleY(0.5);</li>
+                    <li>绝对定位</li>
+                </ol>
+                <h4>calc的兼容性处理</h4>
+                <ol>CSS3中的calc变量
+                    <li>在IOS6浏览器中必须加-webkit-前缀，目前的FF浏览器已经无需-moz-前缀。</li>
+                    <li>Android浏览器目前仍然不支持caic，所以要在之前添加一个保守尺寸：</li>
+                </ol>
+                <pre><code class="css">div{
+width: 95%;
+width: -webkit-calc(100% -50px);
+width:calc(100% -50px);
+}</code></pre>
+                <h4>安卓浏览器看背景图时，有些设备会模糊</h4>
+                <p>因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把IPhone 4的960*640分辨率，在网页里值显示了480*320,这样devicePiexRatio =2。现在安卓的比较多，有1.5的，也有2或3的。想让图片在手机里显示更为清晰，必须使用2X的背景图来代替img标签（一般情况都是用2倍）比如;一个div的宽高是100*100，背景图必须是200*200，然后使用background-size:contain; 这样显示出来的图片比较清晰</p>
+                <h4>顶部状态栏背景</h4>
+                <pre><code class="html">&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /></code></pre>
+                <p>除非先使用apple-mobile-web-app-capable指定全屏模式，否则这个meta标签不会起任何作用。</p>
+                <ol>
+                    <li>如果content设置为default，则状态栏正常显示。(默认值是default。)</li>
+                    <li>如果设置为blank，则状态栏会有一个黑色的背景。</li>
+                    <li>如果设置为blank-translucent，则状态栏显示为黑色半透明。</li>
+                    <li>如果设置为default或blank，则页面显示在状态栏的下方，即状态栏占据上方部分，页面占据下方部分，二者没有遮挡对方或被遮挡。</li>
+                    <li>如果设置为blank-translucent，则页面会充满屏幕，其中页面顶部会被状态栏遮盖住（会覆盖页面20px高度，而iphone4和itouch4的Retina屏幕为40px）。</li>
+                </ol>
+                <h4>设置缓存</h4>
+                <pre><code class="html">&lt;meta http-equiv=”Cache-Control” content=”no-cache”></code></pre>
+                <p>手机页面通常在第一次加载后会进行缓存，然后每次刷新会使用缓存而不是重新向服务器发送请求。如果不希望使用缓存可以设置no-cache。</p>
+                <h4>桌面图标</h4>
+                <pre><code class="html">&lt;link rel="apple-touch-icon"href="touch-icon-iphone.png"/>
+&lt;link rel="apple-touch-icon"sizes="76x76"href="touch-icon-ipad.png"/>
+&lt;linkrel="apple-touch-icon" sizes="120x120" href=" touch-icon-iphone-retina.png "/>
+&lt;link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"/></code></pre>
+                <p>IOS下针对不同设备定义不同的桌面图标。如果不定义则以当前屏幕截图作为图标。</p>
+                <p>上面的写法可能有光泽，下面这种设置方法可以去掉光泽效果</p>
+                <pre><code>&lt;link rel="apple-touch-icon-precomposed/,prikəm'poz/"  href="touch-icon-iphone.png"/></code></pre>
+                <p>图片尺寸可以设定为57*57或者Retina可以定为114*114，ipad尺寸为72*72</p>
+            </div>
+            <div class="small">
+                <h4>IOS移动端click事件300ms的延迟响应</h4>
+                <p>移动设备上的web网页是有300ms延迟的，这样往往会造成按钮点击延迟甚至是点击失败。此问题是由于区别单机事件和双击屏幕缩放的历史原因造成的。</p>
+                <ol>解决方法
+                    <li>fastclick可以解决在手机上点击事件的300ms延迟</li>
+                    <li>zepto的touch模块，tap事件也是为了解决在click的延迟问题</li>
+                    <li>触摸事件的响应顺序为touchstart -> touchmove -> touchend -> click，也可以通过绑定ontouchstart事件，加快事件的响应，解决300ms延迟问题</li>
+                </ol>
+                <h4>往返缓存问题：</h4>
+                <p>点击浏览器的回退，有时候不会自动执行js，特别是mobile safari中。这与往返缓存有关系，解决方案： window.onunload = function( ){   };</p>
+                <h4>当输入框在最底部，点击软键盘后输入框内被遮挡</h4>
+                <pre><code class="js">//浏览器当前高度
+var oHeight = $(document).height();
+$(window).resize(function(){
+if($(document).height() < oHeight ){
+$("#footer").css("position","static");
+}else{
+$("#footer").css("position","absolute");
+}
+})</code></pre>
+                <h4>H5网站input设置为type=number的问题</h4>
+                <p>H5网页input的type设置为number一般会产生3个问题：</p>
+                <ol>
+                    <li>maxlength属性不好用了
+                        <pre class="text33"><code class="js"></code></pre>
+                    </li>
+                    <li>form提交的时候，默认会取整。因为form提交默认做了表单验证，step默认为1
+                        <pre><code class="html">&lt;input type="number" step="0.01" /></code></pre>
+                        <p>假如step和min一起使用，那么数值必须在min和max之间。</p>
+                    </li>
+                    <li>部分安卓手机出现样式问题
+                    <p>解决方案: 去除input默认样式</p>
+                        <pre><code class="css">input[type=number] {
+   -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+   -webkit-appearance:none;
+   margin:0;
+}</code></pre>
+                    </li>
+                </ol>
+                <h4>移动端H5 audio的autoplay属性失效</h4>
+                <p>这个不是bug。由于自动播放网页中的音频或视频，会给用户带来一些困扰或者不必要的流量消耗，所以苹果系统和安卓系统通常都会禁止自动播放和使用JS的触发播放，必须由用户触发才可以播放</p>
+                <p>解决方案思路：先通过用户touchstart触碰，触发播放并暂停（音频开始加载，后面用JS再操作就没问题了）</p>
+                <pre><code class="js">document.addEventListener('touchstart',function() {
+    document.getElementsByTagName('audio')[0].play();
+    document.getElementsByTagName('audio')[0].pause();
+}); </code></pre>
+
             </div>
         </section>
     </div>
