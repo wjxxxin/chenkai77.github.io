@@ -127,7 +127,8 @@
 
     xk$('.tapSection .text5 code').innerHTML=zy(text5);
 
-    let text6 = '<script>\n' +
+    let text6 = '//例子一\n' +
+        '<script>\n' +
         '// 翻转数组\n' +
         'var names = [\'孙悟空\', \'琪琪\', \'克林\', \'龟仙人\'];\n' +
         'var reverse = [];\n' +
@@ -135,7 +136,27 @@
         '    reverse[reverse.length] = names[i];\n' +
         '}\n' +
         'console.log(reverse);\n' +
-        '</script>';
+        '</script>\n' +
+        '' +
+        '//例子二\n' +
+        '将一个字符串数组的元素的顺序进行反转。["a", "b", "c", "d"] -> [ "d","c","b","a"]。使用两种方式实现。\n' +
+        '//方式一\n' +
+        'var array1 = new Array(\'a\', \'b\', \'c\', \'d\',\'u\');\n' +
+        'array1.reverse()\n' +
+        'console.log(array1);\n' +
+        '\n' +
+        '//方式二\n' +
+        'function reverseArr(arr) {\n' +
+        'console.log(Math.floor(arr.length / 2));\n' +
+        'for (var i = 0; i < Math.floor(arr.length/2); i++) {\n' +
+        'var temp = arr[i];\n' +
+        'arr[i] = arr[arr.length - i - 1];\n' +
+        'arr[arr.length - i - 1] = temp;\n' +
+        '}\n' +
+        '}\n' +
+        'reverseArr(array1);\n' +
+        'console.log(array1);\n';+
+        '';
 
     xk$('.tapSection .text6 code').innerHTML=zy(text6);
 
@@ -496,26 +517,6 @@
         'console.log(tempArr);';
 
     xk$('.text20 code').innerHTML=zy(text20);
-
-    let text21 = '将一个字符串数组的元素的顺序进行反转。["a", "b", "c", "d"] -> [ "d","c","b","a"]。使用两种方式实现。\n' +
-        '//方式一\n' +
-        'var array1 = new Array(\'a\', \'b\', \'c\', \'d\',\'u\');\n' +
-        'array1.reverse()\n' +
-        'console.log(array1);\n' +
-        '\n' +
-        '//方式二\n' +
-        'function reverseArr(arr) {\n' +
-        'console.log(Math.floor(arr.length / 2));\n' +
-        'for (var i = 0; i < Math.floor(arr.length/2); i++) {\n' +
-        'var temp = arr[i];\n' +
-        'arr[i] = arr[arr.length - i - 1];\n' +
-        'arr[arr.length - i - 1] = temp;\n' +
-        '}\n' +
-        '}\n' +
-        'reverseArr(array1);\n' +
-        'console.log(array1);';
-
-    xk$('.text21 code').innerHTML=zy(text21);
 
     let text22 = '//把字符串中所有的o替换成 !\n' +
         'var str3 = \'abcoefoxyozzopp\';\n' +

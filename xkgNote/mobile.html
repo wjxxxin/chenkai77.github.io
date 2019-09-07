@@ -616,7 +616,7 @@
                     <li>Tap事件 : tap 只作用在移动端，PC端是无效的;click 在pc端和移动端都是ok的;但是我们在移动端要用tap，因为 tap 比 click 快200-300ms。</li>
                     <li>swipe滑动 : 如果想在移动设备上使用swipe事件，先要清除系统默认的手势事件：touch-action: none，如果没有清楚系统默认的事件可能swiper事件不会回调和tap事件触发多次。
                         <a class="btns" href="javascript:">代码</a>
-                        <pre class="text9"><code class="language-html"></code></pre>
+                        <pre class="text34"><code class="language-html"></code></pre>
                     </li>
                 </ol>
             </div>
@@ -626,170 +626,49 @@
         <h3>IOS/Andriod浏览器适配问题</h3>
         <section>
             <div class="small">
-                <ol>但是由于移动端设备的不统一，而造成的一些兼容性问题。
-                    <li>Img标签src属性无值（php渲染过的），在苹果机上显示无图片，在安卓机上显示图片裂开。可添加alt属性及值</li>
-                    <li>click事件在IOS系统上有时会失效，给绑定click事件的元素加上cursor：pointer解决</li>
-                </ol>
-                <br>
-                <ol>
-                    <li>禁止文本选中
-                        <pre><code class="css">Element {
--webkit-user-select:none;
--moz-user-select:none;
--khtml-user-select:none;
-user-select:none;
-}</code></pre></li>
-                    <li>一些情况下，对非可点击元素（如label，span）监听click事件，IOS不会触发
-                        <pre><code>css增加cursor：pointer；</code></pre></li>
-                    <li>加上一个CSS3的属性后，让所关联的元素事件监听失效
-                        <pre><code class="css">pointer-events: none;</code></pre></li>
-                    <li>上下拉动滚动条时卡顿，慢
-                        <pre><code class="css">body {
--webkit-overflow-scrolling:touch;
-overflow-scrolling: touch;
-}</code></pre></li>
-                    <li>html5调用安卓或者IOS的拨号功能
-                        <p>H5提供了自动调用拨号的标签:只要在a标签的href中添加tel: 就可以实现</p>
-                        <pre><code class="html">&lt;a href="tel:15677776767">点击拨打15677776767&lt;/a></code></pre></li>
-                    <li>关于IOS 和 OSX 端字体的优化(横竖屏会出现字体加粗不一致的现象);IOS浏览器横屏时会重置字体大小，设置text-size-adjust为none可以阻止旋转屏幕时自动调整字体大小
-                        <pre><code class="css">html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
--webkit-text-size-adjust:none;
-}</code></pre>
-                    <p>但是桌面版Safari的字体缩放功能会失效，因此最佳方案是将text-size-adjust为100%</p>
-                    <pre><code class="css">-webkit-text-size-adjust:100%;
--ms-text-size-adjust:100%;
-text-size-adjust:100%;</code></pre></li>
-                    <li>移动端H5的input data不支持placeholder的问题
-                        <pre><code class="html">&lt;input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"></code></pre>
-                    </li>
-                    <li>type为search的input，部分机型会自带close按钮样式
-                        <p>有些机型的搜索input控件会自带close按钮（一个伪元素）。</p>
-                        <p>而为了兼容所有浏览器，通常会自己实现一个，此时取掉原生close按钮的方法为：</p>
-                        <pre><code class="css">Search::-webkit-search-cancel-button{
-display:none;
-}</code></pre>
-                    </li>
-                    <li>select下拉选择设置右对齐
-                        <pre><code class="css">select option {
-direction: rtl ;
-}</code></pre></li>
-                    <li>通过transform进行skew变形, rotate旋转 会产生 锯齿现象
-                    <pre><code class="css">-webkit-transform: rotate(-4deg) skew(10deg) translateZ(0);
-transform: rotate(-4deg) skew(10deg) translateZ(0);
-outline: 1px solid rgba(255,255,255,0);</code></pre></li>
-                    <li>在移动端修改难看的点击的高亮效果，IOS和安卓下都有效：
-                        <pre><code class="css">*{
--webkit-tap-highlight-color:rgba(0,0,0,0);
-}
-//不过此方法在现在Andriod浏览器下，只能取掉橙色的背景色，点击产生的高亮边框并没有去掉。</code></pre></li>
-                    <li>不让安卓手机识别邮箱
-                        <pre><code class="css">&lt;meta content="email=no" name="format-detection" /></code></pre></li>
-                    <li>Android下取消语音按钮
-                        <pre><code class="css">input::-webkit-input-speech-button {display: none}</code></pre></li>
-                    <li>圆角bug;某些Android手机圆角失效
-                    <pre><code class="css">解决方案 : background-clip : padding-box;</code></pre></li>
-                    <li>禁止 IOS 识别长串数字为电话
-                        <pre><code class="css">&lt;meta content="telephone=no" name="format-detection" /></code></pre></li>
-                    <li>禁止IOS 弹出各种操作窗口
-                        <pre><code class="css">-webkit-touch-callout:none</code></pre></li>
-                    <li>IOS 系统 中文输入法 输入英文时，字母之间可能会出现一个六分之一空格
-                        <pre><code class="js">//使用正则去掉: 
-                    this.value = this.value.replace( /\u2006/g , '' );</code></pre></li>
-                    <li>IOS下取消input在输入时默认的英文首字母大写
-                        <pre><code class="css">&lt;input autocapitalize="off" autocorrect="off" /></code></pre>
-                    </li>
-                    <li>去掉IPhone和IPad下输入框默认内阴影
-                        <pre><code class="css">Element {-webkit-appearance: none;}</code></pre>
-                    </li>
-                    <li>IOS设置input按钮样式按钮会被默认样式覆盖
-                        <pre><code class="css">//解决方案：设置默认样式为none
-input,textarea {
-border: 0;
--webkit-appearance : none ;
-}</code></pre>
-                    </li>
-                </ol>
-                <h4>Input的placeholder会出现文本位置偏上的情况</h4>
-                <ol>
-                    <li>PC端： 设置line-height = height；</li>
-                    <li>移动端： 设置line-height：normal；</li>
-                </ol>
-                <h4>移动端1px的解决方案</h4>
-                <ol>
-                    <li>用::after</li>
-                    <li>设置border-left：1px solid #ddd;</li>
-                    <li>width:1px; height:100%</li>
-                    <li>然后再缩放scaleY(0.5);</li>
-                    <li>绝对定位</li>
-                </ol>
-                <h4>calc的兼容性处理</h4>
-                <ol>CSS3中的calc变量
-                    <li>在IOS6浏览器中必须加-webkit-前缀，目前的FF浏览器已经无需-moz-前缀。</li>
-                    <li>Android浏览器目前仍然不支持caic，所以要在之前添加一个保守尺寸：</li>
-                </ol>
-                <pre><code class="css">div{
+                <div class="tapNav">
+                    <div class="tapTop cur">移动端兼容性问题</div>
+                    <div class="tapTop">移动端页面视觉优化</div>
+                    <div class="tapTop">移动端性能优化</div>
+                    <div class="tapTop">移动端特有功能</div>
+                </div>
+                <div class="tapMain">
+                    <div class="tapSection">
+                        <ol>
+                            <li>Img标签src属性无值（php渲染过的），在苹果机上显示无图片，在安卓机上显示图片裂开。可添加alt属性及值</li>
+                            <li>移动端H5的input data不支持placeholder的问题
+                                <pre><code class="html">&lt;input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"></code></pre>
+                            </li>
+                            <li>圆角bug;某些Android手机圆角失效
+                                <pre><code class="css">解决方案 : background-clip : padding-box;</code></pre></li>
+                            <li>Input的placeholder会出现文本位置偏上的情况
+                                <ol>
+                                    <li>PC端： 设置line-height = height；</li>
+                                    <li>移动端： 设置line-height：normal；</li>
+                                </ol></li>
+                            <li>calc的兼容性处理
+                                <ol>CSS3中的calc变量
+                                    <li>在IOS6浏览器中必须加-webkit-前缀，目前的FF浏览器已经无需-moz-前缀。</li>
+                                    <li>Android浏览器目前仍然不支持caic，所以要在之前添加一个保守尺寸：</li>
+                                </ol>
+                                <pre><code class="css">div{
 width: 95%;
 width: -webkit-calc(100% -50px);
 width:calc(100% -50px);
-}</code></pre>
-                <h4>安卓浏览器看背景图时，有些设备会模糊</h4>
-                <p>因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把IPhone 4的960*640分辨率，在网页里值显示了480*320,这样devicePiexRatio =2。现在安卓的比较多，有1.5的，也有2或3的。想让图片在手机里显示更为清晰，必须使用2X的背景图来代替img标签（一般情况都是用2倍）比如;一个div的宽高是100*100，背景图必须是200*200，然后使用background-size:contain; 这样显示出来的图片比较清晰</p>
-                <h4>顶部状态栏背景</h4>
-                <pre><code class="html">&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /></code></pre>
-                <p>除非先使用apple-mobile-web-app-capable指定全屏模式，否则这个meta标签不会起任何作用。</p>
-                <ol>
-                    <li>如果content设置为default，则状态栏正常显示。(默认值是default。)</li>
-                    <li>如果设置为blank，则状态栏会有一个黑色的背景。</li>
-                    <li>如果设置为blank-translucent，则状态栏显示为黑色半透明。</li>
-                    <li>如果设置为default或blank，则页面显示在状态栏的下方，即状态栏占据上方部分，页面占据下方部分，二者没有遮挡对方或被遮挡。</li>
-                    <li>如果设置为blank-translucent，则页面会充满屏幕，其中页面顶部会被状态栏遮盖住（会覆盖页面20px高度，而iphone4和itouch4的Retina屏幕为40px）。</li>
-                </ol>
-                <h4>设置缓存</h4>
-                <pre><code class="html">&lt;meta http-equiv=”Cache-Control” content=”no-cache”></code></pre>
-                <p>手机页面通常在第一次加载后会进行缓存，然后每次刷新会使用缓存而不是重新向服务器发送请求。如果不希望使用缓存可以设置no-cache。</p>
-                <h4>桌面图标</h4>
-                <pre><code class="html">&lt;link rel="apple-touch-icon"href="touch-icon-iphone.png"/>
-&lt;link rel="apple-touch-icon"sizes="76x76"href="touch-icon-ipad.png"/>
-&lt;linkrel="apple-touch-icon" sizes="120x120" href=" touch-icon-iphone-retina.png "/>
-&lt;link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"/></code></pre>
-                <p>IOS下针对不同设备定义不同的桌面图标。如果不定义则以当前屏幕截图作为图标。</p>
-                <p>上面的写法可能有光泽，下面这种设置方法可以去掉光泽效果</p>
-                <pre><code>&lt;link rel="apple-touch-icon-precomposed/,prikəm'poz/"  href="touch-icon-iphone.png"/></code></pre>
-                <p>图片尺寸可以设定为57*57或者Retina可以定为114*114，ipad尺寸为72*72</p>
-            </div>
-            <div class="small">
-                <h4>IOS移动端click事件300ms的延迟响应</h4>
-                <p>移动设备上的web网页是有300ms延迟的，这样往往会造成按钮点击延迟甚至是点击失败。此问题是由于区别单机事件和双击屏幕缩放的历史原因造成的。</p>
-                <ol>解决方法
-                    <li>fastclick可以解决在手机上点击事件的300ms延迟</li>
-                    <li>zepto的touch模块，tap事件也是为了解决在click的延迟问题</li>
-                    <li>触摸事件的响应顺序为touchstart -> touchmove -> touchend -> click，也可以通过绑定ontouchstart事件，加快事件的响应，解决300ms延迟问题</li>
-                </ol>
-                <h4>往返缓存问题：</h4>
-                <p>点击浏览器的回退，有时候不会自动执行js，特别是mobile safari中。这与往返缓存有关系，解决方案： window.onunload = function( ){   };</p>
-                <h4>当输入框在最底部，点击软键盘后输入框内被遮挡</h4>
-                <pre><code class="js">//浏览器当前高度
-var oHeight = $(document).height();
-$(window).resize(function(){
-if($(document).height() < oHeight ){
-$("#footer").css("position","static");
-}else{
-$("#footer").css("position","absolute");
-}
-})</code></pre>
-                <h4>H5网站input设置为type=number的问题</h4>
-                <p>H5网页input的type设置为number一般会产生3个问题：</p>
-                <ol>
-                    <li>maxlength属性不好用了
-                        <pre class="text33"><code class="js"></code></pre>
-                    </li>
-                    <li>form提交的时候，默认会取整。因为form提交默认做了表单验证，step默认为1
-                        <pre><code class="html">&lt;input type="number" step="0.01" /></code></pre>
-                        <p>假如step和min一起使用，那么数值必须在min和max之间。</p>
-                    </li>
-                    <li>部分安卓手机出现样式问题
-                    <p>解决方案: 去除input默认样式</p>
-                        <pre><code class="css">input[type=number] {
+}</code></pre></li>
+                            <li>H5网站input设置为type=number的问题
+                                <p>H5网页input的type设置为number一般会产生3个问题：</p>
+                                <ol>
+                                    <li>maxlength属性不好用了
+                                        <pre class="text33"><code class="js"></code></pre>
+                                    </li>
+                                    <li>form提交的时候，默认会取整。因为form提交默认做了表单验证，step默认为1
+                                        <pre><code class="html">&lt;input type="number" step="0.01" /></code></pre>
+                                        <p>假如step和min一起使用，那么数值必须在min和max之间。</p>
+                                    </li>
+                                    <li>部分安卓手机出现样式问题
+                                        <p>解决方案: 去除input默认样式</p>
+                                        <pre><code class="css">input[type=number] {
    -moz-appearance:textfield;
 }
 input[type=number]::-webkit-inner-spin-button,
@@ -797,16 +676,152 @@ input[type=number]::-webkit-outer-spin-button {
    -webkit-appearance:none;
    margin:0;
 }</code></pre>
-                    </li>
-                </ol>
-                <h4>移动端H5 audio的autoplay属性失效</h4>
-                <p>这个不是bug。由于自动播放网页中的音频或视频，会给用户带来一些困扰或者不必要的流量消耗，所以苹果系统和安卓系统通常都会禁止自动播放和使用JS的触发播放，必须由用户触发才可以播放</p>
-                <p>解决方案思路：先通过用户touchstart触碰，触发播放并暂停（音频开始加载，后面用JS再操作就没问题了）</p>
-                <pre><code class="js">document.addEventListener('touchstart',function() {
+                                    </li>
+                                </ol></li>
+                            <li>移动端H5 audio的autoplay属性失效
+                                <p>这个不是bug。由于自动播放网页中的音频或视频，会给用户带来一些困扰或者不必要的流量消耗，所以苹果系统和安卓系统通常都会禁止自动播放和使用JS的触发播放，必须由用户触发才可以播放</p>
+                                <p>解决方案思路：先通过用户touchstart触碰，触发播放并暂停（音频开始加载，后面用JS再操作就没问题了）</p>
+                                <pre><code class="js">document.addEventListener('touchstart',function() {
     document.getElementsByTagName('audio')[0].play();
     document.getElementsByTagName('audio')[0].pause();
-}); </code></pre>
-
+}); </code></pre></li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>禁止文本选中
+                                <pre><code class="css">Element {
+-webkit-user-select:none;
+-moz-user-select:none;
+-khtml-user-select:none;
+user-select:none;
+}</code></pre></li>
+                            <li>关于IOS 和 OSX 端字体的优化(横竖屏会出现字体加粗不一致的现象);IOS浏览器横屏时会重置字体大小，设置text-size-adjust为none可以阻止旋转屏幕时自动调整字体大小
+                                <pre><code class="css">html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+-webkit-text-size-adjust:none;
+}</code></pre>
+                                <p>但是桌面版Safari的字体缩放功能会失效，因此最佳方案是将text-size-adjust为100%</p>
+                                <pre><code class="css">-webkit-text-size-adjust:100%;
+-ms-text-size-adjust:100%;
+text-size-adjust:100%;</code></pre></li>
+                            <li>select下拉选择设置右对齐
+                                <pre><code class="css">select option {
+direction: rtl ;
+}</code></pre></li>
+                            <li>通过transform进行skew变形, rotate旋转 会产生 锯齿现象
+                            <pre><code class="css">-webkit-transform: rotate(-4deg) skew(10deg) translateZ(0);
+transform: rotate(-4deg) skew(10deg) translateZ(0);
+outline: 1px solid rgba(255,255,255,0);</code></pre></li>
+                            <li>在移动端修改难看的点击的高亮效果，IOS和安卓下都有效：
+                                <pre><code class="css">*{
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+//不过此方法在现在Andriod浏览器下，只能取掉橙色的背景色，点击产生的高亮边框并没有去掉。</code></pre></li>
+                            <li>IOS 系统 中文输入法 输入英文时，字母之间可能会出现一个六分之一空格
+                                <pre><code class="js">//使用正则去掉: 
+                    this.value = this.value.replace( /\u2006/g , '' );</code></pre></li>
+                            <li>IOS下取消input在输入时默认的英文首字母大写
+                                <pre><code class="css">&lt;input autocapitalize="off" autocorrect="off" /></code></pre>
+                            </li>
+                            <li>去掉IPhone和IPad下输入框默认内阴影
+                                <pre><code class="css">Element {-webkit-appearance: none;}</code></pre>
+                            </li>
+                            <li>IOS设置input按钮样式按钮会被默认样式覆盖
+                                <pre><code class="css">//解决方案：设置默认样式为none
+input,textarea {
+border: 0;
+-webkit-appearance : none ;
+}</code></pre>
+                            </li>
+                            <li>移动端1px的解决方案
+                                <ol>
+                                    <li>用::after</li>
+                                    <li>设置border-left：1px solid #ddd;</li>
+                                    <li>width:1px; height:100%</li>
+                                    <li>然后再缩放scaleY(0.5);</li>
+                                    <li>绝对定位</li>
+                                </ol></li>
+<li>安卓浏览器看背景图时，有些设备会模糊
+    <p>因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把IPhone 4的960*640分辨率，在网页里值显示了480*320,这样devicePiexRatio =2。现在安卓的比较多，有1.5的，也有2或3的。想让图片在手机里显示更为清晰，必须使用2X的背景图来代替img标签（一般情况都是用2倍）比如;一个div的宽高是100*100，背景图必须是200*200，然后使用background-size:contain; 这样显示出来的图片比较清晰</p></li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>上下拉动滚动条时卡顿，慢
+                                <pre><code class="css">body {
+-webkit-overflow-scrolling:touch;
+overflow-scrolling: touch;
+}</code></pre></li>
+                            <li>设置缓存
+                                <pre><code class="html">&lt;meta http-equiv=”Cache-Control” content=”no-cache”></code></pre>
+                                <p>手机页面通常在第一次加载后会进行缓存，然后每次刷新会使用缓存而不是重新向服务器发送请求。如果不希望使用缓存可以设置no-cache。</p></li>
+                            <li>IOS移动端click事件300ms的延迟响应
+                                <p>移动设备上的web网页是有300ms延迟的，这样往往会造成按钮点击延迟甚至是点击失败。此问题是由于区别单机事件和双击屏幕缩放的历史原因造成的。</p>
+                                <ol>解决方法
+                                    <li>fastclick可以解决在手机上点击事件的300ms延迟</li>
+                                    <li>zepto的touch模块，tap事件也是为了解决在click的延迟问题</li>
+                                    <li>触摸事件的响应顺序为touchstart -> touchmove -> touchend -> click，也可以通过绑定ontouchstart事件，加快事件的响应，解决300ms延迟问题</li>
+                                </ol></li>
+                            <li>往返缓存问题：
+                                <p>点击浏览器的回退，有时候不会自动执行js，特别是mobile safari中。这与往返缓存有关系，解决方案： window.onunload = function( ){   };</p></li>
+                            <li>当输入框在最底部，点击软键盘后输入框内被遮挡
+                                <pre><code class="js">//浏览器当前高度
+var oHeight = $(document).height();
+$(window).resize(function(){
+if($(document).height() < oHeight ){
+$("#footer").css("position","static");
+}else{
+$("#footer").css("position","absolute");
+}
+})</code></pre></li>
+                            <li>一些情况下，对非可点击元素（如label，span）监听click事件，IOS不会触发
+                                <pre><code>css增加cursor：pointer；</code></pre></li>
+                            <li>加上一个CSS3的属性后，让所关联的元素事件监听失效
+                                <pre><code class="css">pointer-events: none;</code></pre></li>
+                        </ol>
+                    </div>
+                    <div class="tapSection">
+                        <ol>
+                            <li>html5调用安卓或者IOS的拨号功能
+                                <p>H5提供了自动调用拨号的标签:只要在a标签的href中添加tel: 就可以实现</p>
+                                <pre><code class="html">&lt;a href="tel:15677776767">点击拨打15677776767&lt;/a></code></pre></li>
+                            <li>type为search的input，部分机型会自带close按钮样式
+                                <p>有些机型的搜索input控件会自带close按钮（一个伪元素）。</p>
+                                <p>而为了兼容所有浏览器，通常会自己实现一个，此时取掉原生close按钮的方法为：</p>
+                                <pre><code class="css">Search::-webkit-search-cancel-button{
+display:none;
+}</code></pre>
+                            </li>
+                            <li>不让安卓手机识别邮箱
+                                <pre><code class="css">&lt;meta content="email=no" name="format-detection" /></code></pre></li>
+                            <li>Android下取消语音按钮
+                                <pre><code class="css">input::-webkit-input-speech-button {display: none}</code></pre></li>
+                            <li>禁止 IOS 识别长串数字为电话
+                                <pre><code class="css">&lt;meta content="telephone=no" name="format-detection" /></code></pre></li>
+                            <li>禁止IOS 弹出各种操作窗口
+                                <pre><code class="css">-webkit-touch-callout:none</code></pre></li>
+                            <li>顶部状态栏背景
+                                <pre><code class="html">&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /></code></pre>
+                                <p>除非先使用apple-mobile-web-app-capable指定全屏模式，否则这个meta标签不会起任何作用。</p>
+                                <ol>
+                                    <li>如果content设置为default，则状态栏正常显示。(默认值是default。)</li>
+                                    <li>如果设置为blank，则状态栏会有一个黑色的背景。</li>
+                                    <li>如果设置为blank-translucent，则状态栏显示为黑色半透明。</li>
+                                    <li>如果设置为default或blank，则页面显示在状态栏的下方，即状态栏占据上方部分，页面占据下方部分，二者没有遮挡对方或被遮挡。</li>
+                                    <li>如果设置为blank-translucent，则页面会充满屏幕，其中页面顶部会被状态栏遮盖住（会覆盖页面20px高度，而iphone4和itouch4的Retina屏幕为40px）。</li>
+                                </ol></li>
+                            <li>桌面图标
+                                <pre><code class="html">&lt;link rel="apple-touch-icon"href="touch-icon-iphone.png"/>
+&lt;link rel="apple-touch-icon"sizes="76x76"href="touch-icon-ipad.png"/>
+&lt;linkrel="apple-touch-icon" sizes="120x120" href=" touch-icon-iphone-retina.png "/>
+&lt;link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"/></code></pre>
+                                <p>IOS下针对不同设备定义不同的桌面图标。如果不定义则以当前屏幕截图作为图标。</p>
+                                <p>上面的写法可能有光泽，下面这种设置方法可以去掉光泽效果</p>
+                                <pre><code>&lt;link rel="apple-touch-icon-precomposed/,prikəm'poz/"  href="touch-icon-iphone.png"/></code></pre>
+                                <p>图片尺寸可以设定为57*57或者Retina可以定为114*114，ipad尺寸为72*72</p></li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

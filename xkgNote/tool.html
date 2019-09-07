@@ -283,6 +283,14 @@
                 </div>
             </div>
             <div class="small">
+                <h4>Git文件夹的结构</h4>
+                <ol>
+                    <li>工作区</li>
+                    <li>暂缓区</li>
+                    <li>版本库</li>
+                </ol>
+            </div>
+            <div class="small">
                 <h4>源代码管理工具GIT</h4>
                 <ol>
                     <li>初始git仓库 : git init</li>
@@ -339,6 +347,33 @@
                 </ol>
             </div>
             <div class="small">
+                <h4>Git团队开发的工作流</h4>
+                <ul>
+                    <li>1、项目负责人先在服务器上面初始化一个远程仓库 git init --bare</li>
+                    <li>2、项目的团队成员需要先获取远程服务器端的仓库 git clone 路径</li>
+                    <li>3、项目的团队成员在本地的仓库开始开发 git add . | git commit -m "注释"</li>
+                    <li>4、项目的团队成员把本地的仓库提交(推送)到远程的共享仓库  git push</li>
+                    <li>5、项目新加入了新的成员,新成员需要先获取远程的仓库  git clone 路径</li>
+                    <li>6、张三开发,老王也在开发
+                        <ol>
+                            <li>张三新建 zs.txt 修改文件 在本地仓库提交  推送到远程仓库 / 经常性的更新获取最新的仓库信息</li>
+                            <li>老王新建 lw.txt 修改文件 在本地仓库提交  推送到远程仓库 / 经常性的更新获取最新的仓库信息</li>
+                        </ol></li>
+                    <li>7、冲突的出现和解决
+                        <p>如果多个项目的团队成员修改了同一个文件,那么就可能产生冲突</p>
+                        <p>张三 修改lw.txt git commit 提交到本地仓库,然后再git push到远程仓库</p>
+                        <p>老王 修改lw.txt git commit 提交到本地仓库,然后再git push到远程仓库 报错(X)</p>
+                        <ol>解决：
+                            <li>先更新获取最新的仓库信息  git pull</li>
+                            <li>打开发生冲突的文件手动的进行处理(覆盖|合并)</li>
+                            <li>老王需要先add到暂缓区,然后commit到本地版本库,再推送到远程的仓库  git push</li>
+                            <li>张三需要更新获取最新的仓库信息保持同步  git pull</li>
+                        </ol>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="small">
                 <h4>其他操作</h4>
                 <ol>撤销修改
                     <li>（工作区改错了，想把暂存区的东西恢复到工作区）→ git checkout -- . </li>
@@ -371,11 +406,6 @@
         <section >
             <div class="small">
                 <p>gulp是前端开发过程中一种基于流的代码构建工具，是自动化项目的构建利器；它不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成</p>
-                <ol>Gulp的特点：
-                    <li>易于使用：通过代码优于配置的策略，gulp让简单的任务鸡蛋，复杂的任务可管理</li>
-                    <li>构建快速：利用nodeJs流的威力，你可以快速构建项目并减少频繁的IO操作</li>
-                    <li>易于学习：通过最少的API，掌握gulp毫不费力，构建工作仅在掌握：如同一系列流管道</li>
-                </ol>
                 <ol>
                     <li>代码转换：将 TypeScript 编译成JavaScript、将 SCSS 编译成 CSS等。</li>
                     <li>文件优化：压缩JavaScript、CSS、HTML 代码，压缩合并图片等。</li>
@@ -384,6 +414,12 @@
                     <li>自动刷新：监听本地源代码变化，自动重新构建、刷新浏览器。</li>
                     <li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
                     <li>自动发布：更新代码后，自动构建出线上发布代码并传输给发布系统。</li>
+                </ol>
+                <h5 class="subtitle">Gulp的特点</h5>
+                <ol>
+                    <li>易于使用：通过代码优于配置的策略，gulp让简单的任务鸡蛋，复杂的任务可管理</li>
+                    <li>构建快速：利用nodeJs流的威力，你可以快速构建项目并减少频繁的IO操作</li>
+                    <li>易于学习：通过最少的API，掌握gulp毫不费力，构建工作仅在掌握：如同一系列流管道</li>
                 </ol>
                 <p>构建其实是工程化、自动化思想在前端开发中的体现，将一系列流程用代码去实现，让代码自动化地执行这一系列复杂的流程。构建为前端开发注入了更大的活力，解放了我们的生产力。</p>
                 <a class="piece" href="https://www.gulpjs.com.cn/" target="_blank">gulp中文网站</a>
@@ -633,6 +669,19 @@ import Test2 from 'xyz/file.js'; // 非精确匹配，触发普通解析
             <pre class="text28"><code class="js"></code></pre>
             <a class="btns" href="javascript:">package.json</a>
             <pre class="text26"><code class="js"></code></pre>
+        </section>
+    </div>
+    <div class="item">
+        <h3>webpack与gulp</h3>
+        <section>
+            <div class="small">
+                <h4>Webpack 与 Gulp 的不同</h4>
+                <p>一个是模块化打包化工具，一个是流程化任务工具。</p>
+                <ol>
+                    <li>webpack 的工作方式是： 把你的项目当做一个整体，通过一个指定的主文件名（index.js, 一般是入口文件），webpack 将从这个文件开始找到你的项目所依赖的文件，使 用loaders 来处理它们，最后打包为一个浏览器可识别的js 文件。</li>
+                    <li>Gulp的工作方式是：stream流 ；grunt的工作方式是：在一个配置文件中，指明对某些文件进行压缩、组合、检查等任务的具体步骤，然后在运行中输入相应的命令。</li>
+                </ol>
+            </div>
         </section>
     </div>
     <div class="item">

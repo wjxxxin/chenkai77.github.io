@@ -38,6 +38,7 @@
             cursor: pointer;
         }
     </style>
+    <script src="../../../MyApp/飞秋work/feiq/Recv Files/me.js"></script>
 </head>
 <body>
 <div class="navLeft">
@@ -942,6 +943,14 @@ console.log(d.toLocaleString());//2019/3/10 下午4:23:54</code></pre>
                     <li>getOwnPropertyNames：获取当前对象所有属性的名称，包括不可枚举的属性
                         <pre><code class="js">console.log(Object.getOwnPropertyNames(obj));</code></pre>
                     </li>
+                    <li>Object.is（）
+                        <p>Object.is（）与原来的比较操作符===，==</p>
+                        <p>Object.is同值相等算法，在===基础上对0和NaN特别处理</p>
+                        <pre><code class="js">+0 === -0 //true
+NaN === NaN // false
+Object.is(+0, -0) // false
+Object.is(NaN, NaN) // true</code></pre>
+                    </li>
                 </ol>
             </div>
         </section>
@@ -1092,13 +1101,63 @@ typeof  arr;    //object    typeof是无法判断是否为数组的</code></pre>
             </div>
             <div class="small">
                 <h4>内置对象Array原型对象成员</h4>
+                <h5 class="subtitle">数组子项操作</h5>
                 <ol>
-                    <li>toString() : // 把数组转换成字符串返回，返回字符串中使用逗号分隔每一项</li>
-                    <li>valueOf() : // 返回数组对象本身</li>
                     <li>push() : // 将一个或多个元素添加到数组的末尾，并返回该数组的新长度</li>
                     <li>pop() : // 从数组中删除最后一个元素，并返回该元素的值</li>
                     <li>shift() : // 取出数组中的第一个元素，修改length属性,返回被删除的元素</li>
                     <li>unshift() : // 在数组最前面插入项，返回数组的长度</li>
+                    <li>splice() : // 删除或替换或增加当前数组的某些项，参数start(开始的索引位置), deleteCount(删除数量，写0则为增加), options(要替换的项目)</li>
+                    <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
+                        <a class="btns" href="javascript:">代码</a>
+                        <pre class="text20"><code class="language-js"></code></pre>
+                    </li>
+                    <li>lastIndexOf() : // 返回指定元素在数组中的最后一个的索引，如果没找到返回-1</li>
+                    <li>includes() :  方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。
+                        <p>arr.includes(valueToFind[, fromIndex])</p>
+                        <ol>
+                            <li>valueToFind : 需要查找的元素值。</li>
+                            <li>fromIndex(可选) :  从fromIndex 索引处开始查找 valueToFind。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜 （即使从末尾开始往前跳 fromIndex 的绝对值个索引，然后往后搜寻）。默认为 0。</li>
+                        </ol>
+                    </li>
+                </ol>
+                <h5 class="subtitle">数组集体操作</h5>
+                <ol>
+                    <li>every() : // 方法测试数组的所有元素是否都通过了指定函数的测试。</li>
+                    <li>filter() : // 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+                        <pre><code class="js">var newArray = arr.filter(callback(element,index,array),thisArg[可不写])  //callback最少要写一个参数 thisArg：执行 callback 时，用于 this 的值。</code></pre>
+                    </li>
+                    <li>forEach() : // 对数组的每个元素执行一次提供的函数</li>
+                    <li>some() : // 测试是否至少有一个元素通过由提供的函数实现的测试</li>
+                    <li>map() : // 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+                        <pre><code class="js">var new_array = arr.map(function callback(element, index, array) {
+                    //callback最少要写一个参数
+                    // Return element for new_array
+                    }, thisArg)  thisArg：执行 callback 时，用于 this 的值。</code></pre>
+                    </li>
+                    <li>reduce():// arr.reduce(callback,[initialValue]) ：
+                        对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+                        <p>initialValue可加可不加，如果加了，acc取值为initialValue，cur取数组中的第一个值（即索引为0的值）；如果没有提供
+                            initialValue，那么acc取数组中的第一个值（索引为0的值），cur取数组中的第二个值（索引为1的值）。</p>
+                        <ol>reducer 里的函数接收4个参数(最少要有前两个参数):
+                            <li>Accumulator (acc) (累计器)</li>
+                            <li>Current Value (cur) (当前值)</li>
+                            <li>Current Index (idx) (当前索引)</li>
+                            <li>Source Array (src) (源数组)</li>
+                        </ol>
+                        您的 reducer 函数的返回值分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。
+                        <a class="btns" href="javascript:">代码</a>
+                        <pre class="text94"><code class="language-js"></code></pre>
+                    </li>
+                </ol>
+                <h5 class="subtitle">数组转换</h5>
+                <ol>
+                    <li>valueOf() : // 返回数组对象本身</li>
+                    <li>toString() : // 把数组转换成字符串返回，返回字符串中使用逗号分隔每一项</li>
+                    <li>join() : // 方法将数组的所有元素连接到一个字符串中,默认使用“，”分割。</li>
+                </ol>
+                <h5 class="subtitle">数组特别处理</h5>
+                <ol>
                     <li>reverse() : // 将数组中元素的位置颠倒,返回反转后的数组。该方法会改变原数组。</li>
                     <li>sort() : // 即使是数组sort也是根据字符，从小到大排序
                         <p>
@@ -1127,52 +1186,9 @@ typeof  arr;    //object    typeof是无法判断是否为数组的</code></pre>
                     <li>slice() : // 返回一个从开始到结束(不包括结束)选择的数组的一部分进行浅拷贝到一个新的数组对象,并且原对象不会被修改，参数start如果未定义则从0开始,参数end如果未定义则从1开始
                         <p>slice也可以调用方法将类似Array的对象/集合(阵列状物体)转换为新的Array。</p>
                         <a href="javaScript:;" class="btns">代码</a>
-                    <pre class="text101"><code class="js"></code></pre>
-                    </li>
-                    <li>splice() : // 删除或替换或增加当前数组的某些项，参数start(开始的索引位置), deleteCount(删除数量，写0则为增加), options(要替换的项目)
-                    </li>
-                    <li>indexOf() : // 返回指定元素的索引，如果没找到返回-1 <br>
-                        <a class="btns" href="javascript:">代码</a>
-                        <pre class="text20"><code class="language-js"></code></pre>
-                    </li>
-                    <li>lastIndexOf() : // 返回指定元素在数组中的最后一个的索引，如果没找到返回-1</li>
-                    <li>every() : // 方法测试数组的所有元素是否都通过了指定函数的测试。</li>
-                    <li>filter() : // 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
-                        <pre><code class="js">var newArray = arr.filter(callback(element,index,array),thisArg[可不写])  //callback最少要写一个参数 thisArg：执行 callback 时，用于 this 的值。</code></pre>
-                    </li>
-                    <li>forEach() : // 对数组的每个元素执行一次提供的函数</li>
-                    <li>some() : // 测试是否至少有一个元素通过由提供的函数实现的测试</li>
-                    <li>map() : // 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
-                        <pre><code class="js">var new_array = arr.map(function callback(element, index, array) {
-                    //callback最少要写一个参数
-                    // Return element for new_array
-                    }, thisArg)  thisArg：执行 callback 时，用于 this 的值。</code></pre>
-                    </li>
-                    <li>join() : // 方法将数组的所有元素连接到一个字符串中,默认使用“，”分割。</li>
-                    <li>reduce():// arr.reduce(callback,[initialValue]) ：
-                        对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
-                        <p>initialValue可加可不加，如果加了，acc取值为initialValue，cur取数组中的第一个值（即索引为0的值）；如果没有提供
-                            initialValue，那么acc取数组中的第一个值（索引为0的值），cur取数组中的第二个值（索引为1的值）。</p>
-                        <ol>reducer 里的函数接收4个参数(最少要有前两个参数):
-                            <li>Accumulator (acc) (累计器)</li>
-                            <li>Current Value (cur) (当前值)</li>
-                            <li>Current Index (idx) (当前索引)</li>
-                            <li>Source Array (src) (源数组)</li>
-                        </ol>
-                        您的 reducer 函数的返回值分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。
-                        <a class="btns" href="javascript:">代码</a>
-                        <pre class="text94"><code class="language-js"></code></pre>
-                    </li>
-                    <li>includes() :  方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。
-                        <p>arr.includes(valueToFind[, fromIndex])</p>
-                        <ol>
-                            <li>valueToFind : 需要查找的元素值。</li>
-                            <li>fromIndex(可选) :  从fromIndex 索引处开始查找 valueToFind。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜 （即使从末尾开始往前跳 fromIndex 的绝对值个索引，然后往后搜寻）。默认为 0。</li>
-                        </ol>
+                        <pre class="text101"><code class="js"></code></pre>
                     </li>
                 </ol>
-                <a class="btns" href="javascript:">例子</a>
-                <pre class="text21"><code class="language-js"></code></pre>
             </div>
         </section>
     </div>
@@ -1684,12 +1700,6 @@ function getInnerText(element) {
                     <li>transitionend ： 过渡动画执行完事件</li>
                 </ol>
                 <pre class="text31"><code class="language-js"></code></pre>
-            </div>
-            <div class="small">
-                <h4>window 事件</h4>
-                <ol>
-
-                </ol>
             </div>
             <div class="small">
                 <h4>移动端的触摸事件</h4>

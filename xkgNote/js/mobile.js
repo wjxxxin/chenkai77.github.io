@@ -995,4 +995,91 @@ functioncheckTextLength(obj, length) {
 }`;
     xk$('.text33 code').innerHTML = zy(text33);
 
+    let text34 = '<!DOCTYPE html>\n' +
+        '<html lang="en">\n' +
+        '<head>\n' +
+        '    <meta charset="UTF-8">\n' +
+        '    <meta name="viewport"\n' +
+        '          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">\n' +
+        '    <title>Title</title>\n' +
+        '    <style>\n' +
+        '        div{\n' +
+        '            width: 100px;\n' +
+        '            height: 100px;\n' +
+        '            background-color: red;\n' +
+        '\n' +
+        '            position: absolute;\n' +
+        '            left: 30px;\n' +
+        '            top: 30px;\n' +
+        '        }\n' +
+        '        /*清楚系统默认的事件*/\n' +
+        '        *{\n' +
+        '            touch-action: none;\n' +
+        '        }\n' +
+        '\n' +
+        '    </style>\n' +
+        '</head>\n' +
+        '<body>\n' +
+        '\n' +
+        '<div class="box"></div>\n' +
+        '\n' +
+        '<script src="js/zepto.min.js"></script>\n' +
+        '<script src="js/touch.js"></script>\n' +
+        '<script src="js/fx.js"></script>\n' +
+        '<script>\n' +
+        '\n' +
+        '    $(function () {\n' +
+        '\n' +
+        '        /**\n' +
+        '         *\n' +
+        '         $(\'.box\').swipe(function () {\n' +
+        '            console.log(\'滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeLeft(function () {\n' +
+        '            console.log(\'向左滑动了\')\n' +
+        '        });\n' +
+        '         $(\'.box\').swipeRight(function () {\n' +
+        '            console.log(\'向右滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeUp(function () {\n' +
+        '            console.log(\'向上滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         $(\'.box\').swipeDown(function () {\n' +
+        '            console.log(\'向下滑动了\')\n' +
+        '        });\n' +
+        '\n' +
+        '         */\n' +
+        '\n' +
+        '        $(\'.box\').swipeLeft(function () {\n' +
+        '            $(this).animate({\n' +
+        '                left:0,\n' +
+        '            })\n' +
+        '        });\n' +
+        '        $(\'.box\').swipeRight(function () {\n' +
+        '            $(this).animate({\n' +
+        '                left:\'200px\',\n' +
+        '            })\n' +
+        '        });\n' +
+        '\n' +
+        '        $(\'.box\').swipeUp(function () {\n' +
+        '            $(this).animate({\n' +
+        '                top:0,\n' +
+        '            })\n' +
+        '        });\n' +
+        '        $(\'.box\').swipeDown(function () {\n' +
+        '            $(this).animate({\n' +
+        '                top:\'200px\',\n' +
+        '            })\n' +
+        '        });\n' +
+        '\n' +
+        '    })\n' +
+        '\n' +
+        '</script>\n' +
+        '</body>\n' +
+        '</html>';
+
+    xk$('.text34 code').innerText=text34;
 })();
