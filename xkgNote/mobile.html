@@ -22,6 +22,7 @@
 <div class="top">
     移动端
 </div>
+<p class="phone-hide" id="githubBox"></p>
 <div class="search">
     <input type="text" placeholder="Search...">
     <div class="searchBut"></div>
@@ -33,7 +34,7 @@
     <div class="ssbut ss">搜索</div>
     <div class="ssbut ok">ok</div>
     <div class="ssbut sd">下一个</div>
-    <div class="alltitle">展开目录</div>
+    <div class="alltitle">导航</div>
 </div>
 <article>
     <div class="item">
@@ -603,6 +604,38 @@
                 </ol>
                 <a href="javascript:;" class="btns">代码</a>
                 <pre class="text32"><code class="js"></code></pre>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>小程序安装第三方的 npm 包</h3>
+        <section>
+            <div class="small">
+                <h4>在小程序根目录中执行命令安装 npm 包：</h4>
+                <pre><code class="js">npm install --save xxxxxxx    //安装生产的依赖
+npm install --save-dev xxxxxxx  //安装开发的依赖
+
+// or 根据package.json的依赖来安装
+npm install --production  // 只会把 package.json 中 dependencies 依赖的模块下载到 node_modules 中</code></pre>
+                <p>并没有强制要求 node_modules 必须在小程序根目录下（即 project.config.js 中的 `miniprogramRoot` 字段），也可以存在于小程序根目录下的各个子目录中。但是不允许 node_modules 在小程序根目录外。</p>
+                <ol>
+                    <li>点击开发者工具中勾选“使用 npm 模块”选项：拿到返回的code </li>
+                    <li>勾选“使用 npm 模块”选项：</li>
+                </ol>
+            </div>
+            <div class="small">
+                <h4>使用slide-view第三方组件</h4>
+                <ol>
+                    <li>在小程序项目根目录安装 slide-view</li>
+                    <li>重新构建npm</li>
+                    <li>在需要使用 slide-view 的页面 的xxx.json 中添加 slide-view 自定义组件配置</li>
+                    <li>WXML界面引入slide-view组件
+                        <ol>每一个 slide-view 提供两个&lt;slot>节点，用于承载组件引用时提供的子节点。
+                            <li>left 节点用于承载静止时 slide-view 所展示的节点，此节点的宽高应与传入 slide-view 的宽高相同。</li>
+                            <li>right 节点用于承载滑动时所展示的节点，其宽度应于传入 slide-view 的 slideWidth 相同。</li>
+                        </ol>
+                    </li>
+                </ol>
             </div>
         </section>
     </div>

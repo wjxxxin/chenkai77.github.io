@@ -58,8 +58,9 @@
     <div class="ssbut ss">搜索</div>
     <div class="ssbut ok">ok</div>
     <div class="ssbut sd">下一个</div>
-    <div class="alltitle">展开目录</div>
+    <div class="alltitle">导航</div>
 </div>
+<p class="phone-hide" id="githubBox"></p>
 <article>
 <div class="item">
     <h3>css基本</h3>
@@ -322,7 +323,17 @@ overflow : hidden ;</code></pre>
                             <li>content-box</li>
                         </ol>
                         默认情况背景起源和背景裁切它的值都是padding-box
-                        <img src="images/css/backgrounddaima.jpg" alt="">
+                        <pre><code class="css">.slider{
+    width: 100px;
+    height: 32px;
+    background-image: url("images/btn-left.png"),url("images/btn-right.png");
+    background-repeat: no-repeat;
+    /*background-repeat: no-repeat,no-repeat;*/
+    background-size: auto 32px;
+    /*background-size: auto 32px,auto 32px;*/
+    background-position: left center,right center;
+    padding: 0 17px;
+}</code></pre>
                     </li>
                     <li>
                         background：linear-gradient(180deg,red,green,blue);渐变颜色;其中如果色值的后面跟一个百分比表示染色的位置。如果不写表示均分颜色;0deg表示从下到上，180deg表示从上到下

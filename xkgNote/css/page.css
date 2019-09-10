@@ -36,6 +36,7 @@ pre,
 samp {
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
   font-size: 14px;
+  font-weight: normal;
 }
 /*.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
   background: none;
@@ -186,6 +187,7 @@ article {
   background: #C7EDCC;
   padding-top: 30px;
   box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+  border-radius: 10px;
 }
 .item {
   width: 70%  ;
@@ -211,22 +213,6 @@ article {
 }
 .item section p {
   text-indent: 1em;
-}
-.item section .piece {
-  display: block;
-  text-align: center;
-  line-height: 60px;
-  border-radius: 5px;
-  transition: all 0.5s;
-  cursor: pointer;
-  font-weight: bold;
-  height: 60px;
-  width: 200px;
-  margin: 10px;
-  font-size: 16px;
-}
-.item section .piece:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 .item section ol {
   width: 100%;
@@ -257,7 +243,10 @@ article {
 .item section .tapNav .cur {
   background: #f2f2f2;
   color: coral;
+  border-radius: 7px;
   box-shadow: 0 0 3px #999;
+  text-shadow: 1px 1px 6px #ccc;
+  font-weight: bold;
 }
 .item section .tapNav .tapTop {
   flex: 1;
@@ -351,15 +340,39 @@ article {
 }
 .item section a {
   display: block;
-  width: 120px;
-  height: 20px;
+  width: 140px;
+  height: 27px;
   border-radius: 40px;
-  border: 1px solid #ccc;
-  line-height: 20px;
+  box-shadow: 2px 2px 7px #999;
+  line-height: 27px;
+  background: #3498DB;
   text-align: center;
-  color: deepskyblue;
-  font-size: 12px;
+  color: #fefefe;
+  font-size: 14px;
   margin: 20px 0;
+  text-shadow: 1px 1px 7px #666;
+}
+.item section a.piece {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #fff;
+  line-height: 40px;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  font-size: 16px;
+  box-shadow: none;
+  border-radius: 3px;
+  text-shadow: none;
+  color: #fff;
+  font-weight: bold;
+}
+.item section a.piece:hover {
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 17px;
+}
+.item section a:hover {
+  background: #2980B9;
 }
 table {
   width: 100%;
@@ -378,10 +391,39 @@ table td {
   padding: 5px;
 }
 .website {
-  margin: auto;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 7px;
+  background: #26809f;
+}
+.website .websiteBox {
+  display: flex;
+  flex: 7;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.website .websiteTitle {
+  flex: 1;
+  font-size: 16px;
+  color: #dedede;
+  font-weight: bold;
+}
+.website .websiteBtn {
+  margin: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: bold;
+  font-size: 17px;
+  width: 170px;
+  text-shadow: 2px 2px 4px #333;
+}
+.website .websiteBtn:hover {
+  background: #6d9cbe;
 }
 .frameTitle {
   width: 70%;

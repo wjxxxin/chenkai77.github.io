@@ -903,4 +903,40 @@ const router = new VueRouter({
 
     xk$('.text44 code').innerHTML = zy(text44);
 
+    var text45 = `//简单使用
+const myMixin = {
+    created () {
+        console.log(\`来自Mixins中的消息\`)
+    }
+}
+let app = new Vue({
+    el: '#app',
+    mixins: [myMixin]
+})
+
+//导入使用
+
+// src/mixins/mixins.js
+export const myMixin = {
+    created() {
+        console.log(\`来自Mixins中的消息\`);
+    }
+};
+
+// HelloWorld.vue
+<script>
+import { myMixin, myMixin2 } from "../mixins/mixins.js";
+export default {
+    name: "HelloWorld",
+    data() {
+        return {
+            msg: "From Vue Component"
+        };
+    },
+    mixins: [myMixin]
+};
+</script>`;
+
+    xk$('.text45 code').innerHTML = zy(text45);
+
 })();

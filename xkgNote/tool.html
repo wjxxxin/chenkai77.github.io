@@ -26,12 +26,13 @@
     <div class="searchup">↑</div>
     <div class="searchdown">↓</div>
 </div>
+<p class="phone-hide" id="githubBox"></p>
 <div class="phone-show pc-hide titleNav">
     <input type="text" placeholder="搜索">
     <div class="ssbut ss">搜索</div>
     <div class="ssbut ok">ok</div>
     <div class="ssbut sd">下一个</div>
-    <div class="alltitle">展开目录</div>
+    <div class="alltitle">导航</div>
 </div>
 <div class="frameTitle">
     <div class="frameItem">jQuery</div>
@@ -399,6 +400,23 @@
                     </li>
                 </ol>
             </div>
+            <div class="small">
+                <h4>生成/添加SSH公钥</h4>
+                <ol>
+                    <li>生成 sshkey:
+                        <pre><code class="git">ssh-keygen -t rsa -C "xxxxx@xxxxx.com"  </code></pre>
+                    </li>
+                    <li>按照提示完成三次回车，即可生成 ssh key。通过查看 ~/.ssh/id_rsa.pub 文件内容，获取到你的 public key
+                        <pre><code class="git">cat ~/.ssh/id_rsa.pub</code></pre>
+                    </li>
+                    <li>添加生成的 public key 添加到仓库中。</li>
+                    <li><pre><code class="git">ssh -T git@gitee.com</code></pre>
+                        首次使用需要确认并添加主机到本机SSH可信列表。若返回
+                    <pre><code class="git">Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access.</code></pre>
+                        则证明添加成功。
+                    </li>
+                </ol>
+            </div>
         </section>
     </div>
     <div class="item">
@@ -689,7 +707,6 @@ import Test2 from 'xyz/file.js'; // 非精确匹配，触发普通解析
         <section >
             <div class="small">
                 <h4>Bootstrap</h4>
-                <a class="piece" href="http://getbootstrap.com/" target="_blank">Bootstrap官网</a>
                 <a class="piece" href="http://www.bootcss.com/" target="_blank">BootStrap中文网</a>
                 <p>bootstrap栅格系统</p>
                 <p>栅格的重点在于在排版上更好的进行适配，在不同的分辨率下能够显示显示不同的效果。将所有分辨率下的网页水平方向分成12列，那么在不同的分辨率下，水平方向显示不同的列数进而达到适配。</p>
@@ -798,7 +815,7 @@ wow.init();</code></pre>
                             <li>swiper-animate-duration：动画持续时间（单位秒），例如 0.5s</li>
                             <li>swiper-animate-delay:   延迟时间（单位秒）</li>
                         </ol>
-                        <pre class="text10"><code class="language-js"></code></pre>
+                        <pre class="text10"><code class="html"></code></pre>
                     </li>
 
                 </ol>
@@ -806,22 +823,40 @@ wow.init();</code></pre>
         </section>
     </div>
     <div class="item">
-        <h3>其他</h3>
+        <h3>网站</h3>
         <section>
             <div class="small">
-                <h4>常用网站</h4>
                 <div class="website">
-                    <a class="piece" href="https://www.w3cschool.cn/" target="_blank">W3Cschool</a>
-                    <a class="piece" href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN web docs</a>
-                    <a class="piece" href="http://www.javanx.cn/" target="_blank">Web秀</a>
-                    <a class="piece" href="https://www.cocos.com/" target="_blank">Cocos游戏开发引擎</a>
-                    <a class="piece" href="http://www.zuoyouxi.com/" target="_blank">青瓷引擎</a>
-                    <a class="piece" href="https://www.egret.com/" target="_blank">白鹭科技</a>
-                    <a class="piece" href="https://www.easyicon.net/" target="_blank">easyicon图标</a>
-                    <a class="piece" href="https://segmentfault.com/" target="_blank">SegmentFault思否</a>
-                    <a class="piece" href="https://www.processon.com/" target="_blank">Processon</a>
-                    <a class="piece" href="https://www.draw.io/" target="_blank">draw作图</a>
-                    <a class="piece" href="https://www.zcool.com.cn/" target="_blank">站酷</a>
+                    <p class="websiteTitle">前端资料</p>
+                    <div class="websiteBox">
+                    <a class="websiteBtn" href="https://www.w3cschool.cn/" target="_blank">W3Cschool</a>
+                    <a class="websiteBtn" href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN web docs</a>
+                    <a class="websiteBtn" href="http://www.javanx.cn/" target="_blank">Web秀</a>
+                    <a class="websiteBtn" href="https://segmentfault.com/" target="_blank">SegmentFault思否</a>
+
+                    <a class="websiteBtn" href="https://www.zcool.com.cn/" target="_blank">站酷</a>
+                    </div>
+                </div>
+                <div class="website">
+                    <p class="websiteTitle">作图工具</p>
+                    <div class="websiteBox">
+                        <a class="websiteBtn" href="https://www.processon.com/" target="_blank">Processon</a>
+                        <a class="websiteBtn" href="https://www.draw.io/" target="_blank">draw作图</a>
+                    </div>
+                </div>
+                <div class="website">
+                    <p class="websiteTitle">图标icon</p>
+                    <div class="websiteBox">
+                        <a class="websiteBtn" href="https://www.easyicon.net/" target="_blank">easyicon图标</a>
+                    </div>
+                </div>
+                <div class="website">
+                    <p class="websiteTitle">游戏</p>
+                    <div class="websiteBox">
+                        <a class="websiteBtn" href="https://www.cocos.com/" target="_blank">Cocos游戏开发引擎</a>
+                        <a class="websiteBtn" href="http://www.zuoyouxi.com/" target="_blank">青瓷引擎</a>
+                        <a class="websiteBtn" href="https://www.egret.com/" target="_blank">白鹭科技</a>
+                    </div>
                 </div>
             </div>
         </section>

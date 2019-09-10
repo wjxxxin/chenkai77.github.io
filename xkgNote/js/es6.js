@@ -100,6 +100,7 @@ async function testResult() {
     //做一些改动来触发代理
     engineer.salary = 60; //控制台输出:salary is changed to 60
 </script>`;
+
     xk$('.text5 code').innerHTML=zy(text5);
 
 

@@ -800,190 +800,205 @@ Page({
 
     xk$('.text31 code').innerHTML = zy(text31);
 
-    var text32 = `<button wx:if="{{!isAuth}}" open-type="getUserInfo" bindgetuserinfo="getUser">授权</button>
-<view wx:if="{{isAuth}}">{{username}}</view>
-<image wx:if="{{isAuth}}" src="{{avatarUrl}}"></image>
-
-// pages/04-authapi/04-authapi.js
-Page({
-
-  /*页面的初始数据*/
-  data: {
-    username: '',
-    avatarUrl: '',
-    isAuth: false
-  },
-  getUser(event) {
-    console.log(event);
-    const _this = this;
-    // 判断用户已经授权
-    if (event.detail.errMsg === 'getUserInfo:ok') {
-      wx.showLoading({
-        title: '登录中',
-        mask: true
-      })
-      // 1.获取用户凭证code
-      // 2.拿到code发送请求，后端返回token
-      // 3.先把token缓存起来，之后的接口都需要用到token
+    var text32 = `//抽离的behavior
+ module.exports = Behavior({
+  methods: {
+    // 获取token方法
+    getToken() {
+      const _this = this;
+      // 允许
+      // 1.wx.login => code
       wx.login({
-        success: function(res) {
-          console.log(res)
-          if(res.code) {
-            // 2. 拿到code发送请求，后端返回token
+        success(res) {
+          if (res.code) {
+            // 2. 发请求给后端
             wx.request({
-              url: 'http://localhost:8237/wx/login?code=' + res.code,
+              url: 'http://localhost:8888/wx/login?code=' + res.code,
               success(res) {
-                console.log(res);
+                console.log(res)
                 const result = res.data;
                 if (result.code === 0) {
-                  try{
-                    wx.setStorageSync('token', result.data.token)
-                  } catch(e) {
-                    console.log(e)
-                  }
+                  // 3.缓存到本地token
+                  wx.setStorageSync('token', result.data.token);
+                  // _this.setData({
+                  //   isAuth: true
+                  // })
+                  _this.triggerEvent('setlogin', {
+                    isAuth: true
+                  });
                 } else {
                   wx.showToast({
                     title: result.msg || '请求失败',
                     icon: 'none',
                     duration: 2000,
-                    mask: true,
-                    success: function(res) {},
-                    fail: function(res) {},
-                    complete: function(res) {},
+                    mask: true
                   })
                 }
-                // 用户数据显示到页面上
-                _this.setData({
-                  isAuth: !_this.data.isAuth,
-                  username: event.detail.userInfo.nickName,
-                  avatarUrl: event.detail.userInfo.avatarUrl
-                })
-                
-                // 隐藏loading
-                wx.hideLoading();
               },
-              fail(res) {
-                wx.hideLoading();
+              fail(err) {
+                console.log(err)
               }
             })
           }
-        },
-        fail(res) {
-          wx.hideLoading()
         }
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  /**
-   * wx.getUserInfo 当第一使用小程序，是需要授权的；授权过后，之后都不需要在显示授权按钮
-   * 之后一直不需要授权，而且页面一直显示自己头像、昵称；
-   * 通过wx.getSetting判断用户是否授权，授权过直接调用wx.getUserInfo获取用户头像、昵称。。。
-   * */ 
-  onLoad: function(options) {
-    const _this = this;
-    //1检查session-key是否过期了
-    /**
-     * 1.检查session-key，联系到token，session-key过期，重新获取一次，生成一个新的token回来（重新走一遍登录流程）
-     * 2.每次进来都需要判断用户是否授权，wx.getSetting来判断授权
-     * 3.授权过，直接调用wx.getUserInfo获取用户信息。
-     * 4.重新赋值给页面绑定的data（头像、昵称）
-    */
-    wx.checkSession({
-      success(res){
-        if (res.errMsg === 'checkSession:ok' && wx.getStorageSync('token')){
-          // 获取用户信息
-          console.log(res)
+  // 监听所在页面的声明周期、
+  pageLifetimes: {
+    // page里面onshow方法
+    show() {
+      console.log('behavior show')
+      
+      const _this = this;
+      //
+      console.log('show')
+      // session-key 有没有过期，token存不存在，有没有用户授权过
+
+      // 1. 检查session-key
+      wx.checkSession({
+        success: function(res) {
+          // getSetting()拿用户的授权
           wx.getSetting({
-            success: function (res) {
+            success: function(res) {
+              if (res.authSetting['scope.userInfo']) {
+                // seesionkey没有过期，并且授权过
+                if (wx.getStorageSync('token')) {
+                  // seesionkey没有过期，并且授权过，还有token
+                  // _this.setData({
+                  //   isAuth: true
+                  // });
+                  // 子传父
+                  _this.triggerEvent('setlogin', {
+                    isAuth: true
+                  });
+                } else {
+                  // seesionkey没有过期，并且授权过，但是没有token
+                  _this.getToken();
+                }
+              } else {
+                // seesionkey没有过期，没有授权过
+                // 显示授权页面
+                // _this.setData({
+                //   isAuth: false
+                // })
+                _this.triggerEvent('setlogin', {
+                  isAuth: false
+                });
+              }
+            }
+          })
+        },
+        fail: function(res) {
+          // session-key过期
+          // 1.如果没有授权过
+          wx.getSetting({
+            success: function(res) {
               console.log(res)
               if (res.authSetting['scope.userInfo']) {
-                // 获取用户信息，但是需要先授权，最开始获取用户数据wx方法
-                wx.getUserInfo({
-                  success: function (res) {
-                    console.log(res)
-                    if (res.errMsg === 'getUserInfo:ok') {
-                      _this.setData({
-                        username: res.userInfo.nickName,
-                        avatarUrl: res.userInfo.avatarUrl,
-                        isAuth: true
-                      })
-                    }
-                    
-                  },
-                  fail: function (res) {
-                    console.log(res)
-                  },
-                  complete: function (res) { },
-                })
+                // 授权
+                // wx.login => code =>后端返回token
+                _this.getToken();
+              } else {
+                // 没有授权,显示授权页面给用户
+                // _this.setData({
+                //   isAuth: false
+                // })
+                _this.triggerEvent('setlogin', {
+                  isAuth: false
+                });
               }
-
-            },
-            fail: function (res) {
-              console.log(res)
-            },
-            complete: function (res) { },
+            }
           })
-        } else {
-          // session-key过期，重新走登录流程
         }
-        console.log(res)
-      }
-    })
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+      })
+    },
+    hide() {
+      this.triggerEvent('setlogin', {
+        isAuth: null
+      });
+    }
   }
-})`;
+})
+//login组件
+// component/login/login.js
+const loginBehavior = require('../../behavior/login-behavior.js');
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+
+  },
+  // 使用
+  behaviors: [loginBehavior],
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+
+  },
+  pageLifetimes:{
+    // 组件所在页面的onShow声明周期
+    show() {
+      
+    },
+  }
+})
+//页面引用组件
+// pages/me/me.js
+Page({
+
+  /*页面的初始数据*/
+  data: {
+    isAuth: null
+  },
+  setLogin(data) {
+    console.log(data)
+    this.setData(data.detail)
+  },
+  
+  // 用来接收getuserinfo(拒绝、允许)
+  getUser(event) {
+    console.log(event);
+    if (event.detail.userInfo) {
+      // this.getToken();
+      this.selectComponent('.login').getToken();
+    }
+  },
+})
+//页面wxml
+<view class="auth-wrapper" wx:if="{{isAuth === false}}">
+  <!-- 不需要授权就可以显示用户开放信息 -->
+  <open-data class="auth-avatar" type="userAvatarUrl"></open-data>
+  <view class="auth-txt">该小程序由小米商城开发，请提供一下授权，即可继续操作</view>
+  <view class="auth-txt1">获得你的公开信息(昵称、头像等)</view>
+  <button class="auth-btn" open-type="getUserInfo" bindgetuserinfo="getUser">确认授权</button>
+</view>
+
+<view class="me-wrapper" wx:if="{{isAuth === true}}">
+  <!-- 个人信息 -->
+  <view class="me-header">
+    <open-data class="me-avatar" type="userAvatarUrl"></open-data>
+    <view class="me-txtcontent">
+      <open-data class="me-nickname" type="userNickName"></open-data>
+      <view class="me-account">小米账号：11111111111</view>
+    </view>
+    <view class="me-zcode">
+      <image src="../../images/z-code.png"></image>
+    </view>
+  </view>
+  <!--  -->
+</view>
+<login class="login" bindsetlogin="setLogin"></login>`;
 
     xk$('.text32 code').innerHTML = zy(text32);
 

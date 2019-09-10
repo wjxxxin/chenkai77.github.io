@@ -31,3 +31,19 @@ var text3 = '<video controls width="500">\n' +
     '</video>';
 xk$('section .video .text3 code').innerText=text3;
 
+var text4 = `<canvas id="canvas" width="400" height="300"></canvas>
+// 01.获取canvas画布
+var canvas = document.getElementById("canvas");
+// 02.获取canvas上下文对象（绘图工具）
+var ctx = canvas.getContext("2d");
+// 03.设置路径
+// 设置路径的起点
+ctx.moveTo(20, 50);
+// 设置路径的目标值
+ctx.lineTo(100, 50);
+// 绘制线条
+ctx.stroke();`;
+
+xk$('.text4 code').innerHTML=zy(text4);
+
+

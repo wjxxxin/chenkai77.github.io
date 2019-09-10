@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+
+
 </head>
 <body>
 <ul class="navLeft">
@@ -30,8 +32,9 @@
     <div class="ssbut ss">搜索</div>
     <div class="ssbut ok">ok</div>
     <div class="ssbut sd">下一个</div>
-    <div class="alltitle">展开目录</div>
+    <div class="alltitle">导航</div>
 </div>
+<p class="phone-hide" id="githubBox"></p>
 <article>
 <div class="item">
     <h3>基本标签</h3>
@@ -268,6 +271,36 @@
     <h3>Canvas和Svg</h3>
     <section>
         <div class="small">
+            <h4>Canvas绘图</h4>
+            <p>Canvas是HTML5提供的一个新标签。Canvas是一个矩形区域的画布，通过使用Canvas相关API，可以绘制路径、矩形、圆形、字符以及图像等。</p>
+            <pre><code class="html">&lt;canvas id="canvas" width="400" height="300">&lt;/canvas></code></pre>
+            <p>兼容性问题： IE9+，可以在标签中间设置提醒</p>
+            <pre><code class="html">&lt;canvas id="canvas" width="400" height="300">当前浏览器不支持canvas，请升级浏览器!&lt;/canvas></code></pre>
+            <p>cancas绘制路径的时候是中间对齐，所以1px的路径线条看起有 2px ，颜色变淡了</p>
+            <ol>
+                <li>Canvas标签默认拥有300 * 150的宽高，可以通过设置边框来查看。</li>
+                <li>Canvas标签支持鼠标右键保存图片。</li>
+                <li>Canvas标签参考坐标以左上角为起始点（0，0）。</li>
+            </ol>
+            <pre class="text4"><code class="js"></code></pre>
+            <ol>
+                <li>getContext("2d")：获取Canvas上下文对象，提供了丰富的API来帮助我们绘制路径、圆弧和矩形等图案</li>
+                <li>moveTo()：设置Canvas上下文绘制路径的起点，相当于设置画笔从哪个位置开始移动。</li>
+                <li>lineTo()：设置Canvas上下文绘制路径的目标点，相当于设置画笔移动的目标位置。</li>
+                <li>strokeStyle：设置描边的样式。</li>
+                <li>stroke()：根据坐标点绘制线条。</li>
+                <li>beginPath：开启路径的作用是将不同的绘制路径进行隔离；</li>
+                <li>closePath：闭合路径会自动连接最开始和最后的点；</li>
+            </ol>
+            <h5 class="subtitle">Canvas绘制矩形方法</h5>
+            <ol>
+                <li>rect(x, y, width, height) ： 设置矩形的路径 --> stroke() | fill()</li>
+                <li>strokeRect(x, y, width, height)： 绘制描边矩形(独立路径)</li>
+                <li>fillRect(x, y, width, height)  ： 描绘填充矩形(独立路径)</li>
+                <li>clearRect(x, y, width, height) ： 擦除矩形区域</li>
+            </ol>
+            <a href="https://v-charts.js.org/#/" class="piece" target="_blank">v-charts官网</a>
+            <a href="https://github.com/ElemeFE/v-charts" class="piece" target="_blank">v-charts GitHub</a>
         </div>
         <div class="smal">
             <h4>Canvas和Svg的区别</h4>
