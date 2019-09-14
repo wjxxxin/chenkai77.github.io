@@ -1,0 +1,231 @@
+html {
+    background: url("./images/bg.jpg");
+}
+body {
+    color: #444;
+    line-height: 1.3;
+    font-family: Lato, PingFang SC, Microsoft YaHei, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+/*pre[class*="language-"]{
+  margin:7px 0;
+  padding: 5px 20px;
+  border-radius:10px;
+}*/
+img {
+    width: 100%;
+}
+code[class*="language-"],
+pre[class*="language-"],
+code[class*='js'],
+code[class*='css'],
+code[class*='html'] {
+    line-height: 1.5;
+    border-radius: 5px;
+}
+pre {
+    margin: 15px 0;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+    font-size: 14px;
+    font-weight: normal;
+}
+/*文章主体=========================*/
+.articleWrapper{
+    width: 100%;
+    transition: 0.3s;
+}
+
+.article{
+    width: 60%;
+    margin: auto;
+    padding: 50px 20px 10px;
+    display: none;
+}
+.article h3{
+    text-align: center;
+    font-size: 27px;
+    margin-bottom: 30px;
+}
+.article h4{
+    margin: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+}
+.article h5.subtitle {
+    margin: 10px 0;
+    padding: 5px 0;
+    color: #1E9FFF;
+    background: rgba(87, 176, 255, 0.2);
+    text-indent: 1em;
+    border-left: 4px solid #1E9FFF;
+}
+.article p,.article li{
+    line-height: 1.5;
+    margin: 5px 0;
+    text-indent: 1em;
+}
+.article .itemLi{
+    display: list-item;
+    list-style-type: initial;
+    margin-left: 33px;
+    text-indent: 0.3em;
+}
+
+/*侧边导航开关===================================*/
+.navTarget{
+    color: #87daff;
+    position: fixed;
+    right: 3%;
+    bottom:50px;
+    width: 37px;
+    height: 37px;
+    background: url("./images/---.png")no-repeat center center #000 ;
+    background-size: 60%;
+    cursor: pointer;
+}
+
+/*侧边导航=====================================*/
+.nav{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: #000;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.nav .navTitle{
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    justify-content: center;
+    color: #666;
+}
+.nav .navTitle div{
+    width: 30%;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav .navTitle div:hover{
+    color: #eee;
+}
+
+.nav .navTitle .cur,.navList ul li.cur{
+    color: #87daff;
+    position: relative;
+}
+
+.nav .navTitle .cur::after{
+    content: '';
+    width: 80%;
+    height: 1px;
+    background: #87daff;
+    position: absolute;
+    left: 10%;
+    bottom: 4px;
+}
+
+.navList ul li.cur::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #87daff;
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+}
+
+.nav .navContent{
+    width: 200%;
+    position: absolute;
+    left:0;
+    top: 100px;
+    display: flex;
+    transition: 0.4s;
+    bottom: 0;
+}
+
+.nav .navContent .navList,.nav .navContent .per{
+    width: 50%;
+    height: 100%;
+}
+.navList .navListW{
+    /*position: absolute;*/
+    /*top: 30px;*/
+    /*left: 0;*/
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.navList ul {
+    /*position: absolute;*/
+    /*top: 30px;*/
+    /*left: 0;*/
+    transition: all 0.3s;
+    width: 100%;
+    float: left;
+}
+
+.navList ul li{
+    width: 80%;
+    margin: auto;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 37px;
+    line-height: 37px;
+    cursor: pointer;
+}
+
+.navList a {
+    font-size: 27px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    bottom: 70px;
+    left: 5%;
+    color: #666;
+    cursor: pointer;
+}
+.navList a:hover{
+    color: #87daff;
+}
+.navList a:nth-of-type(2){
+    left: 37%;
+}
+
+/**/
+.nav .navContent .per{
+    text-align: center;
+    color: #fff;
+}
+.nav .navContent .per img{
+    border-radius: 50%;
+    width: 100px;
+    border: 2px solid #eee;
+    box-shadow: 2px 2px 5px #000 inset;
+    margin: 30px auto 10px;
+}
+
+/*文章导入替换======================================*/
+#replace{
+    display: none;
+}
+

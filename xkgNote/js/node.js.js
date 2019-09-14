@@ -226,7 +226,7 @@
         '        name : \'js\',\n' +
         '        type : \'dir\'\n' +
         '    },{\n' +
-        '        name : \'index.html\',\n' +
+        '        name : \'article.html\',\n' +
         '        type : \'file\'\n' +
         '    }]\n' +
         '}\n' +

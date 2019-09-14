@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KAI</title>
+    <link rel="icon" href="./xkgArticle/images/jieni.jpg">
+    <link rel="stylesheet" href="xkgNote/css/cssreset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="xkWrapper">
+        <div class="myInformation">
+            <img src="xkgArticle/images/sylj.jpg" class="portrait" alt="">
+            <p class="name">陈凯</p>
+        </div>
+        <div class="xkBox">
+            <p class="noteTitle title">前端基础</p>
+            <ul id="note">
+
+            </ul>
+            <p class="articleTitle title">文章随笔</p>
+            <ul id="article">
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var noteColor = ['#df5225', '#4597cf', '#b2394c','#a4d6d3', '#65934a', '#14446a','#f07d17'];
+    var arr = ['<li><a href="./xkgNote/html.html">HTML</a></li>','<li><a href="./xkgNote/css.html">CSS</a></li>','<li><a href="./xkgNote/js.html">JS</a></li>','<li><a href="./xkgNote/es6.html">ES6</a></li>','<li><a href="./xkgNote/vue.html">框架、工具</a></li>','<li><a href="./xkgNote/node.js.html">node.js</a></li>','<li><a href="./xkgNote/mobile.html">移动端</a></li>'];
+    var str = arr.join('');
+    document.querySelector('#note').innerHTML = str;
+    var lis = document.querySelectorAll('#note li');
+    lis.forEach(function (ele, index) {
+        ele.style.backgroundColor = noteColor[index];
+    });
+
+    var article = document.getElementById('article');
+    var articles = ['网页性能优化','函数柯里化'];
+    var stra = '';
+    articles.forEach((ele)=>{
+        stra +='<li><a href="javascript:;">'+ele+'</a></li>'
+    });
+    article.innerHTML = stra;
+    var lis2 = document.querySelectorAll('#article li');
+    [...lis2].forEach((ele,index)=>{
+        ele.onclick = function () {
+            window.location.href="./xkgArticle/article.html#"+index;
+        }
+    })
+    
+</script>

@@ -92,6 +92,10 @@ samp {
   width: 100%;
   height: 100%;
 }
+.navRight li a img {
+  height: 100%;
+  width: auto;
+}
 .navRight li:hover {
   transform: translateX(-15px);
 }
