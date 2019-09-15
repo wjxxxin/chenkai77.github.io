@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>文章</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="../xkgNote/css/cssreset.css">
     <link rel="stylesheet" href="articleCss.css">
     <link rel="stylesheet" href="../xkgNote/css/androidstudiokai.css">
     <link rel="icon" href="./images/jieni.jpg">
+    <link rel="stylesheet" href="./articlePhone.css" media="(max-width:640px)">
 </head>
 <body>
 <div class="articleWrapper">
@@ -347,9 +349,170 @@ add(1)(2)(3)(4)(5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
 add(2,&nbsp;6)(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;9
 </code></pre>
     </div>
-    <div id="replace"></div>
+    <div class="article">
+        <h3>让网页的图文不可复制
+</h3><pre><code class="css
+">
+-webkit-user-select：none；
+-ms-user-select：none；
+-moz-user-select：none；
+-khtml-user-select：none；
+user-select：none；
+</code></pre><p>有些网站为了尊重原创，复制的文本都会被加上一段来源说明，这个是如何做到的呢？
+</p><p>可以通过以下思路：
+</p><p class="itemLi">答案区域监听copy事件，并阻止这个事件的默认行为。
+</p><p class="itemLi">获取选中内容（window.getSelection( )）加上版权信息，然后设置到剪切板（clipboardata.setData( )</p>
 </div>
-<nav class="nav">
+    <div class="article"><h3>表单自动填充颜色问题
+</h3><p>像Chrome、Safari等浏览器，当表单提交用户选择记住密码后，下次自动填充表单的背景变成黄色，影响了视觉体验，可以通过以下方法来修改
+</p><p>设置css样式
+</p><pre><code class="css
+">
+input:-webkit-autofill,&nbsp;textarea:-webkit-autofill,&nbsp;select:-webkit-autofill&nbsp;{
+&nbsp;&nbsp;background-color:&nbsp;#fff;//设置成元素原本的颜色
+&nbsp;&nbsp;background-image:&nbsp;none;
+&nbsp;&nbsp;color:&nbsp;rgb(0,&nbsp;0,&nbsp;0);
+}
+</code></pre><pre><code class="css
+">
+input:-webkit-autofill&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;-webkit-box-shadow:&nbsp;0px&nbsp;0&nbsp;3px&nbsp;100px&nbsp;#ccc&nbsp;inset;&nbsp;//背景色
+}
+</code></pre>
+</div>
+    <div class="article"><h3>DOM元素的e的e.getAttribute(propName)和e.propName有什么区别和联系?
+</h3><p class="itemLi">e.getAttribute()是标准DOM操作文档元素属性的方法,具有通用性可在任意文档上使用，返回元素在源文件中设置的属性
+</p><p class="itemLi">e.propName通常是在HTML文档中访问特定元素的特性，浏览器解析元素后生产对应对象，这些对象的特性会根据特定规则结合属性设置得到，对于没有对应特性的属性，只能使用getAttribute进行访问
+</p><p class="itemLi">e.getAttribute（）返回值是源文件中设置的值，类型是字符串或者是null
+</p><p class="itemLi">e.propName返回值可能是字符串、布尔值、对象、undefined等
+</p><p class="itemLi">大部分attribute与property是一一对应关系，修改其中一个会影响另外一个，如id、title等属性
+</p><p class="itemLi">一些布尔属性<input hidden/>的检测设置需要hasAttribute和removeAttribute来完成,或者设置对应的property
+</p><p class="itemLi">像<a href="../index.html">link</a>中的href属性，转换成property的时候需要通过转换得到完整的url
+</p><p class="itemLi">一些attribute和property不是一一对应，如：form控件中&lt;input value="hello"/>对应的是defaultValue，修改或设置value property修改的是控件当前值，setattribute修改value属性不会改变value property
+</p>
+</div>
+    <div class="article"><h3>利用js判断设备来源
+</h3><pre><code class="js
+">
+function&nbsp;&nbsp;deviceType(){
+
+		var&nbsp;ua&nbsp;=&nbsp;navigator.userAgent;
+
+		var&nbsp;agent&nbsp;=&nbsp;[&quot;Android&quot;,&nbsp;&quot;iPhone&quot;,&nbsp;&quot;SymbianOS&quot;,&nbsp;&quot;Windows&nbsp;Phone&quot;,&nbsp;&quot;iPad&quot;,&nbsp;&quot;iPod&quot;];&nbsp;&nbsp;&nbsp;&nbsp;
+		for(var&nbsp;i=0;&nbsp;i&lt;len,len&nbsp;=&nbsp;agent.length;&nbsp;i++){
+
+		if(ua.indexOf(agent[i])&gt;0){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;deviceType();
+&nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener(&#39;resize&#39;,&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deviceType();
+&nbsp;&nbsp;&nbsp;&nbsp;})
+</code></pre>
+</div>
+    <div class="article"><h3>   纯css实现切换开关
+</h3><pre><code class="html
+">
+&lt;html&nbsp;lang=&quot;zh&quot;&gt;
+&lt;head&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset=&quot;UTF-8&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;5.8lx&lt;/title&gt;
+&nbsp;&nbsp;&lt;style&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;div{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;200px&nbsp;auto;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size:50px;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;input{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity:&nbsp;0;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;label{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;block;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;2em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cursor:&nbsp;pointer;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius:&nbsp;50px;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:&nbsp;relative;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;label::before{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;&quot;&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;2em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:&nbsp;gray;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top:&nbsp;0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius:&nbsp;50px;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transition:&nbsp;background&nbsp;0.5s&nbsp;ease;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;label::after{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:&quot;&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;1.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;1.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:white;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;-0.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top:-0.05em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box-shadow:0&nbsp;2px&nbsp;5px&nbsp;0&nbsp;rgba(0,0,0,0.6);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius:&nbsp;50px;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z-index:&nbsp;2;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;input:checked+label::after{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation:lx&nbsp;0.2s&nbsp;ease-out;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;1.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;input:not(:checked)+label::after{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation:xl&nbsp;0.2s&nbsp;ease-out;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;-0.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;input:checked+label::before{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background:deepskyblue;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;@keyframes&nbsp;lx&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0%&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;-0.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:&nbsp;scale(1,&nbsp;1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50%&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;0.5em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:&nbsp;scale(1,&nbsp;1.3);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100%&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;1.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:&nbsp;scale(1,&nbsp;1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;@keyframes&nbsp;xl&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0%{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;1.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:scale(1,1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50%{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;0.5em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:scale(1,1.3);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100%{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left:&nbsp;-0.1em;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform:scale(1,1);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+&nbsp;&nbsp;&lt;input&nbsp;type=&quot;checkbox&quot;&nbsp;id=&quot;k&quot;&gt;
+&nbsp;&nbsp;&lt;label&nbsp;for=&quot;k&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+</div>
+<div id="replace"></div>
+</div>
+<nav class="nav phone-hide">
     <div class="navTitle">
         <div class="cur">文章目录</div>
         <div>站点概览</div>
@@ -366,7 +529,7 @@ add(2,&nbsp;6)(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
         </div>
     </div>
 </nav>
-<div class="navTarget"></div>
+<div class="navTarget phone-hide"></div>
 </body>
 </html>
 <script src="../xkgNote/js/highlight.pack.js"></script>

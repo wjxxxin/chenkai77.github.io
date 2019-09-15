@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="css/monokai-sublimekai.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/cssphone.css" media="(max-width:640px)">
+    <style>
+        /*.navLeft li{height: 20px;line-height: 20px;}*/
+        .navLeft ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.5s;
+        }
+
+        .navLeft .activation {
+            left: -130px;
+        }
+
+        .navLeft a {
+            display: block;
+            font-size: 12px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 0 7px 7px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #0077aa;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <ul class="navLeft">
@@ -133,6 +162,11 @@ function base64Decode(str) {
 base64Encode('Man');
 base64Decode('TWFu'); </code></pre>
             </div>
+        </section>
+    </div>
+    <div class="item">
+        <h3>跨域访问</h3>
+        <section>
             <div class="small">
                 <h4>跨域访问</h4>
                 <ol>
@@ -143,9 +177,13 @@ base64Decode('TWFu'); </code></pre>
                     <li>nodejs中间件代理跨域</li>
                     <li><h5>使用 JSONP 实现跨域访问</h5>
                         <p>虽然我们不能直接使用 AJAX 跨域发送请求，但是我们可以利用一些标签是可以跨域。</p>
+                        <p>利用 &lt;script> 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 数据。JSONP请求一定需要对方的服务器做支持才可以。</p>
+                        <p>JSONP优点是兼容性好，可用于解决主流浏览器的跨域数据访问的问题。缺点是仅支持get方法具有局限性。</p>
                         <ol>
-                            <li>在页面中需要先声明函数，该函数的名称需要和服务器端返回的数据对应，该函数接受一个参数；</li>
+                            <li>在页面中需要先声明函数，该函数的名称需要和服务器端返回的数据对应，该函数接受一个参数；函数形参为要获取目标数据(服务器返回的data)。</li>
                             <li>大多数情况，会把函数名提交到服务器端。</li>
+                            <li>服务器接收到请求后，需要进行特殊的处理：把传递进来的函数名和它需要给你的数据拼接成一个字符串,例如：传递进去的函数名是fn，它准备好的数据是fn([{"name":"jianshu"}]）。</li>
+                            <li>最后服务器把准备的数据通过HTTP协议返回给客户端，客户端再调用执行之前声明的回调函数（fn），对返回的数据进行操作。</li>
                         </ol>
                         <p>Express 中的响应对象中有一个方法 jsonp，提供这样的功能。</p>
                         <pre><code class="language-js">res.jsonp(null);

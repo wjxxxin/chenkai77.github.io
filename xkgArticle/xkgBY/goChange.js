@@ -89,7 +89,7 @@ async function compile(){
         var signArr = [];
         var originalIndex;
         console.log(__dirname);
-        fs.readFile(path.join(__dirname, '../md/函数柯里化.md'), 'utf8', (err, data) => {
+        fs.readFile(path.join(__dirname, '../md/纯css实现切换开关.md'), 'utf8', (err, data) => {
             originalStr = data;
             for (var i = 0; i < idArr.length; i++) {
                 do{

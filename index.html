@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>KAI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="icon" href="./xkgArticle/images/jieni.jpg">
     <link rel="stylesheet" href="xkgNote/css/cssreset.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./indexphone.css" media="(max-width:640px)">
 </head>
 <body>
     <div class="xkWrapper">
@@ -14,7 +16,7 @@
             <p class="name">陈凯</p>
         </div>
         <div class="xkBox">
-            <p class="noteTitle title">前端基础</p>
+            <p class="noteTitle title">前端基础总结</p>
             <ul id="note">
 
             </ul>
@@ -37,7 +39,7 @@
     });
 
     var article = document.getElementById('article');
-    var articles = ['网页性能优化','函数柯里化'];
+    var articles = ['网页性能优化','函数柯里化','让网页图文不可复制','表单自动填充颜色问题','DOM元素的e的e.getAttribute(propName)和e.propName有什么区别和联系?','利用js判断设备来源','纯css实现切换开关'];
     var stra = '';
     articles.forEach((ele)=>{
         stra +='<li><a href="javascript:;">'+ele+'</a></li>'

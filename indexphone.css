@@ -1,0 +1,18 @@
+.xkBox{
+    width: 90%;
+}
+
+#note{
+    flex-wrap:wrap;
+}
+
+#note li{
+    width: 45%;
+    height: 60px;
+    margin-bottom: 20px;
+    line-height: 60px;
+}
+
+.title{
+    text-indent: 2em;
+}
